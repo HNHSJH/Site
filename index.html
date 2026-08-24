@@ -6,8 +6,10 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
-<link rel="icon" type="image/png" href="assets/logos/hnh-logo.png?v=9"/>
-<link rel="apple-touch-icon" href="assets/logos/hnh-logo.png?v=9"/>
+<link rel="icon" href="favicon.ico?v=24" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=24"/>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png?v=24"/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=24"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
     :root {
@@ -3354,6 +3356,33 @@ body.site-preloading { overflow: hidden; }
   transform: none !important;
 }
 </style>
+
+<style>
+/* v24 — loader removed; View All Clients keeps a stable readable logo state on hover. */
+.first-nav-loader {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+body.site-preloading { overflow: auto !important; }
+
+/* View All Clients: hovering must not wash the tile white or alter the wordmark. */
+.all-clients-grid .client-logo,
+.all-clients-grid .client-logo:hover,
+.all-clients-grid .client-logo:focus-visible {
+  background: rgba(255,255,255,.42) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.all-clients-grid .client-logo img,
+.all-clients-grid .client-logo:hover img,
+.all-clients-grid .client-logo:focus-visible img {
+  filter: grayscale(1) !important;
+  opacity: .72 !important;
+  transform: none !important;
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -4235,7 +4264,7 @@ body.site-preloading { overflow: hidden; }
         }, 2000);
       }
 
-      runInitialSiteLoader();
+      // v24: loader intentionally disabled.
       if (panelIds.has(initialId)) openPanel(initialId, false);
     })();
   </script>
