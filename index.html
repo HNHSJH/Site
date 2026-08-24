@@ -3113,6 +3113,62 @@ body.project-archive-open .global-copyright {
   .panel-next { bottom: 48px !important; }
 }
 </style>
+
+<style>
+/* v11 — static H&H loader mark with clockwise outline motion + default client emphasis */
+.first-nav-loader {
+  --loader-size: clamp(72px, 7vw, 104px);
+}
+.first-nav-loader img {
+  width: var(--loader-size) !important;
+  height: var(--loader-size) !important;
+  animation: none !important;
+  transform: none !important;
+  clip-path: circle(46% at 50% 50%);
+  -webkit-clip-path: circle(46% at 50% 50%);
+  filter: drop-shadow(0 8px 24px rgba(22,34,28,.16));
+}
+.first-nav-loader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(15,20,18,.96) 0deg 58deg,
+    rgba(15,20,18,.16) 58deg 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: hLoaderRing 1.05s linear infinite;
+  pointer-events: none;
+}
+@keyframes hLoaderRing {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .first-nav-loader::after { animation: none !important; }
+}
+
+.clients .client-grid .client-logo.is-prehighlighted {
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 12px 30px rgba(53,83,73,.10), inset 0 0 0 1px rgba(53,83,73,.10);
+}
+.clients .client-grid .client-logo.is-prehighlighted img {
+  filter: grayscale(0) !important;
+  opacity: 1 !important;
+}
+.clients .client-grid .client-logo.is-prehighlighted .client-detail-cue {
+  opacity: 1 !important;
+  transform: translate(2px,-2px);
+}
+</style>
+
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -3313,7 +3369,7 @@ body.project-archive-open .global-copyright {
 </div>
 </div>
 <div aria-label="Selected past clients" class="client-grid reveal">
-<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
+<button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
@@ -4006,5 +4062,31 @@ body.project-archive-open .global-copyright {
     });
   })();
 </script>
-<script src="data/projects.js?v=9"></script><script src="assets/js/projects.js?v=10"></script></body>
+<script src="data/projects.js?v=9"></script><script src="assets/js/projects.js?v=10"></script>
+<script>
+  (() => {
+    const grid = document.querySelector('.clients .client-grid');
+    if (!grid) return;
+    const first = grid.querySelector('.client-logo');
+    const items = [...grid.querySelectorAll('.client-logo')];
+    if (!first || !items.length) return;
+
+    const restoreFirst = () => first.classList.add('is-prehighlighted');
+    const clearFirst = () => first.classList.remove('is-prehighlighted');
+
+    items.forEach(item => {
+      if (item === first) return;
+      item.addEventListener('pointerenter', clearFirst);
+      item.addEventListener('focusin', clearFirst);
+    });
+    grid.addEventListener('pointerleave', restoreFirst);
+    grid.addEventListener('focusout', () => {
+      requestAnimationFrame(() => {
+        if (!grid.contains(document.activeElement)) restoreFirst();
+      });
+    });
+  })();
+</script>
+
+</body>
 </html>
