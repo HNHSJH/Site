@@ -69,8 +69,8 @@
       "certification_text": [],
       "photos": [
         {
-          "src": "assets/images/projects/acrylic-coating/raffles-institution/01.webp",
-          "sha256": "8fdd30190083b67397406ef9f44241926316519b009c6a776b7c79c7ade1fe0c",
+          "src": "assets/images/projects/acrylic-coating/raffles-institution/01.jpg",
+          "sha256": "fda69abb294c7da49b3a0f416a870ac1867d7ae1a67caf385fffaf16a67414a4",
           "source_doc": "H & H Resources Photo References .docx",
           "source_media": "media/image3.jpeg",
           "original_dimensions": [
@@ -81,7 +81,7 @@
             1600,
             901
           ],
-          "bytes": 170566
+          "bytes": 367210
         }
       ],
       "sources": [

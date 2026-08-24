@@ -3227,17 +3227,19 @@ body.site-preloading { overflow: hidden; }
 
 
 <style>
-/* v19 — full original circular H&H mark in pure black-and-white, with a matched outer loading ring. */
+/* v21 — abstract black-and-white H&H mark on transparency, centered, with a clean Safari-safe rotating ring. */
 .first-nav-loader {
-  --loader-size: clamp(80px, 7vw, 98px);
-  --loader-ring: 3px;
+  --loader-logo: clamp(66px, 5.8vw, 80px);
+  --loader-ring: calc(var(--loader-logo) + 16px);
+  --loader-stroke: 3px;
 }
 .first-nav-loader img {
-  width: calc(var(--loader-size) * 0.88) !important;
-  height: calc(var(--loader-size) * 0.88) !important;
+  width: var(--loader-logo) !important;
+  height: var(--loader-logo) !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
+  object-position: center !important;
   animation: none !important;
   transform: none !important;
   filter: none !important;
@@ -3253,14 +3255,15 @@ body.site-preloading { overflow: hidden; }
   position: absolute;
   left: 50%;
   top: 50%;
-  width: var(--loader-size);
-  height: var(--loader-size);
+  width: var(--loader-ring);
+  height: var(--loader-ring);
   transform: translate(-50%, -50%) rotate(0deg);
   border-radius: 50%;
-  background: conic-gradient(from 0deg, #111 0deg 78deg, transparent 78deg 360deg) !important;
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
-  animation: hLoaderRing 1.05s linear infinite !important;
+  box-sizing: border-box;
+  border: var(--loader-stroke) solid transparent;
+  border-top-color: #111;
+  border-right-color: #111;
+  animation: hLoaderRing 1s linear infinite !important;
   pointer-events: none;
   z-index: 3;
 }
@@ -3343,7 +3346,7 @@ body.site-preloading { overflow: hidden; }
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3359,7 +3362,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3404,7 +3407,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3459,7 +3462,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
@@ -4175,7 +4178,7 @@ body.site-preloading { overflow: hidden; }
     });
   })();
 </script>
-<script src="data/projects.js?v=9"></script><script src="assets/js/projects.js?v=10"></script>
+<script src="data/projects.js?v=22"></script><script src="assets/js/projects.js?v=22"></script>
 <script>
   (() => {
     const grid = document.querySelector('.clients .client-grid');
