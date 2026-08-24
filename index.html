@@ -3227,14 +3227,14 @@ body.site-preloading { overflow: hidden; }
 
 
 <style>
-/* v18 — original H&H mark on a clean white disc, with a perfectly matched circular loading ring. */
+/* v19 — full original circular H&H mark in pure black-and-white, with a matched outer loading ring. */
 .first-nav-loader {
-  --loader-size: clamp(78px, 7vw, 96px);
+  --loader-size: clamp(80px, 7vw, 98px);
   --loader-ring: 3px;
 }
 .first-nav-loader img {
-  width: calc(var(--loader-size) * 0.84) !important;
-  height: auto !important;
+  width: calc(var(--loader-size) * 0.88) !important;
+  height: calc(var(--loader-size) * 0.88) !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
@@ -3243,20 +3243,10 @@ body.site-preloading { overflow: hidden; }
   filter: none !important;
   position: relative;
   z-index: 2;
+  display: block;
 }
 .first-nav-loader::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--loader-size);
-  height: var(--loader-size);
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: #fff !important;
-  border: 1px solid rgba(17,17,17,0.18);
-  box-sizing: border-box;
-  pointer-events: none;
+  content: none !important;
 }
 .first-nav-loader::after {
   content: "";
@@ -3267,11 +3257,7 @@ body.site-preloading { overflow: hidden; }
   height: var(--loader-size);
   transform: translate(-50%, -50%) rotate(0deg);
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #111 0deg 72deg,
-    transparent 72deg 360deg
-  ) !important;
+  background: conic-gradient(from 0deg, #111 0deg 78deg, transparent 78deg 360deg) !important;
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
   mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
   animation: hLoaderRing 1.05s linear infinite !important;
@@ -3357,7 +3343,7 @@ body.site-preloading { overflow: hidden; }
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3373,7 +3359,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3418,7 +3404,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3473,7 +3459,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-bw-full.png?v=19"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
