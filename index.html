@@ -2384,6 +2384,25 @@
     @media (prefers-reduced-motion: reduce) {
       .first-nav-loader img { animation: none !important; }
     }
+
+
+    /* v6: prevent large panel headlines from clipping glyph descenders */
+    .scroll-section .headline-reveal {
+      clip-path: none !important;
+      -webkit-clip-path: none !important;
+      overflow: visible !important;
+      padding-bottom: .10em;
+    }
+
+    .projects .section-kicker h2,
+    .expertise .section-kicker h2,
+    .clients-intro h2 {
+      line-height: 1.06;
+    }
+
+    .contact h2 {
+      line-height: 1.02;
+    }
 </style>
 <style>
 /* Production project library — Batch 01 */
