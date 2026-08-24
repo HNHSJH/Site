@@ -1,0 +1,2246 @@
+{
+  "generated": "2026-08-24",
+  "note": "Compiled only from user-provided project reference documents. Source wording is preserved in source_labels; missing dates/details are not inferred.",
+  "categories": [
+    {
+      "id": "acrylic-coating",
+      "name": "Acrylic Coating"
+    },
+    {
+      "id": "artificial-turf",
+      "name": "Artificial Turf"
+    },
+    {
+      "id": "landscape-artificial-turf",
+      "name": "Landscape Artificial Turf"
+    },
+    {
+      "id": "running-track",
+      "name": "Running Track"
+    },
+    {
+      "id": "timber-flooring",
+      "name": "Timber Flooring"
+    },
+    {
+      "id": "epdm-flooring",
+      "name": "EPDM Flooring"
+    }
+  ],
+  "projects": [
+    {
+      "id": "acrylic-coating--methodist-girls-school",
+      "category": "acrylic-coating",
+      "display_name": "Methodist Girls’ School",
+      "source_labels": [
+        "Methodist Girls’ School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/methodist-girls-school/01.webp",
+          "sha256": "a5737da2b7096591d6743a10c5cd1006f67ebe45567e27c139a5e9ab1738d799",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image5.jpeg",
+          "original_dimensions": [
+            1379,
+            776
+          ],
+          "web_dimensions": [
+            1379,
+            776
+          ],
+          "bytes": 194074
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "acrylic-coating--raffles-institution",
+      "category": "acrylic-coating",
+      "display_name": "Raffles Institution",
+      "source_labels": [
+        "Raffles Institution"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/raffles-institution/01.webp",
+          "sha256": "8fdd30190083b67397406ef9f44241926316519b009c6a776b7c79c7ade1fe0c",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image3.jpeg",
+          "original_dimensions": [
+            2000,
+            1126
+          ],
+          "web_dimensions": [
+            1600,
+            901
+          ],
+          "bytes": 170566
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "acrylic-coating--republic-polytechnic",
+      "category": "acrylic-coating",
+      "display_name": "Republic Polytechnic",
+      "source_labels": [
+        "Republic Polytechnic"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/republic-polytechnic/01.webp",
+          "sha256": "3b7961c7fc2f5d6f8b798f591163882cf0c1952feee99e6b209c9ca097bbe170",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image2.jpeg",
+          "original_dimensions": [
+            1379,
+            1034
+          ],
+          "web_dimensions": [
+            1379,
+            1034
+          ],
+          "bytes": 363622
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "acrylic-coating--singapore-swimming-club",
+      "category": "acrylic-coating",
+      "display_name": "Singapore Swimming Club",
+      "source_labels": [
+        "Singapore Swimming Club"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/singapore-swimming-club/01.webp",
+          "sha256": "6c7f03333db0a0978b1929d64c1b3155566d7e1d86dcedc779d4af15a1a510d5",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image1.jpeg",
+          "original_dimensions": [
+            1379,
+            644
+          ],
+          "web_dimensions": [
+            1379,
+            644
+          ],
+          "bytes": 259644
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "acrylic-coating--singapore-swimming-club-court-3",
+      "category": "acrylic-coating",
+      "display_name": "Singapore Swimming Club Court 3",
+      "source_labels": [
+        "Singapore Swimming Club Court 3"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01.webp",
+          "sha256": "1b487acd7daf2fb7d808773b6f07506800f1579ffbb554a424bfa72f75ab1035",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image4.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 144008
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "acrylic-coating--tanah-merah-country-club",
+      "category": "acrylic-coating",
+      "display_name": "Tanah Merah Country Club",
+      "source_labels": [
+        "Tanah Merah Country Club (ITF Certified)"
+      ],
+      "completion": [],
+      "certification_text": [
+        "ITF Certified"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp",
+          "sha256": "615f3d18dcc14a27aa4949b393d82ff6d8ed366572daca2de4341db895baf050",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image6.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 182910
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--anderson-serangoon-junior-college",
+      "category": "artificial-turf",
+      "display_name": "Anderson Serangoon Junior College",
+      "source_labels": [
+        "Anderson Serangoon Junior College"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01.webp",
+          "sha256": "3bd8b9fb85918d066b249e8a907573caeca07ee33cf900de774800e01bff8981",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image11.jpeg",
+          "original_dimensions": [
+            2000,
+            1500
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 237786
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--anglican-high-school",
+      "category": "artificial-turf",
+      "display_name": "Anglican High School",
+      "source_labels": [
+        "Anglican High School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/anglican-high-school/01.webp",
+          "sha256": "c2da0544ebc366ffe2e81c62373ad5fb97b4bd2e9ed93e9c0af63e2097b35920",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image10.jpeg",
+          "original_dimensions": [
+            1378,
+            775
+          ],
+          "web_dimensions": [
+            1378,
+            775
+          ],
+          "bytes": 201916
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--bedok-south-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Bedok South Secondary School",
+      "source_labels": [
+        "Bedok South Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/bedok-south-secondary-school/01.webp",
+          "sha256": "743444223ec8c9ec118e1672899a8e7a97973b2d8618f1f427fd04490fbb75fe",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image13.jpeg",
+          "original_dimensions": [
+            2000,
+            1500
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 305556
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--east-spring-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "East Spring Secondary School",
+      "source_labels": [
+        "East Spring Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/east-spring-secondary-school/01.webp",
+          "sha256": "5b4355e327529ba4c2782b43c3d27404ada82df8535077ef1ac13290d7b453f1",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image19.jpeg",
+          "original_dimensions": [
+            2000,
+            1500
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 323704
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--jurong-east-stadium",
+      "category": "artificial-turf",
+      "display_name": "Jurong East Stadium",
+      "source_labels": [
+        "Jurong East Stadium (FIFA Quality Pro)"
+      ],
+      "completion": [],
+      "certification_text": [
+        "FIFA Quality Pro"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/jurong-east-stadium/01.webp",
+          "sha256": "7d047f1a6bf25c06a39b833b877ae7c553e05bde3d5ff6a3b87a9d7b1936ee2e",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image7.jpeg",
+          "original_dimensions": [
+            2000,
+            1126
+          ],
+          "web_dimensions": [
+            1600,
+            901
+          ],
+          "bytes": 358586
+        },
+        {
+          "src": "assets/images/projects/artificial-turf/jurong-east-stadium/02.webp",
+          "sha256": "f06d62d56029778cf03cb6fe2346ac30f32fd9a9c5f3b15cd25c03068ab43579",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image8.jpeg",
+          "original_dimensions": [
+            1600,
+            900
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 196364
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--loyang-view-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Loyang View Secondary School",
+      "source_labels": [
+        "Loyang View Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/loyang-view-secondary-school/01.webp",
+          "sha256": "ac76d5eac220a7196e68e78f3fea2b3d806d83dc34db5bacd7e458afe116d135",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image20.jpeg",
+          "original_dimensions": [
+            2000,
+            1500
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 150548
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--marsiling-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Marsiling Secondary School",
+      "source_labels": [
+        "Marsiling Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/marsiling-secondary-school/01.webp",
+          "sha256": "e4e219a135d3f502aeae795fdcbf063bfe9867968dd41e5a6f5ab8afd430c95c",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image15.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 364322
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--meridian-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Meridian Secondary School",
+      "source_labels": [
+        "Meridian Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/meridian-secondary-school/01.webp",
+          "sha256": "153f65e0936268897b3ca27223356b29586dd51031e56f53ba6943e563b1f3d0",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image31.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 220854
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--ngee-ann-polytechnic",
+      "category": "artificial-turf",
+      "display_name": "Ngee Ann Polytechnic",
+      "source_labels": [
+        "Ngee Ann Polytechnic (FIFA Quality and WR Certified)"
+      ],
+      "completion": [],
+      "certification_text": [
+        "FIFA Quality and WR Certified"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp",
+          "sha256": "88cb6db5f3b03a992e68973fd4b6a66931b047b872c7c3b2fbaf1f64546179d5",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image9.jpeg",
+          "original_dimensions": [
+            1379,
+            776
+          ],
+          "web_dimensions": [
+            1379,
+            776
+          ],
+          "bytes": 210828
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--our-tampines-hub",
+      "category": "artificial-turf",
+      "display_name": "Our Tampines Hub",
+      "source_labels": [
+        "Our Tampines Hub (FIFA Quality Pro)"
+      ],
+      "completion": [],
+      "certification_text": [
+        "FIFA Quality Pro"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/our-tampines-hub/01.webp",
+          "sha256": "03a9ad454b61f7db8db1072e2777e6606598a27d346d6906f704a599a20d606d",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image1.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 118910
+        },
+        {
+          "src": "assets/images/projects/artificial-turf/our-tampines-hub/02.webp",
+          "sha256": "d5c586a694c315496ac941002951b78fd77169560bacb6e48164fe10905fed30",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image2.jpeg",
+          "original_dimensions": [
+            1600,
+            900
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 127988
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--pasir-ris-crest-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Pasir Ris Crest Secondary School",
+      "source_labels": [
+        "Pasir Ris Crest Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01.webp",
+          "sha256": "dc183e38359f03603234721bebdc0d08afe152e1f8e631f3bd6c8af3a7077706",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image17.jpeg",
+          "original_dimensions": [
+            2048,
+            923
+          ],
+          "web_dimensions": [
+            1600,
+            721
+          ],
+          "bytes": 224624
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--pasir-ris-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Pasir Ris Secondary School",
+      "source_labels": [
+        "Pasir Ris Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/pasir-ris-secondary-school/01.webp",
+          "sha256": "a1970ba39ddd84442306948e27d4211cc30a64884f55d8227c643e49f886f1e0",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image6.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 93778
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--punggol-green-primary-school",
+      "category": "artificial-turf",
+      "display_name": "Punggol Green Primary School",
+      "source_labels": [
+        "Punggol Green Primary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/punggol-green-primary-school/01.webp",
+          "sha256": "d2b168dbcb6c699d331e36e6842885f0af962cccef2bc6510949277704d8a7c9",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image29.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 213568
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--punggol-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Punggol Secondary School",
+      "source_labels": [
+        "Punggol Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/punggol-secondary-school/01.webp",
+          "sha256": "59b53f21a05c859f049e5ea6cb71609ccb7a257c772d7e3a6a08b3accca95a1d",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image7.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 213602
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--raffles-institution",
+      "category": "artificial-turf",
+      "display_name": "Raffles Institution",
+      "source_labels": [
+        "Raffles Institution (World Rugby Certified)"
+      ],
+      "completion": [],
+      "certification_text": [
+        "World Rugby Certified"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/raffles-institution/01.webp",
+          "sha256": "37a3639799d0124c0629fd4174d7b2d6b93ee119986a5edd1d929b13f923249f",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image12.jpeg",
+          "original_dimensions": [
+            1024,
+            576
+          ],
+          "web_dimensions": [
+            1024,
+            576
+          ],
+          "bytes": 134082
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--riverside-primary-school",
+      "category": "artificial-turf",
+      "display_name": "Riverside Primary School",
+      "source_labels": [
+        "Riverside Primary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/riverside-primary-school/01.webp",
+          "sha256": "cf06f5f689b7609589ec52be810cc6bd0ff59e4bff3dfa98fe9da2f1294f851f",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image14.jpeg",
+          "original_dimensions": [
+            2000,
+            1500
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 290410
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--safra-mount-faber",
+      "category": "artificial-turf",
+      "display_name": "SAFRA Mount Faber",
+      "source_labels": [
+        "SAFRA Mount Faber"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/safra-mount-faber/01.webp",
+          "sha256": "2097ea1e85a1dea941e0e52d7b7d458a4e1d82f3cb74e2edd34b9a2f0013a820",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image27.jpeg",
+          "original_dimensions": [
+            2000,
+            1126
+          ],
+          "web_dimensions": [
+            1600,
+            901
+          ],
+          "bytes": 355818
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--seng-kang-primary-school",
+      "category": "artificial-turf",
+      "display_name": "Seng Kang Primary School",
+      "source_labels": [
+        "Seng Kang Primary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/seng-kang-primary-school/01.webp",
+          "sha256": "d2f72d80fabd6cd73f7339528ef5ec3541e85d7757eca201ae553b4ed352ea74",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image8.jpeg",
+          "original_dimensions": [
+            1379,
+            602
+          ],
+          "web_dimensions": [
+            1379,
+            602
+          ],
+          "bytes": 222222
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--serangoon-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Serangoon Secondary School",
+      "source_labels": [
+        "Serangoon Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/serangoon-secondary-school/01.webp",
+          "sha256": "a55e300c60b8ed7e5e4c06ffb1c3cc8855661b63116a61a107e8c1e9960ffd48",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image12.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 200412
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--singapore-american-school-west-field",
+      "category": "artificial-turf",
+      "display_name": "Singapore American School  (West Field)",
+      "source_labels": [
+        "Singapore American School  (West Field)  FIFA Quality and WR Certified"
+      ],
+      "completion": [],
+      "certification_text": [
+        "FIFA Quality and WR Certified"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/01.webp",
+          "sha256": "cbbba033b35dd0d637085c4f76007725c96ce55106e1afeeda23451901063b70",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image35.jpeg",
+          "original_dimensions": [
+            1600,
+            900
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 230796
+        },
+        {
+          "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/02.webp",
+          "sha256": "85daf5867cf111942c2bd74b4fb45c4c5d8e77a36b1c16a68bd64e98d2273726",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image36.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 190110
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--singapore-american-school-main-field",
+      "category": "artificial-turf",
+      "display_name": "Singapore American School (Main Field)",
+      "source_labels": [
+        "Singapore American School (Main Field) FIFA Quality and WR Certified"
+      ],
+      "completion": [],
+      "certification_text": [
+        "FIFA Quality and WR Certified"
+      ],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/01.webp",
+          "sha256": "e3cc38e764ea0fe427586bdd2c009a738351988e03d9ba56e2b59b132386d3ab",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image10.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 141280
+        },
+        {
+          "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/02.webp",
+          "sha256": "a8a7391d76ac7fa0cd1a2db22091ad3d370bc4efe76b62d0da7af5d9475f385e",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image24.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 124474
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--st-andrew-junior-college",
+      "category": "artificial-turf",
+      "display_name": "St Andrew Junior College",
+      "source_labels": [
+        "St Andrew Junior College"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/st-andrew-junior-college/01.webp",
+          "sha256": "8b8c9a925db0b4cc12ac471cb5fede2aac19d04b1116f2de4b9a002d885f0eaa",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image30.jpeg",
+          "original_dimensions": [
+            1824,
+            1368
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 276928
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--st-anthony-canossian-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "St Anthony Canossian Secondary School",
+      "source_labels": [
+        "St Anthony Canossian Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01.webp",
+          "sha256": "710b216b5813460ed7b2dabd726097c001aebc3bc36451a20e478a2accbdda1b",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image18.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 75898
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--st-patricks-school",
+      "category": "artificial-turf",
+      "display_name": "St Patrick’s School",
+      "source_labels": [
+        "St Patrick’s School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/st-patricks-school/01.webp",
+          "sha256": "24c01e35f4bc125e51971e18be45d9e31cbc9c5102e08feb44c3315bfd5773e8",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image33.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 258878
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--tampines-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Tampines Secondary School",
+      "source_labels": [
+        "Tampines Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/tampines-secondary-school/01.webp",
+          "sha256": "ed6a24f542d6238279bbf993eec873a1c197e90cada22d7b31cc62da1da61032",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image34.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 285902
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--temasek-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Temasek Secondary School",
+      "source_labels": [
+        "Temasek Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/temasek-secondary-school/01.webp",
+          "sha256": "881b76cc8668743c6acbdfc88960531353b47a810a02d886e90f399d32205f49",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image9.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 224406
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--westwood-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Westwood Secondary School",
+      "source_labels": [
+        "Westwood Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/westwood-secondary-school/01.webp",
+          "sha256": "8154324e48c5b6eb1af3c86102cadab95c1261c98fea8be5e9707051df9deaff",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image28.jpeg",
+          "original_dimensions": [
+            2016,
+            1512
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 235382
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--whitley-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Whitley Secondary School",
+      "source_labels": [
+        "Whitley Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/whitley-secondary-school/01.webp",
+          "sha256": "e7437e36c2dd5623fd0e401524b7086ead3e8cbd3329959c1ad714d029f52934",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image22.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 185196
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--woodgrove-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Woodgrove Secondary School",
+      "source_labels": [
+        "Woodgrove Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/woodgrove-secondary-school/01.webp",
+          "sha256": "10f9b8a058a4815b3d0e29accab687e69fe679f8155414ed33dacc88d381fe55",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image5.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 338060
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--woodlands-ring-primary-school",
+      "category": "artificial-turf",
+      "display_name": "Woodlands Ring Primary School",
+      "source_labels": [
+        "Woodlands Ring Primary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/woodlands-ring-primary-school/01.webp",
+          "sha256": "342266dafbdd7717c464cb31f2b02cd47fc1f2293b94bb02b0e8c7548402e8df",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image11.jpeg",
+          "original_dimensions": [
+            1379,
+            602
+          ],
+          "web_dimensions": [
+            1379,
+            602
+          ],
+          "bytes": 224956
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--woodlands-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Woodlands Secondary School",
+      "source_labels": [
+        "Woodlands Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/woodlands-secondary-school/01.webp",
+          "sha256": "2120ac289320bbd005775a48f1929e60aa20a9df2db4db114e1c1e43e9e7f108",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image32.jpeg",
+          "original_dimensions": [
+            1824,
+            1368
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 314440
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "artificial-turf--yio-chu-kang-secondary-school",
+      "category": "artificial-turf",
+      "display_name": "Yio Chu Kang Secondary School",
+      "source_labels": [
+        "Yio Chu Kang Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01.webp",
+          "sha256": "ea3ddfc611acc7f39158c73501c93f0e50699d63c8d93756eaad0dffc56077fd",
+          "source_doc": "Artificial Turf Photo Reference.docx",
+          "source_media": "media/image16.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 266138
+        }
+      ],
+      "sources": [
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--hyll-at-holland-landscape-turf-on-rooftop",
+      "category": "landscape-artificial-turf",
+      "display_name": "Hyll At Holland (Landscape turf on rooftop)",
+      "source_labels": [
+        "Hyll At Holland (Landscape turf on rooftop)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp",
+          "sha256": "75836af21a633ab0fb8ce342e6caa1be7517656b52166440c5b04bf043e98bd3",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image22.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 528146
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/02.webp",
+          "sha256": "289107647683bd748d157a7af8cb1253787c41c76876dbc3e3249ba3b084d221",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image23.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 530566
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--lion-city-sailors",
+      "category": "landscape-artificial-turf",
+      "display_name": "Lion City Sailors",
+      "source_labels": [
+        "Lion City Sailors"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/lion-city-sailors/01.webp",
+          "sha256": "b2e457d06bbec77d17ac6390ce3c044b6753eae9bc4568af18297cabaa72e240",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image25.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 133366
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--private-residences-artificial-turf-tennis-court",
+      "category": "landscape-artificial-turf",
+      "display_name": "Private Residences (Artificial Turf Tennis Court)",
+      "source_labels": [
+        "Private Residences (Artificial Turf Tennis Court)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01.webp",
+          "sha256": "d8559125bd2e76347288a54c38dfc30ac3ddc62ede841ff1a264ce43efac1397",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image24.png",
+          "original_dimensions": [
+            777,
+            414
+          ],
+          "web_dimensions": [
+            777,
+            414
+          ],
+          "bytes": 61950
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--stamford-american-international-school-putting-green-turf-at-courtyard-area",
+      "category": "landscape-artificial-turf",
+      "display_name": "Stamford American International School (Putting Green Turf at Courtyard area)",
+      "source_labels": [
+        "Stamford American International School (Putting Green Turf at Courtyard area)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01.webp",
+          "sha256": "0b13c0f372cf311ff04f2ca2a825f51baa5d4aad91920b59a263cfbdfc778208",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image20.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 283768
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/02.webp",
+          "sha256": "a21442a4873d4a9556d681fb247b85917c939312b6baac8781e33f5418f2936a",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image21.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 444752
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--watergardens-condominium-landscape-turf-on-rooftop",
+      "category": "landscape-artificial-turf",
+      "display_name": "Watergardens Condominium (Landscape Turf on Rooftop)",
+      "source_labels": [
+        "Watergardens Condominium (Landscape Turf on Rooftop)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01.webp",
+          "sha256": "e619d8ea7777a27f842c017ab579ec9ef39492326124dfc6c85c3be0289c576f",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image17.jpeg",
+          "original_dimensions": [
+            1600,
+            698
+          ],
+          "web_dimensions": [
+            1600,
+            698
+          ],
+          "bytes": 205550
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/02.webp",
+          "sha256": "e5721d30ac314907f62df47a60d67de4ffdbb4a46504c687667bab792ab4bc20",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image18.jpeg",
+          "original_dimensions": [
+            1600,
+            698
+          ],
+          "web_dimensions": [
+            1600,
+            698
+          ],
+          "bytes": 227008
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/03.webp",
+          "sha256": "a02acca59c0699475bdc9851a5094dbb47b56146633fe4cb4c95bc861e298bca",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image19.jpeg",
+          "original_dimensions": [
+            1600,
+            698
+          ],
+          "web_dimensions": [
+            1600,
+            698
+          ],
+          "bytes": 173122
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--westwood-pri-sch-kcare-garden-with-landscape-turf",
+      "category": "landscape-artificial-turf",
+      "display_name": "Westwood Pri Sch (KCare Garden with Landscape Turf)",
+      "source_labels": [
+        "Westwood Pri Sch (KCare Garden with Landscape Turf)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01.webp",
+          "sha256": "4bd20915476556c8ae95ab813cc8741b80e677e467b9c2d8c849e86b612767bb",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image13.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 332218
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/02.webp",
+          "sha256": "9f4173a68dcf6be87d1e5ebcd85a1ebd0aa0a00f48aec3608f7876fb5204adb3",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image14.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 440862
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "landscape-artificial-turf--westwood-sec-sch-putting-green-turf-for-study-corner",
+      "category": "landscape-artificial-turf",
+      "display_name": "Westwood Sec Sch (Putting Green Turf for Study corner)",
+      "source_labels": [
+        "Westwood Sec Sch (Putting Green Turf for Study corner)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01.webp",
+          "sha256": "531ab15ec5fc669487c74a4f5177ca15772848db9f470a11c2a8e739ae5918b9",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image15.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 266372
+        },
+        {
+          "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/02.webp",
+          "sha256": "3482e14fccbef0185873c50f5c73ce95e6ae244913ea8593f1830713300eaf31",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image16.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 154402
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx",
+        "Artificial Turf Photo Reference.docx"
+      ]
+    },
+    {
+      "id": "running-track--crest-secondary-school",
+      "category": "running-track",
+      "display_name": "Crest Secondary School",
+      "source_labels": [
+        "Crest Secondary School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/running-track/crest-secondary-school/01.webp",
+          "sha256": "2f7c70d5103a9af2c3c872b4a054f2588b519e9c11b84b3c7135cc112cf148f9",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image28.jpeg",
+          "original_dimensions": [
+            2000,
+            1126
+          ],
+          "web_dimensions": [
+            1600,
+            901
+          ],
+          "bytes": 244268
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "running-track--ite-college-central",
+      "category": "running-track",
+      "display_name": "ITE College Central",
+      "source_labels": [
+        "ITE College Central"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/running-track/ite-college-central/01.webp",
+          "sha256": "510af3dc6fb13130ed6b929ca6bede792306147f067d96ecedaf4fe17f6b75cd",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image26.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 336960
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "running-track--perennial-business-city",
+      "category": "running-track",
+      "display_name": "Perennial Business City",
+      "source_labels": [
+        "Perennial Business City"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/running-track/perennial-business-city/01.webp",
+          "sha256": "6766ab83cc3de531712adf212b52dfe678dd5bd2602997d29633753b87a3eab1",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image27.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 110950
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "running-track--singapore-chinese-girls-school",
+      "category": "running-track",
+      "display_name": "Singapore Chinese Girls’ School",
+      "source_labels": [
+        "Singapore Chinese Girls’ School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/running-track/singapore-chinese-girls-school/01.webp",
+          "sha256": "0b92b4f3b0ebe684e6374724ede5ea0668df2e78dac5512b47a061d4e94348c7",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image29.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 168070
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "running-track--singapore-polytechnic",
+      "category": "running-track",
+      "display_name": "Singapore Polytechnic",
+      "source_labels": [
+        "Singapore Polytechnic"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/running-track/singapore-polytechnic/01.webp",
+          "sha256": "3863086e1bf58f75b164c6f356c42ada4f8f941250af915d6eac729c411b8579",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image30.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 335144
+        },
+        {
+          "src": "assets/images/projects/running-track/singapore-polytechnic/02.webp",
+          "sha256": "a574ee554364c4946351bc38ce4d7339fd778ca9bae2cc068b5449d342bf1c05",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image31.jpeg",
+          "original_dimensions": [
+            649,
+            1153
+          ],
+          "web_dimensions": [
+            649,
+            1153
+          ],
+          "bytes": 155068
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--aspn-timber-flooring-hall",
+      "category": "timber-flooring",
+      "display_name": "ASPN Timber Flooring Hall",
+      "source_labels": [
+        "ASPN Timber Flooring Hall"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01.webp",
+          "sha256": "4b548e75ea18695064e20d49970d7085d1ce99ecc5d138fa8709f9df72a212d4",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image40.jpeg",
+          "original_dimensions": [
+            1280,
+            720
+          ],
+          "web_dimensions": [
+            1280,
+            720
+          ],
+          "bytes": 121896
+        },
+        {
+          "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/02.webp",
+          "sha256": "29aa3bb9de333a0247baa0aaeee4fe0ddabe00c9b6a993e4c56299813fd18684",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image41.jpeg",
+          "original_dimensions": [
+            1380,
+            777
+          ],
+          "web_dimensions": [
+            1380,
+            777
+          ],
+          "bytes": 182456
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--ngee-ann-polytechnic",
+      "category": "timber-flooring",
+      "display_name": "Ngee Ann Polytechnic",
+      "source_labels": [
+        "Ngee Ann Polytechnic"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp",
+          "sha256": "f45a759a42ea64244ef6cf951a87fd0759a28a61f5db21775a435a666d3835aa",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image34.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 247642
+        },
+        {
+          "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/02.webp",
+          "sha256": "6f9e6a6c5e3d1fd5e5940742109f29c2ab494306cd630042c4c7b063af92dad6",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image35.jpeg",
+          "original_dimensions": [
+            1379,
+            776
+          ],
+          "web_dimensions": [
+            1379,
+            776
+          ],
+          "bytes": 231576
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--perennial-business-city",
+      "category": "timber-flooring",
+      "display_name": "Perennial Business City",
+      "source_labels": [
+        "Perennial Business City"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/perennial-business-city/01.webp",
+          "sha256": "63532f720015c751486866edd8c063a105564cdd45a12681ded58586e25c1312",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image36.jpeg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 108488
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--private-residence",
+      "category": "timber-flooring",
+      "display_name": "Private Residence",
+      "source_labels": [
+        "Private Residence"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/private-residence/01.webp",
+          "sha256": "1da80a8b9176532562b83d2d166a9987d5512f29492b9a23f2b45dad8cd98a8c",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image32.jpeg",
+          "original_dimensions": [
+            1536,
+            2048
+          ],
+          "web_dimensions": [
+            1200,
+            1600
+          ],
+          "bytes": 109678
+        },
+        {
+          "src": "assets/images/projects/timber-flooring/private-residence/02.webp",
+          "sha256": "8e41c355f7315c83a9b8a3627dd74d98652b58d9c489031fe25da95653e8442a",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image33.jpeg",
+          "original_dimensions": [
+            1536,
+            2048
+          ],
+          "web_dimensions": [
+            1200,
+            1600
+          ],
+          "bytes": 124436
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--singapore-badminton-association-portable-system",
+      "category": "timber-flooring",
+      "display_name": "Singapore Badminton Association (Portable System)",
+      "source_labels": [
+        "Singapore Badminton Association (Portable System)"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01.webp",
+          "sha256": "bcd6a8ba93b352d32c1cd496bc1c2d742ea75ce36bf28184be617df2348b2ebb",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image37.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 87924
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "timber-flooring--stamford-american-international-school",
+      "category": "timber-flooring",
+      "display_name": "Stamford American International School",
+      "source_labels": [
+        "Stamford American International School"
+      ],
+      "completion": [],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/timber-flooring/stamford-american-international-school/01.webp",
+          "sha256": "b22e26ad084246dcbb6902ec76640727e8f7f19f79b583eee54a65e7946cbe28",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image38.jpeg",
+          "original_dimensions": [
+            1379,
+            777
+          ],
+          "web_dimensions": [
+            1379,
+            777
+          ],
+          "bytes": 225574
+        },
+        {
+          "src": "assets/images/projects/timber-flooring/stamford-american-international-school/02.webp",
+          "sha256": "197cb8e174ed07ed891e72e028f016da1ac6634928ac8d2c465f5ad30d162475",
+          "source_doc": "H & H Resources Photo References .docx",
+          "source_media": "media/image39.png",
+          "original_dimensions": [
+            1280,
+            720
+          ],
+          "web_dimensions": [
+            1280,
+            720
+          ],
+          "bytes": 110180
+        }
+      ],
+      "sources": [
+        "H & H Resources Photo References .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--coralis-condo",
+      "category": "epdm-flooring",
+      "display_name": "Coralis Condo",
+      "source_labels": [
+        "Coralis Condo"
+      ],
+      "completion": [
+        "Completed in Mar 2024"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/coralis-condo/01.webp",
+          "sha256": "fa21856ee51523b82a7d195083e7ffa1fc40464a967072ca462eaf64ef95882f",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image7.jpeg",
+          "original_dimensions": [
+            711,
+            948
+          ],
+          "web_dimensions": [
+            711,
+            948
+          ],
+          "bytes": 147540
+        },
+        {
+          "src": "assets/images/projects/epdm-flooring/coralis-condo/02.webp",
+          "sha256": "dd23cdf01413ab5cc243aebcac5dddcd3d4238deca47b3517f1b57ad25509128",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image8.jpeg",
+          "original_dimensions": [
+            554,
+            984
+          ],
+          "web_dimensions": [
+            554,
+            984
+          ],
+          "bytes": 150330
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--ite-college-central",
+      "category": "epdm-flooring",
+      "display_name": "ITE College Central",
+      "source_labels": [
+        "ITE College Central"
+      ],
+      "completion": [
+        "Completed in Oct 2024"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/ite-college-central/01.webp",
+          "sha256": "66a20fdb860b5e1ca4978e92ee82e325adc4daf1d9ad14752427b26aa44fcd0a",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image2.jpeg",
+          "original_dimensions": [
+            2000,
+            1126
+          ],
+          "web_dimensions": [
+            1600,
+            901
+          ],
+          "bytes": 134032
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--ntu-staff-housing",
+      "category": "epdm-flooring",
+      "display_name": "NTU Staff Housing",
+      "source_labels": [
+        "NTU Staff Housing"
+      ],
+      "completion": [
+        "Completed in Sept 2023"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/ntu-staff-housing/01.webp",
+          "sha256": "4fee6b678316c49675d0c841b7667697de63d3c70f46a5b154fc8735cab56438",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image11.jpeg",
+          "original_dimensions": [
+            1920,
+            1920
+          ],
+          "web_dimensions": [
+            1600,
+            1600
+          ],
+          "bytes": 475058
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--rivera-38",
+      "category": "epdm-flooring",
+      "display_name": "Rivera 38",
+      "source_labels": [
+        "Rivera 38"
+      ],
+      "completion": [
+        "Completed in May 2024"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/rivera-38/01.webp",
+          "sha256": "691800ece9f3f52e02c3299e36726c6e565fdd876f59759a3d78651a1a93d085",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image9.jpeg",
+          "original_dimensions": [
+            663,
+            373
+          ],
+          "web_dimensions": [
+            663,
+            373
+          ],
+          "bytes": 94138
+        },
+        {
+          "src": "assets/images/projects/epdm-flooring/rivera-38/02.webp",
+          "sha256": "d86f2153d8283a821515dc042b48e3adbd666b2723e0fd13d1e186782aabf4ef",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image10.jpeg",
+          "original_dimensions": [
+            680,
+            383
+          ],
+          "web_dimensions": [
+            680,
+            383
+          ],
+          "bytes": 94512
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--singapore-american-school",
+      "category": "epdm-flooring",
+      "display_name": "Singapore American School",
+      "source_labels": [
+        "Singapore American School"
+      ],
+      "completion": [
+        "Completed Aug 2024"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/singapore-american-school/01.webp",
+          "sha256": "66464d973b1001b2a777ecec49a760673e270091ef01ef298a51a0c5365c0e8e",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image3.jpeg",
+          "original_dimensions": [
+            1920,
+            1080
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 221368
+        },
+        {
+          "src": "assets/images/projects/epdm-flooring/singapore-american-school/02.webp",
+          "sha256": "3f5eebc7d4e4e727cd9ef7395d1381eb4b2bb5ca843ddc0ca86712ad71714f4b",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image4.jpeg",
+          "original_dimensions": [
+            2048,
+            1536
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 522434
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--stamford-american-international-school",
+      "category": "epdm-flooring",
+      "display_name": "Stamford American International School",
+      "source_labels": [
+        "Stamford American International School"
+      ],
+      "completion": [
+        "Completed in 2022",
+        "Completed in 2021"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/01.webp",
+          "sha256": "34fbecce6cdab77a2c09d0a8561d03c8f7bed23450385c85b3e3ce56b3ca6221",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image5.jpg",
+          "original_dimensions": [
+            1600,
+            1200
+          ],
+          "web_dimensions": [
+            1600,
+            1200
+          ],
+          "bytes": 330998
+        },
+        {
+          "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/02.webp",
+          "sha256": "40d27263426a8bb929eb50f97e0d3e7388ab2e0e1d7b27c7d9fcce6dbb6c6048",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image6.jpeg",
+          "original_dimensions": [
+            987,
+            1316
+          ],
+          "web_dimensions": [
+            987,
+            1316
+          ],
+          "bytes": 116264
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    },
+    {
+      "id": "epdm-flooring--sutd",
+      "category": "epdm-flooring",
+      "display_name": "SUTD",
+      "source_labels": [
+        "SUTD"
+      ],
+      "completion": [
+        "Completed in Nov 2024"
+      ],
+      "certification_text": [],
+      "photos": [
+        {
+          "src": "assets/images/projects/epdm-flooring/sutd/01.webp",
+          "sha256": "0606b42c220ae63e71a02d33a6a549a080d50bbd0db0d51f03753d693284ca53",
+          "source_doc": "EPDM Flooring .docx",
+          "source_media": "media/image1.jpeg",
+          "original_dimensions": [
+            1824,
+            1026
+          ],
+          "web_dimensions": [
+            1600,
+            900
+          ],
+          "bytes": 361130
+        }
+      ],
+      "sources": [
+        "EPDM Flooring .docx"
+      ]
+    }
+  ]
+}

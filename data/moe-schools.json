@@ -1,0 +1,43 @@
+{
+  "client": "Ministry of Education Singapore",
+  "groups": {
+    "Primary Schools": [
+      "Punggol Green Primary School",
+      "Riverside Primary School",
+      "Seng Kang Primary School",
+      "Westwood Primary School",
+      "Woodlands Ring Primary School"
+    ],
+    "Secondary Schools": [
+      "Anglican High School",
+      "Bedok South Secondary School",
+      "Crest Secondary School",
+      "East Spring Secondary School",
+      "Loyang View Secondary School",
+      "Marsiling Secondary School",
+      "Meridian Secondary School",
+      "Pasir Ris Crest Secondary School",
+      "Pasir Ris Secondary School",
+      "Punggol Secondary School",
+      "Serangoon Secondary School",
+      "St Anthony Canossian Secondary School",
+      "St Patrick’s School",
+      "Tampines Secondary School",
+      "Temasek Secondary School",
+      "Westwood Secondary School",
+      "Whitley Secondary School",
+      "Woodgrove Secondary School",
+      "Woodlands Secondary School",
+      "Yio Chu Kang Secondary School"
+    ],
+    "Junior Colleges": [
+      "Anderson Serangoon Junior College",
+      "St Andrew Junior College"
+    ],
+    "Independent / Other Schools": [
+      "Methodist Girls’ School",
+      "Raffles Institution",
+      "Singapore Chinese Girls’ School"
+    ]
+  }
+}
