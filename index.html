@@ -3151,9 +3151,10 @@ body.project-archive-open .global-copyright {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
-@media (prefers-reduced-motion: reduce) {
+ (prefers-reduced-motion: reduce) {
   .first-nav-loader::after { animation: none !important; }
 }
+body.site-preloading { overflow: hidden; }
 
 .clients .client-grid .client-logo.is-prehighlighted {
   background: rgba(255,255,255,.88) !important;
@@ -3299,7 +3300,7 @@ body.project-archive-open .global-copyright {
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3315,7 +3316,7 @@ body.project-archive-open .global-copyright {
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3360,7 +3361,7 @@ body.project-archive-open .global-copyright {
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3415,7 +3416,7 @@ body.project-archive-open .global-copyright {
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
@@ -3762,8 +3763,8 @@ body.project-archive-open .global-copyright {
             const close = document.createElement('button');
             close.type = 'button';
             close.className = 'panel-close';
-            close.textContent = 'Back to Showcase';
-            close.setAttribute('aria-label', 'Back to main showcase');
+            close.textContent = 'Back to Home';
+            close.setAttribute('aria-label', 'Back to home');
             panel.prepend(close);
           }
 
@@ -3915,12 +3916,6 @@ body.project-archive-open .global-copyright {
           panelCleanupTimer = null;
         }
 
-        const leavingShowcaseForFirstTime = !current && !document.body.classList.contains('panel-open') && updateHistory && !firstNavigationShown;
-        if (leavingShowcaseForFirstTime && !skipFirstLoader) {
-          firstNavigationShown = true;
-          runFirstNavLoader(() => openPanel(id, updateHistory, direction, true));
-          return;
-        }
 
         layer += 1;
         next.style.zIndex = String(layer);
@@ -3965,11 +3960,10 @@ body.project-archive-open .global-copyright {
 
       window.openHnhPanel = id => openPanel(id, true, 'forward');
       window.openHnhProjectFromShowcase = projectId => {
-        const needsFirstLoader = !firstNavigationShown && !document.body.classList.contains('panel-open');
         openPanel('projects', true, 'forward');
         window.setTimeout(() => {
           if (typeof window.openHnhProject === 'function') window.openHnhProject(projectId);
-        }, needsFirstLoader ? 5050 : 900);
+        }, 900);
       };
 
       function closePanels(updateHistory = true) {
@@ -4092,6 +4086,27 @@ body.project-archive-open .global-copyright {
       });
 
       const initialId = location.hash.slice(1);
+
+      function runInitialSiteLoader() {
+        if (panelIds.has(initialId)) return;
+        if (sessionStorage.getItem("hnhInitialLoaderShown")) return;
+        const overlay = ensureFirstNavLoader();
+        if (!overlay) return;
+        sessionStorage.setItem("hnhInitialLoaderShown", "1");
+        firstNavigationShown = true;
+        document.body.classList.add("site-preloading");
+        overlay.classList.remove("is-leaving");
+        requestAnimationFrame(() => overlay.classList.add("is-visible"));
+        window.setTimeout(() => {
+          overlay.classList.add("is-leaving");
+          window.setTimeout(() => {
+            overlay.classList.remove("is-visible", "is-leaving");
+            document.body.classList.remove("site-preloading");
+          }, 360);
+        }, 2000);
+      }
+
+      runInitialSiteLoader();
       if (panelIds.has(initialId)) openPanel(initialId, false);
     })();
   </script>
