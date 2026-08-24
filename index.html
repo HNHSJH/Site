@@ -3227,31 +3227,44 @@ body.site-preloading { overflow: hidden; }
 
 
 <style>
-/* v17 — exact original H&H loader silhouette: pure black/white, with the loading arc matching the logo's native oval outline. */
+/* v18 — original H&H mark on a clean white disc, with a perfectly matched circular loading ring. */
 .first-nav-loader {
-  --loader-width: clamp(88px, 8vw, 118px);
-  --loader-height: calc(var(--loader-width) * 302 / 341);
+  --loader-size: clamp(78px, 7vw, 96px);
+  --loader-ring: 3px;
 }
 .first-nav-loader img {
-  width: var(--loader-width) !important;
-  height: var(--loader-height) !important;
+  width: calc(var(--loader-size) * 0.84) !important;
+  height: auto !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
   animation: none !important;
   transform: none !important;
   filter: none !important;
+  position: relative;
+  z-index: 2;
 }
 .first-nav-loader::before {
-  display: none !important;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff !important;
+  border: 1px solid rgba(17,17,17,0.18);
+  box-sizing: border-box;
+  pointer-events: none;
 }
 .first-nav-loader::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: var(--loader-width) !important;
-  height: var(--loader-height) !important;
+  width: var(--loader-size);
+  height: var(--loader-size);
   transform: translate(-50%, -50%) rotate(0deg);
   border-radius: 50%;
   background: conic-gradient(
@@ -3259,10 +3272,11 @@ body.site-preloading { overflow: hidden; }
     #111 0deg 72deg,
     transparent 72deg 360deg
   ) !important;
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - var(--loader-ring)), #000 calc(100% - var(--loader-ring) + 1px));
   animation: hLoaderRing 1.05s linear infinite !important;
   pointer-events: none;
+  z-index: 3;
 }
 @media (prefers-reduced-motion: reduce) {
   .first-nav-loader::after { animation: none !important; }
@@ -3343,7 +3357,7 @@ body.site-preloading { overflow: hidden; }
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3359,7 +3373,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3404,7 +3418,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3459,7 +3473,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-mark.png?v=18"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
