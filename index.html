@@ -2999,15 +2999,18 @@ body.client-archive-open #clients > .panel-next {
   stroke-linejoin: round;
 }
 
-/* Stamford is unusually wide/tall artwork. Keep the full mark well inside the tile. */
+/* Stamford: use the supplied full lock-up and centre it optically in its tile. */
 .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-  inset: auto !important;
-  width: auto !important;
-  height: auto !important;
-  max-width: 64% !important;
-  max-height: 58% !important;
+  position: absolute !important;
+  inset: 10px 24px !important;
+  width: calc(100% - 48px) !important;
+  height: calc(100% - 20px) !important;
+  max-width: none !important;
+  max-height: none !important;
   object-fit: contain !important;
-  object-position: center !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
 @media (max-width: 620px) {
@@ -3018,11 +3021,9 @@ body.client-archive-open #clients > .panel-next {
   .hero-dot::after { top: 6px !important; height: 1.5px !important; }
 
   .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-    inset: auto !important;
-    width: auto !important;
-    height: auto !important;
-    max-width: 70% !important;
-    max-height: 62% !important;
+    inset: 8px 14px !important;
+    width: calc(100% - 28px) !important;
+    height: calc(100% - 16px) !important;
   }
 
   /* With the public telephone removed, keep the two remaining Contact Us details balanced. */
@@ -3271,7 +3272,7 @@ body.client-archive-open #clients > .panel-next {
 <div class="client-logo logo-wide"><img alt="Singapore Polytechnic" src="assets/logos/clients/singapore-polytechnic.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Singapore Badminton Association" src="assets/logos/clients/singapore-badminton-association.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Singapore Swimming Club" src="assets/logos/clients/singapore-swimming-club.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.png?v=4"/></div>
+<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.png?v=5"/></div>
 <div class="client-logo logo-wide"><img alt="Singapore University of Technology and Design" src="assets/logos/clients/singapore-university-of-technology-and-design.webp"/></div>
     </div>
   </div>
