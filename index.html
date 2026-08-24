@@ -3271,6 +3271,89 @@ body.site-preloading { overflow: hidden; }
   .first-nav-loader::after { animation: none !important; }
 }
 </style>
+
+<style>
+/* v23 — final cross-browser loader override and stable client logos */
+.first-nav-loader {
+  --loader-logo: clamp(66px, 5.8vw, 80px) !important;
+  --loader-ring: calc(var(--loader-logo) + 14px) !important;
+  --loader-stroke: 3px !important;
+  overflow: visible !important;
+}
+.first-nav-loader img {
+  width: var(--loader-logo) !important;
+  height: var(--loader-logo) !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  border-radius: 0 !important;
+  filter: none !important;
+  transform: none !important;
+  animation: none !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+}
+.first-nav-loader::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+.first-nav-loader::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: var(--loader-ring) !important;
+  height: var(--loader-ring) !important;
+  transform: translate(-50%, -50%) rotate(0deg) !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  background: none !important;
+  border: var(--loader-stroke) solid transparent !important;
+  border-top-color: #111 !important;
+  border-right-color: #111 !important;
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  box-shadow: none !important;
+  animation: hLoaderRing 1s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .first-nav-loader::after { animation: none !important; }
+}
+/* Keep client logo wording visible; no hover recoloring/fading */
+.clients .client-grid .client-logo img,
+.all-clients-grid .client-logo img,
+.clients .client-grid .client-logo.logo-wide img,
+.clients .client-grid .client-logo.logo-medium img,
+.clients .client-grid .client-logo.logo-tall img,
+.clients .client-grid .client-logo-moe img,
+.all-clients-grid .client-logo.logo-wide img,
+.all-clients-grid .client-logo.logo-medium img,
+.all-clients-grid .client-logo.logo-tall img,
+.all-clients-grid .client-logo-moe img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+.clients .client-logo:hover img,
+.all-clients-grid .client-logo:hover img,
+.clients .client-grid .client-logo:hover img,
+.all-clients-grid .client-logo:hover img {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -3346,7 +3429,7 @@ body.site-preloading { overflow: hidden; }
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3362,7 +3445,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3407,7 +3490,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3462,7 +3545,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=21"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
