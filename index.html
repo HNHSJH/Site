@@ -3225,6 +3225,49 @@ body.site-preloading { overflow: hidden; }
 }
 </style>
 
+
+<style>
+/* v17 — exact original H&H loader silhouette: pure black/white, with the loading arc matching the logo's native oval outline. */
+.first-nav-loader {
+  --loader-width: clamp(88px, 8vw, 118px);
+  --loader-height: calc(var(--loader-width) * 302 / 341);
+}
+.first-nav-loader img {
+  width: var(--loader-width) !important;
+  height: var(--loader-height) !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+.first-nav-loader::before {
+  display: none !important;
+}
+.first-nav-loader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--loader-width) !important;
+  height: var(--loader-height) !important;
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #111 0deg 72deg,
+    transparent 72deg 360deg
+  ) !important;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  animation: hLoaderRing 1.05s linear infinite !important;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .first-nav-loader::after { animation: none !important; }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -3300,7 +3343,7 @@ body.site-preloading { overflow: hidden; }
 </nav>
 </section>
 <section class="intro scroll-section" id="about">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
 <div class="section-shell">
 <div class="section-kicker intro-heading reveal">
 <span>About H&amp;H</span>
@@ -3316,7 +3359,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="projects scroll-section" id="projects">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Selected Projects</span>
@@ -3361,7 +3404,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </div></section>
 <section class="expertise scroll-section" id="expertise">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
 <span>Expertise</span>
@@ -3416,7 +3459,7 @@ body.site-preloading { overflow: hidden; }
 </div>
 </section>
 <section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=14"/></div>
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader.png?v=17"/></div>
 <div class="section-shell">
 <div class="clients-intro">
 <div class="reveal">
