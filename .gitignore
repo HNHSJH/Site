@@ -24,3 +24,26 @@ node_modules/
 
 # Logs
 *.log
+
+# Windows / Finder noise
+Thumbs.db
+Desktop.ini
+
+# Temporary editor / backup files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Python cache from local tooling
+__pycache__/
+*.py[cod]
+
+# Local QA / cleanup artifacts
+qa-*.html
+timestamp_cleanup_QA.*
+timestamp_cleanup_manifest.json
+
+# Local deployment archives
+HNH-Site-*.zip
+

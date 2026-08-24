@@ -26,7 +26,7 @@
         </div>
         <div class="project-info">
           <div><h3>${esc(p.display_name)}</h3><p>${esc(subline(p))}</p></div>
-          <span class="project-arrow">↗</span>
+          <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
         </div>
       </button>`;
   }

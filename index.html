@@ -2938,6 +2938,73 @@ body.client-archive-open #clients > .panel-next {
   .hero-content { padding-bottom: 186px; }
 }
 </style>
+<style>
+/* v8 — production polish: client borders, consistent vector arrows, mobile hero progress */
+
+/* MOE is a <button>; restore the same grid borders as every other client tile. */
+.client-school-trigger {
+  border-right: 1px solid rgba(53,83,73,.16) !important;
+  border-bottom: 1px solid rgba(53,83,73,.16) !important;
+  background: rgba(255,255,255,.42);
+}
+
+/* Use SVG geometry for north-east arrows so mobile OSes never render emoji glyphs. */
+.project-arrow {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0 !important;
+}
+.project-arrow svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.client-detail-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.client-detail-cue .cue-arrow-ne {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Give the wide Stamford lockup extra breathing room in the full Clients archive. */
+.all-clients-grid .client-logo img[alt="Stamford American International School"] {
+  inset: 24px 34px !important;
+  width: calc(100% - 68px) !important;
+  height: calc(100% - 48px) !important;
+}
+
+@media (max-width: 620px) {
+  /* Seven hero progress lines previously occupied too much of the lower-left edge. */
+  .hero-dots { gap: 5px !important; }
+  .hero-dot { width: 16px !important; height: 14px !important; }
+  .hero-dot::before,
+  .hero-dot::after { top: 6px !important; height: 1.5px !important; }
+
+  .all-clients-grid .client-logo img[alt="Stamford American International School"] {
+    inset: 15px 22px !important;
+    width: calc(100% - 44px) !important;
+    height: calc(100% - 30px) !important;
+  }
+
+  /* With the public telephone removed, keep the two remaining Contact Us details balanced. */
+  .contact-details { grid-template-columns: 1fr 1.35fr !important; }
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -2972,7 +3039,7 @@ body.client-archive-open #clients > .panel-next {
 </div>
 <div class="menu-footer">
 <span>1 Tampines North Drive 1, #08-49 T-Space, Singapore 528559</span>
-<span>+65 9114 8327   ·   Han.seah@hnhresources.com</span>
+<span>Han.seah@hnhresources.com</span>
 </div>
 </aside>
 <main id="top">
@@ -3136,7 +3203,7 @@ body.client-archive-open #clients > .panel-next {
 </div>
 </div>
 <div aria-label="Selected past clients" class="client-grid reveal">
-<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools ↗</span></button>
+<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
@@ -3154,7 +3221,7 @@ body.client-archive-open #clients > .panel-next {
       <button aria-label="Back to selected clients" class="all-clients-close" type="button">Back to Selected Clients</button>
     </div>
     <div aria-label="All past clients" class="all-clients-grid">
-<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools ↗</span></button>
+<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
 <div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
@@ -3249,7 +3316,6 @@ body.client-archive-open #clients > .panel-next {
 </form>
 <div class="contact-details reveal">
 <div class="line"><small>General enquiries</small><a href="mailto:Han.seah@hnhresources.com">Han.seah@hnhresources.com</a></div>
-<div class="line"><small>Telephone</small><a href="tel:+6591148327">+65 9114 8327</a></div>
 <div class="line"><small>Head office</small><p>1 Tampines North Drive 1<br/>#08-49 T-Space<br/>Singapore 528559</p></div>
 </div>
 </div>
