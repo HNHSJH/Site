@@ -92,6 +92,7 @@
     overlay.dataset.projectId = id;
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('project-detail-open');
     const scroller = overlay.querySelector('.project-detail-scroll');
     if (scroller) scroller.scrollTop = 0;
   }
@@ -100,9 +101,12 @@
     if (!overlay) return;
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden','true');
+    overlay.removeAttribute('data-project-id');
+    document.body.classList.remove('project-detail-open');
   }
 
   window.openHnhProject = openDetail;
+  window.closeHnhProject = closeDetail;
 
   // Showcase slide selection is handled by the hero gallery dots; clicking the hero itself does not navigate.
 

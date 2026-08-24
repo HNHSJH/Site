@@ -2849,6 +2849,15 @@ body.moe-schools-open #clients > .panel-next {
   pointer-events: auto !important;
 }
 
+/* A project detail is its own focused view: hide the parent Projects panel navigation. */
+body.project-detail-open #projects > .panel-close,
+body.project-detail-open #projects > .panel-prev,
+body.project-detail-open #projects > .panel-next {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 @media (max-width: 620px) {
   .projects > .section-shell,
   .clients > .section-shell {
@@ -2981,11 +2990,11 @@ body.client-archive-open #clients > .panel-next {
   stroke-linejoin: round;
 }
 
-/* Give the wide Stamford lockup extra breathing room in the full Clients archive. */
+/* Stamford artwork itself is padded in the asset; keep an extra-safe fit in the archive tile. */
 .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-  inset: 24px 34px !important;
-  width: calc(100% - 68px) !important;
-  height: calc(100% - 48px) !important;
+  inset: 22px 38px !important;
+  width: calc(100% - 76px) !important;
+  height: calc(100% - 44px) !important;
 }
 
 @media (max-width: 620px) {
@@ -2996,9 +3005,9 @@ body.client-archive-open #clients > .panel-next {
   .hero-dot::after { top: 6px !important; height: 1.5px !important; }
 
   .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-    inset: 15px 22px !important;
-    width: calc(100% - 44px) !important;
-    height: calc(100% - 30px) !important;
+    inset: 14px 24px !important;
+    width: calc(100% - 48px) !important;
+    height: calc(100% - 28px) !important;
   }
 
   /* With the public telephone removed, keep the two remaining Contact Us details balanced. */
@@ -3650,6 +3659,7 @@ body.client-archive-open #clients > .panel-next {
 
       function openPanel(id, updateHistory = true, direction = 'forward', skipFirstLoader = false) {
         if (!panelIds.has(id) || firstNavigationBusy) return;
+        if (typeof window.closeHnhProject === 'function') window.closeHnhProject();
         closeProjectGallery();
         closeClientGallery();
         const next = document.getElementById(id);
@@ -3719,6 +3729,7 @@ body.client-archive-open #clients > .panel-next {
       };
 
       function closePanels(updateHistory = true) {
+        if (typeof window.closeHnhProject === 'function') window.closeHnhProject();
         closeProjectGallery();
         closeClientGallery();
         if (panelCleanupTimer) { window.clearTimeout(panelCleanupTimer); panelCleanupTimer = null; }
