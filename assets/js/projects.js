@@ -69,6 +69,15 @@
   const title = document.getElementById('project-detail-title');
   const category = document.getElementById('project-detail-category');
   const meta = document.getElementById('project-detail-meta');
+  const projectsPanel = document.getElementById('projects');
+
+  function setParentProjectControlsHidden(hidden) {
+    projectsPanel?.classList.toggle('project-detail-active', hidden);
+    projectsPanel?.querySelectorAll(':scope > .panel-close, :scope > .panel-prev, :scope > .panel-next').forEach(control => {
+      if (hidden) control.style.setProperty('display', 'none', 'important');
+      else control.style.removeProperty('display');
+    });
+  }
 
   function setMainPhoto(p, idx) {
     const ph = p.photos[idx];
@@ -92,6 +101,7 @@
     overlay.dataset.projectId = id;
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden','false');
+    setParentProjectControlsHidden(true);
     document.body.classList.add('project-detail-open');
     const scroller = overlay.querySelector('.project-detail-scroll');
     if (scroller) scroller.scrollTop = 0;
@@ -102,6 +112,7 @@
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden','true');
     overlay.removeAttribute('data-project-id');
+    setParentProjectControlsHidden(false);
     document.body.classList.remove('project-detail-open');
   }
 

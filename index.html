@@ -2857,6 +2857,15 @@ body.project-detail-open #projects > .panel-next {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+/* v3 hard-stop: while a project reference is open, parent panel navigation must not render at all. */
+#projects.project-detail-active > .panel-close,
+#projects.project-detail-active > .panel-prev,
+#projects.project-detail-active > .panel-next {
+  display: none !important;
+}
+#projects .project-detail-overlay {
+  z-index: 120 !important;
+}
 
 @media (max-width: 620px) {
   .projects > .section-shell,
@@ -2990,11 +2999,15 @@ body.client-archive-open #clients > .panel-next {
   stroke-linejoin: round;
 }
 
-/* Stamford artwork itself is padded in the asset; keep an extra-safe fit in the archive tile. */
+/* Stamford is unusually wide/tall artwork. Keep the full mark well inside the tile. */
 .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-  inset: 22px 38px !important;
-  width: calc(100% - 76px) !important;
-  height: calc(100% - 44px) !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 64% !important;
+  max-height: 58% !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
 @media (max-width: 620px) {
@@ -3005,9 +3018,11 @@ body.client-archive-open #clients > .panel-next {
   .hero-dot::after { top: 6px !important; height: 1.5px !important; }
 
   .all-clients-grid .client-logo img[alt="Stamford American International School"] {
-    inset: 14px 24px !important;
-    width: calc(100% - 48px) !important;
-    height: calc(100% - 28px) !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 70% !important;
+    max-height: 62% !important;
   }
 
   /* With the public telephone removed, keep the two remaining Contact Us details balanced. */
@@ -3256,7 +3271,7 @@ body.client-archive-open #clients > .panel-next {
 <div class="client-logo logo-wide"><img alt="Singapore Polytechnic" src="assets/logos/clients/singapore-polytechnic.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Singapore Badminton Association" src="assets/logos/clients/singapore-badminton-association.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Singapore Swimming Club" src="assets/logos/clients/singapore-swimming-club.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.webp?v=3"/></div>
 <div class="client-logo logo-wide"><img alt="Singapore University of Technology and Design" src="assets/logos/clients/singapore-university-of-technology-and-design.webp"/></div>
     </div>
   </div>
@@ -3872,5 +3887,5 @@ body.client-archive-open #clients > .panel-next {
     });
   })();
 </script>
-<script src="data/projects.js"></script><script src="assets/js/projects.js"></script></body>
+<script src="data/projects.js?v=3"></script><script src="assets/js/projects.js?v=3"></script></body>
 </html>
