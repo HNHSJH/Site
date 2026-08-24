@@ -6,10 +6,10 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
-<link rel="icon" href="favicon.ico?v=24" sizes="any"/>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=24"/>
-<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png?v=24"/>
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=24"/>
+<link rel="shortcut icon" href="favicon-hnh-v25.ico" type="image/x-icon"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-hnh-v25-32.png"/>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-hnh-v25-64.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-hnh-v25.png"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
     :root {
@@ -3380,6 +3380,48 @@ body.site-preloading { overflow: auto !important; }
 .all-clients-grid .client-logo:focus-visible img {
   filter: grayscale(1) !important;
   opacity: .72 !important;
+  transform: none !important;
+}
+</style>
+
+<style>
+/* v25 — definitive no-loader, stable client hover, and archive CTA visibility */
+.first-nav-loader { display:none !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+body.site-preloading { overflow:auto !important; }
+
+/* "View All Clients" button must never become white-on-white. */
+.clients-all-trigger,
+.clients-all-trigger:hover,
+.clients-all-trigger:focus-visible,
+.clients-all-trigger:active {
+  color: var(--green-forest) !important;
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(53,83,73,.38) !important;
+  transform: none !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.10) !important;
+  opacity: 1 !important;
+}
+.clients-all-trigger span,
+.clients-all-trigger:hover span,
+.clients-all-trigger:focus-visible span {
+  color: inherit !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* All Clients archive: preserve every complete logo/wordmark on hover. */
+.all-clients-grid .client-logo,
+.all-clients-grid .client-logo:hover,
+.all-clients-grid .client-logo:focus-visible {
+  background: rgba(255,255,255,.42) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.all-clients-grid .client-logo img,
+.all-clients-grid .client-logo:hover img,
+.all-clients-grid .client-logo:focus-visible img {
+  filter: none !important;
+  opacity: 1 !important;
   transform: none !important;
 }
 </style>
