@@ -3321,7 +3321,11 @@ body.client-archive-open #clients > .panel-next {
 <h2 class="headline-reveal">Start a project.</h2>
 </div>
 <div class="contact-grid">
-<form class="contact-form reveal" id="contact-form">
+<form action="https://formsubmit.co/han.seah@hnhresources.com" class="contact-form reveal" id="contact-form" method="POST">
+<input name="_subject" type="hidden" value="New H&amp;H Resources Website Enquiry"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_url" type="hidden" value="https://hnhresources.com/#contact"/>
+<input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
 <div class="contact-field">
 <label for="enquiry-name">Name</label>
 <input autocomplete="name" id="enquiry-name" name="name" placeholder="Your name" required="" type="text"/>
@@ -3502,24 +3506,51 @@ body.client-archive-open #clients > .panel-next {
 
     const contactForm = document.querySelector('#contact-form');
     const contactFormStatus = document.querySelector('#contact-form-status');
-    contactForm?.addEventListener('submit', event => {
+    const contactSubmit = contactForm?.querySelector('.contact-submit');
+
+    contactForm?.addEventListener('submit', async event => {
       event.preventDefault();
       if (!contactForm.reportValidity()) return;
 
       const formData = new FormData(contactForm);
-      const subject = `Website enquiry — ${formData.get('projectType') || 'General Enquiry'}`;
-      const message = [
-        `Name: ${formData.get('name') || ''}`,
-        `Company: ${formData.get('company') || ''}`,
-        `Email: ${formData.get('email') || ''}`,
-        `Telephone: ${formData.get('phone') || ''}`,
-        `Project type: ${formData.get('projectType') || ''}`,
-        '',
-        `${formData.get('message') || ''}`
-      ].join('\n');
+      if (formData.get('_honey')) return;
 
-      contactFormStatus.textContent = 'Opening your email application…';
-      window.location.href = `mailto:Han.seah@hnhresources.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      const projectType = formData.get('projectType') || 'General Enquiry';
+      formData.set('_subject', `Website enquiry — ${projectType}`);
+      formData.set('_url', window.location.href);
+
+      const originalLabel = contactSubmit?.textContent || 'Send Enquiry →';
+      if (contactSubmit) {
+        contactSubmit.disabled = true;
+        contactSubmit.textContent = 'Sending…';
+      }
+      contactFormStatus.textContent = 'Sending your enquiry…';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/han.seah@hnhresources.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(Object.fromEntries(formData.entries()))
+        });
+
+        let result = null;
+        try { result = await response.json(); } catch (_) {}
+        if (!response.ok) throw new Error(result?.message || 'Submission failed');
+
+        contactForm.reset();
+        contactFormStatus.textContent = 'Thank you. Your enquiry has been sent.';
+      } catch (error) {
+        console.error('Contact form submission failed:', error);
+        contactFormStatus.textContent = 'We could not send your enquiry. Please email Han.seah@hnhresources.com directly.';
+      } finally {
+        if (contactSubmit) {
+          contactSubmit.disabled = false;
+          contactSubmit.textContent = originalLabel;
+        }
+      }
     });
   </script>
 <script>
