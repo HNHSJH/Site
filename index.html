@@ -3769,10 +3769,10 @@ body.site-preloading { overflow: hidden; }
           }
 
           const previous = index === 0
-            ? { id: 'showcase', label: 'Showcase' }
+            ? { id: 'showcase', label: 'Home' }
             : panelFlow[index - 1];
           const next = index === panelFlow.length - 1
-            ? { id: 'showcase', label: 'Showcase' }
+            ? { id: 'showcase', label: 'Home' }
             : panelFlow[index + 1];
 
           const previousButton = document.createElement('button');
@@ -3788,10 +3788,10 @@ body.site-preloading { overflow: hidden; }
           nextButton.className = 'panel-next';
           nextButton.dataset.target = next.id;
           nextButton.textContent = index === panelFlow.length - 1
-            ? 'Finish: Showcase'
+            ? 'Finish: Home'
             : `Next: ${next.label}`;
           nextButton.setAttribute('aria-label', index === panelFlow.length - 1
-            ? 'Finish and return to showcase'
+            ? 'Finish and return to home'
             : `Continue to ${next.label}`);
           panel.append(nextButton);
         });
