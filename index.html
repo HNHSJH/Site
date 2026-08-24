@@ -6,10 +6,13 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
-<link rel="shortcut icon" href="favicon-hnh-v25.ico" type="image/x-icon"/>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-hnh-v25-32.png"/>
-<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-hnh-v25-64.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-hnh-v25.png"/>
+<link rel="icon" href="/favicon-hnh-v26.ico" sizes="any" type="image/x-icon"/>
+<link rel="shortcut icon" href="/favicon-hnh-v26.ico" type="image/x-icon"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-hnh-v26-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-hnh-v26-32.png"/>
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/icons/favicon-hnh-v26-64.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-hnh-v26.png"/>
+<meta name="theme-color" content="#eff3ed"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
     :root {
@@ -3423,6 +3426,52 @@ body.site-preloading { overflow:auto !important; }
   filter: none !important;
   opacity: 1 !important;
   transform: none !important;
+}
+</style>
+
+<style>
+/* v26 — restore interaction while preserving full client wordmarks. */
+.clients-all-trigger {
+  transition: transform .25s var(--ease), background .2s ease, color .2s ease, box-shadow .25s ease !important;
+}
+.clients-all-trigger:hover,
+.clients-all-trigger:focus-visible {
+  color: #fff !important;
+  background: var(--green-forest) !important;
+  border-color: var(--green-forest) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 30px rgba(32,49,45,.16) !important;
+  outline: none !important;
+}
+.clients-all-trigger:hover span,
+.clients-all-trigger:focus-visible span {
+  color: inherit !important;
+  opacity: 1 !important;
+  transform: translateX(5px) !important;
+}
+
+/* All Clients archive: subtle lift/highlight, never fade or recolour the logo/wordmark. */
+.all-clients-grid .client-logo {
+  transition: background .25s ease, transform .25s var(--ease), box-shadow .25s ease !important;
+}
+.all-clients-grid .client-logo:hover,
+.all-clients-grid .client-logo:focus-visible {
+  background: rgba(255,255,255,.88) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 30px rgba(53,83,73,.10), inset 0 0 0 1px rgba(53,83,73,.10) !important;
+  outline: none !important;
+}
+.all-clients-grid .client-logo img,
+.all-clients-grid .client-logo:hover img,
+.all-clients-grid .client-logo:focus-visible img {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.all-clients-grid .client-logo:hover .client-detail-cue,
+.all-clients-grid .client-logo:focus-visible .client-detail-cue {
+  opacity: 1 !important;
+  transform: translate(2px,-2px) !important;
 }
 </style>
 </head>
