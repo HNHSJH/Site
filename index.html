@@ -6,6 +6,8 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
+<link rel="icon" type="image/png" href="assets/logos/hnh-logo.png?v=9"/>
+<link rel="apple-touch-icon" href="assets/logos/hnh-logo.png?v=9"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
     :root {
@@ -2538,6 +2540,14 @@
   letter-spacing:-.055em;
   font-weight:300;
 }
+.project-detail-description {
+  margin: 0 0 24px;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.65;
+}
+.project-detail-meta[hidden] { display:none; }
 .project-detail-meta { border-top:1px solid var(--line); }
 .project-detail-meta-row {
   display:grid;
@@ -3049,8 +3059,63 @@ body.client-archive-open #clients > .panel-next {
   .contact-details { grid-template-columns: 1fr 1.35fr !important; }
 }
 </style>
+
+<style>
+/* v9 — favicon/footer clearance, raised hero progress and panel navigation */
+.global-copyright {
+  position: fixed;
+  left: var(--pad);
+  bottom: 14px;
+  z-index: 160;
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color .3s ease, opacity .3s ease;
+}
+
+/* Light panels and light overlays use the dark copyright treatment. */
+body[data-active-panel="about"] .global-copyright,
+body[data-active-panel="clients"] .global-copyright,
+body[data-active-panel="expertise"] .global-copyright,
+body.client-archive-open .global-copyright,
+body.moe-schools-open .global-copyright,
+body.project-detail-open .global-copyright {
+  color: rgba(32,49,45,.72);
+}
+
+/* Projects/contact and the project archive stay on dark surfaces. */
+body[data-active-panel="projects"] .global-copyright,
+body[data-active-panel="contact"] .global-copyright,
+body.project-archive-open .global-copyright {
+  color: rgba(255,255,255,.78);
+}
+
+/* Reserve the lower-left corner for the copyright line. */
+.hero-dots { bottom: 58px !important; }
+.panel-prev,
+.panel-next { bottom: 58px !important; }
+
+@media (max-width: 620px) {
+  .global-copyright {
+    left: 14px;
+    bottom: 11px;
+    max-width: calc(100vw - 28px);
+    font-size: 7px;
+    letter-spacing: .065em;
+  }
+  .hero-dots { bottom: 49px !important; }
+  .panel-prev,
+  .panel-next { bottom: 48px !important; }
+}
+</style>
 </head>
 <body>
+<div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
 <header class="site-header">
 <a aria-label="H&amp;H Resources home" class="brand" href="#top">
 <img alt="" aria-hidden="true" class="brand-mark" src="assets/logos/hnh-logo.png"/>
@@ -3175,6 +3240,7 @@ body.client-archive-open #clients > .panel-next {
 <div class="project-detail-copy">
 <div class="project-detail-category" id="project-detail-category"></div>
 <h2 id="project-detail-title"></h2>
+<p class="project-detail-description" id="project-detail-description"></p>
 <div class="project-detail-meta" id="project-detail-meta"></div>
 
 <button class="project-detail-enquire" type="button">Enquire About a Similar Project →</button>
@@ -3771,6 +3837,7 @@ body.client-archive-open #clients > .panel-next {
 
         activePanel = next;
         document.body.classList.add('panel-open');
+        document.body.dataset.activePanel = id;
 
         if (current && current !== next) {
           panelCleanupTimer = window.setTimeout(() => {
@@ -3804,6 +3871,7 @@ body.client-archive-open #clients > .panel-next {
         });
         activePanel = null;
         document.body.classList.remove('panel-open');
+        delete document.body.dataset.activePanel;
         if (updateHistory) history.pushState({ panel: null }, '', location.pathname + location.search);
       }
 
@@ -3938,5 +4006,5 @@ body.client-archive-open #clients > .panel-next {
     });
   })();
 </script>
-<script src="data/projects.js?v=3"></script><script src="assets/js/projects.js?v=3"></script></body>
+<script src="data/projects.js?v=9"></script><script src="assets/js/projects.js?v=10"></script></body>
 </html>

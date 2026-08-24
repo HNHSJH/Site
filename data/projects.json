@@ -35,7 +35,6 @@
       "source_labels": [
         "Methodist Girls’ School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -56,7 +55,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Methodist Girls’ School."
     },
     {
       "id": "acrylic-coating--raffles-institution",
@@ -65,7 +66,6 @@
       "source_labels": [
         "Raffles Institution"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -86,7 +86,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Raffles Institution."
     },
     {
       "id": "acrylic-coating--republic-polytechnic",
@@ -95,7 +97,6 @@
       "source_labels": [
         "Republic Polytechnic"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -116,7 +117,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Republic Polytechnic."
     },
     {
       "id": "acrylic-coating--singapore-swimming-club",
@@ -125,7 +128,6 @@
       "source_labels": [
         "Singapore Swimming Club"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -146,7 +148,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Singapore Swimming Club."
     },
     {
       "id": "acrylic-coating--singapore-swimming-club-court-3",
@@ -155,7 +159,6 @@
       "source_labels": [
         "Singapore Swimming Club Court 3"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -176,7 +179,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Singapore Swimming Club Court 3."
     },
     {
       "id": "acrylic-coating--tanah-merah-country-club",
@@ -185,7 +190,6 @@
       "source_labels": [
         "Tanah Merah Country Club (ITF Certified)"
       ],
-      "completion": [],
       "certification_text": [
         "ITF Certified"
       ],
@@ -208,7 +212,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for acrylic sports-surface works at Tanah Merah Country Club."
     },
     {
       "id": "artificial-turf--anderson-serangoon-junior-college",
@@ -217,7 +223,6 @@
       "source_labels": [
         "Anderson Serangoon Junior College"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -239,7 +244,9 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Anderson Serangoon Junior College."
     },
     {
       "id": "artificial-turf--anglican-high-school",
@@ -248,7 +255,6 @@
       "source_labels": [
         "Anglican High School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -269,7 +275,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Anglican High School."
     },
     {
       "id": "artificial-turf--bedok-south-secondary-school",
@@ -278,7 +286,6 @@
       "source_labels": [
         "Bedok South Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -299,7 +306,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Bedok South Secondary School."
     },
     {
       "id": "artificial-turf--east-spring-secondary-school",
@@ -308,7 +317,6 @@
       "source_labels": [
         "East Spring Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -329,7 +337,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at East Spring Secondary School."
     },
     {
       "id": "artificial-turf--jurong-east-stadium",
@@ -338,7 +348,6 @@
       "source_labels": [
         "Jurong East Stadium (FIFA Quality Pro)"
       ],
-      "completion": [],
       "certification_text": [
         "FIFA Quality Pro"
       ],
@@ -377,7 +386,9 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Jurong East Stadium."
     },
     {
       "id": "artificial-turf--loyang-view-secondary-school",
@@ -386,7 +397,6 @@
       "source_labels": [
         "Loyang View Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -407,7 +417,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Loyang View Secondary School."
     },
     {
       "id": "artificial-turf--marsiling-secondary-school",
@@ -416,7 +428,6 @@
       "source_labels": [
         "Marsiling Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -437,7 +448,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Marsiling Secondary School."
     },
     {
       "id": "artificial-turf--meridian-secondary-school",
@@ -446,7 +459,6 @@
       "source_labels": [
         "Meridian Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -467,7 +479,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Meridian Secondary School."
     },
     {
       "id": "artificial-turf--ngee-ann-polytechnic",
@@ -476,7 +490,6 @@
       "source_labels": [
         "Ngee Ann Polytechnic (FIFA Quality and WR Certified)"
       ],
-      "completion": [],
       "certification_text": [
         "FIFA Quality and WR Certified"
       ],
@@ -500,7 +513,9 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Ngee Ann Polytechnic."
     },
     {
       "id": "artificial-turf--our-tampines-hub",
@@ -509,7 +524,6 @@
       "source_labels": [
         "Our Tampines Hub (FIFA Quality Pro)"
       ],
-      "completion": [],
       "certification_text": [
         "FIFA Quality Pro"
       ],
@@ -547,7 +561,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Our Tampines Hub."
     },
     {
       "id": "artificial-turf--pasir-ris-crest-secondary-school",
@@ -556,7 +572,6 @@
       "source_labels": [
         "Pasir Ris Crest Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -577,7 +592,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Pasir Ris Crest Secondary School."
     },
     {
       "id": "artificial-turf--pasir-ris-secondary-school",
@@ -586,7 +603,6 @@
       "source_labels": [
         "Pasir Ris Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -607,7 +623,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Pasir Ris Secondary School."
     },
     {
       "id": "artificial-turf--punggol-green-primary-school",
@@ -616,7 +634,6 @@
       "source_labels": [
         "Punggol Green Primary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -637,7 +654,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Punggol Green Primary School."
     },
     {
       "id": "artificial-turf--punggol-secondary-school",
@@ -646,7 +665,6 @@
       "source_labels": [
         "Punggol Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -667,7 +685,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Punggol Secondary School."
     },
     {
       "id": "artificial-turf--raffles-institution",
@@ -676,7 +696,6 @@
       "source_labels": [
         "Raffles Institution (World Rugby Certified)"
       ],
-      "completion": [],
       "certification_text": [
         "World Rugby Certified"
       ],
@@ -700,7 +719,9 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Raffles Institution."
     },
     {
       "id": "artificial-turf--riverside-primary-school",
@@ -709,7 +730,6 @@
       "source_labels": [
         "Riverside Primary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -730,7 +750,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Riverside Primary School."
     },
     {
       "id": "artificial-turf--safra-mount-faber",
@@ -739,7 +761,6 @@
       "source_labels": [
         "SAFRA Mount Faber"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -760,7 +781,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at SAFRA Mount Faber."
     },
     {
       "id": "artificial-turf--seng-kang-primary-school",
@@ -769,7 +792,6 @@
       "source_labels": [
         "Seng Kang Primary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -790,7 +812,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Seng Kang Primary School."
     },
     {
       "id": "artificial-turf--serangoon-secondary-school",
@@ -799,7 +823,6 @@
       "source_labels": [
         "Serangoon Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -820,7 +843,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Serangoon Secondary School."
     },
     {
       "id": "artificial-turf--singapore-american-school-west-field",
@@ -829,7 +854,6 @@
       "source_labels": [
         "Singapore American School  (West Field)  FIFA Quality and WR Certified"
       ],
-      "completion": [],
       "certification_text": [
         "FIFA Quality and WR Certified"
       ],
@@ -867,7 +891,11 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "West Field"
+      ],
+      "detail_description": "H&H Resources project reference for artificial turf works at Singapore American School. The supplied reference identifies the application as West Field."
     },
     {
       "id": "artificial-turf--singapore-american-school-main-field",
@@ -876,7 +904,6 @@
       "source_labels": [
         "Singapore American School (Main Field) FIFA Quality and WR Certified"
       ],
-      "completion": [],
       "certification_text": [
         "FIFA Quality and WR Certified"
       ],
@@ -915,7 +942,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "Main Field"
+      ],
+      "detail_description": "H&H Resources project reference for artificial turf works at Singapore American School. The supplied reference identifies the application as Main Field."
     },
     {
       "id": "artificial-turf--st-andrew-junior-college",
@@ -924,7 +955,6 @@
       "source_labels": [
         "St Andrew Junior College"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -945,7 +975,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at St Andrew Junior College."
     },
     {
       "id": "artificial-turf--st-anthony-canossian-secondary-school",
@@ -954,7 +986,6 @@
       "source_labels": [
         "St Anthony Canossian Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -975,7 +1006,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at St Anthony Canossian Secondary School."
     },
     {
       "id": "artificial-turf--st-patricks-school",
@@ -984,7 +1017,6 @@
       "source_labels": [
         "St Patrick’s School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1005,7 +1037,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at St Patrick’s School."
     },
     {
       "id": "artificial-turf--tampines-secondary-school",
@@ -1014,7 +1048,6 @@
       "source_labels": [
         "Tampines Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1035,7 +1068,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Tampines Secondary School."
     },
     {
       "id": "artificial-turf--temasek-secondary-school",
@@ -1044,7 +1079,6 @@
       "source_labels": [
         "Temasek Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1065,7 +1099,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Temasek Secondary School."
     },
     {
       "id": "artificial-turf--westwood-secondary-school",
@@ -1074,7 +1110,6 @@
       "source_labels": [
         "Westwood Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1095,7 +1130,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Westwood Secondary School."
     },
     {
       "id": "artificial-turf--whitley-secondary-school",
@@ -1104,7 +1141,6 @@
       "source_labels": [
         "Whitley Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1125,7 +1161,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Whitley Secondary School."
     },
     {
       "id": "artificial-turf--woodgrove-secondary-school",
@@ -1134,7 +1172,6 @@
       "source_labels": [
         "Woodgrove Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1155,7 +1192,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Woodgrove Secondary School."
     },
     {
       "id": "artificial-turf--woodlands-ring-primary-school",
@@ -1164,7 +1203,6 @@
       "source_labels": [
         "Woodlands Ring Primary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1185,7 +1223,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Woodlands Ring Primary School."
     },
     {
       "id": "artificial-turf--woodlands-secondary-school",
@@ -1194,7 +1234,6 @@
       "source_labels": [
         "Woodlands Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1215,7 +1254,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Woodlands Secondary School."
     },
     {
       "id": "artificial-turf--yio-chu-kang-secondary-school",
@@ -1224,7 +1265,6 @@
       "source_labels": [
         "Yio Chu Kang Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1245,7 +1285,9 @@
       ],
       "sources": [
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for artificial turf works at Yio Chu Kang Secondary School."
     },
     {
       "id": "landscape-artificial-turf--hyll-at-holland-landscape-turf-on-rooftop",
@@ -1254,7 +1296,6 @@
       "source_labels": [
         "Hyll At Holland (Landscape turf on rooftop)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1290,7 +1331,11 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [
+        "Landscape turf on rooftop"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Hyll At Holland. The supplied reference identifies the application as Landscape turf on rooftop."
     },
     {
       "id": "landscape-artificial-turf--lion-city-sailors",
@@ -1299,7 +1344,6 @@
       "source_labels": [
         "Lion City Sailors"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1320,7 +1364,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Lion City Sailors."
     },
     {
       "id": "landscape-artificial-turf--private-residences-artificial-turf-tennis-court",
@@ -1329,7 +1375,6 @@
       "source_labels": [
         "Private Residences (Artificial Turf Tennis Court)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1351,7 +1396,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "Artificial Turf Tennis Court"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Private Residences. The supplied reference identifies the application as Artificial Turf Tennis Court."
     },
     {
       "id": "landscape-artificial-turf--stamford-american-international-school-putting-green-turf-at-courtyard-area",
@@ -1360,7 +1409,6 @@
       "source_labels": [
         "Stamford American International School (Putting Green Turf at Courtyard area)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1397,7 +1445,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "Putting Green Turf at Courtyard area"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Stamford American International School. The supplied reference identifies the application as Putting Green Turf at Courtyard area."
     },
     {
       "id": "landscape-artificial-turf--watergardens-condominium-landscape-turf-on-rooftop",
@@ -1406,7 +1458,6 @@
       "source_labels": [
         "Watergardens Condominium (Landscape Turf on Rooftop)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1458,7 +1509,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "Landscape Turf on Rooftop"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Watergardens Condominium. The supplied reference identifies the application as Landscape Turf on Rooftop."
     },
     {
       "id": "landscape-artificial-turf--westwood-pri-sch-kcare-garden-with-landscape-turf",
@@ -1467,7 +1522,6 @@
       "source_labels": [
         "Westwood Pri Sch (KCare Garden with Landscape Turf)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1504,7 +1558,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "KCare Garden with Landscape Turf"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Westwood Pri Sch. The supplied reference identifies the application as KCare Garden with Landscape Turf."
     },
     {
       "id": "landscape-artificial-turf--westwood-sec-sch-putting-green-turf-for-study-corner",
@@ -1513,7 +1571,6 @@
       "source_labels": [
         "Westwood Sec Sch (Putting Green Turf for Study corner)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1550,7 +1607,11 @@
       "sources": [
         "H & H Resources Photo References .docx",
         "Artificial Turf Photo Reference.docx"
-      ]
+      ],
+      "application_text": [
+        "Putting Green Turf for Study corner"
+      ],
+      "detail_description": "H&H Resources project reference for landscape artificial turf works at Westwood Sec Sch. The supplied reference identifies the application as Putting Green Turf for Study corner."
     },
     {
       "id": "running-track--crest-secondary-school",
@@ -1559,7 +1620,6 @@
       "source_labels": [
         "Crest Secondary School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1580,7 +1640,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for running track works at Crest Secondary School."
     },
     {
       "id": "running-track--ite-college-central",
@@ -1589,7 +1651,6 @@
       "source_labels": [
         "ITE College Central"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1610,7 +1671,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for running track works at ITE College Central."
     },
     {
       "id": "running-track--perennial-business-city",
@@ -1619,7 +1682,6 @@
       "source_labels": [
         "Perennial Business City"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1640,7 +1702,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for running track works at Perennial Business City."
     },
     {
       "id": "running-track--singapore-chinese-girls-school",
@@ -1649,7 +1713,6 @@
       "source_labels": [
         "Singapore Chinese Girls’ School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1670,7 +1733,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for running track works at Singapore Chinese Girls’ School."
     },
     {
       "id": "running-track--singapore-polytechnic",
@@ -1679,7 +1744,6 @@
       "source_labels": [
         "Singapore Polytechnic"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1715,7 +1779,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for running track works at Singapore Polytechnic."
     },
     {
       "id": "timber-flooring--aspn-timber-flooring-hall",
@@ -1724,7 +1790,6 @@
       "source_labels": [
         "ASPN Timber Flooring Hall"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1760,7 +1825,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at ASPN Timber Flooring Hall."
     },
     {
       "id": "timber-flooring--ngee-ann-polytechnic",
@@ -1769,7 +1836,6 @@
       "source_labels": [
         "Ngee Ann Polytechnic"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1805,7 +1871,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at Ngee Ann Polytechnic."
     },
     {
       "id": "timber-flooring--perennial-business-city",
@@ -1814,7 +1882,6 @@
       "source_labels": [
         "Perennial Business City"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1835,7 +1902,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at Perennial Business City."
     },
     {
       "id": "timber-flooring--private-residence",
@@ -1844,7 +1913,6 @@
       "source_labels": [
         "Private Residence"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1880,7 +1948,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at Private Residence."
     },
     {
       "id": "timber-flooring--singapore-badminton-association-portable-system",
@@ -1889,7 +1959,6 @@
       "source_labels": [
         "Singapore Badminton Association (Portable System)"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1910,7 +1979,11 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [
+        "Portable System"
+      ],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at Singapore Badminton Association. The supplied reference identifies the application as Portable System."
     },
     {
       "id": "timber-flooring--stamford-american-international-school",
@@ -1919,7 +1992,6 @@
       "source_labels": [
         "Stamford American International School"
       ],
-      "completion": [],
       "certification_text": [],
       "photos": [
         {
@@ -1955,7 +2027,9 @@
       ],
       "sources": [
         "H & H Resources Photo References .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for timber sports-flooring works at Stamford American International School."
     },
     {
       "id": "epdm-flooring--coralis-condo",
@@ -1963,9 +2037,6 @@
       "display_name": "Coralis Condo",
       "source_labels": [
         "Coralis Condo"
-      ],
-      "completion": [
-        "Completed in Mar 2024"
       ],
       "certification_text": [],
       "photos": [
@@ -2002,7 +2073,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at Coralis Condo."
     },
     {
       "id": "epdm-flooring--ite-college-central",
@@ -2010,9 +2083,6 @@
       "display_name": "ITE College Central",
       "source_labels": [
         "ITE College Central"
-      ],
-      "completion": [
-        "Completed in Oct 2024"
       ],
       "certification_text": [],
       "photos": [
@@ -2034,7 +2104,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at ITE College Central."
     },
     {
       "id": "epdm-flooring--ntu-staff-housing",
@@ -2042,9 +2114,6 @@
       "display_name": "NTU Staff Housing",
       "source_labels": [
         "NTU Staff Housing"
-      ],
-      "completion": [
-        "Completed in Sept 2023"
       ],
       "certification_text": [],
       "photos": [
@@ -2066,7 +2135,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at NTU Staff Housing."
     },
     {
       "id": "epdm-flooring--rivera-38",
@@ -2074,9 +2145,6 @@
       "display_name": "Rivera 38",
       "source_labels": [
         "Rivera 38"
-      ],
-      "completion": [
-        "Completed in May 2024"
       ],
       "certification_text": [],
       "photos": [
@@ -2113,7 +2181,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at Rivera 38."
     },
     {
       "id": "epdm-flooring--singapore-american-school",
@@ -2121,9 +2191,6 @@
       "display_name": "Singapore American School",
       "source_labels": [
         "Singapore American School"
-      ],
-      "completion": [
-        "Completed Aug 2024"
       ],
       "certification_text": [],
       "photos": [
@@ -2160,7 +2227,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at Singapore American School."
     },
     {
       "id": "epdm-flooring--stamford-american-international-school",
@@ -2168,10 +2237,6 @@
       "display_name": "Stamford American International School",
       "source_labels": [
         "Stamford American International School"
-      ],
-      "completion": [
-        "Completed in 2022",
-        "Completed in 2021"
       ],
       "certification_text": [],
       "photos": [
@@ -2208,7 +2273,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at Stamford American International School."
     },
     {
       "id": "epdm-flooring--sutd",
@@ -2216,9 +2283,6 @@
       "display_name": "SUTD",
       "source_labels": [
         "SUTD"
-      ],
-      "completion": [
-        "Completed in Nov 2024"
       ],
       "certification_text": [],
       "photos": [
@@ -2240,7 +2304,9 @@
       ],
       "sources": [
         "EPDM Flooring .docx"
-      ]
+      ],
+      "application_text": [],
+      "detail_description": "H&H Resources project reference for EPDM surfacing works at SUTD."
     }
   ]
 }

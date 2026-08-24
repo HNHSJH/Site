@@ -11,7 +11,6 @@
   const metaBits = p => {
     const bits = [];
     if (p.certification_text?.length) bits.push(...p.certification_text);
-    if (p.completion?.length) bits.push(...p.completion);
     return bits;
   };
   const subline = p => [categories[p.category] || p.category, ...metaBits(p).slice(0,1)].filter(Boolean).join(' · ');
@@ -68,6 +67,7 @@
   const thumbs = document.getElementById('project-detail-thumbs');
   const title = document.getElementById('project-detail-title');
   const category = document.getElementById('project-detail-category');
+  const description = document.getElementById('project-detail-description');
   const meta = document.getElementById('project-detail-meta');
   const projectsPanel = document.getElementById('projects');
 
@@ -92,10 +92,12 @@
     if (!p || !overlay) return;
     title.textContent = p.display_name;
     category.textContent = categories[p.category] || p.category;
-    const rows = [];
+    if (description) description.textContent = p.detail_description || '';
+    const rows = [['Project type', categories[p.category] || p.category]];
+    if (p.application_text?.length) rows.push(['Application', p.application_text.join(' · ')]);
     if (p.certification_text?.length) rows.push(['Certification', p.certification_text.join(' · ')]);
-    if (p.completion?.length) rows.push(['Completion', p.completion.join(' · ')]);
     meta.innerHTML = rows.map(([k,v]) => `<div class="project-detail-meta-row"><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join('');
+    meta.hidden = rows.length === 0;
     thumbs.innerHTML = p.photos.map((ph,i) => `<button type="button" class="project-detail-thumb ${i===0?'is-active':''}" data-photo-index="${i}" aria-label="View image ${i+1}"><img src="${esc(ph.src)}" alt="" loading="lazy" /></button>`).join('');
     setMainPhoto(p,0);
     overlay.dataset.projectId = id;
