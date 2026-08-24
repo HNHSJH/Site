@@ -3169,6 +3169,61 @@ body.project-archive-open .global-copyright {
 }
 </style>
 
+<style>
+/* v12 — preserve the original loader artwork proportions; only the circular loading track moves. */
+.first-nav-loader {
+  --loader-size: clamp(76px, 7vw, 108px);
+}
+.first-nav-loader img {
+  width: var(--loader-size) !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  animation: none !important;
+  transform: none !important;
+  filter: drop-shadow(0 8px 24px rgba(22,34,28,.16));
+}
+.first-nav-loader::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--loader-size) + 10px);
+  height: calc(var(--loader-size) + 10px);
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(15,20,18,.12);
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.first-nav-loader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--loader-size) + 10px);
+  height: calc(var(--loader-size) + 10px);
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(15,20,18,.98) 0deg 76deg,
+    transparent 76deg 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.2px));
+  animation: hLoaderRing 1.05s linear infinite;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .first-nav-loader::after { animation: none !important; }
+}
+</style>
+
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -4067,23 +4122,28 @@ body.project-archive-open .global-copyright {
   (() => {
     const grid = document.querySelector('.clients .client-grid');
     if (!grid) return;
-    const first = grid.querySelector('.client-logo');
     const items = [...grid.querySelectorAll('.client-logo')];
-    if (!first || !items.length) return;
+    if (!items.length) return;
 
-    const restoreFirst = () => first.classList.add('is-prehighlighted');
-    const clearFirst = () => first.classList.remove('is-prehighlighted');
+    // The first client is highlighted initially. Thereafter the most recently
+    // hovered/focused client remains highlighted until another client is used.
+    let activeItem = items.find(item => item.classList.contains('is-prehighlighted')) || items[0];
+
+    const setActive = item => {
+      if (!item || item === activeItem) return;
+      items.forEach(client => client.classList.remove('is-prehighlighted'));
+      item.classList.add('is-prehighlighted');
+      activeItem = item;
+    };
+
+    // Ensure a deterministic initial state even if cached markup is restored.
+    items.forEach(client => client.classList.toggle('is-prehighlighted', client === activeItem));
 
     items.forEach(item => {
-      if (item === first) return;
-      item.addEventListener('pointerenter', clearFirst);
-      item.addEventListener('focusin', clearFirst);
-    });
-    grid.addEventListener('pointerleave', restoreFirst);
-    grid.addEventListener('focusout', () => {
-      requestAnimationFrame(() => {
-        if (!grid.contains(document.activeElement)) restoreFirst();
-      });
+      item.addEventListener('pointerenter', () => setActive(item));
+      item.addEventListener('focusin', () => setActive(item));
+      // Also makes the behaviour intuitive on touch devices.
+      item.addEventListener('pointerdown', () => setActive(item), { passive: true });
     });
   })();
 </script>
