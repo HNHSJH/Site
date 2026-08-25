@@ -3910,6 +3910,83 @@ body.site-preloading { overflow:auto !important; }
 }
 </style>
 
+
+<style>
+/* v34 — mobile contact layout refinement: compact attachment row, narrower CTA, and right-aligned info box. */
+@media (max-width: 620px) {
+  .contact-grid {
+    gap: 12px !important;
+  }
+
+  .contact-attachment-field {
+    gap: 4px !important;
+  }
+
+  .attachment-control {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 4px 0 0 !important;
+  }
+
+  .attachment-button {
+    flex: 0 0 auto;
+    width: auto !important;
+    min-width: 148px !important;
+    max-width: 148px !important;
+    min-height: 32px !important;
+    padding: 0 12px !important;
+    justify-self: start !important;
+  }
+
+  .attachment-copy {
+    flex: 1 1 auto;
+    min-width: 0 !important;
+    gap: 2px !important;
+    padding-top: 2px;
+  }
+
+  .attachment-selection {
+    font-size: 8px !important;
+  }
+
+  .attachment-copy small {
+    font-size: 6px !important;
+    line-height: 1.25 !important;
+  }
+
+  .contact-form-actions {
+    align-items: flex-end !important;
+  }
+
+  .contact-submit {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 240px !important;
+    padding: 12px 20px !important;
+    margin-left: auto !important;
+  }
+
+  .contact-details {
+    width: min(74vw, 270px) !important;
+    min-height: auto !important;
+    margin-left: auto !important;
+    justify-self: end !important;
+    align-self: start !important;
+    padding: 18px 18px !important;
+  }
+
+  .contact-details small {
+    font-size: 7px !important;
+  }
+
+  .contact-details a,
+  .contact-details p {
+    font-size: 8px !important;
+    line-height: 1.35 !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
