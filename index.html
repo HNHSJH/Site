@@ -6,12 +6,14 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
-<link rel="canonical" href="https://hnhresources.com/"/>
+  <!-- Favicons: static declarations only; no runtime replacement -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64"/>
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="manifest" href="/site.webmanifest"/>
+<link rel="canonical" href="https://hnhresources.com/"/>
 <meta name="theme-color" content="#eff3ed"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
@@ -2265,7 +2267,6 @@
         max-height: 72% !important;
       }
     }
-
 
 
     /* v10 — hard logo safe-box + first navigation loader */
@@ -5130,34 +5131,5 @@ body.site-preloading { overflow:auto !important; }
     });
   })();
 </script>
-
-
-<!-- Homepage favicon runtime refresh -->
-<script>
-(() => {
-  if (window.location.pathname !== '/') return;
-
-  const faviconURL = '/favicon-96x96.png?v=20260825-1';
-
-  function refreshHomepageFavicon() {
-    document
-      .querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]')
-      .forEach(link => link.remove());
-
-    const icon = document.createElement('link');
-    icon.rel = 'icon';
-    icon.type = 'image/png';
-    icon.sizes = '96x96';
-    icon.href = faviconURL;
-    document.head.appendChild(icon);
-  }
-
-  refreshHomepageFavicon();
-  window.addEventListener('pageshow', refreshHomepageFavicon);
-  window.setTimeout(refreshHomepageFavicon, 750);
-})();
-</script>
-<!-- /Homepage favicon runtime refresh -->
-
 </body>
 </html>
