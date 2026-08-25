@@ -3703,6 +3703,145 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v32 — contact panel balance, clearer hierarchy and stronger CTA. */
+.contact-grid {
+  align-items: start !important;
+}
+
+.contact-form {
+  align-self: start;
+}
+
+.contact-field label {
+  color: rgba(240,248,244,.84) !important;
+}
+
+.contact-message-field textarea {
+  min-height: clamp(132px, 22vh, 186px) !important;
+}
+
+.contact-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.contact-form-status {
+  grid-column: auto !important;
+  flex: 1 1 auto;
+  min-height: 18px;
+  margin: 0 !important;
+  align-self: center;
+}
+
+.contact-submit {
+  grid-column: auto !important;
+  justify-self: auto !important;
+  margin-left: auto;
+  min-width: 228px !important;
+  padding: 15px 24px !important;
+  background: rgba(220,231,221,.14) !important;
+  border-color: rgba(255,255,255,.92) !important;
+  box-shadow: 0 18px 42px rgba(7,22,18,.18);
+}
+
+.contact-submit:hover,
+.contact-submit:focus-visible {
+  background: #dce7dd !important;
+  color: var(--green-forest) !important;
+}
+
+.contact-details {
+  align-self: center !important;
+  width: min(100%, 460px) !important;
+  min-height: clamp(320px, 32vw, 390px) !important;
+  padding: clamp(34px, 4vw, 48px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.contact-details .line {
+  padding: 22px 0 !important;
+}
+
+.contact-details small {
+  color: #3f6f66 !important;
+  font-weight: 800 !important;
+  letter-spacing: .16em !important;
+}
+
+@media (max-width: 620px) {
+  .contact-message-field textarea {
+    min-height: 92px !important;
+    height: 92px !important;
+    max-height: none !important;
+  }
+
+  .contact-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .contact-form-status {
+    order: 2;
+    min-height: 12px;
+  }
+
+  .contact-submit {
+    width: 100%;
+    min-width: 0 !important;
+    margin-left: 0;
+  }
+
+  .contact-details {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 14px 15px !important;
+  }
+
+  .contact-details small {
+    color: #406d65 !important;
+  }
+}
+</style>
+
+<!-- Safari home favicon refresh v32 -->
+<link rel="icon" type="image/x-icon" href="/favicon-home-v32.ico" id="home-favicon-ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-home-32-v32.png" id="home-favicon-png">
+<script>
+(function () {
+  var isHome = location.pathname === '/' || location.pathname === '/index.html';
+  if (!isHome) return;
+  function refreshHomeFavicon() {
+    var stamp = 'home-v32';
+    var links = document.querySelectorAll('link[rel~="icon"]');
+    links.forEach(function (link) {
+      if (link.id !== 'home-favicon-ico' && link.id !== 'home-favicon-png') {
+        link.disabled = true;
+      }
+    });
+    var ico = document.getElementById('home-favicon-ico');
+    var png = document.getElementById('home-favicon-png');
+    if (ico) ico.href = '/favicon-home-v32.ico?' + stamp;
+    if (png) png.href = '/favicon-home-32-v32.png?' + stamp;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', refreshHomeFavicon, { once: true });
+  } else {
+    refreshHomeFavicon();
+  }
+})();
+</script>
+<!-- /Safari home favicon refresh v32 -->
+
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -4027,8 +4166,10 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </div>
-<button class="contact-submit" type="submit">Send Enquiry →</button>
+<div class="contact-form-actions">
 <p aria-live="polite" class="contact-form-status" id="contact-form-status"></p>
+<button class="contact-submit" type="submit">Send Enquiry →</button>
+</div>
 </form>
 <div class="contact-details reveal">
 <div class="line"><small>General enquiries</small><a href="mailto:Han.seah@hnhresources.com">Han.seah@hnhresources.com</a></div>
