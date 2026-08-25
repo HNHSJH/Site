@@ -7,10 +7,9 @@
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
 <link rel="canonical" href="https://hnhresources.com/"/>
-<link rel="icon" href="/favicon-v31.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v31.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v31.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-v31.png"/>
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#eff3ed"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
@@ -3812,37 +3811,6 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
-
-<!-- Safari home favicon refresh v32 -->
-<link rel="icon" type="image/x-icon" href="/favicon-home-v32.ico" id="home-favicon-ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-home-32-v32.png" id="home-favicon-png">
-<script>
-(function () {
-  var isHome = location.pathname === '/' || location.pathname === '/index.html';
-  if (!isHome) return;
-  function refreshHomeFavicon() {
-    var stamp = 'home-v32';
-    var links = document.querySelectorAll('link[rel~="icon"]');
-    links.forEach(function (link) {
-      if (link.id !== 'home-favicon-ico' && link.id !== 'home-favicon-png') {
-        link.disabled = true;
-      }
-    });
-    var ico = document.getElementById('home-favicon-ico');
-    var png = document.getElementById('home-favicon-png');
-    if (ico) ico.href = '/favicon-home-v32.ico?' + stamp;
-    if (png) png.href = '/favicon-home-32-v32.png?' + stamp;
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', refreshHomeFavicon, { once: true });
-  } else {
-    refreshHomeFavicon();
-  }
-})();
-</script>
-<!-- /Safari home favicon refresh v32 -->
-
-
 <style>
 /* v33 — centered contact composition, top-aligned info panel and stronger attachment/header contrast. */
 @media (min-width: 621px) {
