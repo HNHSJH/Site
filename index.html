@@ -5131,5 +5131,33 @@ body.site-preloading { overflow:auto !important; }
   })();
 </script>
 
+
+<!-- Homepage favicon runtime refresh -->
+<script>
+(() => {
+  if (window.location.pathname !== '/') return;
+
+  const faviconURL = '/favicon-96x96.png?v=20260825-1';
+
+  function refreshHomepageFavicon() {
+    document
+      .querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]')
+      .forEach(link => link.remove());
+
+    const icon = document.createElement('link');
+    icon.rel = 'icon';
+    icon.type = 'image/png';
+    icon.sizes = '96x96';
+    icon.href = faviconURL;
+    document.head.appendChild(icon);
+  }
+
+  refreshHomepageFavicon();
+  window.addEventListener('pageshow', refreshHomepageFavicon);
+  window.setTimeout(refreshHomepageFavicon, 750);
+})();
+</script>
+<!-- /Homepage favicon runtime refresh -->
+
 </body>
 </html>
