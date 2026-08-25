@@ -4053,6 +4053,53 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v38 — structural attachment row for reliable desktop Safari alignment. */
+.attachment-visible-row {
+  width: 100%;
+}
+
+@media (min-width: 621px) {
+  .attachment-control {
+    display: block !important;
+    padding-top: 12px !important;
+  }
+
+  .attachment-visible-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .attachment-button {
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    max-width: 260px !important;
+  }
+
+  .attachment-copy {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding-top: 4px !important;
+  }
+
+  .attachment-file-inputs {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .attachment-visible-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -4371,13 +4418,15 @@ body.site-preloading { overflow:auto !important; }
 <div class="contact-field full contact-attachment-field">
 <label>Attachments <span class="attachment-optional">Optional</span></label>
 <div class="attachment-control">
+<div class="attachment-visible-row">
 <label class="attachment-button" id="attachment-button" for="enquiry-attachment-1"><span aria-hidden="true">＋</span> Attach files</label>
-<div class="attachment-file-inputs" id="attachment-file-inputs">
-<input accept=".jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip" id="enquiry-attachment-1" name="attachment1" type="file"/>
-</div>
 <div class="attachment-copy">
 <span class="attachment-selection" id="attachment-selection">No files selected</span>
 <small>JPG, PNG, GIF, MP4, DOC, DOCX, PDF or ZIP · Max 5MB each, 10MB total</small>
+</div>
+</div>
+<div class="attachment-file-inputs" id="attachment-file-inputs">
+<input accept=".jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip" id="enquiry-attachment-1" name="attachment1" type="file"/>
 </div>
 </div>
 </div>
