@@ -3489,6 +3489,29 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v27 — raise the selected client gallery and CTA on mobile so they clear the bottom panel navigation. */
+@media (max-width: 620px) {
+  .clients > .section-shell {
+    justify-content: flex-start !important;
+    padding-top: 72px !important;
+    padding-bottom: 116px !important;
+  }
+
+  .clients .clients-intro {
+    margin-bottom: 8px !important;
+  }
+
+  .clients > .section-shell > .clients-footer {
+    margin: 0 auto 8px !important;
+  }
+
+  .clients .client-grid {
+    grid-auto-rows: 92px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
