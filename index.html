@@ -3987,6 +3987,40 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v35 — wider mobile contact info panel with side-by-side details. */
+@media (max-width: 620px) {
+  .contact-details {
+    width: min(92vw, 520px) !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important;
+    gap: 22px !important;
+    align-items: start !important;
+    padding: 20px 22px !important;
+  }
+
+  .contact-details .line,
+  .contact-details .line:last-child {
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .contact-details small {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-size: 7px !important;
+  }
+
+  .contact-details a,
+  .contact-details p {
+    font-size: 8.5px !important;
+    line-height: 1.35 !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
