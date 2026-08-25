@@ -6,6 +6,10 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="H&amp;H Resources — golf, turf, landscape and sports facility construction since 1980." name="description"/>
 <title>H&amp;H Resources</title>
+<link rel="icon" href="/favicon-v31.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v31.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v31.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-v31.png"/>
 <meta name="theme-color" content="#eff3ed"/>
 <script>document.documentElement.classList.add('js');</script>
 <style>
@@ -3469,12 +3473,22 @@ body.site-preloading { overflow:auto !important; }
 }
 </style>
 
-<link rel="icon" type="image/x-icon" href="/favicon-v32.ico">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon-v32.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-v32.png">
-
+<style>
+/* v26 — place View All Clients directly above the gallery's top-right corner. */
+.clients > .section-shell > .clients-footer {
+  width: min(100%, 1280px) !important;
+  margin: 0 auto clamp(12px, 1.5vh, 16px) !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+@media (max-width: 620px) {
+  .clients > .section-shell > .clients-footer {
+    margin-bottom: 12px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -3674,6 +3688,7 @@ body.site-preloading { overflow:auto !important; }
 <h2 class="headline-reveal">Long-standing partnerships across Singapore.</h2>
 </div>
 </div>
+<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
 <div aria-label="Selected past clients" class="client-grid reveal">
 <button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
@@ -3684,7 +3699,7 @@ body.site-preloading { overflow:auto !important; }
 <div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
 </div>
-<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
+
 </div>
 <div aria-hidden="true" class="all-clients-gallery">
   <div class="all-clients-gallery-inner">
