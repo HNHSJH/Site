@@ -4021,6 +4021,38 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v36 — desktop attachment helper stays beside the button. */
+@media (min-width: 621px) {
+  .attachment-control {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .attachment-button {
+    flex: 0 0 260px;
+    width: 260px !important;
+    max-width: 260px !important;
+  }
+
+  .attachment-copy {
+    flex: 1 1 auto;
+    min-width: 0 !important;
+    padding-top: 4px;
+  }
+}
+</style>
+
+<style>
+/* v37 — lift the mobile contact info box slightly higher. */
+@media (max-width: 620px) {
+  .contact-details {
+    margin-top: -12px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
