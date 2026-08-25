@@ -3512,6 +3512,197 @@ body.site-preloading { overflow:auto !important; }
   }
 }
 </style>
+
+<style>
+/* v28 — H&H attachment control, taller brief description and contrasting contact card. */
+.contact-message-field textarea {
+  min-height: 132px !important;
+  height: 14vh !important;
+  max-height: 176px !important;
+}
+
+.contact-attachment-field {
+  gap: 7px !important;
+}
+.contact-attachment-field > label {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+.attachment-optional {
+  color: rgba(215,230,238,.48);
+  font-size: .82em;
+  font-weight: 600;
+  letter-spacing: .09em;
+}
+.attachment-control {
+  display: grid;
+  grid-template-columns: max-content minmax(0,1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0 2px;
+  border-bottom: 1px solid rgba(215,230,238,.42);
+}
+.attachment-control input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.attachment-button {
+  min-height: 42px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(220,231,221,.88);
+  color: var(--green-forest) !important;
+  background: #dce7dd;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .13em !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  transition: transform .25s var(--ease), background .25s ease;
+}
+.attachment-button:hover,
+.attachment-button:focus-visible {
+  background: #fff;
+  transform: translateY(-2px);
+  outline: none;
+}
+.attachment-button span {
+  font-size: 15px;
+  line-height: 1;
+  margin-top: -1px;
+}
+.attachment-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+.attachment-selection {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255,255,255,.9);
+  font-size: 11px;
+}
+.attachment-copy small {
+  color: rgba(215,230,238,.58);
+  font-size: 8px;
+  line-height: 1.35;
+  letter-spacing: .02em;
+}
+.attachment-control.is-error {
+  border-bottom-color: #f3c7b8;
+}
+.attachment-control.is-error .attachment-selection {
+  color: #ffd9cc;
+}
+
+.contact-details {
+  padding: clamp(24px, 2.8vw, 36px) !important;
+  background: rgba(220,231,221,.96) !important;
+  color: var(--green-forest) !important;
+  border: 1px solid rgba(255,255,255,.58);
+  box-shadow: 0 24px 60px rgba(7,22,18,.18);
+}
+.contact-details .line {
+  padding: 18px 0 !important;
+  border-top: 1px solid rgba(24,49,47,.2) !important;
+}
+.contact-details .line:first-child {
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+.contact-details .line:last-child {
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
+}
+.contact-details small {
+  color: rgba(24,49,47,.58) !important;
+}
+.contact-details a,
+.contact-details p {
+  color: var(--green-forest) !important;
+}
+.contact-details a:hover {
+  color: #0f2421 !important;
+}
+
+@media (max-width: 620px) {
+  .contact .section-shell {
+    padding-top: 58px !important;
+    padding-bottom: 58px !important;
+  }
+  .contact-heading {
+    margin-bottom: 5px !important;
+  }
+  .contact-grid {
+    gap: 7px !important;
+  }
+  .contact-form {
+    gap: 4px 10px !important;
+  }
+  .contact-message-field textarea {
+    min-height: 70px !important;
+    height: 7.5vh !important;
+    max-height: 88px !important;
+  }
+  .contact-attachment-field {
+    gap: 3px !important;
+  }
+  .attachment-control {
+    grid-template-columns: max-content minmax(0,1fr);
+    gap: 8px;
+    padding: 4px 0 3px;
+  }
+  .attachment-button {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 6px !important;
+    letter-spacing: .1em !important;
+  }
+  .attachment-button span {
+    font-size: 12px;
+  }
+  .attachment-selection {
+    font-size: 8px;
+  }
+  .attachment-copy small {
+    font-size: 6px;
+    line-height: 1.25;
+  }
+  .contact-details {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr !important;
+    gap: 10px !important;
+    padding: 12px 13px !important;
+    border-top: 1px solid rgba(255,255,255,.58) !important;
+  }
+  .contact-details .line,
+  .contact-details .line:last-child {
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  .contact-details small {
+    font-size: 6px !important;
+    margin-bottom: 4px !important;
+  }
+  .contact-details a,
+  .contact-details p {
+    font-size: 8px !important;
+    line-height: 1.3 !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
@@ -3787,7 +3978,7 @@ body.site-preloading { overflow:auto !important; }
 <h2 class="headline-reveal">Start a project.</h2>
 </div>
 <div class="contact-grid">
-<form action="https://formsubmit.co/han.seah@hnhresources.com" class="contact-form reveal" id="contact-form" method="POST">
+<form action="https://formsubmit.co/han.seah@hnhresources.com" class="contact-form reveal" enctype="multipart/form-data" id="contact-form" method="POST">
 <input name="_subject" type="hidden" value="New H&amp;H Resources Website Enquiry"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_url" type="hidden" value="https://hnhresources.com/#contact"/>
@@ -3821,9 +4012,20 @@ body.site-preloading { overflow:auto !important; }
 <option>General Enquiry</option>
 </select>
 </div>
-<div class="contact-field full">
-<label for="enquiry-message">Project details</label>
-<textarea id="enquiry-message" name="message" placeholder="Tell us briefly about the site, scope and preferred timeline" required=""></textarea>
+<div class="contact-field full contact-message-field">
+<label for="enquiry-message">Brief description</label>
+<textarea id="enquiry-message" name="message" placeholder="Tell us about the site, scope, requirements and preferred timeline" required=""></textarea>
+</div>
+<div class="contact-field full contact-attachment-field">
+<label>Attachments <span class="attachment-optional">Optional</span></label>
+<div class="attachment-control">
+<label class="attachment-button" for="enquiry-attachments"><span aria-hidden="true">＋</span> Attach files</label>
+<input accept=".jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip" id="enquiry-attachments" multiple name="attachment" type="file"/>
+<div class="attachment-copy">
+<span class="attachment-selection" id="attachment-selection">No files selected</span>
+<small>JPG, PNG, GIF, MP4, DOC, DOCX, PDF or ZIP · Max 5MB each, 10MB total</small>
+</div>
+</div>
 </div>
 <button class="contact-submit" type="submit">Send Enquiry →</button>
 <p aria-live="polite" class="contact-form-status" id="contact-form-status"></p>
@@ -3973,10 +4175,50 @@ body.site-preloading { overflow:auto !important; }
     const contactForm = document.querySelector('#contact-form');
     const contactFormStatus = document.querySelector('#contact-form-status');
     const contactSubmit = contactForm?.querySelector('.contact-submit');
+    const attachmentInput = document.querySelector('#enquiry-attachments');
+    const attachmentSelection = document.querySelector('#attachment-selection');
+    const attachmentControl = attachmentInput?.closest('.attachment-control');
+    const maxAttachmentSize = 5 * 1024 * 1024;
+    const maxAttachmentTotal = 10 * 1024 * 1024;
+
+    function validateAttachments() {
+      const files = [...(attachmentInput?.files || [])];
+      attachmentControl?.classList.remove('is-error');
+      if (!files.length) {
+        if (attachmentSelection) attachmentSelection.textContent = 'No files selected';
+        return true;
+      }
+
+      const tooLarge = files.find(file => file.size > maxAttachmentSize);
+      const totalSize = files.reduce((sum, file) => sum + file.size, 0);
+      if (tooLarge) {
+        if (attachmentSelection) attachmentSelection.textContent = `${tooLarge.name} exceeds 5MB`;
+        attachmentControl?.classList.add('is-error');
+        return false;
+      }
+      if (totalSize > maxAttachmentTotal) {
+        if (attachmentSelection) attachmentSelection.textContent = 'Combined attachments exceed 10MB';
+        attachmentControl?.classList.add('is-error');
+        return false;
+      }
+
+      if (attachmentSelection) {
+        attachmentSelection.textContent = files.length === 1
+          ? files[0].name
+          : `${files.length} files selected`;
+      }
+      return true;
+    }
+
+    attachmentInput?.addEventListener('change', validateAttachments);
 
     contactForm?.addEventListener('submit', async event => {
       event.preventDefault();
       if (!contactForm.reportValidity()) return;
+      if (!validateAttachments()) {
+        contactFormStatus.textContent = 'Please check the attachment size and try again.';
+        return;
+      }
 
       const formData = new FormData(contactForm);
       if (formData.get('_honey')) return;
@@ -3995,11 +4237,8 @@ body.site-preloading { overflow:auto !important; }
       try {
         const response = await fetch('https://formsubmit.co/ajax/han.seah@hnhresources.com', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(Object.fromEntries(formData.entries()))
+          headers: { 'Accept': 'application/json' },
+          body: formData
         });
 
         let result = null;
@@ -4007,6 +4246,7 @@ body.site-preloading { overflow:auto !important; }
         if (!response.ok) throw new Error(result?.message || 'Submission failed');
 
         contactForm.reset();
+        validateAttachments();
         contactFormStatus.textContent = 'Thank you. Your enquiry has been sent.';
       } catch (error) {
         console.error('Contact form submission failed:', error);
