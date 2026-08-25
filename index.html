@@ -3842,6 +3842,74 @@ body.site-preloading { overflow:auto !important; }
 </script>
 <!-- /Safari home favicon refresh v32 -->
 
+
+<style>
+/* v33 — centered contact composition, top-aligned info panel and stronger attachment/header contrast. */
+@media (min-width: 621px) {
+  .contact-heading,
+  .contact-grid {
+    width: min(100%, 1280px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative;
+    top: -18px;
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr) !important;
+    gap: clamp(54px, 6vw, 86px) !important;
+    align-items: start !important;
+  }
+
+  .contact-details {
+    align-self: start !important;
+    justify-self: end !important;
+    width: min(100%, 430px) !important;
+    min-height: clamp(390px, 43vh, 430px) !important;
+    justify-content: center !important;
+  }
+}
+
+/* Keep the custom upload control readable against its pale H&H surface. */
+.contact-field label.attachment-button {
+  color: #18312f !important;
+  background: #dce7dd !important;
+  border-color: rgba(220,231,221,.95) !important;
+}
+.contact-field label.attachment-button:hover,
+.contact-field label.attachment-button:focus-visible {
+  color: #18312f !important;
+  background: #f4f8f5 !important;
+}
+
+/* Stronger hierarchy inside the contact-information square. */
+.contact-details small {
+  color: #2d6a5e !important;
+  font-size: 11px !important;
+  line-height: 1.15 !important;
+  font-weight: 850 !important;
+  letter-spacing: .17em !important;
+  margin-bottom: 11px !important;
+}
+
+@media (max-width: 620px) {
+  .contact-heading,
+  .contact-grid {
+    width: 100% !important;
+    top: 0;
+  }
+
+  .contact-details {
+    align-self: start !important;
+  }
+
+  .contact-details small {
+    font-size: 7px !important;
+    margin-bottom: 5px !important;
+    letter-spacing: .14em !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
