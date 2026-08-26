@@ -6466,5 +6466,341 @@ body.site-preloading { overflow:auto !important; }
 </style>
 <!-- /HNH PROJECTS FINAL VISUAL POLISH -->
 
+
+<!-- HNH PROJECTS CLEAN CLICKIN GRID -->
+<style>
+  /* Keep the site's filtered source cards alive for popup logic,
+     but move them off-screen so the clean proxy grid is what users see. */
+  #projects .hnh-source-project-grid {
+    position: absolute !important;
+    left: -99999px !important;
+    top: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+  }
+
+  /* Clean visible gallery */
+  #projects .hnh-clean-project-grid {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    align-content: start;
+    background: transparent;
+  }
+
+  #projects .hnh-clean-project-card {
+    position: relative;
+    display: block;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: #dbe4dc;
+    color: #fff;
+    text-align: left;
+    overflow: hidden;
+    cursor: pointer;
+    isolation: isolate;
+    aspect-ratio: 4 / 3;
+  }
+
+  #projects .hnh-clean-project-card:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -2px;
+  }
+
+  #projects .hnh-clean-project-media,
+  #projects .hnh-clean-project-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #projects .hnh-clean-project-media img {
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    transition:
+      transform .72s cubic-bezier(.2,.75,.2,1),
+      filter .32s ease;
+  }
+
+  #projects .hnh-clean-project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg,
+        rgba(8,18,13,.08) 8%,
+        rgba(8,18,13,.18) 38%,
+        rgba(8,18,13,.56) 100%);
+    transition: background .3s ease;
+  }
+
+  #projects .hnh-clean-project-copy {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    z-index: 2;
+  }
+
+  #projects .hnh-clean-project-copy strong {
+    display: block;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(15px, 1.8vw, 21px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    font-weight: 400;
+    text-wrap: balance;
+    text-shadow: 0 2px 14px rgba(0,0,0,.22);
+  }
+
+  #projects .hnh-clean-project-copy small {
+    display: block;
+    margin-top: 7px;
+    color: rgba(255,255,255,.78);
+    font-size: 9px;
+    line-height: 1.25;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  #projects .hnh-clean-project-arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    color: rgba(255,255,255,.88);
+    font-size: 20px;
+    line-height: 1;
+    transition: transform .32s cubic-bezier(.2,.75,.2,1);
+  }
+
+  /* Match the initial category gallery hover language. */
+  #projects .hnh-clean-project-card:hover .hnh-clean-project-media img,
+  #projects .hnh-clean-project-card:focus-visible .hnh-clean-project-media img {
+    transform: scale(1.055);
+    filter: saturate(1.06) brightness(.94);
+  }
+
+  #projects .hnh-clean-project-card:hover::after,
+  #projects .hnh-clean-project-card:focus-visible::after {
+    background:
+      linear-gradient(180deg,
+        rgba(8,18,13,.06) 6%,
+        rgba(8,18,13,.20) 34%,
+        rgba(8,18,13,.66) 100%);
+  }
+
+  #projects .hnh-clean-project-card:hover .hnh-clean-project-arrow,
+  #projects .hnh-clean-project-card:focus-visible .hnh-clean-project-arrow {
+    transform: translate(4px, -4px);
+  }
+
+  /* If a project has no image, don't render a broken tile. */
+  #projects .hnh-clean-project-card.is-missing-image {
+    display: none !important;
+  }
+
+  @media (max-width: 980px) {
+    #projects .hnh-clean-project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    #projects .hnh-clean-project-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #projects .hnh-clean-project-copy {
+      left: 12px;
+      right: 12px;
+      bottom: 11px;
+    }
+
+    #projects .hnh-clean-project-copy strong {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const boot = () => {
+    const section = document.querySelector('#projects');
+    const gallery = section?.querySelector('.all-projects-gallery');
+    const header = gallery?.querySelector('.all-projects-gallery-head');
+    const sourceGrid =
+      gallery?.querySelector('#all-projects-grid') ||
+      gallery?.querySelector('.all-projects-grid');
+
+    if (!section || !gallery || !header || !sourceGrid) {
+      return false;
+    }
+
+    if (!sourceGrid.classList.contains('hnh-source-project-grid')) {
+      sourceGrid.classList.add('hnh-source-project-grid');
+    }
+
+    let cleanGrid = gallery.querySelector('.hnh-clean-project-grid');
+    if (!cleanGrid) {
+      cleanGrid = document.createElement('div');
+      cleanGrid.className = 'hnh-clean-project-grid';
+      cleanGrid.setAttribute('aria-label', 'Projects gallery');
+      header.insertAdjacentElement('afterend', cleanGrid);
+    }
+
+    const isActuallyVisible = card => {
+      if (!card) return false;
+      if (card.hidden) return false;
+      if (card.getAttribute('aria-hidden') === 'true') return false;
+      if (card.classList.contains('hidden')) return false;
+      if (card.classList.contains('is-hidden')) return false;
+
+      const style = getComputedStyle(card);
+      if (style.display === 'none' || style.visibility === 'hidden') return false;
+
+      const rect = card.getBoundingClientRect();
+      const meaningfulHeight = rect.height > 30 || rect.width > 80;
+
+      const inlineHidden =
+        card.style.display === 'none' ||
+        card.style.visibility === 'hidden' ||
+        card.style.opacity === '0';
+
+      return !inlineHidden && meaningfulHeight;
+    };
+
+    const sourceCards = () =>
+      [...sourceGrid.querySelectorAll('.project-card, .all-project-card')];
+
+    const extractProject = card => {
+      const title =
+        card.querySelector('h3')?.textContent?.trim() ||
+        card.getAttribute('aria-label') ||
+        'Project';
+
+      const subtitle =
+        card.querySelector('p')?.textContent?.trim() ||
+        card.dataset.category ||
+        '';
+
+      const img = card.querySelector('img');
+      const src =
+        img?.getAttribute('src') ||
+        img?.dataset.src ||
+        img?.currentSrc ||
+        '';
+
+      return { title, subtitle, src, card };
+    };
+
+    const fireOriginalClick = card => {
+      const target =
+        card.querySelector('button, a, [role="button"]') ||
+        card;
+
+      target.dispatchEvent(
+        new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+          view: window
+        })
+      );
+    };
+
+    const buildCleanGrid = () => {
+      const visible = sourceCards()
+        .filter(isActuallyVisible)
+        .map(extractProject)
+        .filter(item => item.src && item.src.trim() !== '');
+
+      cleanGrid.replaceChildren();
+
+      visible.forEach(item => {
+        const tile = document.createElement('button');
+        tile.type = 'button';
+        tile.className = 'hnh-clean-project-card';
+        tile.setAttribute('aria-label', `Open ${item.title}`);
+
+        tile.innerHTML = `
+          <span class="hnh-clean-project-media">
+            <img src="${item.src}" alt="">
+          </span>
+          <span class="hnh-clean-project-copy">
+            <strong>${item.title}</strong>
+            <small>${item.subtitle}</small>
+          </span>
+          <span class="hnh-clean-project-arrow" aria-hidden="true">↗</span>
+        `;
+
+        tile.addEventListener('click', () => fireOriginalClick(item.card));
+        cleanGrid.append(tile);
+      });
+    };
+
+    buildCleanGrid();
+
+    const sourceObserver = new MutationObserver(() => {
+      requestAnimationFrame(buildCleanGrid);
+    });
+
+    sourceObserver.observe(sourceGrid, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class', 'hidden', 'aria-hidden']
+    });
+
+    const galleryObserver = new MutationObserver(() => {
+      requestAnimationFrame(buildCleanGrid);
+    });
+
+    galleryObserver.observe(gallery, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class', 'hidden', 'aria-hidden']
+    });
+
+    /* Also rebuild after category open/filter transitions settle. */
+    window.setTimeout(buildCleanGrid, 100);
+    window.setTimeout(buildCleanGrid, 280);
+    window.setTimeout(buildCleanGrid, 650);
+
+    return true;
+  };
+
+  const start = (tries = 0) => {
+    if (boot()) return;
+    if (tries < 80) {
+      window.setTimeout(() => start(tries + 1), 120);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => start(), { once: true });
+  } else {
+    start();
+  }
+})();
+</script>
+<!-- /HNH PROJECTS CLEAN CLICKIN GRID -->
+
 </body>
 </html>
