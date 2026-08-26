@@ -6319,5 +6319,153 @@ body.site-preloading { overflow:auto !important; }
 </script>
 <!-- /HNH PROJECTS UNIFORM MATERIAL REFINEMENT -->
 
+
+<!-- HNH PROJECTS FINAL VISUAL POLISH -->
+<style>
+  /* =========================================================
+     1) INITIAL CATEGORY SCREEN — USE MORE OF THE PAGE HEIGHT
+     ========================================================= */
+
+  #projects .hnh-project-stage-inner {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #projects .hnh-project-categories {
+    /*
+      Fills substantially more of the Projects viewport while
+      keeping a deliberate breathing gap above the Previous/Next
+      navigation at the bottom of the section.
+    */
+    min-height: clamp(500px, calc(100dvh - 285px), 760px) !important;
+  }
+
+  #projects .hnh-project-cat {
+    min-height: inherit !important;
+  }
+
+
+  /* =========================================================
+     2) EXPANDED CATEGORY HEADER — FIX CONTRAST / LEGIBILITY
+     ========================================================= */
+
+  #projects .all-projects-gallery-head {
+    background: #17352f !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.12) !important;
+    padding:
+      clamp(18px, 2vw, 28px)
+      clamp(18px, 2vw, 30px)
+      clamp(16px, 1.8vw, 24px) !important;
+    margin: 0 0 14px !important;
+  }
+
+  #projects .all-projects-gallery-head .eyebrow {
+    color: #a8c790 !important;
+    opacity: 1 !important;
+  }
+
+  #projects .all-projects-gallery-head h2 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+
+  #projects .all-projects-close {
+    color: #dce9df !important;
+    opacity: 1 !important;
+    transition:
+      color .2s ease,
+      opacity .2s ease !important;
+  }
+
+  #projects .all-projects-close:hover,
+  #projects .all-projects-close:focus-visible {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+
+  /* =========================================================
+     3) EXPANDED PROJECT GRID — REMOVE MESSY MOVEMENT
+     ========================================================= */
+
+  #projects .all-projects-grid .project-card,
+  #projects .all-projects-grid .all-project-card,
+  #projects #all-projects-grid .project-card,
+  #projects #all-projects-grid .all-project-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #projects .all-projects-grid .project-media,
+  #projects #all-projects-grid .project-media {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #projects .all-projects-grid .project-media img,
+  #projects #all-projects-grid .project-media img {
+    transform: none !important;
+    transition:
+      filter .22s ease,
+      opacity .22s ease !important;
+  }
+
+  #projects .all-projects-grid .project-card:hover .project-media img,
+  #projects .all-projects-grid .all-project-card:hover .project-media img,
+  #projects #all-projects-grid .project-card:hover .project-media img,
+  #projects #all-projects-grid .all-project-card:hover .project-media img {
+    transform: none !important;
+    filter: brightness(.92) saturate(1.02) !important;
+  }
+
+  #projects .all-projects-grid .project-info,
+  #projects #all-projects-grid .project-info {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #projects .all-projects-grid .project-arrow,
+  #projects #all-projects-grid .project-arrow {
+    transform: none !important;
+    transition: opacity .2s ease !important;
+  }
+
+  #projects .all-projects-grid .project-card:hover .project-arrow,
+  #projects .all-projects-grid .all-project-card:hover .project-arrow,
+  #projects #all-projects-grid .project-card:hover .project-arrow,
+  #projects #all-projects-grid .all-project-card:hover .project-arrow {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+
+  /* Tablet: preserve enough breathing room for bottom nav. */
+  @media (max-width: 980px) {
+    #projects .hnh-project-categories {
+      min-height: clamp(520px, calc(100dvh - 300px), 720px) !important;
+    }
+  }
+
+  /* Mobile stays stacked and content-led rather than artificially tall. */
+  @media (max-width: 620px) {
+    #projects .hnh-project-categories {
+      min-height: auto !important;
+    }
+
+    #projects .hnh-project-cat {
+      min-height: 178px !important;
+    }
+
+    #projects .all-projects-gallery-head {
+      padding: 16px 14px 14px !important;
+      margin-bottom: 10px !important;
+    }
+  }
+</style>
+<!-- /HNH PROJECTS FINAL VISUAL POLISH -->
+
 </body>
 </html>
