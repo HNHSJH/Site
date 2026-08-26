@@ -5390,210 +5390,285 @@ body.site-preloading { overflow:auto !important; }
 </script>
 <!-- /HNH attachment remove fix -->
 
-
-<!-- HNH PROJECTS TYPE GALLERY REDESIGN -->
+<!-- HNH PROJECTS FULLBLEED CATEGORY STRIP -->
 <style>
-  #projects {
+  /* ===== Projects: full-width category strip + full-page filtered gallery ===== */
+
+  #projects .section-shell.hnh-project-shell-original {
+    display: none !important;
+  }
+
+  #projects .hnh-project-stage {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     background:
-      radial-gradient(circle at 84% 8%, rgba(134,163,109,.19), transparent 27%),
-      linear-gradient(135deg, #142b27 0%, #24483f 55%, #365f52 100%);
-    color: #fff;
+      linear-gradient(180deg, #eff4ee 0%, #eef4ef 100%);
+    color: #142019;
   }
 
-  #projects .section-shell.hnh-project-types-shell {
-    padding: clamp(48px, 5.2vw, 76px) clamp(18px, 2.8vw, 44px) clamp(28px, 3vw, 46px);
+  #projects .hnh-project-stage-inner {
+    padding: clamp(18px, 2vw, 28px) 0 0;
   }
 
-  #projects .hnh-project-types-heading {
-    display: grid;
-    grid-template-columns: minmax(0, .7fr) minmax(360px, 1.3fr);
+  #projects .hnh-project-stage-head {
+    display: flex;
     align-items: end;
-    gap: clamp(28px, 5vw, 80px);
-    margin-bottom: clamp(24px, 3vw, 42px);
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 clamp(16px, 2.4vw, 34px) 16px;
   }
 
-  #projects .hnh-project-types-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    color: #dcebf0;
-    text-transform: uppercase;
-    letter-spacing: .15em;
+  #projects .hnh-project-stage-head .eyebrow {
+    margin: 0 0 10px;
+    color: #5a7e55;
     font-size: 10px;
     font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
   }
 
-  #projects .hnh-project-types-kicker::before {
-    content: "";
-    width: 56px;
-    height: 2px;
-    background: currentColor;
-  }
-
-  #projects .hnh-project-types-heading h2 {
+  #projects .hnh-project-stage-head h2 {
     margin: 0;
-    max-width: 760px;
-    justify-self: end;
-    color: #fff;
-    font-size: clamp(28px, 3.7vw, 52px);
-    line-height: .98;
+    font-size: clamp(28px, 4vw, 54px);
+    line-height: .95;
     letter-spacing: -.045em;
     font-weight: 300;
+    color: #15211a;
     text-wrap: balance;
   }
 
-  #projects .hnh-project-type-gallery {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-auto-flow: dense;
-    gap: clamp(10px, 1vw, 16px);
-    width: 100%;
+  #projects .hnh-project-stage-subcopy {
+    max-width: 520px;
+    margin: 0;
+    color: #567265;
+    font-size: 12px;
+    line-height: 1.55;
   }
 
-  #projects .hnh-project-type {
+  #projects .hnh-project-categories {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2px;
+    min-height: clamp(360px, 54vh, 620px);
+    background: rgba(20, 32, 25, .12);
+  }
+
+  #projects .hnh-project-cat {
     position: relative;
     display: block;
-    grid-column: span 4;
-    min-height: clamp(205px, 24vw, 355px);
+    min-width: 0;
+    min-height: inherit;
     padding: 0;
-    overflow: hidden;
     border: 0;
-    background: #203a33;
+    overflow: hidden;
+    background: #dce8db;
     color: #fff;
-    cursor: pointer;
     text-align: left;
+    cursor: pointer;
     isolation: isolate;
   }
 
-  #projects .hnh-project-type:nth-child(1),
-  #projects .hnh-project-type:nth-child(6) {
-    grid-column: span 5;
-  }
-
-  #projects .hnh-project-type:nth-child(2),
-  #projects .hnh-project-type:nth-child(5) {
-    grid-column: span 7;
-  }
-
-  #projects .hnh-project-type:nth-child(3),
-  #projects .hnh-project-type:nth-child(4) {
-    grid-column: span 6;
-  }
-
-  #projects .hnh-project-type-image,
-  #projects .hnh-project-type::after {
+  #projects .hnh-project-cat::before,
+  #projects .hnh-project-cat::after {
+    content: "";
     position: absolute;
     inset: 0;
   }
 
-  #projects .hnh-project-type-image {
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.002);
-    transition: transform .9s cubic-bezier(.2,.75,.2,1), filter .5s ease;
-  }
-
-  #projects .hnh-project-type::after {
-    content: "";
-    z-index: -1;
+  #projects .hnh-project-cat::after {
     background:
-      linear-gradient(180deg, rgba(7,17,14,.03) 16%, rgba(7,17,14,.76) 100%),
-      linear-gradient(90deg, rgba(7,17,14,.24), transparent 52%);
-    transition: background .35s ease;
+      linear-gradient(180deg, rgba(11, 21, 17, .06) 12%, rgba(11, 21, 17, .76) 100%),
+      linear-gradient(90deg, rgba(11, 21, 17, .18), rgba(11, 21, 17, 0) 55%);
+    transition: opacity .35s ease;
   }
 
-  #projects .hnh-project-type:hover .hnh-project-type-image,
-  #projects .hnh-project-type:focus-visible .hnh-project-type-image {
-    transform: scale(1.055);
-    filter: saturate(1.08) brightness(.94);
+  #projects .hnh-project-cat:hover::after,
+  #projects .hnh-project-cat:focus-visible::after {
+    opacity: .92;
   }
 
-  #projects .hnh-project-type:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 4px;
-  }
-
-  #projects .hnh-project-type-copy {
+  #projects .hnh-project-cat-copy {
     position: absolute;
-    inset: auto clamp(17px, 2vw, 28px) clamp(16px, 2vw, 26px);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 18px;
+    inset: auto 18px 18px 18px;
+    z-index: 2;
   }
 
-  #projects .hnh-project-type-copy small {
+  #projects .hnh-project-cat-kicker {
     display: block;
-    margin-bottom: 7px;
-    color: rgba(255,255,255,.7);
+    margin-bottom: 8px;
+    color: rgba(255,255,255,.72);
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: .14em;
+    letter-spacing: .16em;
     text-transform: uppercase;
   }
 
-  #projects .hnh-project-type-copy strong {
+  #projects .hnh-project-cat-title {
     display: block;
-    font-size: clamp(20px, 2.3vw, 34px);
+    max-width: 12ch;
+    font-size: clamp(18px, 1.75vw, 28px);
     line-height: .98;
-    letter-spacing: -.035em;
-    font-weight: 300;
+    letter-spacing: -.03em;
+    font-weight: 400;
   }
 
-  #projects .hnh-project-type-arrow {
-    font-size: clamp(24px, 2.5vw, 38px);
+  #projects .hnh-project-cat-arrow {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    z-index: 2;
+    color: rgba(255,255,255,.82);
+    font-size: 24px;
     line-height: 1;
-    transform: translate(0, -2px);
     transition: transform .32s cubic-bezier(.2,.75,.2,1);
   }
 
-  #projects .hnh-project-type:hover .hnh-project-type-arrow {
-    transform: translate(6px, -5px);
+  #projects .hnh-project-cat:hover .hnh-project-cat-arrow,
+  #projects .hnh-project-cat:focus-visible .hnh-project-cat-arrow {
+    transform: translate(4px, -4px);
+  }
+
+  #projects .hnh-project-cat:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -2px;
+  }
+
+  /* Category-specific generic material visuals */
+  #projects .hnh-project-cat[data-key="turf"]::before {
+    background:
+      radial-gradient(circle at 16% 22%, rgba(255,255,255,.14), transparent 18%),
+      radial-gradient(circle at 78% 74%, rgba(255,255,255,.08), transparent 24%),
+      repeating-linear-gradient(95deg,
+        rgba(102, 147, 76, .95) 0 5px,
+        rgba(88, 131, 65, .96) 5px 10px,
+        rgba(122, 166, 93, .93) 10px 15px),
+      linear-gradient(135deg, #5c8a41 0%, #7ca65b 100%);
+    transform: scale(1.02);
+  }
+
+  #projects .hnh-project-cat[data-key="timber"]::before {
+    background:
+      linear-gradient(90deg,
+        rgba(0,0,0,.08) 0 2px,
+        transparent 2px 56px,
+        rgba(0,0,0,.08) 56px 58px,
+        transparent 58px 112px,
+        rgba(0,0,0,.08) 112px 114px,
+        transparent 114px 168px),
+      repeating-linear-gradient(8deg,
+        rgba(133, 92, 56, .12) 0 4px,
+        rgba(255,255,255,.08) 4px 8px,
+        rgba(110, 74, 42, .10) 8px 12px),
+      linear-gradient(135deg, #a07043 0%, #7f5430 100%);
+  }
+
+  #projects .hnh-project-cat[data-key="acrylic"]::before {
+    background:
+      linear-gradient(0deg, rgba(255,255,255,.22) 0 2px, transparent 2px 100%),
+      linear-gradient(90deg, rgba(255,255,255,.22) 0 2px, transparent 2px 100%),
+      linear-gradient(135deg, #1f5e9d 0%, #2c77bf 46%, #48a6dc 46%, #48a6dc 54%, #1c4d8e 54%, #1c4d8e 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+  }
+
+  #projects .hnh-project-cat[data-key="epdm"]::before {
+    background:
+      radial-gradient(circle at 10% 18%, rgba(255,255,255,.08) 0 1px, transparent 2px 100%),
+      radial-gradient(circle at 28% 32%, rgba(255,255,255,.06) 0 1px, transparent 2px 100%),
+      radial-gradient(circle at 60% 48%, rgba(255,255,255,.08) 0 1px, transparent 2px 100%),
+      radial-gradient(circle at 82% 22%, rgba(255,255,255,.07) 0 1px, transparent 2px 100%),
+      radial-gradient(circle at 36% 76%, rgba(255,255,255,.08) 0 1px, transparent 2px 100%),
+      linear-gradient(135deg, #2e4b64 0%, #1f3446 100%);
+    background-size: 38px 38px, 36px 36px, 42px 42px, 44px 44px, 34px 34px, 100% 100%;
+  }
+
+  #projects .hnh-project-cat[data-key="track"]::before {
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,.56) 0 2px,
+        transparent 2px 20%,
+        rgba(255,255,255,.38) 20% 21%,
+        transparent 21% 40%,
+        rgba(255,255,255,.38) 40% 41%,
+        transparent 41% 60%,
+        rgba(255,255,255,.38) 60% 61%,
+        transparent 61% 80%,
+        rgba(255,255,255,.38) 80% 81%,
+        transparent 81% 100%),
+      linear-gradient(135deg, #c05039 0%, #b84234 100%);
+  }
+
+  #projects .hnh-project-cat[data-key="landscape"]::before {
+    background:
+      radial-gradient(circle at 18% 25%, rgba(255,255,255,.14), transparent 18%),
+      radial-gradient(circle at 74% 18%, rgba(255,255,255,.12), transparent 20%),
+      radial-gradient(circle at 62% 72%, rgba(255,255,255,.10), transparent 23%),
+      linear-gradient(160deg, #7ea86a 0%, #9bc28b 48%, #6e9d61 100%);
+  }
+
+  /* Expanded state: same site behaviour, but more editorial/full-page */
+  #projects #project-filterbar {
+    display: none !important;
   }
 
   #projects .all-projects-gallery {
-    background: #edf2ec;
-    color: #16221c;
+    background: #eef3ee;
+    color: #122018;
   }
 
   #projects .all-projects-gallery-inner {
     width: 100%;
-    max-width: none;
-    padding: clamp(28px, 3.5vw, 52px) clamp(16px, 2.4vw, 38px) clamp(34px, 4vw, 60px);
+    max-width: none !important;
+    height: 100dvh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px clamp(14px, 2vw, 30px) 18px !important;
   }
 
   #projects .all-projects-gallery-head {
     width: 100%;
-    max-width: none;
-    margin: 0 0 clamp(18px, 2.2vw, 30px);
-    padding: 0 0 clamp(15px, 1.7vw, 24px);
-    border-bottom: 1px solid rgba(32,49,45,.15);
+    max-width: none !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 0 16px !important;
+    margin: 0 0 16px !important;
+    border-bottom: 1px solid rgba(20, 32, 25, .12);
   }
 
   #projects .all-projects-gallery-head .eyebrow {
-    margin-bottom: 9px;
-    color: #5f7f57;
+    color: #6b8a61;
+    margin-bottom: 8px;
   }
 
   #projects .all-projects-gallery-head h2 {
     margin: 0;
-    font-size: clamp(34px, 4.6vw, 66px);
+    color: #15211a;
+    font-size: clamp(32px, 4.6vw, 64px);
     line-height: .94;
-    letter-spacing: -.055em;
+    letter-spacing: -.05em;
     font-weight: 300;
   }
 
+  #projects .all-projects-gallery-head button:not(.all-projects-close),
+  #projects .all-projects-gallery-head .button:not(.all-projects-close),
+  #projects .all-projects-gallery-head [role="button"]:not(.all-projects-close) {
+    display: none !important;
+  }
+
   #projects .all-projects-close {
-    border: 0;
-    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
     min-height: auto;
     padding: 10px 0;
-    color: #355349;
-    font-size: 9px;
+    border: 0;
+    background: transparent;
+    color: #365349;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: .13em;
+    letter-spacing: .14em;
     text-transform: uppercase;
   }
 
@@ -5602,217 +5677,238 @@ body.site-preloading { overflow:auto !important; }
     margin-right: 9px;
   }
 
-  #projects #project-filterbar {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    clip: rect(0 0 0 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-
-  #projects .all-projects-grid {
+  #projects .all-projects-grid,
+  #projects #all-projects-grid {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: grid !important;
-    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-auto-flow: dense;
-    gap: clamp(11px, 1.15vw, 18px) !important;
+    gap: clamp(10px, 1vw, 16px) !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
+    padding: 0 4px 4px 0;
   }
 
   #projects .all-projects-grid .project-card,
-  #projects .all-projects-grid .all-project-card {
+  #projects .all-projects-grid .all-project-card,
+  #projects #all-projects-grid .project-card,
+  #projects #all-projects-grid .all-project-card {
     position: relative;
     grid-column: span 6;
-    display: block;
     min-width: 0;
     padding: 0 !important;
     border: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
-    transform: none;
     overflow: hidden;
   }
 
-  #projects .all-projects-grid .hnh-size-large {
+  #projects .all-projects-grid .hnh-card-large,
+  #projects #all-projects-grid .hnh-card-large {
     grid-column: span 7;
   }
 
-  #projects .all-projects-grid .hnh-size-medium {
+  #projects .all-projects-grid .hnh-card-medium,
+  #projects #all-projects-grid .hnh-card-medium {
     grid-column: span 5;
   }
 
-  #projects .all-projects-grid .hnh-size-wide {
+  #projects .all-projects-grid .hnh-card-wide,
+  #projects #all-projects-grid .hnh-card-wide {
     grid-column: 1 / -1;
   }
 
-  #projects .all-projects-grid .project-media {
+  #projects .all-projects-grid .project-media,
+  #projects #all-projects-grid .project-media {
     position: relative;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: #dce6df;
+    background: #d8e2d9;
   }
 
-  #projects .all-projects-grid .hnh-size-large .project-media {
+  #projects .all-projects-grid .hnh-card-large .project-media,
+  #projects #all-projects-grid .hnh-card-large .project-media {
     aspect-ratio: 16 / 9;
   }
 
-  #projects .all-projects-grid .hnh-size-medium .project-media {
+  #projects .all-projects-grid .hnh-card-medium .project-media,
+  #projects #all-projects-grid .hnh-card-medium .project-media {
     aspect-ratio: 4 / 3;
   }
 
-  #projects .all-projects-grid .hnh-size-wide .project-media {
+  #projects .all-projects-grid .hnh-card-wide .project-media,
+  #projects #all-projects-grid .hnh-card-wide .project-media {
     aspect-ratio: 21 / 8;
-    max-height: 64vh;
+    max-height: 62vh;
   }
 
-  #projects .all-projects-grid .project-media::after {
-    content: "";
-    position: absolute;
-    inset: 38% 0 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, transparent, rgba(8,19,15,.72));
-  }
-
-  #projects .all-projects-grid .project-media img {
+  #projects .all-projects-grid .project-media img,
+  #projects #all-projects-grid .project-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .8s cubic-bezier(.2,.75,.2,1), filter .4s ease;
+    transition: transform .8s cubic-bezier(.2,.75,.2,1), filter .35s ease;
   }
 
   #projects .all-projects-grid .project-card:hover .project-media img,
-  #projects .all-projects-grid .all-project-card:hover .project-media img {
+  #projects .all-projects-grid .all-project-card:hover .project-media img,
+  #projects #all-projects-grid .project-card:hover .project-media img,
+  #projects #all-projects-grid .all-project-card:hover .project-media img {
     transform: scale(1.035);
-    filter: saturate(1.05);
+    filter: saturate(1.04);
   }
 
-  #projects .all-projects-grid .project-number {
-    top: 13px;
-    right: 13px;
-    border: 0;
-    background: rgba(17,38,31,.72);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+  #projects .all-projects-grid .project-media::after,
+  #projects #all-projects-grid .project-media::after {
+    content: "";
+    position: absolute;
+    inset: 40% 0 0;
+    background: linear-gradient(180deg, transparent, rgba(10, 20, 15, .72));
+    pointer-events: none;
   }
 
-  #projects .all-projects-grid .project-info {
+  #projects .all-projects-grid .project-info,
+  #projects #all-projects-grid .project-info {
     position: absolute;
     z-index: 2;
     inset: auto 0 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
-    gap: 14px;
+    gap: 12px;
     margin: 0 !important;
-    padding: clamp(15px, 1.8vw, 24px) !important;
+    padding: clamp(14px, 1.6vw, 22px) !important;
     border: 0 !important;
     color: #fff;
     pointer-events: none;
   }
 
-  #projects .all-projects-grid .project-info h3 {
+  #projects .all-projects-grid .project-info h3,
+  #projects #all-projects-grid .project-info h3 {
+    margin: 0;
     color: #fff;
-    font-size: clamp(18px, 1.8vw, 29px);
+    font-size: clamp(17px, 1.7vw, 28px);
     line-height: 1.03;
     font-weight: 400;
   }
 
-  #projects .all-projects-grid .project-info p {
+  #projects .all-projects-grid .project-info p,
+  #projects #all-projects-grid .project-info p {
+    margin: 4px 0 0;
     color: rgba(255,255,255,.72);
     font-size: 9px;
   }
 
-  #projects .all-projects-grid .project-arrow {
-    color: #fff;
+  #projects .all-projects-grid .project-number,
+  #projects #all-projects-grid .project-number {
+    top: 12px;
+    right: 12px;
+    border: 0;
+    background: rgba(19, 35, 27, .76);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
-  @media (max-width: 900px) {
-    #projects .hnh-project-types-heading {
-      grid-template-columns: 1fr;
-      gap: 18px;
+  @media (max-width: 980px) {
+    #projects .hnh-project-categories {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      min-height: auto;
     }
 
-    #projects .hnh-project-types-heading h2 {
-      justify-self: start;
-    }
-
-    #projects .hnh-project-type,
-    #projects .hnh-project-type:nth-child(n) {
-      grid-column: span 6;
-      min-height: clamp(220px, 43vw, 350px);
+    #projects .hnh-project-cat {
+      min-height: 240px;
     }
 
     #projects .all-projects-grid .project-card,
     #projects .all-projects-grid .all-project-card,
-    #projects .all-projects-grid .hnh-size-large,
-    #projects .all-projects-grid .hnh-size-medium {
+    #projects #all-projects-grid .project-card,
+    #projects #all-projects-grid .all-project-card,
+    #projects .all-projects-grid .hnh-card-large,
+    #projects .all-projects-grid .hnh-card-medium,
+    #projects #all-projects-grid .hnh-card-large,
+    #projects #all-projects-grid .hnh-card-medium {
       grid-column: span 6;
     }
 
-    #projects .all-projects-grid .hnh-size-wide {
+    #projects .all-projects-grid .hnh-card-wide,
+    #projects #all-projects-grid .hnh-card-wide {
       grid-column: 1 / -1;
     }
   }
 
   @media (max-width: 620px) {
-    #projects .section-shell.hnh-project-types-shell {
-      padding: 34px 14px 22px;
+    #projects .hnh-project-stage-head {
+      display: grid;
+      gap: 10px;
+      padding: 0 14px 12px;
     }
 
-    #projects .hnh-project-types-heading {
-      margin-bottom: 20px;
+    #projects .hnh-project-stage-head h2 {
+      font-size: clamp(26px, 8.6vw, 38px);
     }
 
-    #projects .hnh-project-types-heading h2 {
-      font-size: clamp(27px, 8.7vw, 39px);
+    #projects .hnh-project-stage-subcopy {
+      font-size: 11px;
     }
 
-    #projects .hnh-project-type,
-    #projects .hnh-project-type:nth-child(n) {
-      grid-column: 1 / -1;
-      min-height: 52vw;
+    #projects .hnh-project-categories {
+      grid-template-columns: 1fr;
+      gap: 1px;
+    }
+
+    #projects .hnh-project-cat {
+      min-height: 168px;
     }
 
     #projects .all-projects-gallery-inner {
-      padding: 22px 12px 30px !important;
+      padding: 18px 12px 14px !important;
     }
 
     #projects .all-projects-gallery-head {
-      margin-bottom: 13px !important;
-      padding: 8px 2px 14px !important;
+      margin-bottom: 12px !important;
+      padding-bottom: 12px !important;
+      align-items: flex-start;
+      flex-direction: column;
     }
 
     #projects .all-projects-gallery-head h2 {
-      font-size: clamp(31px, 10vw, 46px);
+      font-size: clamp(30px, 10vw, 44px);
     }
 
-    #projects .all-projects-grid {
+    #projects .all-projects-grid,
+    #projects #all-projects-grid {
+      grid-template-columns: 1fr;
       gap: 10px !important;
+      padding-right: 0;
     }
 
     #projects .all-projects-grid .project-card,
     #projects .all-projects-grid .all-project-card,
-    #projects .all-projects-grid .hnh-size-large,
-    #projects .all-projects-grid .hnh-size-medium,
-    #projects .all-projects-grid .hnh-size-wide {
+    #projects #all-projects-grid .project-card,
+    #projects #all-projects-grid .all-project-card,
+    #projects .all-projects-grid .hnh-card-large,
+    #projects .all-projects-grid .hnh-card-medium,
+    #projects .all-projects-grid .hnh-card-wide,
+    #projects #all-projects-grid .hnh-card-large,
+    #projects #all-projects-grid .hnh-card-medium,
+    #projects #all-projects-grid .hnh-card-wide {
       grid-column: 1 / -1;
     }
 
     #projects .all-projects-grid .project-media,
-    #projects .all-projects-grid .hnh-size-large .project-media,
-    #projects .all-projects-grid .hnh-size-medium .project-media,
-    #projects .all-projects-grid .hnh-size-wide .project-media {
+    #projects .all-projects-grid .hnh-card-large .project-media,
+    #projects .all-projects-grid .hnh-card-medium .project-media,
+    #projects .all-projects-grid .hnh-card-wide .project-media,
+    #projects #all-projects-grid .project-media,
+    #projects #all-projects-grid .hnh-card-large .project-media,
+    #projects #all-projects-grid .hnh-card-medium .project-media,
+    #projects #all-projects-grid .hnh-card-wide .project-media {
       aspect-ratio: 4 / 3;
       max-height: none;
-    }
-
-    #projects .all-projects-grid .project-info {
-      padding: 14px !important;
     }
   }
 </style>
@@ -5820,36 +5916,12 @@ body.site-preloading { overflow:auto !important; }
 <script>
 (() => {
   const TYPE_CONFIG = [
-    {
-      filter: 'Artificial Turf',
-      label: 'Artificial Turf',
-      image: 'assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp'
-    },
-    {
-      filter: 'Timber Flooring',
-      label: 'Timber Flooring',
-      image: 'assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp'
-    },
-    {
-      filter: 'Acrylic Coating',
-      label: 'Acrylic Coating',
-      image: 'assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp'
-    },
-    {
-      filter: 'EPDM Flooring',
-      label: 'EPDM Flooring',
-      image: 'assets/images/projects/epdm-flooring/coralis-condo/01.webp'
-    },
-    {
-      filter: 'Running Track',
-      label: 'Running Tracks',
-      image: 'assets/images/projects/running-track/singapore-polytechnic/01.webp'
-    },
-    {
-      filter: 'Landscape Artificial Turf',
-      label: 'Landscape Turf',
-      image: 'assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp'
-    }
+    { filter: 'Artificial Turf', label: 'Artificial Turf', key: 'turf' },
+    { filter: 'Timber Flooring', label: 'Timber Flooring', key: 'timber' },
+    { filter: 'Acrylic Coating', label: 'Acrylic Coating', key: 'acrylic' },
+    { filter: 'EPDM Flooring', label: 'EPDM Flooring', key: 'epdm' },
+    { filter: 'Running Track', label: 'Running Track', key: 'track' },
+    { filter: 'Landscape Artificial Turf', label: 'Landscape Turf', key: 'landscape' }
   ];
 
   const normalize = value =>
@@ -5858,53 +5930,6 @@ body.site-preloading { overflow:auto !important; }
       .replace(/&/g, 'and')
       .replace(/[^a-z0-9]+/g, ' ')
       .trim();
-
-  const waitForProjectUI = (callback, attempts = 0) => {
-    const section = document.querySelector('#projects');
-    const filterbar = document.querySelector('#project-filterbar');
-    const archiveGrid = document.querySelector('#all-projects-grid');
-    const opener = section?.querySelector('.projects-all-trigger');
-
-    if (
-      section &&
-      filterbar &&
-      archiveGrid &&
-      opener &&
-      filterbar.querySelectorAll('button').length
-    ) {
-      callback({ section, filterbar, archiveGrid, opener });
-      return;
-    }
-
-    if (attempts < 60) {
-      setTimeout(() => waitForProjectUI(callback, attempts + 1), 100);
-    }
-  };
-
-  const applyEditorialSizing = archiveGrid => {
-    const allCards = [...archiveGrid.querySelectorAll('.project-card, .all-project-card')];
-
-    allCards.forEach(card => {
-      card.classList.remove('hnh-size-large', 'hnh-size-medium', 'hnh-size-wide');
-    });
-
-    const visible = allCards.filter(card => {
-      const style = getComputedStyle(card);
-      return style.display !== 'none' && !card.hidden;
-    });
-
-    const pattern = [
-      'hnh-size-large',
-      'hnh-size-medium',
-      'hnh-size-medium',
-      'hnh-size-large',
-      'hnh-size-wide'
-    ];
-
-    visible.forEach((card, index) => {
-      card.classList.add(pattern[index % pattern.length]);
-    });
-  };
 
   const findFilterButton = (filterbar, wanted) => {
     const target = normalize(wanted);
@@ -5915,7 +5940,9 @@ body.site-preloading { overflow:auto !important; }
         button.dataset.filter,
         button.dataset.category,
         button.getAttribute('aria-label')
-      ].map(normalize);
+      ]
+        .filter(Boolean)
+        .map(normalize);
 
       return values.some(value =>
         value === target ||
@@ -5925,88 +5952,137 @@ body.site-preloading { overflow:auto !important; }
     });
   };
 
-  const install = ({ section, filterbar, archiveGrid, opener }) => {
-    if (section.dataset.hnhTypeGallery === '1') return;
-    section.dataset.hnhTypeGallery = '1';
+  const applyEditorialSizing = archiveGrid => {
+    const allCards = [...archiveGrid.querySelectorAll('.project-card, .all-project-card')];
+
+    allCards.forEach(card => {
+      card.classList.remove('hnh-card-large', 'hnh-card-medium', 'hnh-card-wide');
+    });
+
+    const visibleCards = allCards.filter(card => {
+      const style = getComputedStyle(card);
+      return style.display !== 'none' && !card.hidden;
+    });
+
+    const pattern = [
+      'hnh-card-large',
+      'hnh-card-medium',
+      'hnh-card-medium',
+      'hnh-card-large',
+      'hnh-card-wide'
+    ];
+
+    visibleCards.forEach((card, index) => {
+      card.classList.add(pattern[index % pattern.length]);
+    });
+  };
+
+  const waitForProjectUI = (callback, attempts = 0) => {
+    const section = document.querySelector('#projects');
+    const filterbar = document.querySelector('#project-filterbar');
+    const archiveGrid =
+      document.querySelector('#all-projects-grid') ||
+      document.querySelector('.all-projects-grid');
+    const opener = section?.querySelector('.projects-all-trigger');
+    const gallery = section?.querySelector('.all-projects-gallery');
+    const close = gallery?.querySelector('.all-projects-close');
+
+    if (
+      section &&
+      filterbar &&
+      archiveGrid &&
+      opener &&
+      gallery &&
+      close &&
+      filterbar.querySelectorAll('button').length
+    ) {
+      callback({ section, filterbar, archiveGrid, opener, gallery, close });
+      return;
+    }
+
+    if (attempts < 80) {
+      setTimeout(() => waitForProjectUI(callback, attempts + 1), 100);
+    }
+  };
+
+  const install = ({ section, filterbar, archiveGrid, opener, gallery, close }) => {
+    if (section.dataset.hnhProjectFullbleed === '1') return;
+    section.dataset.hnhProjectFullbleed = '1';
 
     const shell = section.querySelector(':scope > .section-shell');
     if (!shell) return;
 
-    const originalOpenControl = opener;
+    shell.classList.add('hnh-project-shell-original');
 
-    shell.classList.add('hnh-project-types-shell');
-    shell.innerHTML = `
-      <div class="hnh-project-types-heading">
-        <div class="hnh-project-types-kicker">Project Types</div>
-        <h2>Explore our work by surface and application.</h2>
+    const stage = document.createElement('div');
+    stage.className = 'hnh-project-stage';
+    stage.innerHTML = `
+      <div class="hnh-project-stage-inner">
+        <div class="hnh-project-stage-head">
+          <div>
+            <p class="eyebrow">Project Types</p>
+            <h2>Explore our work by surface and application.</h2>
+          </div>
+          <p class="hnh-project-stage-subcopy">
+            Start with a category, then browse a cleaner full-page gallery of related projects.
+          </p>
+        </div>
+        <div class="hnh-project-categories" aria-label="Project categories"></div>
       </div>
-      <div class="hnh-project-type-gallery" aria-label="Project types"></div>
     `;
 
-    const gallery = shell.querySelector('.hnh-project-type-gallery');
+    shell.insertAdjacentElement('afterend', stage);
+
+    const categories = stage.querySelector('.hnh-project-categories');
 
     TYPE_CONFIG.forEach((type, index) => {
       const tile = document.createElement('button');
       tile.type = 'button';
-      tile.className = 'hnh-project-type';
-      tile.dataset.projectFilter = type.filter;
+      tile.className = 'hnh-project-cat';
+      tile.dataset.filter = type.filter;
+      tile.dataset.key = type.key;
       tile.setAttribute('aria-label', `View ${type.label} projects`);
-
       tile.innerHTML = `
-        <img class="hnh-project-type-image"
-             src="${type.image}"
-             alt=""
-             loading="${index < 3 ? 'eager' : 'lazy'}">
-        <span class="hnh-project-type-copy">
-          <span>
-            <small>${String(index + 1).padStart(2, '0')} / ${String(TYPE_CONFIG.length).padStart(2, '0')}</small>
-            <strong>${type.label}</strong>
-          </span>
-          <span class="hnh-project-type-arrow" aria-hidden="true">↗</span>
+        <span class="hnh-project-cat-arrow" aria-hidden="true">↗</span>
+        <span class="hnh-project-cat-copy">
+          <span class="hnh-project-cat-kicker">${String(index + 1).padStart(2, '0')} / 06</span>
+          <span class="hnh-project-cat-title">${type.label}</span>
         </span>
       `;
-
-      gallery.append(tile);
+      categories.append(tile);
     });
 
-    const archive = section.querySelector('.all-projects-gallery');
-    const archiveHeading = archive?.querySelector('.all-projects-gallery-head h2');
-    const archiveEyebrow = archive?.querySelector('.all-projects-gallery-head .eyebrow');
-    const close = archive?.querySelector('.all-projects-close');
+    const archiveHeading = gallery.querySelector('.all-projects-gallery-head h2');
+    const archiveEyebrow = gallery.querySelector('.all-projects-gallery-head .eyebrow');
 
-    if (close) {
-      close.textContent = 'Back to Project Types';
-      close.setAttribute('aria-label', 'Back to project types');
-    }
+    close.textContent = 'Back to Projects';
+    close.setAttribute('aria-label', 'Back to Projects');
 
-    const chooseCategory = filterName => {
-      originalOpenControl.click();
+    const openCategory = filterName => {
+      opener.click();
 
       requestAnimationFrame(() => {
-        const filter = findFilterButton(filterbar, filterName);
+        const button = findFilterButton(filterbar, filterName);
 
-        if (filter) {
-          filter.click();
+        if (button) {
+          button.click();
         } else {
-          console.warn(`H&H Projects: no filter button found for "${filterName}"`);
+          console.warn(`H&H Projects: no matching filter for "${filterName}"`);
         }
 
+        const match = TYPE_CONFIG.find(item => item.filter === filterName);
         if (archiveEyebrow) archiveEyebrow.textContent = 'Project Type';
+        if (archiveHeading) archiveHeading.textContent = match?.label || filterName;
 
-        if (archiveHeading) {
-          const config = TYPE_CONFIG.find(item => item.filter === filterName);
-          archiveHeading.textContent = config?.label || filterName;
-        }
-
-        setTimeout(() => applyEditorialSizing(archiveGrid), 40);
-        setTimeout(() => applyEditorialSizing(archiveGrid), 180);
+        setTimeout(() => applyEditorialSizing(archiveGrid), 50);
+        setTimeout(() => applyEditorialSizing(archiveGrid), 220);
       });
     };
 
-    gallery.addEventListener('click', event => {
-      const tile = event.target.closest('.hnh-project-type');
+    categories.addEventListener('click', event => {
+      const tile = event.target.closest('.hnh-project-cat');
       if (!tile) return;
-      chooseCategory(tile.dataset.projectFilter);
+      openCategory(tile.dataset.filter);
     });
 
     const observer = new MutationObserver(() => {
@@ -6014,32 +6090,21 @@ body.site-preloading { overflow:auto !important; }
     });
 
     observer.observe(archiveGrid, {
-      attributes: true,
       childList: true,
       subtree: true,
+      attributes: true,
       attributeFilter: ['class', 'style', 'hidden']
     });
-
-    console.info(
-      'H&H project filters:',
-      [...filterbar.querySelectorAll('button')]
-        .map(button => button.textContent.trim())
-        .filter(Boolean)
-    );
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener(
-      'DOMContentLoaded',
-      () => waitForProjectUI(install),
-      { once: true }
-    );
+    document.addEventListener('DOMContentLoaded', () => waitForProjectUI(install), { once: true });
   } else {
     waitForProjectUI(install);
   }
 })();
 </script>
-<!-- /HNH PROJECTS TYPE GALLERY REDESIGN -->
+<!-- /HNH PROJECTS FULLBLEED CATEGORY STRIP -->
 
 </body>
 </html>
