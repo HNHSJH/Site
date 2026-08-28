@@ -4116,20 +4116,6 @@ body.site-preloading { overflow:auto !important; }
     margin-bottom: 6px !important;
   }
 }
-
-    /* Mobile contact position fix */
-    @media (max-width: 620px) {
-      #contact .contact-heading {
-        margin-bottom: 14px;
-      }
-
-      #contact .contact-grid {
-        position: relative;
-        top: -8px;
-      }
-    }
-    /* /Mobile contact position fix */
-
 </style>
 </head>
 <body>
@@ -5228,6 +5214,44 @@ body.site-preloading { overflow:auto !important; }
       display: none;
     }
   }
+
+    /* Mobile contact nav clearance fix */
+    @media (max-width: 620px) {
+      #contact .section-shell {
+        padding-top: 60px !important;
+        padding-bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+      }
+
+      #contact .contact-heading {
+        margin-bottom: 10px !important;
+      }
+
+      #contact .contact-grid {
+        position: relative;
+        top: -8px !important;
+      }
+
+      #contact .panel-prev,
+      #contact .panel-next {
+        bottom: max(10px, env(safe-area-inset-bottom)) !important;
+        min-height: 38px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      #contact .contact-details {
+        column-gap: 10px !important;
+      }
+
+      #contact .contact-details a,
+      #contact .contact-details p {
+        line-height: 1.2 !important;
+      }
+    }
+    /* /Mobile contact nav clearance fix */
+
 </style>
 
 <script>
