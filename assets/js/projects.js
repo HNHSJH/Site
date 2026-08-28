@@ -154,3 +154,41 @@
     }
   }, true);
 })();
+
+/* Keep mobile browser chrome / safe-area surfaces aligned with the active full-screen panel. */
+(() => {
+  const mobile = window.matchMedia('(max-width: 620px)');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const panelColors = {
+    about: '#f6f8f3',
+    projects: '#142b27',
+    expertise: '#e7efe8',
+    clients: '#dce7dd',
+    contact: '#18312f'
+  };
+
+  const syncMobileSurface = () => {
+    if (!mobile.matches) {
+      document.documentElement.style.removeProperty('background-color');
+      document.body.style.removeProperty('background-color');
+      if (themeMeta) themeMeta.setAttribute('content', '#eff3ed');
+      return;
+    }
+
+    const activePanel = document.body.dataset.activePanel;
+    const surface = panelColors[activePanel] || '#182019';
+    document.documentElement.style.backgroundColor = surface;
+    document.body.style.backgroundColor = surface;
+    if (themeMeta) themeMeta.setAttribute('content', surface);
+  };
+
+  new MutationObserver(syncMobileSurface).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['data-active-panel']
+  });
+
+  if (typeof mobile.addEventListener === 'function') mobile.addEventListener('change', syncMobileSurface);
+  else if (typeof mobile.addListener === 'function') mobile.addListener(syncMobileSurface);
+
+  syncMobileSurface();
+})();
