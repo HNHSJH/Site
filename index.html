@@ -4116,63 +4116,37 @@ body.site-preloading { overflow:auto !important; }
     margin-bottom: 6px !important;
   }
 }
+
+    /* Mobile contact position fix */
+    @media (max-width: 620px) {
+      #contact .contact-heading {
+        margin-bottom: 14px;
+      }
+
+      #contact .contact-grid {
+        position: relative;
+        top: -8px;
+      }
+    }
+    /* /Mobile contact position fix */
+
 </style>
 
-<style id="hnh-canonical-backgrounds">
-/*
-  H&H canonical section backgrounds.
-  Keep these after all other CSS so desktop and mobile remain identical.
-*/
+<style id="contact-mobile-nav-only">
+@media (max-width: 620px) {
+  #contact .panel-prev,
+  #contact .panel-next {
+    bottom: max(4px, env(safe-area-inset-bottom)) !important;
+    min-height: 30px !important;
+    padding: 0 8px !important;
+    font-size: 7px !important;
+    letter-spacing: .08em !important;
+  }
 
-#about.intro {
-  background:
-    linear-gradient(
-      180deg,
-      var(--paper-warm) 0%,
-      var(--paper) 100%
-    ) !important;
-}
-
-#projects.projects {
-  background:
-    radial-gradient(
-      circle at 82% 12%,
-      rgba(134, 163, 109, .20),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #142b27 0%,
-      #24483f 54%,
-      #365f52 100%
-    ) !important;
-}
-
-#clients.clients {
-  background:
-    linear-gradient(
-      180deg,
-      #dce7dd 0%,
-      #dfeaf0 100%
-    ) !important;
-}
-
-#contact.contact {
-  background:
-    linear-gradient(
-      135deg,
-      #18312f 0%,
-      var(--green-deep) 52%,
-      #4b6e61 100%
-    ) !important;
-}
-
-/* Never allow the internal shell to paint over the section background */
-#about > .section-shell,
-#projects > .section-shell,
-#clients > .section-shell,
-#contact > .section-shell {
-  background: transparent !important;
+  #contact .panel-prev::before,
+  #contact .panel-next::after {
+    font-size: 12px !important;
+  }
 }
 </style>
 
@@ -5273,36 +5247,6 @@ body.site-preloading { overflow:auto !important; }
       display: none;
     }
   }
-
-    /* Contact mobile controls only */
-    @media (max-width: 620px) {
-
-      #contact .section-shell {
-        padding-top: 54px !important;
-        padding-bottom: 56px !important;
-      }
-
-      #contact .contact-heading {
-        margin-bottom: 8px !important;
-      }
-
-      #contact .contact-grid {
-        position: relative;
-        top: -12px;
-      }
-
-      #contact .panel-prev,
-      #contact .panel-next {
-        min-width: 0 !important;
-        min-height: 32px !important;
-        padding: 0 9px !important;
-        bottom: max(5px, env(safe-area-inset-bottom)) !important;
-        font-size: 7px !important;
-        letter-spacing: .08em !important;
-      }
-    }
-    /* /Contact mobile controls only */
-
 </style>
 
 <script>
