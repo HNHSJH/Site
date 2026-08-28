@@ -5252,6 +5252,88 @@ body.site-preloading { overflow:auto !important; }
     }
     /* /Mobile contact nav clearance fix */
 
+
+    /* HNH mobile background + contact nav fix */
+    @media (max-width: 620px) {
+
+      /* Restore original section backgrounds on mobile */
+      #about.intro {
+        background:
+          linear-gradient(
+            180deg,
+            var(--paper-warm) 0%,
+            var(--paper) 100%
+          ) !important;
+      }
+
+      #projects.projects {
+        background:
+          radial-gradient(
+            circle at 82% 12%,
+            rgba(134,163,109,.20),
+            transparent 30%
+          ),
+          linear-gradient(
+            135deg,
+            #142b27 0%,
+            #24483f 54%,
+            #365f52 100%
+          ) !important;
+        color: #fff !important;
+      }
+
+      #clients.clients {
+        background:
+          linear-gradient(
+            180deg,
+            #dce7dd 0%,
+            #dfeaf0 100%
+          ) !important;
+      }
+
+      #contact.contact {
+        background:
+          linear-gradient(
+            135deg,
+            #18312f 0%,
+            var(--green-deep) 52%,
+            #4b6e61 100%
+          ) !important;
+        color: #fff !important;
+      }
+
+      /*
+        Contact mobile:
+        keep Previous / Finish at the extreme bottom
+        and reduce their footprint so Head Office remains visible.
+      */
+      #contact .panel-prev,
+      #contact .panel-next {
+        bottom: max(5px, env(safe-area-inset-bottom)) !important;
+        min-height: 31px !important;
+        padding: 0 8px !important;
+        gap: 5px !important;
+        font-size: 6px !important;
+        letter-spacing: .08em !important;
+      }
+
+      #contact .panel-prev::before,
+      #contact .panel-next::after {
+        font-size: 12px !important;
+      }
+
+      #contact .contact-grid {
+        position: relative;
+        top: -8px;
+      }
+
+      #contact .contact-details {
+        position: relative;
+        z-index: 10;
+      }
+    }
+    /* /HNH mobile background + contact nav fix */
+
 </style>
 
 <script>
