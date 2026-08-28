@@ -21,7 +21,6 @@ def copy_repo() -> None:
 
 
 def clean_css(css: str) -> str:
-    # Remove historical version labels while leaving meaningful component comments intact.
     css = re.sub(r"/\*\s*v\d+[^*]*\*/", "", css, flags=re.I)
     css = re.sub(r"\n{4,}", "\n\n\n", css)
     return css.strip() + "\n"
@@ -78,7 +77,6 @@ def extract_inline_scripts(html: str) -> tuple[str, list[str]]:
         attrs = match.group(1) or ""
         body = match.group(2) or ""
         if re.search(r"\bsrc\s*=", attrs, re.I):
-            # Reinsert external project/data scripts later in one deterministic block.
             if "data/projects.js" in attrs or "assets/js/projects.js" in attrs:
                 return ""
             return match.group(0)
@@ -117,7 +115,6 @@ def extract_inline_scripts(html: str) -> tuple[str, list[str]]:
         (js_dir / name).write_text(extracted[name].strip() + "\n", encoding="utf-8")
         written.append(f"assets/js/{name}")
 
-    # Remove the temporary runtime contact-position patch from the existing project renderer.
     projects_js = js_dir / "projects.js"
     if projects_js.exists():
         text = projects_js.read_text(encoding="utf-8")
@@ -143,7 +140,6 @@ def extract_inline_scripts(html: str) -> tuple[str, list[str]]:
 
 
 def tidy_html(html: str) -> str:
-    # Remove comments that only documented temporary patch boundaries/version history.
     html = re.sub(r"<!--\s*/?HNH attachment remove fix\s*-->", "", html, flags=re.I)
     html = re.sub(r"\n{3,}", "\n\n", html)
     return html.strip() + "\n"
@@ -182,8 +178,6 @@ def remove_known_redundant_files() -> list[str]:
             p.unlink()
             removed.append(rel)
 
-    # Conservative duplicate cleanup: only remove alternate files that are not referenced
-    # by any text source in the output tree.
     optional = [
         "assets/logos/clients/republic-polytechnic.webp",
         "assets/images/projects/acrylic-coating/raffles-institution/01.jpg",
@@ -227,7 +221,7 @@ def validate_references() -> list[str]:
             continue
         text = p.read_text(encoding="utf-8", errors="ignore")
         for raw in pattern.findall(text):
-            rel = raw.split("?", 1)[0].rstrip("'\")];,}")
+            rel = raw.split("?", 1)[0].rstrip("'\"),;]}")
             target = OUT / rel
             if not target.exists():
                 missing.add(rel)
