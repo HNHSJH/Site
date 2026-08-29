@@ -154,12 +154,3 @@
     }
   }, true);
 })();
-
-// Mobile Contact: raise content slightly while leaving Previous / Finish fixed in place.
-if (window.matchMedia('(max-width: 620px)').matches) {
-  const contactShell = document.querySelector('#contact > .section-shell');
-  if (contactShell) {
-    contactShell.style.position = 'relative';
-    contactShell.style.top = '-20px';
-  }
-}
