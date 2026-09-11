@@ -570,7 +570,7 @@
       color: #dcebf0;
     }
     .expertise .section-kicker > span {
-      color: #e4ede6;
+      color: var(--green-deep);
     }
     .projects .section-shell {
       padding-top: clamp(50px, 5vw, 72px);
@@ -663,9 +663,8 @@
     }
 
     .expertise {
-      background: #142b27;
-      color: #fff;
-      --section-photo-position: 50% 42%;
+      background: #fff;
+      color: var(--green-forest);
     }
     #expertise > .section-shell {
       justify-content: flex-start;
@@ -684,32 +683,12 @@
     }
     #expertise .expertise-heading .section-kicker { margin-bottom: 0; }
     .expertise-marks {
-      position: relative;
       justify-self: end;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: clamp(12px, 1.6vw, 22px);
       padding: 0;
-    }
-    /* Reveal Temasek's pale sky beneath the transparent marks. The feathered
-       treatment follows the logo row on every screen, leaving the text dimmed. */
-    .expertise-marks::before {
-      content: "";
-      position: absolute;
-      inset: -14px;
-      z-index: -1;
-      pointer-events: none;
-      -webkit-backdrop-filter: brightness(3.2);
-      backdrop-filter: brightness(3.2);
-      -webkit-mask-image:
-        linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent),
-        linear-gradient(0deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
-      mask-image:
-        linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent),
-        linear-gradient(0deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
-      -webkit-mask-composite: source-in;
-      mask-composite: intersect;
     }
     .expertise-marks img {
       height: auto;
@@ -727,7 +706,7 @@
       .expertise-mark-bca { width: 94px; }
       .expertise-mark-bizsafe { width: 86px; }
     }
-    .expertise-list { border-top:1px solid rgba(255,255,255,.36); }
+    .expertise-list { border-top:1px solid rgba(53,83,73,.22); }
     .expertise-row {
       display:grid;
       grid-template-columns: 80px minmax(220px, .9fr) minmax(280px, 1.1fr) 28px;
@@ -739,8 +718,8 @@
     }
     .expertise-row:hover {
       padding-left:14px;
-      color: #fff;
-      background: rgba(7,10,7,.18);
+      color: var(--green-forest);
+      background: rgba(53,83,73,.055);
     }
     .expertise-row .num { font-size:10px; letter-spacing:.14em; color: var(--green-mid); }
     .expertise-row h3 {
@@ -753,9 +732,14 @@
     .expertise-row .plus { font-size:28px; font-weight:200; color: var(--green-deep); }
 
     .clients {
-      background: #142b27;
-      color: #fff;
-      --section-photo-position: 50% 48%;
+      background: #fff;
+      color: var(--green-forest);
+      --archive-foreground: var(--green-forest);
+      --archive-background: rgba(53,83,73,.04);
+      --archive-border: rgba(53,83,73,.42);
+      --archive-hover-foreground: #fff;
+      --archive-hover-background: var(--green-forest);
+      --archive-focus: var(--green-deep);
       overflow: hidden;
     }
     .clients-intro {
@@ -778,15 +762,15 @@
       margin: 0;
       padding-top: 0;
       border-top: 0;
-      color: #e4ede6;
+      color: var(--muted);
       font-size: 14px;
     }
     .client-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: var(--gallery-gap);
-      border: 0;
-      background: transparent;
+      border-top: 1px solid rgba(53,83,73,.16);
+      border-left: 1px solid rgba(53,83,73,.16);
+      background: rgba(246,248,243,.90);
     }
     .client-logo {
       color: var(--green-forest);
@@ -1912,14 +1896,14 @@
     .showcase-enquire:focus-visible { outline:2px solid #fff; outline-offset:4px; }
 
     /* Expertise colour accents */
-    .expertise .section-kicker h2 { color: #fff; }
-    .expertise-row .num { color: #dce8bf; font-weight: 700; }
-    .expertise-row h3 { color: #fff; }
-    .expertise-row p { color: #e4ede6; }
-    .expertise-row .plus { color: #dce8bf; }
-    .expertise-item.is-open .expertise-row h3 { color: #dce8bf; }
+    .expertise .section-kicker h2 { color: var(--green-forest); }
+    .expertise-row .num { color: var(--green-deep); font-weight: 700; }
+    .expertise-row h3 { color: var(--green-forest); }
+    .expertise-row p { color: var(--muted); }
+    .expertise-row .plus { color: var(--green-deep); }
+    .expertise-item.is-open .expertise-row h3 { color: var(--green-deep); }
     .expertise-choice {
-      border-color: rgba(255,255,255,.48) !important;
+      border-color: rgba(53,83,73,.22) !important;
       color: #20312d !important;
       background: rgba(246,248,243,.94) !important;
     }
@@ -1956,12 +1940,12 @@
     }
 
     /* v4 — expandable expertise */
-    .expertise-item { border-bottom: 1px solid rgba(255,255,255,.30); }
+    .expertise-item { border-bottom: 1px solid rgba(53,83,73,.16); }
     .expertise-item .expertise-row {
       width:100%; border:0; background:transparent; color:inherit;
       text-align:left; font:inherit; cursor:pointer;
     }
-    .expertise-item .expertise-row:hover { background:rgba(7,10,7,.18); }
+    .expertise-item .expertise-row:hover { background:rgba(53,83,73,.055); }
     .expertise-item .plus { display:inline-grid; place-items:center; transition:transform .32s var(--ease); }
     .expertise-item.is-open .plus { transform:rotate(45deg); }
     .expertise-options {
@@ -2364,10 +2348,6 @@
       padding: 0 !important;
       overflow: hidden !important;
       display: block !important;
-    }
-    .clients .client-grid .client-logo {
-      border: 1px solid rgba(255,255,255,.36);
-      background: rgba(246,248,243,.94);
     }
 
     /* Every mark gets the same physical safe area. This overrides all
@@ -2872,10 +2852,10 @@
   min-width: 200px;
   min-height: 46px;
   padding: 0 18px;
-  border: 1px solid rgba(255,255,255,.64);
+  border: 1px solid var(--archive-border, rgba(255,255,255,.64));
   border-radius: 0;
-  color: #fff;
-  background: rgba(255,255,255,.08);
+  color: var(--archive-foreground, #fff);
+  background: var(--archive-background, rgba(255,255,255,.08));
   box-shadow: 0 10px 26px rgba(0,0,0,.10);
   font-size: 10px;
   font-weight: 800;
@@ -2892,13 +2872,13 @@
 }
 .archive-trigger:hover,
 .archive-trigger:focus-visible {
-  color: var(--green-forest);
-  background: #fff;
-  border-color: #fff;
+  color: var(--archive-hover-foreground, var(--green-forest));
+  background: var(--archive-hover-background, #fff);
+  border-color: var(--archive-hover-background, #fff);
   transform: translateY(-2px);
 }
 .archive-trigger:focus-visible {
-  outline: 2px solid #dce8bf;
+  outline: 2px solid var(--archive-focus, #dce8bf);
   outline-offset: 4px;
 }
 .archive-trigger:hover span,
@@ -3168,7 +3148,9 @@ body.client-archive-open #clients > .panel-next {
   transition: color .3s ease, opacity .3s ease;
 }
 
-/* Light archive/detail overlays retain dark copyright text above the photographic panels. */
+/* Keep copyright readable on white panels and light archive/detail overlays. */
+body:has(#clients.panel-active) .global-copyright,
+body:has(#expertise.panel-active) .global-copyright,
 body.client-archive-open .global-copyright,
 body.moe-schools-open .global-copyright,
 body.project-detail-open .global-copyright {
@@ -4298,8 +4280,7 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </div></section>
-<section class="expertise scroll-section photo-panel" id="expertise">
-<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1095" loading="lazy" src="assets/images/projects/artificial-turf/temasek-secondary-school/01.webp" width="1600"/></div>
+<section class="expertise scroll-section" id="expertise">
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="expertise-heading">
@@ -4360,8 +4341,7 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </section>
-<section class="clients scroll-section photo-panel" id="clients">
-<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="715" loading="lazy" src="assets/images/projects/running-track/perennial-business-city/01.webp" width="1379"/></div>
+<section class="clients scroll-section" id="clients">
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="clients-footer reveal"><button class="archive-trigger clients-all-trigger" type="button">View All Clients <span aria-hidden="true">→</span></button></div>
