@@ -36,16 +36,16 @@ The showcase is fully local and references the exact cover photograph used by th
 
 The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses a 78%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The Contact Us information panel matches the About Us surface colour, 78% opacity, 3px backdrop blur, border and shadow. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list. Both cutouts were rebuilt from the resupplied originals, resized to 480px and encoded as lossless WebP with genuine alpha transparency. Their reduced display sizes are retained, without a background, border or glow; content-hash query strings refresh cached logo images. Expertise now uses a plain white background with dark green headings, readable grey body text and subtle dividers. Expertise content starts lower in the viewport; its three navigation controls retain their existing positions.
 
-Projects and Contact Us retain full-viewport photographs with `object-fit: cover`, a small homepage-style overscan and dark gradient overlays. Clients and Expertise have plain white backgrounds:
+Projects and Contact Us retain full-viewport photographs with `object-fit: cover`, a small homepage-style overscan and dark gradient overlays. Clients uses the supplied pale green (`#DEE7DE`), while Expertise stays plain white:
 
-| Section | Background photograph |
+| Section | Background |
 | --- | --- |
 | Projects | Seng Kang Primary School — artificial turf |
-| Clients | Plain white |
+| Clients | Pale green `#DEE7DE` |
 | Expertise | Plain white |
 | Contact Us | Republic Polytechnic — acrylic coating |
 
-The Clients section groups View All Clients, the selected-client grid and the heading together slightly above the centre of the viewport. The button sits at the top right, 16px above the grid, and the heading follows 22–30px below it. Automatic margins surround the whole composition rather than separating the grid from the heading; they collapse on short screens so all content remains scrollable above the fixed navigation. Clients uses the original joined logo grid with shared borders and no gutters between tiles. Projects and Clients retain a 1280px gallery width, 16px button-to-gallery spacing and one `.archive-trigger` button component. Its dimensions and interactions are shared, with a dark-text colour scheme for the white Clients page. Navigation and copyright text also adapt to the white panels. Contact placeholders and attachment helper text have stronger contrast. Archive and detail overlays retain their existing separate surfaces.
+The Clients section groups View All Clients, the selected-client grid and the heading together slightly above the centre of the viewport. The button sits at the top right, 16px above the grid, and the heading follows 22–30px below it. Automatic margins surround the whole composition rather than separating the grid from the heading; they collapse on short screens so all content remains scrollable above the fixed navigation. Clients uses the original joined logo grid with shared borders and no gutters between tiles. Projects and Clients retain a 1280px gallery width, 16px button-to-gallery spacing and one `.archive-trigger` button component. Its dimensions and interactions are shared, with a dark-text colour scheme for the pale green Clients page. Navigation and copyright text also adapt to the light panels. Contact placeholders and attachment helper text have stronger contrast. All Projects and individual project popups use the same `--panel-background: #dee7de` swatch as Clients, including their sticky headers. Archive titles, card captions, filters, buttons, focus rings and copyright use dark colours for contrast; project-number badges retain white text over their dark backing. Client archive surfaces retain their existing treatment.
 
 Copy sources checked on 11 September 2026:
 
@@ -57,7 +57,7 @@ The two marks were supplied by the owner. Their inclusion does not add a claim t
 
 ## Interaction model
 
-The main site is intentionally no-scroll. Sections slide over the showcase. `All Projects`, project details, and `All Past Clients` use their own internal scroll areas.
+The main site is intentionally no-scroll. Sections slide over the showcase. The guided order is About Us → Clients → Projects → Expertise → Contact Us, with the same order in the homepage Explore menu, the available main-menu links, the HTML sections and the Previous/Next controls. `All Projects`, project details, and `All Past Clients` use their own internal scroll areas.
 
 
 ## v2 update

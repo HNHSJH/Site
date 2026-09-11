@@ -21,6 +21,7 @@
       --ink: #16221c;
       --paper: #eff3ed;
       --paper-warm: #f6f8f3;
+      --panel-background: #dee7de;
       --white: #ffffff;
       --muted: #647067;
       --line: rgba(35, 56, 42, 0.16);
@@ -625,6 +626,7 @@
       padding: 5px 7px;
       border: 1px solid rgba(255,255,255,.32);
       background: rgba(20,43,39,.70);
+      color: #fff;
       font-size:10px;
       letter-spacing:.12em;
     }
@@ -634,11 +636,11 @@
       gap: 12px;
       margin-top: 11px;
       padding-top: 10px;
-      border-top: 1px solid rgba(215,230,238,.34);
+      border-top: 1px solid var(--project-divider, rgba(215,230,238,.34));
     }
     .project-info h3 {
       margin: 0;
-      color: #fff;
+      color: var(--project-heading, #fff);
       font-size: clamp(16px, 1.35vw, 21px);
       line-height: 1.12;
       font-weight: 500;
@@ -646,7 +648,7 @@
     }
     .project-info p {
       margin: 5px 0 0;
-      color: rgba(231,245,248,.86);
+      color: var(--project-caption, rgba(231,245,248,.86));
       font-size: 9px;
       line-height: 1.35;
       text-transform: uppercase;
@@ -732,8 +734,9 @@
     .expertise-row .plus { font-size:28px; font-weight:200; color: var(--green-deep); }
 
     .clients {
-      background: #fff;
+      background: var(--panel-background);
       color: var(--green-forest);
+      --muted: #5a665e;
       --archive-foreground: var(--green-forest);
       --archive-background: rgba(53,83,73,.04);
       --archive-border: rgba(53,83,73,.42);
@@ -1742,8 +1745,12 @@
       position: absolute;
       inset: 0;
       z-index: 30;
-      color: #fff;
-      background: linear-gradient(135deg, #10231f 0%, #24483f 58%, #365f52 100%);
+      color: var(--green-forest);
+      background: var(--panel-background);
+      --project-heading: var(--green-forest);
+      --project-caption: var(--green-deep);
+      --project-divider: rgba(53,83,73,.22);
+      --project-focus: var(--green-deep);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -1773,9 +1780,9 @@
       gap: 28px;
       margin: calc(clamp(28px, 4vw, 52px) * -1) calc(var(--pad) * -1) 28px;
       padding: clamp(28px, 4vw, 52px) var(--pad) 22px;
-      background: linear-gradient(180deg, rgba(16,35,31,.98) 0%, rgba(16,35,31,.94) 76%, rgba(16,35,31,0) 100%);
+      background: var(--panel-background);
     }
-    .all-projects-gallery-head .eyebrow { color: #dcebf0; margin-bottom: 10px; }
+    .all-projects-gallery-head .eyebrow { color: var(--green-deep); margin-bottom: 10px; }
     .all-projects-gallery-head h2 {
       margin: 0;
       font-size: clamp(32px, 4vw, 58px);
@@ -1786,7 +1793,7 @@
     .all-projects-gallery-head p {
       max-width: 620px;
       margin: 13px 0 0;
-      color: rgba(255,255,255,.72);
+      color: var(--green-deep);
       font-size: 13px;
     }
     .all-projects-close {
@@ -1794,9 +1801,9 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: #fff;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.62);
+      color: var(--green-forest);
+      background: rgba(255,255,255,.42);
+      border: 1px solid rgba(53,83,73,.42);
       cursor: pointer;
       text-transform: uppercase;
       transition: transform .3s var(--ease), background .25s ease;
@@ -1805,8 +1812,11 @@
     .all-projects-close:hover,
     .all-projects-close:focus-visible {
       transform: translateX(-5px);
-      background: rgba(255,255,255,.18);
-      outline: none;
+      background: #fff;
+    }
+    .all-projects-close:focus-visible {
+      outline: 2px solid var(--green-deep);
+      outline-offset: 4px;
     }
     .all-projects-grid {
       display: grid;
@@ -1818,8 +1828,12 @@
     .all-projects-grid .project-card {
       min-width: 0;
       padding: 10px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.42);
+      border: 1px solid rgba(53,83,73,.22);
+    }
+    .all-projects-grid .project-card:hover {
+      background: rgba(255,255,255,.68);
+      border-color: rgba(53,83,73,.42);
     }
     .all-projects-grid .project-media { aspect-ratio: 4 / 3; }
 
@@ -2475,7 +2489,7 @@
 <style>
 /* Production project library — Batch 01 */
 .project-card[data-project-id] { cursor: pointer; text-align:left; color:inherit; font:inherit; width:100%; }
-.project-card[data-project-id]:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.project-card[data-project-id]:focus-visible { outline: 2px solid var(--project-focus, #fff); outline-offset: 4px; }
 .project-card .project-info p { min-height: 2.5em; }
 .projects-footer { align-items:center; gap:18px; }
 .projects-count {
@@ -2493,9 +2507,9 @@
 }
 .project-filter {
   appearance:none;
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.04);
-  color:rgba(255,255,255,.78);
+  border:1px solid rgba(53,83,73,.42);
+  background:rgba(255,255,255,.42);
+  color:var(--green-forest);
   padding:9px 12px;
   font-size:9px;
   line-height:1;
@@ -2506,17 +2520,22 @@
 }
 .project-filter:hover,
 .project-filter.is-active {
-  color:#10231f;
-  background:#fff;
-  border-color:#fff;
+  color:#fff;
+  background:var(--green-forest);
+  border-color:var(--green-forest);
+}
+.project-filter:focus-visible {
+  outline:2px solid var(--green-deep);
+  outline-offset:3px;
 }
 .all-projects-grid .project-card[hidden] { display:none; }
 .project-detail-overlay {
   position:absolute;
   inset:0;
   z-index:45;
-  background:linear-gradient(135deg,#f3f6f1 0%,#e4eee8 100%);
+  background:var(--panel-background);
   color:var(--ink);
+  --muted:#5a665e;
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -2544,7 +2563,7 @@
   align-items:center;
   margin:calc(clamp(24px,4vw,52px) * -1) calc(var(--pad) * -1) clamp(24px,4vw,44px);
   padding:clamp(20px,3vw,34px) var(--pad) 18px;
-  background:linear-gradient(180deg,rgba(243,246,241,.98) 0%,rgba(243,246,241,.94) 80%,rgba(243,246,241,0) 100%);
+  background:var(--panel-background);
 }
 .project-detail-topbar .eyebrow { margin:0; color:var(--green-deep); }
 .project-detail-close,
@@ -3148,11 +3167,12 @@ body.client-archive-open #clients > .panel-next {
   transition: color .3s ease, opacity .3s ease;
 }
 
-/* Keep copyright readable on white panels and light archive/detail overlays. */
+/* Keep copyright readable on light panels and archive/detail overlays. */
 body:has(#clients.panel-active) .global-copyright,
 body:has(#expertise.panel-active) .global-copyright,
 body.client-archive-open .global-copyright,
 body.moe-schools-open .global-copyright,
+body.project-archive-open .global-copyright,
 body.project-detail-open .global-copyright {
   color: rgba(32,49,45,.72);
 }
@@ -4165,9 +4185,9 @@ body.site-preloading { overflow:auto !important; }
 </label>
 <div class="menu-main">
 <nav aria-label="Main navigation" class="menu-nav">
-<a data-index="01" href="#projects">Projects</a>
-<a data-index="02" href="#expertise">Expertise</a>
-<a data-index="03" href="#clients">Clients</a>
+<a data-index="01" href="#clients">Clients</a>
+<a data-index="02" href="#projects">Projects</a>
+<a data-index="03" href="#expertise">Expertise</a>
 <a data-index="04" href="#contact">Contact Us</a>
 </nav>
 </div>
@@ -4206,8 +4226,8 @@ body.site-preloading { overflow:auto !important; }
 <nav aria-label="Explore H&amp;H Resources" class="showcase-nav">
 <span class="showcase-nav-label">Explore H&amp;H</span>
 <a href="#about"><span>About Us</span><small>01</small></a>
-<a href="#projects"><span>Projects</span><small>02</small></a>
-<a href="#clients"><span>Clients</span><small>03</small></a>
+<a href="#clients"><span>Clients</span><small>02</small></a>
+<a href="#projects"><span>Projects</span><small>03</small></a>
 <a href="#expertise"><span>Expertise</span><small>04</small></a>
 <a href="#contact"><span>Contact Us</span><small>05</small></a>
 </nav>
@@ -4232,6 +4252,84 @@ body.site-preloading { overflow:auto !important; }
 <p>From ground preparation and drainage to turf installation and specialist finishes, we bring skilled site teams, dedicated machinery and practical construction knowledge to every project.</p>
 </div>
 </div>
+</div>
+</section>
+<section class="clients scroll-section" id="clients">
+<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
+<div class="section-shell">
+<div class="clients-footer reveal"><button class="archive-trigger clients-all-trigger" type="button">View All Clients <span aria-hidden="true">→</span></button></div>
+<div aria-label="Selected past clients" class="client-grid reveal">
+<button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
+<div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
+<div class="client-logo logo-medium"><img alt="People's Association" src="assets/logos/clients/peoples-association.webp"/></div>
+<div class="client-logo logo-wide"><img alt="National Environment Agency" src="assets/logos/clients/national-environment-agency.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
+</div>
+<div class="clients-intro">
+<div class="reveal">
+<div class="eyebrow">Clients</div>
+<h2 class="headline-reveal">Long-standing partnerships across Singapore.</h2>
+</div>
+</div>
+
+</div>
+<div aria-hidden="true" class="all-clients-gallery">
+  <div class="all-clients-gallery-inner">
+    <div class="all-clients-gallery-head">
+      <div><div class="eyebrow">Client Portfolio</div><h2>All Clients</h2></div>
+      <button aria-label="Back to selected clients" class="all-clients-close" type="button">Back to Selected Clients</button>
+    </div>
+    <div aria-label="All past clients" class="all-clients-grid">
+<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
+<div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
+<div class="client-logo logo-medium"><img alt="People's Association" src="assets/logos/clients/peoples-association.webp"/></div>
+<div class="client-logo logo-wide"><img alt="National Environment Agency" src="assets/logos/clients/national-environment-agency.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
+<div class="client-logo logo-tall"><img alt="Lion City Sailors" src="assets/logos/clients/lion-city-sailors.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Singapore American School" src="assets/logos/clients/singapore-american-school.webp"/></div>
+<div class="client-logo logo-tall"><img alt="Raffles Institution" src="assets/logos/clients/raffles-institution.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Coralis Condo" src="assets/logos/clients/coralis-condo.webp"/></div>
+<div class="client-logo logo-wide"><img alt="The Watergardens at Canberra" src="assets/logos/clients/the-watergardens-at-canberra.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Hyll on Holland" src="assets/logos/clients/hyll-on-holland.webp"/></div>
+<div class="client-logo logo-wide"><img alt="ITE College Central" src="assets/logos/clients/ite-college-central.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Methodist Girls' School" src="assets/logos/clients/methodist-girls-school.webp"/></div>
+<div class="client-logo logo-wide"><img alt="SAFRA Mount Faber" src="assets/logos/clients/safra-mount-faber.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Nanyang Technological University" src="assets/logos/clients/nanyang-technological-university.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Our Tampines Hub" src="assets/logos/clients/our-tampines-hub.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Perennial Business City" src="assets/logos/clients/perennial-business-city.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Rivera 38" src="assets/logos/clients/rivera-38.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Republic Polytechnic" src="assets/logos/clients/republic-polytechnic.png"/></div>
+<div class="client-logo logo-medium"><img alt="Singapore Chinese Girls' School" src="assets/logos/clients/singapore-chinese-girls-school.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Singapore Polytechnic" src="assets/logos/clients/singapore-polytechnic.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Singapore Badminton Association" src="assets/logos/clients/singapore-badminton-association.webp"/></div>
+<div class="client-logo logo-medium"><img alt="Singapore Swimming Club" src="assets/logos/clients/singapore-swimming-club.webp"/></div>
+<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.png?v=5"/></div>
+<div class="client-logo logo-wide"><img alt="Singapore University of Technology and Design" src="assets/logos/clients/singapore-university-of-technology-and-design.webp"/></div>
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" class="moe-school-gallery">
+  <div class="moe-school-gallery-inner">
+    <div class="moe-school-gallery-head">
+      <div>
+        <div class="eyebrow">Ministry of Education</div>
+        <h2>School Projects</h2>
+      </div>
+      <button aria-label="Back to all past clients" class="moe-school-close" type="button">Back to All Clients</button>
+    </div>
+    <div class="moe-school-groups">
+<div class="moe-school-group"><h3>Primary Schools</h3><ul><li>Punggol Green Primary School</li><li>Riverside Primary School</li><li>Seng Kang Primary School</li><li>Westwood Primary School</li><li>Woodlands Ring Primary School</li></ul></div>
+<div class="moe-school-group"><h3>Secondary Schools</h3><ul><li>Anglican High School</li><li>Bedok South Secondary School</li><li>Crest Secondary School</li><li>East Spring Secondary School</li><li>Loyang View Secondary School</li><li>Marsiling Secondary School</li><li>Meridian Secondary School</li><li>Pasir Ris Crest Secondary School</li><li>Pasir Ris Secondary School</li><li>Punggol Secondary School</li><li>Serangoon Secondary School</li><li>St Anthony Canossian Secondary School</li><li>St Patrick’s School</li><li>Tampines Secondary School</li><li>Temasek Secondary School</li><li>Westwood Secondary School</li><li>Whitley Secondary School</li><li>Woodgrove Secondary School</li><li>Woodlands Secondary School</li><li>Yio Chu Kang Secondary School</li></ul></div>
+<div class="moe-school-group"><h3>Junior Colleges</h3><ul><li>Anderson Serangoon Junior College</li><li>St Andrew Junior College</li></ul></div>
+<div class="moe-school-group"><h3>Independent / Other Schools</h3><ul><li>Methodist Girls’ School</li><li>Raffles Institution</li><li>Singapore Chinese Girls’ School</li></ul></div>
+    </div>
+  </div>
 </div>
 </section>
 <section class="projects scroll-section photo-panel" id="projects">
@@ -4339,84 +4437,6 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </div>
-</div>
-</section>
-<section class="clients scroll-section" id="clients">
-<div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
-<div class="section-shell">
-<div class="clients-footer reveal"><button class="archive-trigger clients-all-trigger" type="button">View All Clients <span aria-hidden="true">→</span></button></div>
-<div aria-label="Selected past clients" class="client-grid reveal">
-<button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
-<div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
-<div class="client-logo logo-medium"><img alt="People's Association" src="assets/logos/clients/peoples-association.webp"/></div>
-<div class="client-logo logo-wide"><img alt="National Environment Agency" src="assets/logos/clients/national-environment-agency.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
-</div>
-<div class="clients-intro">
-<div class="reveal">
-<div class="eyebrow">Clients</div>
-<h2 class="headline-reveal">Long-standing partnerships across Singapore.</h2>
-</div>
-</div>
-
-</div>
-<div aria-hidden="true" class="all-clients-gallery">
-  <div class="all-clients-gallery-inner">
-    <div class="all-clients-gallery-head">
-      <div><div class="eyebrow">Client Portfolio</div><h2>All Clients</h2></div>
-      <button aria-label="Back to selected clients" class="all-clients-close" type="button">Back to Selected Clients</button>
-    </div>
-    <div aria-label="All past clients" class="all-clients-grid">
-<button class="client-logo logo-tall client-logo-moe client-school-trigger" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
-<div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Ngee Ann Polytechnic" src="assets/logos/clients/ngee-ann-polytechnic.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Sport Singapore" src="assets/logos/clients/sport-singapore.webp"/></div>
-<div class="client-logo logo-medium"><img alt="People's Association" src="assets/logos/clients/peoples-association.webp"/></div>
-<div class="client-logo logo-wide"><img alt="National Environment Agency" src="assets/logos/clients/national-environment-agency.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
-<div class="client-logo logo-tall"><img alt="Lion City Sailors" src="assets/logos/clients/lion-city-sailors.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Singapore American School" src="assets/logos/clients/singapore-american-school.webp"/></div>
-<div class="client-logo logo-tall"><img alt="Raffles Institution" src="assets/logos/clients/raffles-institution.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Coralis Condo" src="assets/logos/clients/coralis-condo.webp"/></div>
-<div class="client-logo logo-wide"><img alt="The Watergardens at Canberra" src="assets/logos/clients/the-watergardens-at-canberra.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Hyll on Holland" src="assets/logos/clients/hyll-on-holland.webp"/></div>
-<div class="client-logo logo-wide"><img alt="ITE College Central" src="assets/logos/clients/ite-college-central.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Methodist Girls' School" src="assets/logos/clients/methodist-girls-school.webp"/></div>
-<div class="client-logo logo-wide"><img alt="SAFRA Mount Faber" src="assets/logos/clients/safra-mount-faber.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Nanyang Technological University" src="assets/logos/clients/nanyang-technological-university.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Our Tampines Hub" src="assets/logos/clients/our-tampines-hub.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Perennial Business City" src="assets/logos/clients/perennial-business-city.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Rivera 38" src="assets/logos/clients/rivera-38.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Republic Polytechnic" src="assets/logos/clients/republic-polytechnic.png"/></div>
-<div class="client-logo logo-medium"><img alt="Singapore Chinese Girls' School" src="assets/logos/clients/singapore-chinese-girls-school.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Singapore Polytechnic" src="assets/logos/clients/singapore-polytechnic.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Singapore Badminton Association" src="assets/logos/clients/singapore-badminton-association.webp"/></div>
-<div class="client-logo logo-medium"><img alt="Singapore Swimming Club" src="assets/logos/clients/singapore-swimming-club.webp"/></div>
-<div class="client-logo logo-wide"><img alt="Stamford American International School" src="assets/logos/clients/stamford-american-international-school.png?v=5"/></div>
-<div class="client-logo logo-wide"><img alt="Singapore University of Technology and Design" src="assets/logos/clients/singapore-university-of-technology-and-design.webp"/></div>
-    </div>
-  </div>
-</div>
-<div aria-hidden="true" class="moe-school-gallery">
-  <div class="moe-school-gallery-inner">
-    <div class="moe-school-gallery-head">
-      <div>
-        <div class="eyebrow">Ministry of Education</div>
-        <h2>School Projects</h2>
-      </div>
-      <button aria-label="Back to all past clients" class="moe-school-close" type="button">Back to All Clients</button>
-    </div>
-    <div class="moe-school-groups">
-<div class="moe-school-group"><h3>Primary Schools</h3><ul><li>Punggol Green Primary School</li><li>Riverside Primary School</li><li>Seng Kang Primary School</li><li>Westwood Primary School</li><li>Woodlands Ring Primary School</li></ul></div>
-<div class="moe-school-group"><h3>Secondary Schools</h3><ul><li>Anglican High School</li><li>Bedok South Secondary School</li><li>Crest Secondary School</li><li>East Spring Secondary School</li><li>Loyang View Secondary School</li><li>Marsiling Secondary School</li><li>Meridian Secondary School</li><li>Pasir Ris Crest Secondary School</li><li>Pasir Ris Secondary School</li><li>Punggol Secondary School</li><li>Serangoon Secondary School</li><li>St Anthony Canossian Secondary School</li><li>St Patrick’s School</li><li>Tampines Secondary School</li><li>Temasek Secondary School</li><li>Westwood Secondary School</li><li>Whitley Secondary School</li><li>Woodgrove Secondary School</li><li>Woodlands Secondary School</li><li>Yio Chu Kang Secondary School</li></ul></div>
-<div class="moe-school-group"><h3>Junior Colleges</h3><ul><li>Anderson Serangoon Junior College</li><li>St Andrew Junior College</li></ul></div>
-<div class="moe-school-group"><h3>Independent / Other Schools</h3><ul><li>Methodist Girls’ School</li><li>Raffles Institution</li><li>Singapore Chinese Girls’ School</li></ul></div>
-    </div>
-  </div>
 </div>
 </section>
 <section class="contact scroll-section no-section-loader photo-panel" id="contact">
@@ -4741,8 +4761,8 @@ body.site-preloading { overflow:auto !important; }
     (() => {
       const panelFlow = [
         { id: 'about', label: 'About Us' },
-        { id: 'projects', label: 'Projects' },
         { id: 'clients', label: 'Clients' },
+        { id: 'projects', label: 'Projects' },
         { id: 'expertise', label: 'Expertise' },
         { id: 'contact', label: 'Contact Us' }
       ];
