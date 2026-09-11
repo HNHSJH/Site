@@ -18,12 +18,19 @@ FEATURED = ['artificial-turf--our-tampines-hub', 'acrylic-coating--tanah-merah-c
             'timber-flooring--ngee-ann-polytechnic', 'epdm-flooring--sutd']
 DETAILS = FEATURED + ['artificial-turf--ngee-ann-polytechnic', 'acrylic-coating--republic-polytechnic']
 HOME = (ROOT / 'index.html').read_text()
-ORG = {'@type': 'Organization', '@id': ORIGIN + '/#organization', 'name': 'H&H Resources',
+ORG = {'@type': 'GeneralContractor', '@id': ORIGIN + '/#organization', 'name': 'H&H Resources',
        'legalName': 'H&H Resources Pte Ltd', 'url': ORIGIN + '/',
        'logo': ORIGIN + '/assets/logos/hnh-logo.png', 'email': 'enquiry@hnhresources.com',
        'telephone': '+6591148327', 'address': {'@type': 'PostalAddress',
        'streetAddress': '1 Tampines North Drive 1, #08-49 T-Space',
-       'addressLocality': 'Singapore', 'postalCode': '528559', 'addressCountry': 'SG'}}
+       'addressLocality': 'Singapore', 'postalCode': '528559', 'addressCountry': 'SG'},
+       'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification',
+       'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+       'opens': '00:00', 'closes': '23:59'}]}
+BRAND = ('<a class="brand" href="/" aria-label="H&amp;H Resources home">'
+         '<img class="brand-mark" src="/assets/logos/hnh-logo.png" width="48" height="48" alt="">'
+         '<span class="brand-wordmark" aria-hidden="true"><span class="brand-top">H &amp; H</span>'
+         '<span class="brand-bottom">RESOURCES</span></span></a>')
 OUTPUT = {}
 
 
@@ -100,10 +107,11 @@ def page(url, title, description, heading, content, parent=None, kind='WebPage',
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#eff3ed"><link rel="stylesheet" href="/assets/css/content-pages.css?v=20260911">
+<link rel="stylesheet" href="/assets/css/brand.css?v=20260911">
 </head><body{cls}><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-bar"><a class="brand" href="/"><img src="/assets/logos/hnh-logo.png" width="48" height="48" alt="">H&amp;H Resources</a><nav class="site-nav" aria-label="Main navigation">{links}</nav></header>
+<header class="site-bar">{BRAND}<nav class="site-nav" aria-label="Main navigation">{links}</nav></header>
 <main class="page" id="main"><nav class="breadcrumb" aria-label="Breadcrumb">{crumb}</nav><h1>{e(heading)}</h1>{content}</main>
-<footer class="site-footer"><div class="footer-inner"><div>H&amp;H Resources Pte Ltd<br>1 Tampines North Drive 1, #08-49 T-Space, Singapore 528559</div><div><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div>H&amp;H Resources Pte Ltd<br>1 Tampines North Drive 1, #08-49 T-Space, Singapore 528559</div><div><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a><br>Business hours: Open 24/7</div></div></footer>
 </body></html>
 '''
 
@@ -173,7 +181,7 @@ clients += '<section class="content-section"><h2>School project references</h2><
 page('/clients/', 'Clients & School Projects | H&H Resources Singapore', 'Explore H&H Resources client and school project references across Singapore, including schools, sports clubs, government agencies and community organisations.', 'Our clients in Singapore', clients, kind='CollectionPage')
 
 page('/contact/', 'Contact H&H Resources | Sports Construction Enquiries', 'Contact H&H Resources about sports construction, turf and surfacing works in Singapore. Call +65 9114 8327 or email enquiry@hnhresources.com.', 'Start a project with H&H',
-     '<p class="intro">Planning a sports field, court, turf or landscape project for a school, club or government facility in Singapore? Tell us about your site and requirements.</p><div class="split"><section class="content-section"><h2>Contact details</h2><p><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></p><address>1 Tampines North Drive 1<br>#08-49 T-Space<br>Singapore 528559</address></section><section class="content-section"><h2>Send a project enquiry</h2><p>Use our enquiry form to share your project type, a brief description and supporting attachments. Site photographs and drawings help us understand the scope.</p>' + enquiry('Open enquiry form') + '</section></div><section class="content-section"><h2>Explore our work</h2><p><a href="/services/">Construction services</a> · <a href="/projects/">Project portfolio</a></p></section>', kind='ContactPage')
+     '<p class="intro">Planning a sports field, court, turf or landscape project for a school, club or government facility in Singapore? Tell us about your site and requirements.</p><div class="split"><section class="content-section"><h2>Contact details</h2><p><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></p><address>1 Tampines North Drive 1<br>#08-49 T-Space<br>Singapore 528559</address><h3>Business hours</h3><p>Open 24 hours a day, 7 days a week.</p></section><section class="content-section"><h2>Send a project enquiry</h2><p>Use our enquiry form to share your project type, a brief description and supporting attachments. Site photographs and drawings help us understand the scope.</p>' + enquiry('Open enquiry form') + '</section></div><section class="content-section"><h2>Explore our work</h2><p><a href="/services/">Construction services</a> · <a href="/projects/">Project portfolio</a></p></section>', kind='ContactPage')
 
 # Static cards remain the canonical markup. JavaScript adds filtering and popups.
 for grid_id, records, archive in [('selected-projects-grid', [BY_ID[x] for x in FEATURED], False), ('all-projects-grid', PROJECTS['projects'], True)]:

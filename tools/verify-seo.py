@@ -58,7 +58,7 @@ for url in urls:
     schema = re.findall(r'<script type="application/ld\+json">(.*?)</script>', text, re.S)
     assert len(schema) == 1
     graph = json.loads(schema[0])['@graph']
-    assert graph[0]['@type'] == 'Organization'
+    assert graph[0]['@type'] == 'GeneralContractor'
     assert graph[0]['telephone'] == '+6591148327'
     assert graph[1]['url'] == url
     for attrs, source in re.findall(r'<script([^>]*)>(.*?)</script>', text, re.S):

@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sports Fields, Courts &amp; Turf Singapore | H&amp;H Resources">
 <meta name="twitter:description" content="H&amp;H Resources provides sports field, court, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore our projects.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hnhresources.com/#organization", "name": "H&H Resources", "legalName": "H&H Resources Pte Ltd", "url": "https://hnhresources.com/", "logo": "https://hnhresources.com/assets/logos/hnh-logo.png", "email": "enquiry@hnhresources.com", "telephone": "+6591148327", "address": {"@type": "PostalAddress", "streetAddress": "1 Tampines North Drive 1, #08-49 T-Space", "addressLocality": "Singapore", "postalCode": "528559", "addressCountry": "SG"}}, {"@type": "WebPage", "@id": "https://hnhresources.com/#webpage", "url": "https://hnhresources.com/", "name": "Sports Fields, Courts & Turf Singapore | H&H Resources", "description": "H&H Resources provides sports field, court, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore our projects.", "inLanguage": "en-SG", "publisher": {"@id": "https://hnhresources.com/#organization"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "GeneralContractor", "@id": "https://hnhresources.com/#organization", "name": "H&H Resources", "legalName": "H&H Resources Pte Ltd", "url": "https://hnhresources.com/", "logo": "https://hnhresources.com/assets/logos/hnh-logo.png", "email": "enquiry@hnhresources.com", "telephone": "+6591148327", "address": {"@type": "PostalAddress", "streetAddress": "1 Tampines North Drive 1, #08-49 T-Space", "addressLocality": "Singapore", "postalCode": "528559", "addressCountry": "SG"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}]}, {"@type": "WebPage", "@id": "https://hnhresources.com/#webpage", "url": "https://hnhresources.com/", "name": "Sports Fields, Courts & Turf Singapore | H&H Resources", "description": "H&H Resources provides sports field, court, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore our projects.", "inLanguage": "en-SG", "publisher": {"@id": "https://hnhresources.com/#organization"}}]}</script>
 <!-- end:seo -->
   <!-- Favicons: static declarations only; no runtime replacement -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -84,41 +84,6 @@
       pointer-events: none;
     }
     .site-header > * { pointer-events: auto; }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-    .brand-mark {
-      width: clamp(46px, 4.2vw, 58px);
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-    .brand-wordmark {
-      display: flex;
-      flex-direction: column;
-      color: currentColor;
-      font-family: Georgia, 'Times New Roman', serif;
-      line-height: .9;
-      white-space: nowrap;
-      text-shadow: none;
-    }
-    .brand-wordmark .brand-top {
-      font-size: clamp(18px, 1.45vw, 24px);
-      letter-spacing: .055em;
-    }
-    .brand-wordmark .brand-bottom {
-      margin-top: 4px;
-      font-size: clamp(15px, 1.18vw, 20px);
-      letter-spacing: .095em;
-    }
 
     .header-actions {
       display: inline-flex;
@@ -1107,11 +1072,6 @@
         font-size: 8px;
         letter-spacing: .1em;
       }
-      .brand { padding: 0; }
-      .brand { gap: 8px; }
-      .brand-mark { width: 42px; }
-      .brand-wordmark .brand-top { font-size: 16px; }
-      .brand-wordmark .brand-bottom { margin-top: 3px; font-size: 13px; }
       .menu-overlay { padding-top:94px; }
       .menu-search { display:none; }
       .menu-nav a { font-size:clamp(39px,13vw,68px); padding:10px 0; }
@@ -1526,9 +1486,6 @@
 
     @media (max-width: 620px) {
       .site-header { padding-top: 14px; }
-      .brand-mark { width: 40px; }
-      .brand-wordmark .brand-top { font-size: 15px; }
-      .brand-wordmark .brand-bottom { font-size: 12px; }
 
       .hero-content {
         min-height: 100dvh;
@@ -4174,22 +4131,12 @@ body.site-preloading { overflow:auto !important; }
 /* Keep the home link visible above panels, with room for archive content below it. */
 :root { --brand-clearance: max(88px, calc(76px + env(safe-area-inset-top))); }
 .site-header { padding-top: max(18px, calc(12px + env(safe-area-inset-top))); }
-.site-header .brand:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 body.panel-open .site-header .header-actions { display: none; }
-body.panel-open .site-header .brand {
-  gap: 8px;
-  padding: 6px 10px;
-  color: #20312d;
-  background: rgba(246,248,243,.92);
-  border-radius: 2px;
-}
-body.panel-open .site-header .brand-mark { width: 40px; }
-body.panel-open .site-header .brand-top { font-size: 18px; }
-body.panel-open .site-header .brand-bottom { font-size: 14px; }
+body[data-active-panel="about"] .site-header .brand,
 body[data-active-panel="clients"] .site-header .brand,
 body[data-active-panel="expertise"] .site-header .brand,
 body.project-archive-open .site-header .brand,
-body.project-detail-open .site-header .brand { background: transparent; }
+body.project-detail-open .site-header .brand { color: #20312d; }
 .all-projects-gallery,
 .all-clients-gallery,
 .moe-school-gallery,
@@ -4200,17 +4147,16 @@ body.project-detail-open .site-header .brand { background: transparent; }
 @media (max-width: 620px) {
   :root { --brand-clearance: max(80px, calc(72px + env(safe-area-inset-top))); }
   .site-header { padding-top: max(14px, calc(8px + env(safe-area-inset-top))); }
-  body.panel-open .site-header .brand-top { font-size: 15px; }
-  body.panel-open .site-header .brand-bottom { font-size: 12px; }
   .clients > .section-shell { padding-top: var(--brand-clearance) !important; }
 }
 </style>
+<link rel="stylesheet" href="/assets/css/brand.css?v=20260911">
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
 <header class="site-header">
 <a aria-label="H&amp;H Resources home" class="brand" href="/" data-panel="top">
-<img alt="" aria-hidden="true" class="brand-mark" width="58" height="58" src="assets/logos/hnh-logo.png"/>
+<img alt="" aria-hidden="true" class="brand-mark" width="48" height="48" src="assets/logos/hnh-logo.png"/>
 <span aria-hidden="true" class="brand-wordmark">
 <span class="brand-top">H &amp; H</span>
 <span class="brand-bottom">RESOURCES</span>
@@ -4552,7 +4498,7 @@ body.project-detail-open .site-header .brand { background: transparent; }
 </form>
 <div class="contact-details reveal">
 <div class="line"><small>General enquiries</small><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></div>
-<div class="line"><small>Telephone</small><a href="tel:+6591148327">+65 9114 8327</a></div>
+<div class="line"><small>Telephone · Open 24/7</small><a href="tel:+6591148327">+65 9114 8327</a></div>
 <div class="line"><small>Head office</small><p>1 Tampines North Drive 1<br/>#08-49 T-Space<br/>Singapore 528559</p></div>
 </div>
 </div>
