@@ -149,7 +149,7 @@
       transform: translateY(-102%);
       transition: transform .8s var(--ease);
       display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto;
+      grid-template-rows: auto minmax(max-content, 1fr) auto;
       min-height: 100dvh;
       height: 100dvh;
       overflow-y: auto;
@@ -173,14 +173,40 @@
       font-weight: 300;
     }
     .menu-search input::placeholder { color: rgba(255,255,255,.38); }
-    .menu-search span {
+    .menu-search button {
       align-self: end;
-      padding-bottom: 5px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.5);
+      background: transparent;
+      color: white;
+      cursor: pointer;
       text-transform: uppercase;
       font-size: 10px;
       letter-spacing: .15em;
-      opacity: .55;
     }
+    .menu-search-region { min-width: 0; max-width: 760px; }
+    .menu-search input { min-width: 0; width: 100%; }
+    .menu-search-results {
+      max-height: 30dvh;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+    .menu-search-results a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 4px;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+      font-size: 16px;
+    }
+    .menu-search-results small { font-size: 12px; color: #cbd5cc; }
+    #menu-search-status { font-size: 13px; margin: 8px 0 0; }
+    #menu-search-status:empty { display: none; }
+    .menu-search-region :focus-visible { outline: 2px solid white; outline-offset: 3px; }
 
     .menu-main {
       min-height: 0;
@@ -1014,7 +1040,7 @@
         letter-spacing: .1em;
       }
       .menu-overlay { padding-top:94px; }
-      .menu-search { display:none; }
+      .menu-search-region { display:none; }
       .menu-nav a { font-size:clamp(39px,13vw,68px); padding:10px 0; }
       .menu-footer { display:grid; grid-template-columns:1fr; }
       .hero-content { padding-top:98px; padding-bottom:34px; }
@@ -1036,7 +1062,7 @@
 
     @media (max-height: 760px) and (min-width: 621px) {
       .menu-overlay { padding-top: 86px; padding-bottom: 22px; }
-      .menu-search { display: none; }
+      .menu-search-region { display: none; }
       .menu-main { padding: 18px 0; }
       .menu-nav a { font-size: clamp(34px, 7.4vh, 60px); padding: 4px 0; }
       .menu-footer { padding-top: 14px; }
@@ -1072,8 +1098,6 @@
       overflow: hidden;
     }
 
-    .menu-overlay,
-    .menu-button,
     .back-to-top,
     .site-footer {
       display: none !important;
@@ -2694,6 +2718,33 @@
 }
 .hero-dot:hover::before, .hero-dot:focus-visible::before { background: rgba(255,255,255,.72); }
 .hero-dot:focus-visible { outline: 1px solid rgba(255,255,255,.85); outline-offset: 4px; }
+.hero-dots { align-items: center; }
+.hero-playback {
+  min-width: 44px;
+  min-height: 36px;
+  margin-left: 4px;
+  padding: 6px;
+  color: white;
+  border: 1px solid rgba(255,255,255,.65);
+  background: rgba(0,0,0,.35);
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+.hero-playback:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+.hero-playback:disabled { cursor: default; }
+.slideshow-paused .hero-dot.active::after { animation-play-state: paused; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Shared archive buttons for Projects and Clients. */
 .archive-trigger {
@@ -3441,13 +3492,13 @@ body.project-detail-open .global-copyright {
 }
 
 /* Keep the custom upload control readable against its pale H&H surface. */
-.contact-field label.attachment-button {
+.contact-field .attachment-button {
   color: #18312f !important;
   background: #dce7dd !important;
   border-color: rgba(220,231,221,.95) !important;
 }
-.contact-field label.attachment-button:hover,
-.contact-field label.attachment-button:focus-visible {
+.contact-field .attachment-button:hover,
+.contact-field .attachment-button:focus-visible {
   color: #18312f !important;
   background: #f4f8f5 !important;
 }
@@ -3744,6 +3795,8 @@ body.project-detail-open .site-header .brand { color: #20312d; }
     gap: 7px;
     margin-top: 2px;
   }
+  #contact-form .attachment-button:disabled { opacity: .7; cursor: default; }
+  #contact-form .attachment-button:focus-visible { outline: 2px solid white; outline-offset: 3px; }
 
   #contact-form .hnh-attachment-list {
     display: grid;

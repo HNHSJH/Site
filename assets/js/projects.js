@@ -56,7 +56,7 @@
     thumbs.querySelectorAll('.project-detail-thumb').forEach((b,i) => b.classList.toggle('is-active', i === idx));
   }
 
-  function openDetail(id) {
+  function openDetail(id, trigger) {
     const p = byId[id];
     if (!p || !overlay) return;
     title.textContent = p.display_name;
@@ -71,7 +71,7 @@
     setMainPhoto(p,0);
     overlay.dataset.projectId = id;
     overlay.classList.add('is-open');
-    overlay.setAttribute('aria-hidden','false');
+    window.HnhDialogs.open(overlay, { labelledby: 'project-detail-title', initial: '.project-detail-close', close: closeDetail, trigger });
     setParentProjectControlsHidden(true);
     document.body.classList.add('project-detail-open');
     const scroller = overlay.querySelector('.project-detail-scroll');
@@ -81,7 +81,7 @@
   function closeDetail() {
     if (!overlay) return;
     overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden','true');
+    window.HnhDialogs.close(overlay);
     overlay.removeAttribute('data-project-id');
     setParentProjectControlsHidden(false);
     document.body.classList.remove('project-detail-open');
@@ -97,7 +97,7 @@
     if (card) {
       if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
-      openDetail(card.dataset.projectId);
+      openDetail(card.dataset.projectId, card);
       return;
     }
     const thumb = e.target.closest('.project-detail-thumb');
@@ -111,18 +111,12 @@
     }
     if (e.target.closest('.project-detail-enquire')) {
       closeDetail();
-      document.querySelector('.all-projects-gallery')?.classList.remove('is-open');
       if (typeof window.openHnhPanel === 'function') window.openHnhPanel('contact');
       else document.querySelector('[data-panel="contact"], a[href="#contact"]')?.click();
     }
   });
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay?.classList.contains('is-open')) {
-      e.stopImmediatePropagation();
-      closeDetail();
-    }
-  }, true);
+
 })();
 
 // Mobile Contact: raise content slightly while leaving Previous / Finish fixed in place.

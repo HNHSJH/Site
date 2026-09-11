@@ -100,6 +100,23 @@ The two marks were supplied by the owner. Their inclusion does not add a claim t
 
 ## Interaction model
 
+The interaction fixes of 11 September 2026 have one owner per feature:
+
+- `assets/js/attachments.js` owns the contact attachment picker and removable list. Files are added one at a time and retained in their original native inputs, named `attachment1` through `attachment5`. The visible list and native multipart payload use those same inputs. Limits are five files, 5 MB per file and 10 MB combined. Duplicate selections, invalid additions, cancellation, removal and reset preserve the remaining files. No DataTransfer reconstruction or JavaScript upload is needed. The two competing inline controllers have been removed.
+- `assets/js/dialogs.js` manages archive, project, school and menu focus as a stack. The shared shell includes the active popup and H&H header so Home stays operable within the modal. Background branches are inert. Tab stays in the active dialog controls; Escape closes only the top popup; focus returns to its actual trigger. Dialog labels follow the visible popup title.
+- `assets/js/search.js` searches the maintained project data and existing page/service links. Results have real URLs, include all matches in a scrollable list, support normal/new-tab navigation and report empty results. Submitting the search moves keyboard focus to the first result. The menu button and overlay are reachable again; the menu follows the same five-section order as Explore. Search retains its desktop presentation.
+- `assets/js/slideshow.js` owns rotation and lazy background loading. Pause/Play, manual selection, reduced-motion changes, page visibility, open panels/menu, viewport visibility and interaction with the controls are handled centrally. Reduced motion prevents autoplay. An explicit Play request takes effect even when the button has focus. Manual selection announces the project without repeatedly announcing autoplay changes.
+
+Run the local checks before release:
+
+```sh
+python tools/verify-seo.py
+npm install --no-save --prefix /tmp/hnh-interaction-check jsdom@30.0.1
+NODE_PATH=/tmp/hnh-interaction-check/node_modules node tools/verify-interactions.cjs
+```
+
+The interaction check uses jsdom and requires a compatible Node version (Node 24 was used). It verifies real FileList/FormData contents and bytes in a simulated DOM, plus focus, search, navigation and timer behaviour. It does not send enquiries or replace physical-device, assistive-technology, visual-browser or actual email-delivery checks. Search Console processing is independent of these checks.
+
 The main site is intentionally no-scroll. Sections slide over the showcase. The guided order is About Us → Clients → Projects → Expertise → Contact Us, with the same order in the homepage Explore menu, the available main-menu links, the HTML sections and the Previous/Next controls. `All Projects`, project details, and `All Past Clients` use their own internal scroll areas.
 
 The H&H logo and home link remain visible across all five panels and their project/client/school popups. Every page uses the same transparent logo, two-line wordmark and responsive sizing from `assets/css/brand.css`, with no backing box. Wordmark colour adapts to the light or dark page background. Archive scroll areas reserve space below the fixed brand. Panel stacking stays bounded below the header, including after repeated navigation. Standalone pages retain their shared H&H header, and the 404 page also includes the logo and home link.

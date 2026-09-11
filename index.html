@@ -36,11 +36,12 @@
 <meta name="theme-color" content="#eff3ed"/>
 <link rel="preload" as="image" href="assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp" fetchpriority="high"/>
 <script>document.documentElement.classList.add('js');</script>
-<link rel="stylesheet" href="/assets/css/showcase.css?v=20260911-seo">
+<link rel="stylesheet" href="/assets/css/showcase.css?v=20260911-interactions">
 
 <link rel="stylesheet" href="/assets/css/brand.css?v=20260911">
 </head>
 <body>
+<div id="site-interaction-shell">
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
 <header class="site-header">
 <a aria-label="H&amp;H Resources home" class="brand" href="/" data-panel="top">
@@ -59,17 +60,22 @@
 </button>
 </div>
 </header>
-<aside aria-hidden="true" class="menu-overlay" id="site-menu">
-<label class="menu-search">
-<input aria-label="Search H&amp;H Resources" placeholder="Search H&amp;H Resources" type="search"/>
-<span>Search</span>
-</label>
+<aside aria-hidden="true" class="menu-overlay" id="site-menu" inert>
+<div class="menu-search-region">
+<form class="menu-search" role="search">
+<input aria-label="Search H&amp;H Resources" aria-controls="menu-search-results" placeholder="Search H&amp;H Resources" type="search" maxlength="120"/>
+<button type="submit">Search</button>
+</form>
+<p id="menu-search-status" role="status" aria-live="polite"></p>
+<ul id="menu-search-results" class="menu-search-results" aria-label="Search results" hidden></ul>
+</div>
 <div class="menu-main">
 <nav aria-label="Main navigation" class="menu-nav">
-<a data-index="01" href="/clients/" data-panel="clients">Clients</a>
-<a data-index="02" href="/projects/" data-panel="projects">Projects</a>
-<a data-index="03" href="/services/" data-panel="expertise">Expertise</a>
-<a data-index="04" href="/contact/" data-panel="contact">Contact Us</a>
+<a data-index="01" href="/about-us/" data-panel="about">About Us</a>
+<a data-index="02" href="/clients/" data-panel="clients">Clients</a>
+<a data-index="03" href="/projects/" data-panel="projects">Projects</a>
+<a data-index="04" href="/services/" data-panel="expertise">Expertise</a>
+<a data-index="05" href="/contact/" data-panel="contact">Contact Us</a>
 </nav>
 </div>
 <div class="menu-footer">
@@ -95,7 +101,7 @@
 <div class="hero-location"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12A7 7 0 1 0 5 9c0 5.8 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.3"></circle></svg><span id="hero-location-text">Ngee Ann Polytechnic</span></div>
 </div>
 </div>
-<div aria-label="Select hero slide" class="hero-dots">
+<div aria-label="Slideshow controls" class="hero-dots">
 <button aria-label="Slide 1: Ngee Ann Polytechnic / Artificial Turf" class="hero-dot active"></button>
 <button aria-label="Slide 2: Ngee Ann Polytechnic / Timber Flooring" class="hero-dot"></button>
 <button aria-label="Slide 3: Our Tampines Hub / Artificial Turf" class="hero-dot"></button>
@@ -103,7 +109,9 @@
 <button aria-label="Slide 5: Raffles Institution / Artificial Turf" class="hero-dot"></button>
 <button aria-label="Slide 6: Tanah Merah Country Club / Acrylic Coating" class="hero-dot"></button>
 <button aria-label="Slide 7: Singapore Swimming Club / Acrylic Coating" class="hero-dot"></button>
+<button class="hero-playback" type="button" aria-label="Pause slideshow">Pause</button>
 </div>
+<span id="hero-slide-status" class="visually-hidden" role="status" aria-live="polite"></span>
 <nav aria-label="Explore H&amp;H Resources" class="showcase-nav">
 <span class="showcase-nav-label">Explore H&amp;H</span>
 <a href="/about-us/" data-panel="about"><span>About Us</span><small>01</small></a>
@@ -155,10 +163,10 @@
 </div>
 
 </div>
-<div aria-hidden="true" class="all-clients-gallery">
+<div aria-hidden="true" inert class="all-clients-gallery">
   <div class="all-clients-gallery-inner">
     <div class="all-clients-gallery-head">
-      <div><div class="eyebrow">Client Portfolio</div><h2>All Clients</h2></div>
+      <div><div class="eyebrow">Client Portfolio</div><h2 id="all-clients-title">All Clients</h2></div>
       <button aria-label="Back to selected clients" class="all-clients-close" type="button">Back to Selected Clients</button>
     </div>
     <div aria-label="All past clients" class="all-clients-grid">
@@ -193,12 +201,12 @@
     </div>
   </div>
 </div>
-<div aria-hidden="true" class="moe-school-gallery">
+<div aria-hidden="true" inert class="moe-school-gallery">
   <div class="moe-school-gallery-inner">
     <div class="moe-school-gallery-head">
       <div>
         <div class="eyebrow">Ministry of Education</div>
-        <h2>School Projects</h2>
+        <h2 id="school-projects-title">School Projects</h2>
       </div>
       <button aria-label="Back to all past clients" class="moe-school-close" type="button">Back to All Clients</button>
     </div>
@@ -221,12 +229,12 @@
 <div class="project-grid" id="selected-projects-grid"><!-- start:selected-projects-grid --><a class="project-card" href="/projects/artificial-turf/our-tampines-hub/" data-project-id="artificial-turf--our-tampines-hub" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">01 / 04</span><img src="/assets/images/projects/artificial-turf/our-tampines-hub/01-480w.webp" srcset="/assets/images/projects/artificial-turf/our-tampines-hub/01-480w.webp 480w, /assets/images/projects/artificial-turf/our-tampines-hub/01-960w.webp 960w, /assets/images/projects/artificial-turf/our-tampines-hub/01.webp 1600w" sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 900px) calc((100vw - 72px) / 2), (max-width: 1400px) calc((100vw - 112px) / 4), 305px" alt="Our Tampines Hub — Artificial Turf" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Our Tampines Hub</h3><p>Artificial Turf · FIFA Quality Pro</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card" href="/projects/acrylic-coating/tanah-merah-country-club/" data-project-id="acrylic-coating--tanah-merah-country-club" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">02 / 04</span><img src="/assets/images/projects/acrylic-coating/tanah-merah-country-club/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/tanah-merah-country-club/01-480w.webp 480w, /assets/images/projects/acrylic-coating/tanah-merah-country-club/01-960w.webp 960w, /assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp 1600w" sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 900px) calc((100vw - 72px) / 2), (max-width: 1400px) calc((100vw - 112px) / 4), 305px" alt="Tanah Merah Country Club — Acrylic Coating" width="1600" height="1090" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Tanah Merah Country Club</h3><p>Acrylic Coating · ITF Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card" href="/projects/timber-flooring/ngee-ann-polytechnic/" data-project-id="timber-flooring--ngee-ann-polytechnic" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">03 / 04</span><img src="/assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-480w.webp" srcset="/assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-480w.webp 480w, /assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-960w.webp 960w, /assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp 1379w" sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 900px) calc((100vw - 72px) / 2), (max-width: 1400px) calc((100vw - 112px) / 4), 305px" alt="Ngee Ann Polytechnic — Timber Flooring" width="1379" height="715" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Ngee Ann Polytechnic</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card" href="/projects/epdm-flooring/sutd/" data-project-id="epdm-flooring--sutd" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">04 / 04</span><img src="/assets/images/projects/epdm-flooring/sutd/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/sutd/01-480w.webp 480w, /assets/images/projects/epdm-flooring/sutd/01-960w.webp 960w, /assets/images/projects/epdm-flooring/sutd/01.webp 1600w" sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 900px) calc((100vw - 72px) / 2), (max-width: 1400px) calc((100vw - 112px) / 4), 305px" alt="SUTD — EPDM Flooring" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>SUTD</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><!-- end:selected-projects-grid --></div>
 <div class="projects-footer reveal"><button class="archive-trigger projects-all-trigger" type="button">View All Projects <span aria-hidden="true">→</span></button></div>
 </div>
-<div aria-hidden="true" class="all-projects-gallery">
+<div aria-hidden="true" inert class="all-projects-gallery">
 <div class="all-projects-gallery-inner">
 <div class="all-projects-gallery-head">
 <div>
 <div class="eyebrow">Project Archive</div>
-<h2>All Projects</h2>
+<h2 id="all-projects-title">All Projects</h2>
 
 </div>
 <button aria-label="Back to selected projects" class="all-projects-close" type="button">Back to Selected Projects</button>
@@ -234,7 +242,7 @@
 <div aria-label="Filter projects by category" class="project-filterbar" id="project-filterbar"></div><div class="all-projects-grid" id="all-projects-grid"><!-- start:all-projects-grid --><a class="project-card all-project-card" href="/projects/#acrylic-coating--methodist-girls-school" data-project-id="acrylic-coating--methodist-girls-school" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">01 / 63</span><img src="/assets/images/projects/acrylic-coating/methodist-girls-school/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/methodist-girls-school/01-480w.webp 480w, /assets/images/projects/acrylic-coating/methodist-girls-school/01-960w.webp 960w, /assets/images/projects/acrylic-coating/methodist-girls-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Methodist Girls’ School — Acrylic Coating" width="1379" height="776" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Methodist Girls’ School</h3><p>Acrylic Coating</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#acrylic-coating--raffles-institution" data-project-id="acrylic-coating--raffles-institution" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">02 / 63</span><img src="/assets/images/projects/acrylic-coating/raffles-institution/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/raffles-institution/01-480w.webp 480w, /assets/images/projects/acrylic-coating/raffles-institution/01-960w.webp 960w, /assets/images/projects/acrylic-coating/raffles-institution/01.jpg 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Raffles Institution — Acrylic Coating" width="1600" height="901" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Raffles Institution</h3><p>Acrylic Coating</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/acrylic-coating/republic-polytechnic/" data-project-id="acrylic-coating--republic-polytechnic" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">03 / 63</span><img src="/assets/images/projects/acrylic-coating/republic-polytechnic/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/republic-polytechnic/01-480w.webp 480w, /assets/images/projects/acrylic-coating/republic-polytechnic/01-960w.webp 960w, /assets/images/projects/acrylic-coating/republic-polytechnic/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Republic Polytechnic — Acrylic Coating" width="1379" height="1034" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Republic Polytechnic</h3><p>Acrylic Coating</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#acrylic-coating--singapore-swimming-club" data-project-id="acrylic-coating--singapore-swimming-club" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">04 / 63</span><img src="/assets/images/projects/acrylic-coating/singapore-swimming-club/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/singapore-swimming-club/01-480w.webp 480w, /assets/images/projects/acrylic-coating/singapore-swimming-club/01-960w.webp 960w, /assets/images/projects/acrylic-coating/singapore-swimming-club/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore Swimming Club — Acrylic Coating" width="1379" height="644" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore Swimming Club</h3><p>Acrylic Coating</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#acrylic-coating--singapore-swimming-club-court-3" data-project-id="acrylic-coating--singapore-swimming-club-court-3" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">05 / 63</span><img src="/assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01-480w.webp 480w, /assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01-960w.webp 960w, /assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore Swimming Club Court 3 — Acrylic Coating" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore Swimming Club Court 3</h3><p>Acrylic Coating</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/acrylic-coating/tanah-merah-country-club/" data-project-id="acrylic-coating--tanah-merah-country-club" data-project-category="acrylic-coating"><div class="project-media"><span class="project-number">06 / 63</span><img src="/assets/images/projects/acrylic-coating/tanah-merah-country-club/01-480w.webp" srcset="/assets/images/projects/acrylic-coating/tanah-merah-country-club/01-480w.webp 480w, /assets/images/projects/acrylic-coating/tanah-merah-country-club/01-960w.webp 960w, /assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Tanah Merah Country Club — Acrylic Coating" width="1600" height="1090" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Tanah Merah Country Club</h3><p>Acrylic Coating · ITF Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--anderson-serangoon-junior-college" data-project-id="artificial-turf--anderson-serangoon-junior-college" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">07 / 63</span><img src="/assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01-480w.webp" srcset="/assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01-480w.webp 480w, /assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01-960w.webp 960w, /assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Anderson Serangoon Junior College — Artificial Turf" width="1600" height="1090" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Anderson Serangoon Junior College</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--anglican-high-school" data-project-id="artificial-turf--anglican-high-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">08 / 63</span><img src="/assets/images/projects/artificial-turf/anglican-high-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/anglican-high-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/anglican-high-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/anglican-high-school/01.webp 1378w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Anglican High School — Artificial Turf" width="1378" height="775" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Anglican High School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--bedok-south-secondary-school" data-project-id="artificial-turf--bedok-south-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">09 / 63</span><img src="/assets/images/projects/artificial-turf/bedok-south-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/bedok-south-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/bedok-south-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/bedok-south-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Bedok South Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Bedok South Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--east-spring-secondary-school" data-project-id="artificial-turf--east-spring-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">10 / 63</span><img src="/assets/images/projects/artificial-turf/east-spring-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/east-spring-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/east-spring-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/east-spring-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="East Spring Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>East Spring Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--jurong-east-stadium" data-project-id="artificial-turf--jurong-east-stadium" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">11 / 63</span><img src="/assets/images/projects/artificial-turf/jurong-east-stadium/01-480w.webp" srcset="/assets/images/projects/artificial-turf/jurong-east-stadium/01-480w.webp 480w, /assets/images/projects/artificial-turf/jurong-east-stadium/01-960w.webp 960w, /assets/images/projects/artificial-turf/jurong-east-stadium/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Jurong East Stadium — Artificial Turf" width="1600" height="901" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Jurong East Stadium</h3><p>Artificial Turf · FIFA Quality Pro</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--loyang-view-secondary-school" data-project-id="artificial-turf--loyang-view-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">12 / 63</span><img src="/assets/images/projects/artificial-turf/loyang-view-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/loyang-view-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/loyang-view-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/loyang-view-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Loyang View Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Loyang View Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--marsiling-secondary-school" data-project-id="artificial-turf--marsiling-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">13 / 63</span><img src="/assets/images/projects/artificial-turf/marsiling-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/marsiling-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/marsiling-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/marsiling-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Marsiling Secondary School — Artificial Turf" width="1600" height="1100" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Marsiling Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--meridian-secondary-school" data-project-id="artificial-turf--meridian-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">14 / 63</span><img src="/assets/images/projects/artificial-turf/meridian-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/meridian-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/meridian-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/meridian-secondary-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Meridian Secondary School — Artificial Turf" width="1379" height="777" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Meridian Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/artificial-turf/ngee-ann-polytechnic/" data-project-id="artificial-turf--ngee-ann-polytechnic" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">15 / 63</span><img src="/assets/images/projects/artificial-turf/ngee-ann-polytechnic/01-480w.webp" srcset="/assets/images/projects/artificial-turf/ngee-ann-polytechnic/01-480w.webp 480w, /assets/images/projects/artificial-turf/ngee-ann-polytechnic/01-960w.webp 960w, /assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Ngee Ann Polytechnic — Artificial Turf" width="1379" height="776" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Ngee Ann Polytechnic</h3><p>Artificial Turf · FIFA Quality and WR Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/artificial-turf/our-tampines-hub/" data-project-id="artificial-turf--our-tampines-hub" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">16 / 63</span><img src="/assets/images/projects/artificial-turf/our-tampines-hub/01-480w.webp" srcset="/assets/images/projects/artificial-turf/our-tampines-hub/01-480w.webp 480w, /assets/images/projects/artificial-turf/our-tampines-hub/01-960w.webp 960w, /assets/images/projects/artificial-turf/our-tampines-hub/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Our Tampines Hub — Artificial Turf" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Our Tampines Hub</h3><p>Artificial Turf · FIFA Quality Pro</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--pasir-ris-crest-secondary-school" data-project-id="artificial-turf--pasir-ris-crest-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">17 / 63</span><img src="/assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Pasir Ris Crest Secondary School — Artificial Turf" width="1600" height="721" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Pasir Ris Crest Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--pasir-ris-secondary-school" data-project-id="artificial-turf--pasir-ris-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">18 / 63</span><img src="/assets/images/projects/artificial-turf/pasir-ris-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/pasir-ris-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/pasir-ris-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/pasir-ris-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Pasir Ris Secondary School — Artificial Turf" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Pasir Ris Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--punggol-green-primary-school" data-project-id="artificial-turf--punggol-green-primary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">19 / 63</span><img src="/assets/images/projects/artificial-turf/punggol-green-primary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/punggol-green-primary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/punggol-green-primary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/punggol-green-primary-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Punggol Green Primary School — Artificial Turf" width="1379" height="777" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Punggol Green Primary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--punggol-secondary-school" data-project-id="artificial-turf--punggol-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">20 / 63</span><img src="/assets/images/projects/artificial-turf/punggol-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/punggol-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/punggol-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/punggol-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Punggol Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Punggol Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--raffles-institution" data-project-id="artificial-turf--raffles-institution" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">21 / 63</span><img src="/assets/images/projects/artificial-turf/raffles-institution/01-480w.webp" srcset="/assets/images/projects/artificial-turf/raffles-institution/01-480w.webp 480w, /assets/images/projects/artificial-turf/raffles-institution/01-960w.webp 960w, /assets/images/projects/artificial-turf/raffles-institution/01.webp 1024w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Raffles Institution — Artificial Turf" width="1024" height="576" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Raffles Institution</h3><p>Artificial Turf · World Rugby Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--riverside-primary-school" data-project-id="artificial-turf--riverside-primary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">22 / 63</span><img src="/assets/images/projects/artificial-turf/riverside-primary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/riverside-primary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/riverside-primary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/riverside-primary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Riverside Primary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Riverside Primary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--safra-mount-faber" data-project-id="artificial-turf--safra-mount-faber" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">23 / 63</span><img src="/assets/images/projects/artificial-turf/safra-mount-faber/01-480w.webp" srcset="/assets/images/projects/artificial-turf/safra-mount-faber/01-480w.webp 480w, /assets/images/projects/artificial-turf/safra-mount-faber/01-960w.webp 960w, /assets/images/projects/artificial-turf/safra-mount-faber/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="SAFRA Mount Faber — Artificial Turf" width="1600" height="901" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>SAFRA Mount Faber</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--seng-kang-primary-school" data-project-id="artificial-turf--seng-kang-primary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">24 / 63</span><img src="/assets/images/projects/artificial-turf/seng-kang-primary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/seng-kang-primary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/seng-kang-primary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/seng-kang-primary-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Seng Kang Primary School — Artificial Turf" width="1379" height="532" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Seng Kang Primary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--serangoon-secondary-school" data-project-id="artificial-turf--serangoon-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">25 / 63</span><img src="/assets/images/projects/artificial-turf/serangoon-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/serangoon-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/serangoon-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/serangoon-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Serangoon Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Serangoon Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--singapore-american-school-west-field" data-project-id="artificial-turf--singapore-american-school-west-field" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">26 / 63</span><img src="/assets/images/projects/artificial-turf/singapore-american-school-west-field/01-480w.webp" srcset="/assets/images/projects/artificial-turf/singapore-american-school-west-field/01-480w.webp 480w, /assets/images/projects/artificial-turf/singapore-american-school-west-field/01-960w.webp 960w, /assets/images/projects/artificial-turf/singapore-american-school-west-field/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore American School  (West Field) — Artificial Turf" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore American School  (West Field)</h3><p>Artificial Turf · FIFA Quality and WR Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--singapore-american-school-main-field" data-project-id="artificial-turf--singapore-american-school-main-field" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">27 / 63</span><img src="/assets/images/projects/artificial-turf/singapore-american-school-main-field/01-480w.webp" srcset="/assets/images/projects/artificial-turf/singapore-american-school-main-field/01-480w.webp 480w, /assets/images/projects/artificial-turf/singapore-american-school-main-field/01-960w.webp 960w, /assets/images/projects/artificial-turf/singapore-american-school-main-field/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore American School (Main Field) — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore American School (Main Field)</h3><p>Artificial Turf · FIFA Quality and WR Certified</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--st-andrew-junior-college" data-project-id="artificial-turf--st-andrew-junior-college" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">28 / 63</span><img src="/assets/images/projects/artificial-turf/st-andrew-junior-college/01-480w.webp" srcset="/assets/images/projects/artificial-turf/st-andrew-junior-college/01-480w.webp 480w, /assets/images/projects/artificial-turf/st-andrew-junior-college/01-960w.webp 960w, /assets/images/projects/artificial-turf/st-andrew-junior-college/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="St Andrew Junior College — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>St Andrew Junior College</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--st-anthony-canossian-secondary-school" data-project-id="artificial-turf--st-anthony-canossian-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">29 / 63</span><img src="/assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="St Anthony Canossian Secondary School — Artificial Turf" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>St Anthony Canossian Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--st-patricks-school" data-project-id="artificial-turf--st-patricks-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">30 / 63</span><img src="/assets/images/projects/artificial-turf/st-patricks-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/st-patricks-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/st-patricks-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/st-patricks-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="St Patrick’s School — Artificial Turf" width="1379" height="777" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>St Patrick’s School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--tampines-secondary-school" data-project-id="artificial-turf--tampines-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">31 / 63</span><img src="/assets/images/projects/artificial-turf/tampines-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/tampines-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/tampines-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/tampines-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Tampines Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Tampines Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--temasek-secondary-school" data-project-id="artificial-turf--temasek-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">32 / 63</span><img src="/assets/images/projects/artificial-turf/temasek-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/temasek-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/temasek-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/temasek-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Temasek Secondary School — Artificial Turf" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Temasek Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--westwood-secondary-school" data-project-id="artificial-turf--westwood-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">33 / 63</span><img src="/assets/images/projects/artificial-turf/westwood-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/westwood-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/westwood-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/westwood-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Westwood Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Westwood Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--whitley-secondary-school" data-project-id="artificial-turf--whitley-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">34 / 63</span><img src="/assets/images/projects/artificial-turf/whitley-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/whitley-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/whitley-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/whitley-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Whitley Secondary School — Artificial Turf" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Whitley Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--woodgrove-secondary-school" data-project-id="artificial-turf--woodgrove-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">35 / 63</span><img src="/assets/images/projects/artificial-turf/woodgrove-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/woodgrove-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/woodgrove-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/woodgrove-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Woodgrove Secondary School — Artificial Turf" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Woodgrove Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--woodlands-ring-primary-school" data-project-id="artificial-turf--woodlands-ring-primary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">36 / 63</span><img src="/assets/images/projects/artificial-turf/woodlands-ring-primary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/woodlands-ring-primary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/woodlands-ring-primary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/woodlands-ring-primary-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Woodlands Ring Primary School — Artificial Turf" width="1379" height="532" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Woodlands Ring Primary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--woodlands-secondary-school" data-project-id="artificial-turf--woodlands-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">37 / 63</span><img src="/assets/images/projects/artificial-turf/woodlands-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/woodlands-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/woodlands-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/woodlands-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Woodlands Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Woodlands Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#artificial-turf--yio-chu-kang-secondary-school" data-project-id="artificial-turf--yio-chu-kang-secondary-school" data-project-category="artificial-turf"><div class="project-media"><span class="project-number">38 / 63</span><img src="/assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01-480w.webp" srcset="/assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01-480w.webp 480w, /assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01-960w.webp 960w, /assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Yio Chu Kang Secondary School — Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Yio Chu Kang Secondary School</h3><p>Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--hyll-at-holland-landscape-turf-on-rooftop" data-project-id="landscape-artificial-turf--hyll-at-holland-landscape-turf-on-rooftop" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">39 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Hyll At Holland (Landscape turf on rooftop) — Landscape Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Hyll At Holland (Landscape turf on rooftop)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--lion-city-sailors" data-project-id="landscape-artificial-turf--lion-city-sailors" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">40 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/lion-city-sailors/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/lion-city-sailors/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/lion-city-sailors/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/lion-city-sailors/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Lion City Sailors — Landscape Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Lion City Sailors</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--private-residences-artificial-turf-tennis-court" data-project-id="landscape-artificial-turf--private-residences-artificial-turf-tennis-court" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">41 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01.webp 777w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Private Residences (Artificial Turf Tennis Court) — Landscape Artificial Turf" width="777" height="414" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Private Residences (Artificial Turf Tennis Court)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--stamford-american-international-school-putting-green-turf-at-courtyard-area" data-project-id="landscape-artificial-turf--stamford-american-international-school-putting-green-turf-at-courtyard-area" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">42 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Stamford American International School (Putting Green Turf at Courtyard area) — Landscape Artificial Turf" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Stamford American International School (Putting Green Turf at Courtyard area)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--watergardens-condominium-landscape-turf-on-rooftop" data-project-id="landscape-artificial-turf--watergardens-condominium-landscape-turf-on-rooftop" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">43 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Watergardens Condominium (Landscape Turf on Rooftop) — Landscape Artificial Turf" width="1600" height="640" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Watergardens Condominium (Landscape Turf on Rooftop)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--westwood-pri-sch-kcare-garden-with-landscape-turf" data-project-id="landscape-artificial-turf--westwood-pri-sch-kcare-garden-with-landscape-turf" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">44 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Westwood Pri Sch (KCare Garden with Landscape Turf) — Landscape Artificial Turf" width="1379" height="709" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Westwood Pri Sch (KCare Garden with Landscape Turf)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#landscape-artificial-turf--westwood-sec-sch-putting-green-turf-for-study-corner" data-project-id="landscape-artificial-turf--westwood-sec-sch-putting-green-turf-for-study-corner" data-project-category="landscape-artificial-turf"><div class="project-media"><span class="project-number">45 / 63</span><img src="/assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01-480w.webp" srcset="/assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01-480w.webp 480w, /assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01-960w.webp 960w, /assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Westwood Sec Sch (Putting Green Turf for Study corner) — Landscape Artificial Turf" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Westwood Sec Sch (Putting Green Turf for Study corner)</h3><p>Landscape Artificial Turf</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#running-track--crest-secondary-school" data-project-id="running-track--crest-secondary-school" data-project-category="running-track"><div class="project-media"><span class="project-number">46 / 63</span><img src="/assets/images/projects/running-track/crest-secondary-school/01-480w.webp" srcset="/assets/images/projects/running-track/crest-secondary-school/01-480w.webp 480w, /assets/images/projects/running-track/crest-secondary-school/01-960w.webp 960w, /assets/images/projects/running-track/crest-secondary-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Crest Secondary School — Running Track" width="1600" height="901" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Crest Secondary School</h3><p>Running Track</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#running-track--ite-college-central" data-project-id="running-track--ite-college-central" data-project-category="running-track"><div class="project-media"><span class="project-number">47 / 63</span><img src="/assets/images/projects/running-track/ite-college-central/01-480w.webp" srcset="/assets/images/projects/running-track/ite-college-central/01-480w.webp 480w, /assets/images/projects/running-track/ite-college-central/01-960w.webp 960w, /assets/images/projects/running-track/ite-college-central/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="ITE College Central — Running Track" width="1379" height="777" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>ITE College Central</h3><p>Running Track</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#running-track--perennial-business-city" data-project-id="running-track--perennial-business-city" data-project-category="running-track"><div class="project-media"><span class="project-number">48 / 63</span><img src="/assets/images/projects/running-track/perennial-business-city/01-480w.webp" srcset="/assets/images/projects/running-track/perennial-business-city/01-480w.webp 480w, /assets/images/projects/running-track/perennial-business-city/01-960w.webp 960w, /assets/images/projects/running-track/perennial-business-city/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Perennial Business City — Running Track" width="1379" height="715" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Perennial Business City</h3><p>Running Track</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#running-track--singapore-chinese-girls-school" data-project-id="running-track--singapore-chinese-girls-school" data-project-category="running-track"><div class="project-media"><span class="project-number">49 / 63</span><img src="/assets/images/projects/running-track/singapore-chinese-girls-school/01-480w.webp" srcset="/assets/images/projects/running-track/singapore-chinese-girls-school/01-480w.webp 480w, /assets/images/projects/running-track/singapore-chinese-girls-school/01-960w.webp 960w, /assets/images/projects/running-track/singapore-chinese-girls-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore Chinese Girls’ School — Running Track" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore Chinese Girls’ School</h3><p>Running Track</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#running-track--singapore-polytechnic" data-project-id="running-track--singapore-polytechnic" data-project-category="running-track"><div class="project-media"><span class="project-number">50 / 63</span><img src="/assets/images/projects/running-track/singapore-polytechnic/01-480w.webp" srcset="/assets/images/projects/running-track/singapore-polytechnic/01-480w.webp 480w, /assets/images/projects/running-track/singapore-polytechnic/01-960w.webp 960w, /assets/images/projects/running-track/singapore-polytechnic/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore Polytechnic — Running Track" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore Polytechnic</h3><p>Running Track</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#timber-flooring--aspn-timber-flooring-hall" data-project-id="timber-flooring--aspn-timber-flooring-hall" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">51 / 63</span><img src="/assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01-480w.webp" srcset="/assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01-480w.webp 480w, /assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01-960w.webp 960w, /assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01.webp 1280w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="ASPN Timber Flooring Hall — Timber Flooring" width="1280" height="720" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>ASPN Timber Flooring Hall</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/timber-flooring/ngee-ann-polytechnic/" data-project-id="timber-flooring--ngee-ann-polytechnic" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">52 / 63</span><img src="/assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-480w.webp" srcset="/assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-480w.webp 480w, /assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-960w.webp 960w, /assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Ngee Ann Polytechnic — Timber Flooring" width="1379" height="715" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Ngee Ann Polytechnic</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#timber-flooring--perennial-business-city" data-project-id="timber-flooring--perennial-business-city" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">53 / 63</span><img src="/assets/images/projects/timber-flooring/perennial-business-city/01-480w.webp" srcset="/assets/images/projects/timber-flooring/perennial-business-city/01-480w.webp 480w, /assets/images/projects/timber-flooring/perennial-business-city/01-960w.webp 960w, /assets/images/projects/timber-flooring/perennial-business-city/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Perennial Business City — Timber Flooring" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Perennial Business City</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#timber-flooring--private-residence" data-project-id="timber-flooring--private-residence" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">54 / 63</span><img src="/assets/images/projects/timber-flooring/private-residence/01-480w.webp" srcset="/assets/images/projects/timber-flooring/private-residence/01-480w.webp 480w, /assets/images/projects/timber-flooring/private-residence/01-960w.webp 960w, /assets/images/projects/timber-flooring/private-residence/01.webp 1200w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Private Residence — Timber Flooring" width="1200" height="1600" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Private Residence</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#timber-flooring--singapore-badminton-association-portable-system" data-project-id="timber-flooring--singapore-badminton-association-portable-system" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">55 / 63</span><img src="/assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01-480w.webp" srcset="/assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01-480w.webp 480w, /assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01-960w.webp 960w, /assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore Badminton Association (Portable System) — Timber Flooring" width="1600" height="1095" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore Badminton Association (Portable System)</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#timber-flooring--stamford-american-international-school" data-project-id="timber-flooring--stamford-american-international-school" data-project-category="timber-flooring"><div class="project-media"><span class="project-number">56 / 63</span><img src="/assets/images/projects/timber-flooring/stamford-american-international-school/01-480w.webp" srcset="/assets/images/projects/timber-flooring/stamford-american-international-school/01-480w.webp 480w, /assets/images/projects/timber-flooring/stamford-american-international-school/01-960w.webp 960w, /assets/images/projects/timber-flooring/stamford-american-international-school/01.webp 1379w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Stamford American International School — Timber Flooring" width="1379" height="715" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Stamford American International School</h3><p>Timber Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--coralis-condo" data-project-id="epdm-flooring--coralis-condo" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">57 / 63</span><img src="/assets/images/projects/epdm-flooring/coralis-condo/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/coralis-condo/01-480w.webp 480w, /assets/images/projects/epdm-flooring/coralis-condo/01.webp 711w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Coralis Condo — EPDM Flooring" width="711" height="866" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Coralis Condo</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--ite-college-central" data-project-id="epdm-flooring--ite-college-central" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">58 / 63</span><img src="/assets/images/projects/epdm-flooring/ite-college-central/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/ite-college-central/01-480w.webp 480w, /assets/images/projects/epdm-flooring/ite-college-central/01-960w.webp 960w, /assets/images/projects/epdm-flooring/ite-college-central/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="ITE College Central — EPDM Flooring" width="1600" height="901" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>ITE College Central</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--ntu-staff-housing" data-project-id="epdm-flooring--ntu-staff-housing" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">59 / 63</span><img src="/assets/images/projects/epdm-flooring/ntu-staff-housing/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/ntu-staff-housing/01-480w.webp 480w, /assets/images/projects/epdm-flooring/ntu-staff-housing/01-960w.webp 960w, /assets/images/projects/epdm-flooring/ntu-staff-housing/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="NTU Staff Housing — EPDM Flooring" width="1600" height="1600" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>NTU Staff Housing</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--rivera-38" data-project-id="epdm-flooring--rivera-38" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">60 / 63</span><img src="/assets/images/projects/epdm-flooring/rivera-38/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/rivera-38/01-480w.webp 480w, /assets/images/projects/epdm-flooring/rivera-38/01.webp 663w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Rivera 38 — EPDM Flooring" width="663" height="373" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Rivera 38</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--singapore-american-school" data-project-id="epdm-flooring--singapore-american-school" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">61 / 63</span><img src="/assets/images/projects/epdm-flooring/singapore-american-school/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/singapore-american-school/01-480w.webp 480w, /assets/images/projects/epdm-flooring/singapore-american-school/01-960w.webp 960w, /assets/images/projects/epdm-flooring/singapore-american-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Singapore American School — EPDM Flooring" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Singapore American School</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/#epdm-flooring--stamford-american-international-school" data-project-id="epdm-flooring--stamford-american-international-school" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">62 / 63</span><img src="/assets/images/projects/epdm-flooring/stamford-american-international-school/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/stamford-american-international-school/01-480w.webp 480w, /assets/images/projects/epdm-flooring/stamford-american-international-school/01-960w.webp 960w, /assets/images/projects/epdm-flooring/stamford-american-international-school/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="Stamford American International School — EPDM Flooring" width="1600" height="1200" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>Stamford American International School</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><a class="project-card all-project-card" href="/projects/epdm-flooring/sutd/" data-project-id="epdm-flooring--sutd" data-project-category="epdm-flooring"><div class="project-media"><span class="project-number">63 / 63</span><img src="/assets/images/projects/epdm-flooring/sutd/01-480w.webp" srcset="/assets/images/projects/epdm-flooring/sutd/01-480w.webp 480w, /assets/images/projects/epdm-flooring/sutd/01-960w.webp 960w, /assets/images/projects/epdm-flooring/sutd/01.webp 1600w" sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="SUTD — EPDM Flooring" width="1600" height="900" loading="lazy" decoding="async"></div><div class="project-info"><div><h3>SUTD</h3><p>EPDM Flooring</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a><!-- end:all-projects-grid --></div>
 </div>
 </div>
-<div aria-hidden="true" class="project-detail-overlay" id="project-detail-overlay">
+<div aria-hidden="true" inert class="project-detail-overlay" id="project-detail-overlay">
 <div class="project-detail-scroll">
 <div class="project-detail-topbar">
 <div class="eyebrow">Project Reference</div>
@@ -368,14 +376,18 @@
 <label>Attachments <span class="attachment-optional">Optional</span></label>
 <div class="attachment-control">
 <div class="attachment-visible-row">
-<label class="attachment-button" id="attachment-button" for="enquiry-attachment-1"><span aria-hidden="true">＋</span> Attach files</label>
+<button class="attachment-button" id="attachment-button" type="button" aria-describedby="attachment-help attachment-selection"><span aria-hidden="true">＋</span> Attach files</button>
 <div class="attachment-copy">
 <span class="attachment-selection" id="attachment-selection">No files selected</span>
-<small>JPG, PNG, GIF, MP4, DOC, DOCX, PDF or ZIP · Max 5MB each, 10MB total</small>
+<small id="attachment-help">Add one file at a time, up to 5 files. JPG, PNG, GIF, MP4, Word, PDF or ZIP. Max 5 MB each, 10 MB total.</small>
 </div>
 </div>
 <div class="attachment-file-inputs" id="attachment-file-inputs">
-<input accept=".jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip" id="enquiry-attachment-1" name="attachment1" type="file"/>
+<input accept=".jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip" id="enquiry-attachment-1" tabindex="-1" type="file"/>
+</div>
+<div class="hnh-attachment-manager">
+<div id="attachment-list" class="hnh-attachment-list"></div>
+<p id="attachment-message" class="hnh-attachment-message" role="status" aria-live="polite"></p>
 </div>
 </div>
 </div>
@@ -402,6 +414,10 @@
 <path d="m6 11 6-6 6 6"></path>
 </svg>
 </button>
+</div>
+<script src="assets/js/dialogs.js?v=20260911-interactions"></script>
+<script src="assets/js/attachments.js?v=20260911-interactions"></script>
+<script src="assets/js/slideshow.js?v=20260911-interactions"></script>
 <script>
     const body = document.body;
     const menuButton = document.querySelector('.menu-button');
@@ -411,46 +427,14 @@
       body.classList.toggle('menu-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
       menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      menu.setAttribute('aria-hidden', String(!open));
+      if (open) window.HnhDialogs.open(menu, { label: 'H&H Resources menu', initial: '.menu-search input', close: () => setMenu(false), trigger: menuButton });
+      else window.HnhDialogs.close(menu);
+      window.HnhSlideshow.refresh();
     }
 
     menuButton.addEventListener('click', () => setMenu(!body.classList.contains('menu-open')));
     document.querySelectorAll('.menu-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
-
-    const slides = [...document.querySelectorAll('.hero-slide')];
-    const dots = [...document.querySelectorAll('.hero-dot')];
-    let slideIndex = 0;
-    let slideTimer;
-
-    const heroProjectLabel = document.getElementById('hero-project-label');
-    const heroLocationText = document.getElementById('hero-location-text');
-
-    function ensureHeroSlideLoaded(slide) {
-      if (!slide?.dataset.bg) return;
-      slide.style.backgroundImage = `url('${slide.dataset.bg}')`;
-      delete slide.dataset.bg;
-    }
-
-    function showSlide(nextIndex) {
-      slideIndex = nextIndex;
-      ensureHeroSlideLoaded(slides[slideIndex]);
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === slideIndex));
-      const activeSlide = slides[slideIndex];
-      if (activeSlide) {
-        if (heroProjectLabel) heroProjectLabel.textContent = activeSlide.dataset.project || '';
-        if (heroLocationText) heroLocationText.textContent = activeSlide.dataset.location || '';
-      }
-      dots.forEach((dot, i) => {
-        dot.classList.remove('active');
-        if (i === slideIndex) requestAnimationFrame(() => dot.classList.add('active'));
-      });
-      clearTimeout(slideTimer);
-      slideTimer = setTimeout(() => showSlide((slideIndex + 1) % slides.length), 6000);
-    }
-
-    dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-    showSlide(0);
+    document.querySelectorAll('.site-header a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 
     const hero = document.querySelector('.hero');
     const backToTop = document.querySelector('.back-to-top');
@@ -533,72 +517,6 @@
     const contactForm = document.querySelector('#contact-form');
     const contactFormStatus = document.querySelector('#contact-form-status');
     const contactSubmit = contactForm?.querySelector('.contact-submit');
-    const attachmentInputs = document.querySelector('#attachment-file-inputs');
-    const attachmentButton = document.querySelector('#attachment-button');
-    const attachmentSelection = document.querySelector('#attachment-selection');
-    const attachmentControl = attachmentInputs?.closest('.attachment-control');
-    const maxAttachmentSize = 5 * 1024 * 1024;
-    const maxAttachmentTotal = 10 * 1024 * 1024;
-    const maxAttachmentCount = 5;
-    const attachmentAccept = '.jpg,.jpeg,.png,.gif,.mp4,.doc,.docx,.pdf,.zip,image/jpeg,image/png,image/gif,video/mp4,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/zip';
-
-    function selectedAttachmentFiles() {
-      return [...(attachmentInputs?.querySelectorAll('input[type="file"]') || [])]
-        .flatMap(input => [...(input.files || [])]);
-    }
-
-    function validateAttachments() {
-      const files = selectedAttachmentFiles();
-      attachmentControl?.classList.remove('is-error');
-      if (!files.length) {
-        if (attachmentSelection) attachmentSelection.textContent = 'No files selected';
-        return true;
-      }
-
-      const tooLarge = files.find(file => file.size > maxAttachmentSize);
-      const totalSize = files.reduce((sum, file) => sum + file.size, 0);
-      if (tooLarge) {
-        if (attachmentSelection) attachmentSelection.textContent = `${tooLarge.name} exceeds 5MB`;
-        attachmentControl?.classList.add('is-error');
-        return false;
-      }
-      if (totalSize > maxAttachmentTotal) {
-        if (attachmentSelection) attachmentSelection.textContent = 'Combined attachments exceed 10MB';
-        attachmentControl?.classList.add('is-error');
-        return false;
-      }
-
-      if (attachmentSelection) {
-        attachmentSelection.textContent = files.length === 1
-          ? files[0].name
-          : `${files.length} files selected`;
-      }
-      return true;
-    }
-
-    function addNextAttachmentInput() {
-      if (!attachmentInputs || !attachmentButton) return;
-      const inputs = [...attachmentInputs.querySelectorAll('input[type="file"]')];
-      const selectedCount = inputs.filter(input => input.files?.length).length;
-      const hasEmptyInput = inputs.some(input => !input.files?.length);
-      if (selectedCount >= maxAttachmentCount || hasEmptyInput) return;
-
-      const nextNumber = inputs.length + 1;
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.id = `enquiry-attachment-${nextNumber}`;
-      input.name = `attachment${nextNumber}`;
-      input.accept = attachmentAccept;
-      attachmentInputs.append(input);
-      attachmentButton.htmlFor = input.id;
-    }
-
-    attachmentInputs?.addEventListener('change', event => {
-      if (!(event.target instanceof HTMLInputElement) || event.target.type !== 'file') return;
-      validateAttachments();
-      if (event.target.files?.length) addNextAttachmentInput();
-    });
-
     const sentFromForm = new URLSearchParams(window.location.search).get('sent') === '1';
     if (sentFromForm && contactFormStatus) {
       contactFormStatus.textContent = 'Thank you. Your enquiry has been sent.';
@@ -610,9 +528,9 @@
         event.preventDefault();
         return;
       }
-      if (!validateAttachments()) {
+      if (!window.HnhAttachments.validate()) {
         event.preventDefault();
-        contactFormStatus.textContent = 'Please check the attachment size and try again.';
+        contactFormStatus.textContent = 'Please check the attachment limits and try again.';
         return;
       }
 
@@ -723,15 +641,15 @@
       function closeProjectGallery() {
         if (!projectGallery) return;
         projectGallery.classList.remove('is-open');
-        projectGallery.setAttribute('aria-hidden', 'true');
+        window.HnhDialogs.close(projectGallery);
         document.body.classList.remove('project-archive-open');
       }
 
-      function openProjectGallery() {
+      function openProjectGallery(trigger) {
         if (!projectGallery) return;
         closeClientGallery();
         projectGallery.classList.add('is-open');
-        projectGallery.setAttribute('aria-hidden', 'false');
+        window.HnhDialogs.open(projectGallery, { labelledby: 'all-projects-title', initial: '.all-projects-close', close: closeProjectGallery, trigger });
         document.body.classList.add('project-archive-open');
         const scroller = projectGallery.querySelector('.all-projects-gallery-inner');
         if (scroller) scroller.scrollTop = 0;
@@ -740,14 +658,14 @@
       function closeMoeSchoolGallery() {
         if (!moeSchoolGallery) return;
         moeSchoolGallery.classList.remove('is-open');
-        moeSchoolGallery.setAttribute('aria-hidden', 'true');
+        window.HnhDialogs.close(moeSchoolGallery);
         document.body.classList.remove('moe-schools-open');
       }
 
-      function openMoeSchoolGallery() {
+      function openMoeSchoolGallery(trigger) {
         if (!moeSchoolGallery) return;
         moeSchoolGallery.classList.add('is-open');
-        moeSchoolGallery.setAttribute('aria-hidden', 'false');
+        window.HnhDialogs.open(moeSchoolGallery, { labelledby: 'school-projects-title', initial: '.moe-school-close', close: closeMoeSchoolGallery, trigger });
         document.body.classList.add('moe-schools-open');
         const scroller = moeSchoolGallery.querySelector('.moe-school-gallery-inner');
         if (scroller) scroller.scrollTop = 0;
@@ -757,15 +675,15 @@
         closeMoeSchoolGallery();
         if (!clientGallery) return;
         clientGallery.classList.remove('is-open');
-        clientGallery.setAttribute('aria-hidden', 'true');
+        window.HnhDialogs.close(clientGallery);
         document.body.classList.remove('client-archive-open');
       }
 
-      function openClientGallery() {
+      function openClientGallery(trigger) {
         if (!clientGallery) return;
         closeProjectGallery();
         clientGallery.classList.add('is-open');
-        clientGallery.setAttribute('aria-hidden', 'false');
+        window.HnhDialogs.open(clientGallery, { labelledby: 'all-clients-title', initial: '.all-clients-close', close: closeClientGallery, trigger });
         document.body.classList.add('client-archive-open');
         const scroller = clientGallery.querySelector('.all-clients-gallery-inner');
         if (scroller) scroller.scrollTop = 0;
@@ -815,6 +733,7 @@
         activePanel = next;
         document.body.classList.add('panel-open');
         document.body.dataset.activePanel = id;
+        window.HnhSlideshow.refresh();
 
         if (current && current !== next) {
           panelCleanupTimer = window.setTimeout(() => {
@@ -848,6 +767,7 @@
         activePanel = null;
         document.body.classList.remove('panel-open');
         delete document.body.dataset.activePanel;
+        window.HnhSlideshow.refresh();
         if (updateHistory) history.pushState({ panel: null }, '', location.pathname + location.search);
       }
 
@@ -855,14 +775,14 @@
         const allProjects = event.target.closest('.projects-all-trigger');
         if (allProjects) {
           event.preventDefault();
-          openProjectGallery();
+          openProjectGallery(allProjects);
           return;
         }
 
         const allClients = event.target.closest('.clients-all-trigger');
         if (allClients) {
           event.preventDefault();
-          openClientGallery();
+          openClientGallery(allClients);
           return;
         }
 
@@ -883,7 +803,7 @@
         const moeSchoolTrigger = event.target.closest('.client-school-trigger[data-client-detail="moe"]');
         if (moeSchoolTrigger) {
           event.preventDefault();
-          openMoeSchoolGallery();
+          openMoeSchoolGallery(moeSchoolTrigger);
           return;
         }
 
@@ -935,18 +855,6 @@
 
       document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
-        if (moeSchoolGallery && moeSchoolGallery.classList.contains('is-open')) {
-          closeMoeSchoolGallery();
-          return;
-        }
-        if (projectGallery && projectGallery.classList.contains('is-open')) {
-          closeProjectGallery();
-          return;
-        }
-        if (clientGallery && clientGallery.classList.contains('is-open')) {
-          closeClientGallery();
-          return;
-        }
         if (document.body.classList.contains('panel-open')) closePanels();
       });
 
@@ -983,7 +891,7 @@
     });
   })();
 </script>
-<script src="data/projects.js?v=22"></script><script src="assets/js/projects.js?v=seo-20260911"></script>
+<script src="data/projects.js?v=22"></script><script src="assets/js/search.js?v=20260911-interactions"></script><script src="assets/js/projects.js?v=20260911-interactions"></script>
 <script>
   (() => {
     const grid = document.querySelector('.clients .client-grid');
@@ -1014,167 +922,7 @@
   })();
 </script>
 
-<!-- HNH attachment remove fix -->
 
-<script>
-(() => {
-  const initAttachmentManager = () => {
-    const form = document.querySelector('#contact-form');
-    if (!form || form.dataset.hnhAttachmentFix === '1') return;
-
-    const oldInput = form.querySelector('input[type="file"]');
-    if (!oldInput) return;
-
-    form.dataset.hnhAttachmentFix = '1';
-
-    const input = oldInput.cloneNode(true);
-    oldInput.replaceWith(input);
-    input.multiple = true;
-
-    const MAX_FILE = 5 * 1024 * 1024;
-    const MAX_TOTAL = 10 * 1024 * 1024;
-    let selectedFiles = [];
-
-    const host =
-      input.closest('.contact-field') ||
-      input.closest('.attachment-field') ||
-      input.parentElement;
-
-    if (!host) return;
-
-    const manager = document.createElement('div');
-    manager.className = 'hnh-attachment-manager';
-
-    const list = document.createElement('div');
-    list.className = 'hnh-attachment-list';
-    list.setAttribute('aria-live', 'polite');
-
-    const message = document.createElement('p');
-    message.className = 'hnh-attachment-message';
-    message.setAttribute('aria-live', 'polite');
-
-    manager.append(list, message);
-    host.append(manager);
-
-    const formatSize = bytes => {
-      if (bytes < 1024 * 1024) {
-        return `${Math.max(1, Math.round(bytes / 1024))} KB`;
-      }
-      return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-    };
-
-    const syncInput = () => {
-      if (typeof DataTransfer === 'undefined') {
-        input.value = '';
-        return;
-      }
-
-      const transfer = new DataTransfer();
-      selectedFiles.forEach(file => transfer.items.add(file));
-      input.files = transfer.files;
-    };
-
-    const render = () => {
-      list.replaceChildren();
-
-      selectedFiles.forEach((file, index) => {
-        const row = document.createElement('div');
-        row.className = 'hnh-attachment-row';
-
-        const name = document.createElement('span');
-        name.className = 'hnh-attachment-name';
-        name.textContent = file.name;
-        name.title = file.name;
-
-        const size = document.createElement('span');
-        size.className = 'hnh-attachment-size';
-        size.textContent = formatSize(file.size);
-
-        const remove = document.createElement('button');
-        remove.type = 'button';
-        remove.className = 'hnh-attachment-remove';
-        remove.textContent = 'Remove';
-        remove.setAttribute('aria-label', `Remove ${file.name}`);
-
-        remove.addEventListener('click', () => {
-          selectedFiles.splice(index, 1);
-          syncInput();
-          message.textContent = selectedFiles.length
-            ? `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'} selected`
-            : 'No files selected';
-          message.classList.remove('is-error');
-          render();
-        });
-
-        row.append(name, size, remove);
-        list.append(row);
-      });
-    };
-
-    input.addEventListener('change', () => {
-      const incoming = [...input.files];
-      const errors = [];
-
-      incoming.forEach(file => {
-        if (file.size > MAX_FILE) {
-          errors.push(`${file.name} exceeds the 5MB per-file limit and was not added.`);
-          return;
-        }
-
-        const duplicate = selectedFiles.some(existing =>
-          existing.name === file.name &&
-          existing.size === file.size &&
-          existing.lastModified === file.lastModified
-        );
-
-        if (duplicate) return;
-
-        const currentTotal = selectedFiles.reduce(
-          (sum, existing) => sum + existing.size,
-          0
-        );
-
-        if (currentTotal + file.size > MAX_TOTAL) {
-          errors.push(`${file.name} would exceed the 10MB total limit and was not added.`);
-          return;
-        }
-
-        selectedFiles.push(file);
-      });
-
-      syncInput();
-      render();
-
-      if (errors.length) {
-        message.textContent = errors.join(' ');
-        message.classList.add('is-error');
-      } else {
-        message.textContent = selectedFiles.length
-          ? `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'} selected`
-          : 'No files selected';
-        message.classList.remove('is-error');
-      }
-    });
-
-    form.addEventListener('reset', () => {
-      selectedFiles = [];
-      syncInput();
-      render();
-      message.textContent = 'No files selected';
-      message.classList.remove('is-error');
-    });
-
-    message.textContent = 'No files selected';
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAttachmentManager, { once: true });
-  } else {
-    initAttachmentManager();
-  }
-})();
-</script>
-<!-- /HNH attachment remove fix -->
 
 </body>
 </html>
