@@ -1,43 +1,88 @@
 [
   {
-    "id": "golf-course-construction",
-    "name": "Golf Course Construction",
-    "title": "Golf Course Construction & Renovation in Singapore",
-    "description": "Golf course construction and renovation in Singapore, including shaping, drainage and turf establishment. Discuss your course works with H&H Resources.",
-    "intro": "H&H Resources provides golf course construction and renovation works in Singapore. Our expertise covers construction, shaping, drainage, turf establishment and associated course works.",
-    "scope": ["Course construction and renovation", "Ground shaping and drainage", "Turf establishment and associated course works"],
-    "planning": "Tell us which areas of the course need work, the intended scope and the access available for machinery. Existing drawings, site photographs and your preferred work period help us understand the enquiry.",
-    "categories": []
-  },
-  {
-    "id": "turf-landscape",
-    "name": "Turf & Landscape",
-    "title": "Turfing & Landscape Construction in Singapore",
-    "description": "Turfing and landscape construction in Singapore. H&H Resources handles softscape, turf installation, site preparation and landscape works.",
-    "intro": "H&H Resources undertakes turfing and landscape construction in Singapore, bringing together site preparation, softscape works and turf installation. Our portfolio also includes artificial turf for landscape settings.",
-    "scope": ["Site preparation and landscape construction", "Softscape and turf installation", "Landscape artificial turf"],
-    "planning": "Share the site location, approximate area and intended use of the landscape. Let us know whether you are considering natural turf or landscape artificial turf, and include photographs or plans where available.",
-    "categories": ["landscape-artificial-turf"]
-  },
-  {
     "id": "sports-fields",
     "name": "Sports Fields",
     "title": "Sports Field & Artificial Turf Construction in Singapore",
-    "description": "Sports field construction in Singapore, including artificial, natural and hybrid football fields. Explore H&H Resources' artificial turf project portfolio.",
-    "intro": "H&H Resources works on sports field systems for Singapore facilities, with expertise spanning artificial, natural and hybrid football fields. Our artificial turf references include Our Tampines Hub and Ngee Ann Polytechnic.",
-    "scope": ["Artificial football field systems", "Natural football field systems", "Hybrid football field systems"],
-    "planning": "Tell us the sports to be played, the field size, the existing surface and your preferred programme. If the brief includes a particular surface specification or certification requirement, include it with your enquiry so it can be considered for that project.",
-    "categories": ["artificial-turf"]
+    "description": "Sports field and artificial turf construction in Singapore for schools, clubs and government facilities. Explore H&H Resources project references.",
+    "intro": "H&H Resources works on sports fields for schools, clubs and government facilities in Singapore. Our expertise spans artificial, natural and hybrid football fields, with artificial turf references at Our Tampines Hub and Ngee Ann Polytechnic.",
+    "scope": [
+      "Artificial football field systems",
+      "Natural football field systems",
+      "Hybrid football field systems"
+    ],
+    "planning": "Tell us the sports to be played, the field size, the existing surface and your preferred work period. For schools and operating facilities, include term dates, access restrictions and arrangements for keeping other areas in use. Share any surface specification or certification requirement with your enquiry.",
+    "categories": [
+      "artificial-turf"
+    ],
+    "public_awards": [
+      {
+        "name": "School synthetic turf programme — Phase 10",
+        "text": "SGPBusiness lists H&H Resources among the suppliers awarded items under the Ministry of Education’s Phase 10 school synthetic turf programme on 27 January 2025.",
+        "url": "https://www.sgpbusiness.com/government/procurement/tender-number/MOE000ETT24000037",
+        "tender": "MOE000ETT24000037"
+      },
+      {
+        "name": "Our Tampines Hub — Town Square artificial turf",
+        "text": "SGPBusiness records an award to H&H Resources on 10 September 2024 for artificial turf replacement at Town Square, with three years of maintenance and an option for three more.",
+        "url": "https://www.sgpbusiness.com/government/procurement/tender-number/PAS000ETT24000062",
+        "tender": "PAS000ETT24000062"
+      }
+    ]
   },
   {
     "id": "sports-courts",
     "name": "Courts",
     "title": "Sports Court Surfacing & Timber Flooring in Singapore",
-    "description": "Sports court surfacing in Singapore, with H&H Resources project references in acrylic coatings and timber sports flooring for schools and clubs.",
-    "intro": "H&H Resources provides court systems for schools, clubs and sports facilities in Singapore. Our project portfolio includes acrylic sports-surface works and timber sports flooring.",
-    "scope": ["Acrylic sports-surface works", "Timber sports flooring", "Court systems for schools, clubs and sports facilities"],
-    "planning": "Include the court location, indoor or outdoor setting, sports to be played and the condition of the existing surface. Photographs, dimensions and the desired work period help us understand your surfacing requirements.",
-    "categories": ["acrylic-coating", "timber-flooring"]
+    "description": "Sports court surfacing in Singapore for schools, clubs and public facilities. Explore H&H Resources acrylic court coating and timber flooring projects.",
+    "intro": "H&H Resources provides court systems for schools, clubs and public sports facilities in Singapore. Our portfolio includes acrylic court surfacing at Republic Polytechnic and Tanah Merah Country Club, and timber sports flooring at Ngee Ann Polytechnic.",
+    "scope": [
+      "Acrylic sports-surface works",
+      "Timber sports flooring",
+      "Court systems for schools, clubs and sports facilities"
+    ],
+    "planning": "Include the court location, indoor or outdoor setting, sports to be played and the condition of the existing surface. Share dimensions, photographs and your preferred work period, including school holidays or club closure periods where relevant.",
+    "categories": [
+      "acrylic-coating",
+      "timber-flooring"
+    ],
+    "public_awards": [
+      {
+        "name": "Republic Polytechnic — outdoor court replacement",
+        "text": "SGPBusiness lists H&H Resources as the awarded supplier for Republic Polytechnic’s outdoor court replacement tender on 13 August 2024.",
+        "url": "https://www.sgpbusiness.com/company/H-H-Resources-Pte-Ltd/government-procurement",
+        "tender": "RPO000ETT24000011"
+      }
+    ]
+  },
+  {
+    "id": "turf-landscape",
+    "name": "Turf & Landscape",
+    "title": "Turfing & Landscape Construction in Singapore",
+    "description": "Turf and landscape construction in Singapore for schools, clubs and public spaces, including site preparation, softscape and turf installation.",
+    "intro": "H&H Resources undertakes turf and landscape construction in Singapore, including site preparation, softscape works and turf installation. Schools, clubs and government agencies can enquire about natural turf and landscape artificial turf for their outdoor spaces.",
+    "scope": [
+      "Site preparation and landscape construction",
+      "Softscape and turf installation",
+      "Landscape artificial turf"
+    ],
+    "planning": "Share the site location, approximate area and intended use of the landscape. Let us know whether you are considering natural turf or landscape artificial turf. Include photographs, plans, drainage considerations and any requirements for access around an operating school, club or public facility.",
+    "categories": [
+      "landscape-artificial-turf"
+    ]
+  },
+  {
+    "id": "golf-course-construction",
+    "name": "Golf Course Construction",
+    "title": "Golf Course Construction & Renovation in Singapore",
+    "description": "Golf course construction and renovation in Singapore, including shaping, drainage and turf establishment. Discuss your course works with H&H Resources.",
+    "intro": "H&H Resources provides golf course construction and renovation works in Singapore. Our expertise covers construction, shaping, drainage, turf establishment and associated course works.",
+    "scope": [
+      "Course construction and renovation",
+      "Ground shaping and drainage",
+      "Turf establishment and associated course works"
+    ],
+    "planning": "Tell us which areas of the course need work, the intended scope and the access available for machinery. Existing drawings, site photographs and your preferred work period help us understand the enquiry.",
+    "categories": []
   },
   {
     "id": "irrigation-systems",
@@ -45,7 +90,11 @@
     "title": "Landscape Irrigation Systems in Singapore",
     "description": "Irrigation system design, supply and installation for managed landscapes in Singapore. Discuss irrigation and sprinkler requirements with H&H Resources.",
     "intro": "H&H Resources offers irrigation design, system supply and installation for managed landscapes in Singapore. Our expertise includes sprinkler solutions for landscape irrigation.",
-    "scope": ["Irrigation design", "System supply and installation", "Sprinkler solutions for managed landscapes"],
+    "scope": [
+      "Irrigation design",
+      "System supply and installation",
+      "Sprinkler solutions for managed landscapes"
+    ],
     "planning": "Send a site plan or photographs showing the areas to be irrigated. Describe the landscape, any existing irrigation system and the water supply information you have available.",
     "categories": []
   },
@@ -55,8 +104,15 @@
     "title": "Running Tracks & EPDM Surfacing in Singapore",
     "description": "Specialist sports and recreational surfacing in Singapore, including running tracks, EPDM and PU flooring. View H&H Resources' surface project references.",
     "intro": "H&H Resources works on engineered sports and recreational surfaces in Singapore. Our expertise includes EPDM, running tracks and PU flooring, with project references in running tracks and EPDM surfacing.",
-    "scope": ["Running tracks", "EPDM surfacing", "PU flooring"],
+    "scope": [
+      "Running tracks",
+      "EPDM surfacing",
+      "PU flooring"
+    ],
     "planning": "Tell us how the space will be used, its approximate dimensions and whether it is a new installation or work to an existing surface. Include the surface specification, layout and photographs if available.",
-    "categories": ["running-track", "epdm-flooring"]
+    "categories": [
+      "running-track",
+      "epdm-flooring"
+    ]
   }
 ]

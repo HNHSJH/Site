@@ -36,6 +36,8 @@ The homepage retains its slide panels, four-column selected project gallery and 
 There are 18 canonical, sitemap-listed HTML pages: the homepage, About Us, Clients, Projects, Expertise and Contact, six service pages, and six selected project pages. Each has a unique title and description, self-referencing canonical, Open Graph/text sharing metadata and Organization structured data. Service pages also carry Service structured data. No certification validity dates, project completion dates, measured outcomes, reviews, opening hours or incorporation dates are inferred.
 
 - Maintain service descriptions in `data/services.json`.
+- The owner-confirmed search priorities are sports fields, courts, and turf/landscape for schools, clubs and government agencies. The services directory presents these three first. Homepage metadata, About Us and the service, client and contact pages use this focus while retaining Singapore as the existing service area.
+- Optional `public_awards` in `data/services.json` render attributed contract award records on service pages. Preserve the source URLs and distinguish award dates from completion dates; do not assume an award matches the date or exact works in a portfolio photograph.
 - Maintain project facts in `data/projects.json` and regenerate `data/projects.js` using the existing sync tool.
 - Maintain About Us copy in the homepage's `.about-copy`; the standalone page derives its text from that source.
 - `tools/build-seo.py` owns the generated content pages, homepage SEO metadata and marked project-card regions. It preserves other homepage code. Run it after content edits; do not edit generated pages directly.
@@ -48,11 +50,25 @@ There are 18 canonical, sitemap-listed HTML pages: the homepage, About Us, Clien
 ### Follow-up information needed from the owner
 
 1. Search Console access or exported indexing/performance reports, plus the Google Business Profile URL and management access if optimisation is wanted.
-2. Priority services, target customers and geographic coverage for search targeting.
+2. Confirm any geographic coverage beyond the site's existing Singapore focus, if applicable. Priority services and target customer groups have been supplied and implemented.
 3. Project dates, exact scope, surface systems, dimensions, outcomes and approved testimonials for fuller case studies.
 4. Current BCA registration details and bizSAFE status/validity, plus verified official profile URLs for structured-data links.
 5. Confirm public business hours and whether the office accepts visitors before adding these to business listings or schema.
-6. In GitHub repository Settings → Pages, enable **Enforce HTTPS** and verify HTTP redirects to HTTPS. This administration setting is not editable through the available repository-content connector.
+6. Confirm the primary public telephone number: the website uses the owner-selected +65 9114 8327, while the public directory below lists different office numbers. Retain the website number until the owner confirms any change.
+
+The owner enabled **Enforce HTTPS** on 11 September 2026. A live request to `http://hnhresources.com/` returned HTTP 301 to `https://hnhresources.com/`, followed by HTTP 200. This item is complete. Search Console has not been connected in this work; its signed-in Google account and property ownership remain unknown.
+
+### Public research follow-up — 11 September 2026
+
+The following records were found in SGPBusiness, a secondary directory. Current certificate validity could not be independently checked against BCA or WSHC records, so no new current-status certification claims were added.
+
+- [Company record](https://www.sgpbusiness.com/company/H-H-Resources-Pte-Ltd): UEN 200822717G; incorporation 5 December 2008; registered address matches the website. The 1980 company-reported lineage remains distinct from incorporation. The directory lists +65 6443 4796 and +65 6904 3383; owner confirmation is needed before changing contact information.
+- The same directory lists CW01 C3, CW02 C2 and FM03 L3 through 1 May 2029, and GB1 through 17 October 2028. Obtain current BCA documents or an accessible official company record before publishing these as verified credentials. Current bizSAFE Level 4 validity, business hours and official social profiles were not confirmed.
+- [MOE Phase 10 school synthetic turf](https://www.sgpbusiness.com/government/procurement/tender-number/MOE000ETT24000037): H&H is one of two suppliers awarded items on 27 January 2025. Published on the sports field service page with attribution; no exclusive award or completion claim.
+- [Our Tampines Hub Town Square turf](https://www.sgpbusiness.com/government/procurement/tender-number/PAS000ETT24000062): award on 10 September 2024, with a three-year maintenance period and a three-year extension option. Published on the sports field service page with attribution.
+- [Company procurement records](https://www.sgpbusiness.com/company/H-H-Resources-Pte-Ltd/government-procurement): Republic Polytechnic outdoor court replacement, RPO000ETT24000011, awarded 13 August 2024; published on the court service page with attribution. The same source lists Ngee Ann Polytechnic Block 16 artificial turf replacement, NPO000ETT23000021, awarded 15 November 2023; retained here as a research lead for a fuller owner-confirmed case study.
+
+Contract values, programme totals, completion dates, dimensions and outcomes were not inferred or added. Public award records supplement the existing owner-supplied portfolio; they do not date its photographs.
 
 The 11 September SEO release was checked with the static validator and simulated DOM interactions for panels, project filters, project popups, client/MOE navigation, service accordions, contact navigation, modified link clicks, history navigation and the stable H1. Browser rendering and physical-device visual acceptance remain unverified because the browser cannot access this static checkout's local preview.
 

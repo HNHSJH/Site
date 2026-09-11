@@ -114,14 +114,20 @@ def enquiry(label='Discuss your project'):
 
 service_cards = ''.join(f'<article class="service"><h2><a href="/services/{s["id"]}/">{e(s["name"])}</a></h2><p>{e(s["intro"])}</p></article>' for s in SERVICES)
 page('/services/', 'Sports Construction Services Singapore | H&H Resources',
-     'Explore H&H Resources services in Singapore: golf courses, turf and landscape, sports fields, court surfacing, irrigation and specialised surfaces.',
-     'Sports construction services in Singapore', '<p class="intro">Explore our golf, turf, landscape and sports-facility construction capabilities.</p><div class="service-grid">' + service_cards + '</div>' + enquiry(), kind='CollectionPage')
+     'Sports fields, courts, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore H&H Resources services.',
+     'Sports construction services in Singapore', '<p class="intro">Sports fields, courts, turf and landscape construction for schools, clubs and government agencies across Singapore. Explore these services alongside our golf course, irrigation and specialised surfacing capabilities.</p><div class="service-grid">' + service_cards + '</div>' + enquiry(), kind='CollectionPage')
 
 for s in SERVICES:
     related = [p for p in PROJECTS['projects'] if p['category'] in s['categories']]
     preferred = [BY_ID[x] for x in DETAILS if BY_ID[x] in related]
     selected = (preferred + [p for p in related if p not in preferred])[:6]
     body = f'<p class="intro">{e(s["intro"])}</p><section class="content-section"><h2>Scope of work</h2><ul>' + ''.join(f'<li>{e(x)}</li>' for x in s['scope']) + '</ul></section>'
+    if s.get('public_awards'):
+        body += '<section class="content-section prose"><h2>Public contract award records</h2>'
+        for award in s['public_awards']:
+            body += (f'<h3>{e(award["name"])}</h3><p>{e(award["text"])}</p>'
+                     f'<p><a href="{e(award["url"])}">SGPBusiness record: {e(award["tender"])}</a></p>')
+        body += '<p>The dates above are contract award dates.</p></section>'
     if selected:
         body += '<section class="content-section"><h2>Related project references</h2><div class="card-grid">' + ''.join(card(p) for p in selected) + '</div><p><a href="/projects/">View the full project portfolio →</a></p></section>'
     body += f'<section class="content-section prose"><h2>Planning your project</h2><p>{e(s["planning"])}</p>{enquiry()}</section>'
@@ -160,14 +166,14 @@ class Logos(HTMLParser):
 
 logos = Logos()
 logos.feed(HOME)
-clients = '<p class="intro">Long-standing partnerships across Singapore, including schools, institutions, clubs and community organisations.</p><div class="client-grid">'
+clients = '<p class="intro">Our client references span schools, clubs, government agencies and community organisations across Singapore.</p><div class="client-grid">'
 clients += ''.join(f'<div class="client"><img src="/{e(src)}" alt="" width="240" height="82" loading="lazy"><p>{e(name)}</p></div>' for src, name in logos.logos) + '</div>'
 schools = re.findall(r'<div class="moe-school-group">(.*?)</div>', HOME, re.S)
 clients += '<section class="content-section"><h2>School project references</h2><div class="school-groups">' + ''.join('<div>' + group + '</div>' for group in schools) + '</div></section><p><a href="/projects/">Explore our project portfolio →</a></p>'
-page('/clients/', 'Clients & School Projects | H&H Resources Singapore', 'Explore H&H Resources clients and school project references across Singapore, including educational institutions, sports clubs and community organisations.', 'Our clients in Singapore', clients, kind='CollectionPage')
+page('/clients/', 'Clients & School Projects | H&H Resources Singapore', 'Explore H&H Resources client and school project references across Singapore, including schools, sports clubs, government agencies and community organisations.', 'Our clients in Singapore', clients, kind='CollectionPage')
 
 page('/contact/', 'Contact H&H Resources | Sports Construction Enquiries', 'Contact H&H Resources about sports construction, turf and surfacing works in Singapore. Call +65 9114 8327 or email enquiry@hnhresources.com.', 'Start a project with H&H',
-     '<p class="intro">Tell us about your golf, turf, landscape or sports-surface project.</p><div class="split"><section class="content-section"><h2>Contact details</h2><p><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></p><address>1 Tampines North Drive 1<br>#08-49 T-Space<br>Singapore 528559</address></section><section class="content-section"><h2>Send a project enquiry</h2><p>Use our enquiry form to share your project type, a brief description and supporting attachments. Site photographs and drawings help us understand the scope.</p>' + enquiry('Open enquiry form') + '</section></div><section class="content-section"><h2>Explore our work</h2><p><a href="/services/">Construction services</a> · <a href="/projects/">Project portfolio</a></p></section>', kind='ContactPage')
+     '<p class="intro">Planning a sports field, court, turf or landscape project for a school, club or government facility in Singapore? Tell us about your site and requirements.</p><div class="split"><section class="content-section"><h2>Contact details</h2><p><a href="tel:+6591148327">+65 9114 8327</a><br><a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a></p><address>1 Tampines North Drive 1<br>#08-49 T-Space<br>Singapore 528559</address></section><section class="content-section"><h2>Send a project enquiry</h2><p>Use our enquiry form to share your project type, a brief description and supporting attachments. Site photographs and drawings help us understand the scope.</p>' + enquiry('Open enquiry form') + '</section></div><section class="content-section"><h2>Explore our work</h2><p><a href="/services/">Construction services</a> · <a href="/projects/">Project portfolio</a></p></section>', kind='ContactPage')
 
 # Static cards remain the canonical markup. JavaScript adds filtering and popups.
 for grid_id, records, archive in [('selected-projects-grid', [BY_ID[x] for x in FEATURED], False), ('all-projects-grid', PROJECTS['projects'], True)]:
@@ -182,8 +188,8 @@ for grid_id, records, archive in [('selected-projects-grid', [BY_ID[x] for x in 
         if n != 1:
             raise ValueError('Expected one empty grid: ' + grid_id)
 
-seo = metadata('Sports Turf & Surface Construction Singapore | H&H Resources',
-               'H&H Resources provides golf, turf, landscape and sports-facility construction in Singapore. Explore our project portfolio and discuss your requirements.', '/')
+seo = metadata('Sports Fields, Courts & Turf Singapore | H&H Resources',
+               'H&H Resources provides sports field, court, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore our projects.', '/')
 if '<!-- start:seo -->' in HOME:
     HOME = re.sub(r'<!-- start:seo -->.*?<!-- end:seo -->', lambda m: '<!-- start:seo -->\n' + seo + '\n<!-- end:seo -->', HOME, flags=re.S)
 else:
