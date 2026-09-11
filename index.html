@@ -433,36 +433,77 @@
     }
 
     .intro {
-      background: linear-gradient(180deg, var(--paper-warm) 0%, var(--paper) 100%);
+      background: #20312d;
     }
-    .intro .intro-heading {
-      margin-bottom: 0;
+    .about-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
     }
-    .intro .intro-heading .intro-grid {
+    .about-photo img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 42% 56%;
     }
-    .intro-grid {
-      display: grid;
-      grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr);
-      gap: clamp(28px, 4vw, 62px);
-      align-items: start;
+    #about > .section-shell {
+      position: relative;
+      align-items: flex-end;
+      padding: max(80px, env(safe-area-inset-top)) var(--pad) max(106px, calc(90px + env(safe-area-inset-bottom)));
+      background: linear-gradient(0deg, rgba(10,24,18,.36), transparent 22%);
     }
-    .intro-copy {
-      font-size: clamp(16px, 1.75vw, 24px);
-      line-height: 1.14;
-      letter-spacing: -.028em;
-      font-weight: 300;
-      color: var(--green-forest);
+    .about-panel {
+      flex: 0 1 auto;
+      width: min(48%, 620px);
+      min-height: 0;
+      max-height: 100%;
+      padding: clamp(24px, 2.7vw, 42px);
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 0;
+      background: rgba(246,248,243,.86);
+      color: #20312d;
+      box-shadow: 0 16px 48px rgba(12,28,19,.14);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #5f7f57 transparent;
     }
-    .intro-copy p { margin:0; }
-    .intro-aside {
-      border-top: 0;
-      padding-top: 0;
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 14px;
+    .about-panel:focus-visible {
+      outline: 2px solid #355349;
+      outline-offset: -5px;
     }
-    .intro-aside p { margin:0 0 28px; }
+    #about .about-heading { margin: 0 0 22px; }
+    #about .about-heading > span { font-size: 12px; margin-bottom: 18px; }
+    #about .about-heading h2 {
+      font-size: clamp(28px, 3.1vw, 44px);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    #about .about-heading h2 em { color: #426448; font-style: normal; }
+    .about-copy { font-size: 16px; line-height: 1.55; }
+    .about-copy p { margin: 0 0 16px; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-copy strong { color: #355349; font-weight: 700; }
+    @media (max-width: 960px) {
+      .about-panel { width: min(65%, 580px); }
+    }
+    @media (max-width: 620px) {
+      #about > .section-shell {
+        justify-content: flex-end;
+        padding: max(142px, 19dvh) 16px max(108px, calc(92px + env(safe-area-inset-bottom)));
+      }
+      .about-photo img { object-position: 41% 55%; }
+      .about-panel { width: 100%; padding: 22px; }
+      #about .about-heading { margin-bottom: 16px; }
+      #about .about-heading h2 { font-size: clamp(28px, 7vw, 36px); }
+      .about-copy p { margin-bottom: 14px; }
+    }
+    @media (max-height: 500px) {
+      #about > .section-shell { padding-top: 70px; padding-bottom: 100px; }
+    }
 
     .stats {
       display:grid;
@@ -595,6 +636,42 @@
 
     .expertise {
       background: linear-gradient(180deg, #e7efe8 0%, var(--sky-soft) 100%);
+    }
+    #expertise > .section-shell {
+      justify-content: flex-start;
+      padding-top: max(80px, env(safe-area-inset-top));
+      padding-bottom: max(110px, calc(92px + env(safe-area-inset-bottom)));
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    #expertise > .section-shell > * { flex-shrink: 0; }
+    .expertise-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+    #expertise .expertise-heading .section-kicker { margin-bottom: 0; }
+    .expertise-marks {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: clamp(16px, 2vw, 28px);
+      padding-bottom: 4px;
+    }
+    .expertise-marks img { height: auto; object-fit: contain; }
+    .expertise-mark-bca { width: clamp(125px, 12vw, 170px); }
+    .expertise-mark-bizsafe { width: clamp(115px, 11vw, 154px); }
+    @media (max-width: 960px) {
+      .expertise-heading { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    }
+    @media (max-width: 620px) {
+      #expertise > .section-shell { padding-top: 72px; }
+      .expertise-heading { gap: 14px; margin-bottom: 16px; }
+      .expertise-marks { gap: 20px; }
+      .expertise-mark-bca { width: 116px; }
+      .expertise-mark-bizsafe { width: 108px; }
     }
     .expertise-list { border-top:1px solid rgba(53, 83, 73, .16); }
     .expertise-row {
@@ -952,7 +1029,7 @@
     @media (max-width: 900px) {
       .hero-content { grid-template-columns:1fr; align-content:end; }
       .hero-side { max-width:540px; }
-      .intro-grid, .clients-intro, .contact-grid { grid-template-columns:1fr; }
+      .clients-intro, .contact-grid { grid-template-columns:1fr; }
       .stats { grid-template-columns:repeat(2,1fr); }
       .stat:nth-child(3) { border-left:0; border-top:1px solid var(--line); }
       .stat:nth-child(4) { border-top:1px solid var(--line); }
@@ -1307,13 +1384,6 @@
       font-size: clamp(25px, 3vw, 42px);
     }
 
-    .intro-grid {
-      gap: clamp(22px, 4vw, 58px);
-    }
-    .intro-copy {
-      font-size: clamp(18px, 2vw, 29px);
-    }
-    .intro-aside p { margin-bottom: 18px; }
     .stats {
       margin-top: clamp(22px, 4vh, 42px);
     }
@@ -1389,7 +1459,6 @@
     @media (max-width: 900px) {
       .showcase-nav a { font-size: clamp(18px, 3.2vw, 26px); }
       .hero-content { padding-bottom: 154px; }
-      .intro-grid { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: minmax(0, 1.12fr) minmax(210px, .88fr); }
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .project-media { aspect-ratio: 16 / 8.8; }
@@ -1449,10 +1518,6 @@
       .projects .section-kicker h2,
       .clients-intro h2 { font-size: clamp(22px, 6.7vw, 31px); }
 
-      .intro-grid { grid-template-columns: 1fr; gap: 12px; }
-      .intro-copy { font-size: clamp(17px, 5vw, 23px); }
-      .intro-aside { font-size: 11px; }
-      .intro-aside p { margin-bottom: 10px; }
       .stats { grid-template-columns: repeat(2, 1fr); margin-top: 16px; }
       .stat,
       .stat + .stat,
@@ -1806,19 +1871,7 @@
     .showcase-enquire:hover span { transform: translateX(5px); }
     .showcase-enquire:focus-visible { outline:2px solid #fff; outline-offset:4px; }
 
-    /* v8 — restrained colour contrast for About + Expertise */
-    .about-accent-warm {
-      color: var(--accent-warm);
-      font-weight: 500;
-    }
-    .about-accent-cool {
-      color: var(--accent-cool);
-      font-weight: 600;
-    }
-    .intro .stat:nth-child(odd) strong { color: var(--accent-warm); }
-    .intro .stat:nth-child(even) strong { color: var(--green-deep); }
-    .intro .stat span { color: #66776f; }
-
+    /* Expertise colour accents */
     .expertise .section-kicker h2 { color: var(--green-forest); }
     .expertise-row .num { color: var(--accent-warm); font-weight: 700; }
     .expertise-row h3 { color: var(--green-forest); }
@@ -1857,7 +1910,6 @@
       font-weight: 700;
     }
     @media (max-width: 620px) {
-      .intro-aside { margin-top: 8px; }
       .field-count { margin-top: 20px; padding: 15px 0; }
       .field-count strong { font-size: clamp(40px, 15vw, 58px); }
       .field-count span { font-size: 8px; }
@@ -3085,7 +3137,6 @@ body.client-archive-open #clients > .panel-next {
 }
 
 /* Light panels and light overlays use the dark copyright treatment. */
-body[data-active-panel="about"] .global-copyright,
 body[data-active-panel="clients"] .global-copyright,
 body[data-active-panel="expertise"] .global-copyright,
 body.client-archive-open .global-copyright,
@@ -3095,6 +3146,7 @@ body.project-detail-open .global-copyright {
 }
 
 /* Projects/contact and the project archive stay on dark surfaces. */
+body[data-active-panel="about"] .global-copyright,
 body[data-active-panel="projects"] .global-copyright,
 body[data-active-panel="contact"] .global-copyright,
 body.project-archive-open .global-copyright {
@@ -4205,18 +4257,24 @@ body.site-preloading { overflow:auto !important; }
 <a href="#contact"><span>Contact Us</span><small>05</small></a>
 </nav>
 </section>
-<section class="intro scroll-section" id="about">
+<section aria-labelledby="about-title" class="intro scroll-section" id="about">
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
+<picture aria-hidden="true" class="about-photo">
+<source media="(max-width: 620px) and (orientation: portrait)" srcset="assets/images/about/hnh-course-construction-800.webp" type="image/webp"/>
+<img alt="" decoding="async" height="1200" src="assets/images/about/hnh-course-construction-1600.webp" width="1600"/>
+</picture>
 <div class="section-shell">
-<div class="section-kicker intro-heading reveal">
+<!-- Edit the About Us wording here; the photograph and translucent panel are styled above. -->
+<div aria-label="About H&amp;H Resources" class="about-panel" role="region" tabindex="0">
+<div class="section-kicker about-heading">
 <span>About H&amp;H</span>
-<div class="intro-grid">
-<div class="intro-copy">
-<p><span class="about-accent-warm">Since 1980</span>, H&amp;H Resources has contributed to golf, turfing, landscape and sports-facility projects across Singapore, with more than 100 fields completed.</p>
+<h2 id="about-title">Built on experience.<br/><em>Made for play.</em></h2>
 </div>
-<div class="intro-aside">
-<p><span class="about-accent-cool">Formerly known as M S Construction Pte Ltd</span>, the company combines specialist know-how, machinery, skilled site teams and long-standing industry partnerships.</p>
-</div>
+<div class="about-copy">
+<p>With roots dating back to <strong>1980</strong> under M S Construction Pte Ltd, H&amp;H Resources brings decades of hands-on experience to golf, turf, landscape and sports-facility construction in Singapore.</p>
+<p>Our track record spans <strong>more than 100 fields</strong>, with project references including artificial turf at Our Tampines Hub and Ngee Ann Polytechnic, and sports-court surfacing at Tanah Merah Country Club.</p>
+<p>In 2025, we were awarded the contract to refurbish the jogging track at Our Tampines Hub, continuing our contribution to Singapore&rsquo;s community sports spaces.</p>
+<p>From ground preparation and drainage to turf installation and specialist finishes, we bring skilled site teams, dedicated machinery and practical construction knowledge to every project.</p>
 </div>
 </div>
 </div>
@@ -4269,9 +4327,15 @@ body.site-preloading { overflow:auto !important; }
 <section class="expertise scroll-section" id="expertise">
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
+<div class="expertise-heading">
 <div class="section-kicker reveal">
 <span>Expertise</span>
 <h2 class="headline-reveal">Specialist construction capabilities across natural and engineered surfaces.</h2>
+</div>
+<div aria-label="BCA and bizSAFE Level 4" class="expertise-marks">
+<img alt="Building and Construction Authority (BCA)" class="expertise-mark-bca" decoding="async" height="346" loading="lazy" src="assets/logos/bca-transparent.webp" width="600"/>
+<img alt="bizSAFE Level 4" class="expertise-mark-bizsafe" decoding="async" height="308" loading="lazy" src="assets/logos/bizsafe-level-4-transparent.webp" width="600"/>
+</div>
 </div>
 <div aria-label="H&amp;H Resources expertise categories" class="expertise-list reveal">
 <div class="expertise-item">

@@ -32,6 +32,18 @@ The project archive is data-driven and does not require hand-writing dozens of H
 
 The showcase is fully local and references the exact cover photograph used by the matching project record under `assets/images/projects/`. This keeps the showcase and All Projects imagery consistent and avoids duplicate hero files.
 
+## About Us and Expertise
+
+The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses an 86%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list, as transparent WebP images.
+
+Copy sources checked on 11 September 2026:
+
+- [H&H's published history](https://hnhresources.com/#about), as it appeared before this update: roots in 1980, former name M S Construction Pte Ltd, and more than 100 fields completed. This is company-reported history, not an incorporation date. [The current entity's incorporation date is 5 December 2008](https://www.sgpbusiness.com/company/H-H-Resources-Pte-Ltd).
+- Existing company-supplied project references in `data/projects.json`: Our Tampines Hub and Ngee Ann Polytechnic artificial turf, and Tanah Merah Country Club acrylic court surfacing.
+- [Tender PAS000ETT25000083](https://www.sgpbusiness.com/government/procurement/tender-number/PAS000ETT25000083): Our Tampines Hub jogging-track refurbishment awarded to H & H Resources on 9 October 2025. The copy describes a contract award; it does not infer completion or a current certification.
+
+The two marks were supplied by the owner. Their inclusion does not add a claim that every project is BCA- or bizSAFE-certified. The public copy does not infer awards or golf-course construction roles from client names alone.
+
 ## Interaction model
 
 The main site is intentionally no-scroll. Sections slide over the showcase. `All Projects`, project details, and `All Past Clients` use their own internal scroll areas.
