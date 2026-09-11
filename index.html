@@ -35,6 +35,9 @@
       --accent-cool: #5f7d86;
       --ease: cubic-bezier(.2,.75,.2,1);
       --pad: clamp(20px, 3.4vw, 56px);
+      --gallery-width: 1280px;
+      --gallery-gap: clamp(12px, 1.4vw, 20px);
+      --gallery-action-gap: 16px;
     }
 
     * { box-sizing: border-box; }
@@ -585,8 +588,8 @@
     .project-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: clamp(16px, 1.6vw, 24px);
-      width: min(100%, 1320px);
+      gap: var(--gallery-gap);
+      width: min(100%, var(--gallery-width));
       margin-inline: auto;
     }
     .project-card {
@@ -652,8 +655,8 @@
     .project-arrow { font-size: 20px; font-weight: 200; transition: transform .3s var(--ease); }
     .project-card:hover .project-arrow { transform:translate(5px,-5px); }
     .projects-footer {
-      width: min(100%, 1240px);
-      margin: 24px auto 0;
+      width: min(100%, var(--gallery-width));
+      margin: var(--gallery-action-gap) auto 0;
       display:flex;
       justify-content:flex-end;
       color: #e7f1ed;
@@ -662,7 +665,7 @@
     .expertise {
       background: #142b27;
       color: #fff;
-      --section-photo-position: 50% 55%;
+      --section-photo-position: 50% 42%;
     }
     #expertise > .section-shell {
       justify-content: flex-start;
@@ -681,11 +684,32 @@
     }
     #expertise .expertise-heading .section-kicker { margin-bottom: 0; }
     .expertise-marks {
+      position: relative;
+      justify-self: end;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: clamp(12px, 1.6vw, 22px);
       padding: 0;
+    }
+    /* Reveal Temasek's pale sky beneath the transparent marks. The feathered
+       treatment follows the logo row on every screen, leaving the text dimmed. */
+    .expertise-marks::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: -1;
+      pointer-events: none;
+      -webkit-backdrop-filter: brightness(3.2);
+      backdrop-filter: brightness(3.2);
+      -webkit-mask-image:
+        linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent),
+        linear-gradient(0deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+      mask-image:
+        linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent),
+        linear-gradient(0deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
     }
     .expertise-marks img {
       height: auto;
@@ -760,9 +784,9 @@
     .client-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      border-top: 1px solid rgba(53,83,73,.16);
-      border-left: 1px solid rgba(53,83,73,.16);
-      background: rgba(246,248,243,.90);
+      gap: var(--gallery-gap);
+      border: 0;
+      background: transparent;
     }
     .client-logo {
       color: var(--green-forest);
@@ -1067,13 +1091,14 @@
       .stats { grid-template-columns:repeat(2,1fr); }
       .stat:nth-child(3) { border-left:0; border-top:1px solid var(--line); }
       .stat:nth-child(4) { border-top:1px solid var(--line); }
-      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 22px; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gallery-gap); }
       .expertise-row { grid-template-columns:48px 1fr 26px; }
       .expertise-row p { display:none; }
       .client-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 620px) {
+      :root { --gallery-gap: 9px; }
       .site-header { padding-top:16px; }
       .header-actions { gap: 7px; }
       .quick-enquire {
@@ -1099,7 +1124,7 @@
       .stat + .stat, .stat:nth-child(3), .stat:nth-child(4) { border-left:0; border-top:1px solid var(--line); padding-left:0; }
       .stat { min-height:auto; display:grid; grid-template-columns:110px 1fr; align-items:end; }
       .stat span { margin-top:0; }
-      .project-grid { grid-template-columns: 1fr; gap: 34px; }
+      .project-grid { grid-template-columns: 1fr; gap: var(--gallery-gap); }
       .project-media { aspect-ratio: 4 / 3; }
       .expertise-row { grid-template-columns:35px 1fr 20px; gap:14px; }
       .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1434,7 +1459,7 @@
       padding-bottom: clamp(22px, 3vh, 34px);
     }
     .project-grid {
-      gap: clamp(12px, 1.4vw, 20px);
+      gap: var(--gallery-gap);
     }
     .project-card { padding: 8px; }
     .project-media { aspect-ratio: 16 / 10; }
@@ -1443,7 +1468,6 @@
       padding-top: 8px;
     }
     .project-info h3 { font-size: clamp(14px, 1.25vw, 19px); }
-    .projects-footer { margin-top: 15px; }
 
     .expertise .section-shell {
       padding-top: clamp(72px, 9vh, 98px);
@@ -1567,14 +1591,13 @@
 
       .projects .section-shell { padding: 64px 14px 14px; }
       .projects .section-kicker { margin-bottom: 10px; }
-      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gallery-gap); }
       .project-card { padding: 5px; }
       .project-media { aspect-ratio: 16 / 8.7; }
       .project-info { margin-top: 5px; padding-top: 5px; gap: 4px; }
       .project-info h3 { font-size: 12px; }
       .project-info p { margin-top: 2px; font-size: 7px; }
       .project-arrow { font-size: 14px; }
-      .projects-footer { margin-top: 8px; }
 
       .expertise .section-shell { padding: 64px 16px 14px; }
       .expertise .section-kicker { margin-bottom: 9px; }
@@ -1731,17 +1754,6 @@
       background: rgba(16,30,26,.92);
     }
 
-    .projects-all-trigger {
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      color: #fff;
-      background: transparent;
-      border: 0;
-      border-bottom: 1px solid currentColor;
-      padding: 0 0 6px;
-    }
-
     .all-projects-gallery {
       position: absolute;
       inset: 0;
@@ -1830,7 +1842,7 @@
     /* Larger Past Clients treatment: four per row on desktop. */
     .clients .client-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       margin-inline: auto;
     }
     .clients .client-logo {
@@ -2037,7 +2049,7 @@
     }
     .clients .client-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       margin-inline: auto;
     }
     .clients .client-logo,
@@ -2077,20 +2089,10 @@
     .all-clients-grid .client-logo-moe img { max-width: 74%; max-height: 84%; }
 
     .clients-footer {
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       margin: 14px auto 0;
       display: flex;
       justify-content: flex-end;
-    }
-    .clients-all-trigger {
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      color: var(--green-forest);
-      background: transparent;
-      border: 0;
-      border-bottom: 1px solid currentColor;
-      padding: 0 0 6px;
     }
 
     .all-clients-gallery {
@@ -2239,12 +2241,12 @@
     }
     .clients > .section-shell > * { flex-shrink: 0; }
     .clients .clients-intro {
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       margin: 0 auto auto;
       padding-top: clamp(22px, 2.8vh, 30px);
     }
     .clients .client-grid {
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       grid-template-columns: repeat(4, minmax(0, 1fr));
       grid-auto-rows: clamp(112px, 12.2vh, 130px);
       margin: 0 auto;
@@ -2305,21 +2307,11 @@
     .all-clients-grid .client-logo img[alt="Ministry of Education Singapore"] { max-width: 56% !important; max-height: 80% !important; }
 
     .clients-footer {
-      width: min(100%, 1280px);
+      width: min(100%, var(--gallery-width));
       margin: clamp(13px, 1.6vh, 18px) auto 0;
       display: flex;
       justify-content: flex-end;
       padding-right: 2px;
-    }
-    .clients-all-trigger {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      font-size: 9px;
-      text-transform: uppercase;
     }
 
     .all-clients-grid {
@@ -2355,7 +2347,7 @@
 
     /* v10 — hard logo safe-box + first navigation loader */
     .clients .client-grid {
-      width: min(100%, 1280px) !important;
+      width: min(100%, var(--gallery-width)) !important;
       grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
       grid-template-rows: repeat(2, clamp(122px, 13.4vh, 142px)) !important;
       grid-auto-rows: clamp(122px, 13.4vh, 142px) !important;
@@ -2372,6 +2364,10 @@
       padding: 0 !important;
       overflow: hidden !important;
       display: block !important;
+    }
+    .clients .client-grid .client-logo {
+      border: 1px solid rgba(255,255,255,.36);
+      background: rgba(246,248,243,.94);
     }
 
     /* Every mark gets the same physical safe area. This overrides all
@@ -2406,7 +2402,7 @@
     }
 
     .clients-footer {
-      width: min(100%, 1280px) !important;
+      width: min(100%, var(--gallery-width)) !important;
       margin: clamp(14px, 1.7vh, 18px) auto 0 !important;
       padding: 0 !important;
     }
@@ -2865,28 +2861,57 @@
 .hero-dot:hover::before, .hero-dot:focus-visible::before { background: rgba(255,255,255,.72); }
 .hero-dot:focus-visible { outline: 1px solid rgba(255,255,255,.85); outline-offset: 4px; }
 
-/* More deliberate archive CTAs. */
-.projects-all-trigger,
-.clients-all-trigger {
-  min-height: 48px !important;
-  padding: 0 18px !important;
-  border: 1px solid currentColor !important;
-  border-bottom: 1px solid currentColor !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 12px !important;
-  font-size: 10px !important;
-  font-weight: 800 !important;
-  letter-spacing: .14em !important;
+/* Shared archive buttons for Projects and Clients. */
+.archive-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 200px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(255,255,255,.64);
+  border-radius: 0;
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  transition: transform .25s var(--ease), background .2s ease, color .2s ease !important;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .25s var(--ease), background .2s ease, color .2s ease;
 }
-.projects-all-trigger { color:#fff !important; background:rgba(255,255,255,.06) !important; border-color:rgba(255,255,255,.64) !important; }
-.projects-all-trigger::after { content:"→"; font-size:14px; }
-.projects-all-trigger:hover, .projects-all-trigger:focus-visible { background:#fff !important; color:var(--green-forest) !important; transform:translateY(-2px); outline:none; }
-.clients-all-trigger { color:var(--green-forest) !important; background:rgba(255,255,255,.56) !important; border-color:rgba(53,83,73,.5) !important; }
-.clients-all-trigger:hover, .clients-all-trigger:focus-visible { background:var(--green-forest) !important; color:#fff !important; transform:translateY(-2px); outline:none; }
+.archive-trigger span {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .25s var(--ease);
+}
+.archive-trigger:hover,
+.archive-trigger:focus-visible {
+  color: var(--green-forest);
+  background: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.archive-trigger:focus-visible {
+  outline: 2px solid #dce8bf;
+  outline-offset: 4px;
+}
+.archive-trigger:hover span,
+.archive-trigger:focus-visible span { transform: translateX(4px); }
+.archive-trigger:active { transform: none; }
+@media (max-width: 620px) {
+  .archive-trigger {
+    min-width: 168px;
+    min-height: 44px;
+    padding-inline: 14px;
+    font-size: 9px;
+  }
+}
 
 /* Give the project-detail enquiry its own breathing room below metadata. */
 .project-detail-enquire {
@@ -2905,7 +2930,6 @@
 
 @media (max-width:620px) {
   .hero-dot { width: 30px; height: 18px; }
-  .projects-all-trigger, .clients-all-trigger { min-height:44px !important; padding:0 14px !important; font-size:8px !important; }
   .project-detail-enquire { margin-top:34px; width:100%; justify-content:center; }
 }
 </style>
@@ -2923,29 +2947,6 @@
 /* Keep selected galleries away from bottom navigation as well. */
 .projects > .section-shell { padding-bottom: clamp(92px, 10.5vh, 116px) !important; }
 .clients > .section-shell { padding-bottom: clamp(140px, 16vh, 174px) !important; }
-
-/* The project/client archive calls-to-action remain visually obvious. */
-.projects-all-trigger,
-.clients-all-trigger {
-  min-height: 46px !important;
-  padding: 0 18px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 12px !important;
-  border: 1px solid currentColor !important;
-  border-bottom-width: 1px !important;
-  background: rgba(255,255,255,.08) !important;
-  box-shadow: 0 10px 26px rgba(0,0,0,.10) !important;
-  text-decoration: none !important;
-}
-.clients-all-trigger {
-  color: var(--green-forest) !important;
-  background: rgba(255,255,255,.72) !important;
-  border-color: rgba(53,83,73,.38) !important;
-}
-.projects-all-trigger:hover { background: rgba(255,255,255,.16) !important; }
-.clients-all-trigger:hover { background: #fff !important; }
 
 /* When MOE schools are open, there must be exactly one obvious way back. */
 body.moe-schools-open #clients > .panel-close,
@@ -3466,26 +3467,6 @@ body.site-preloading { overflow: auto !important; }
 .first-nav-loader { display:none !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
 body.site-preloading { overflow:auto !important; }
 
-/* "View All Clients" button must never become white-on-white. */
-.clients-all-trigger,
-.clients-all-trigger:hover,
-.clients-all-trigger:focus-visible,
-.clients-all-trigger:active {
-  color: var(--green-forest) !important;
-  background: rgba(255,255,255,.72) !important;
-  border-color: rgba(53,83,73,.38) !important;
-  transform: none !important;
-  box-shadow: 0 10px 26px rgba(0,0,0,.10) !important;
-  opacity: 1 !important;
-}
-.clients-all-trigger span,
-.clients-all-trigger:hover span,
-.clients-all-trigger:focus-visible span {
-  color: inherit !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 /* All Clients archive: preserve every complete logo/wordmark on hover. */
 .all-clients-grid .client-logo,
 .all-clients-grid .client-logo:hover,
@@ -3504,25 +3485,6 @@ body.site-preloading { overflow:auto !important; }
 </style>
 
 <style>
-/* v26 — restore interaction while preserving full client wordmarks. */
-.clients-all-trigger {
-  transition: transform .25s var(--ease), background .2s ease, color .2s ease, box-shadow .25s ease !important;
-}
-.clients-all-trigger:hover,
-.clients-all-trigger:focus-visible {
-  color: #fff !important;
-  background: var(--green-forest) !important;
-  border-color: var(--green-forest) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 14px 30px rgba(32,49,45,.16) !important;
-  outline: none !important;
-}
-.clients-all-trigger:hover span,
-.clients-all-trigger:focus-visible span {
-  color: inherit !important;
-  opacity: 1 !important;
-  transform: translateX(5px) !important;
-}
 
 /* All Clients archive: subtle lift/highlight, never fade or recolour the logo/wordmark. */
 .all-clients-grid .client-logo {
@@ -3553,8 +3515,8 @@ body.site-preloading { overflow:auto !important; }
 /* Centre the CTA, gallery and heading as one group, with a slight upward bias.
    Outer auto margins collapse safely when a small viewport needs to scroll. */
 .clients > .section-shell > .clients-footer {
-  width: min(100%, 1280px) !important;
-  margin: auto auto 12px !important;
+  width: min(100%, var(--gallery-width)) !important;
+  margin: auto auto var(--gallery-action-gap) !important;
   padding: 0 !important;
   display: flex !important;
   justify-content: flex-end !important;
@@ -4299,7 +4261,7 @@ body.site-preloading { overflow:auto !important; }
 <h2 class="headline-reveal">Work defined by use, setting and long-term performance.</h2>
 </div>
 <div class="project-grid" id="selected-projects-grid"></div>
-<div class="projects-footer reveal"><button class="text-link projects-all-trigger" type="button">View All Projects</button></div>
+<div class="projects-footer reveal"><button class="archive-trigger projects-all-trigger" type="button">View All Projects <span aria-hidden="true">→</span></button></div>
 </div>
 <div aria-hidden="true" class="all-projects-gallery">
 <div class="all-projects-gallery-inner">
@@ -4337,7 +4299,7 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div></section>
 <section class="expertise scroll-section photo-panel" id="expertise">
-<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1200" loading="lazy" src="assets/images/projects/artificial-turf/tampines-secondary-school/01.webp" width="1600"/></div>
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1095" loading="lazy" src="assets/images/projects/artificial-turf/temasek-secondary-school/01.webp" width="1600"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="expertise-heading">
@@ -4402,7 +4364,7 @@ body.site-preloading { overflow:auto !important; }
 <div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="715" loading="lazy" src="assets/images/projects/running-track/perennial-business-city/01.webp" width="1379"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
-<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
+<div class="clients-footer reveal"><button class="archive-trigger clients-all-trigger" type="button">View All Clients <span aria-hidden="true">→</span></button></div>
 <div aria-label="Selected past clients" class="client-grid reveal">
 <button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
