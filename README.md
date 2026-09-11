@@ -25,8 +25,36 @@ GitHub Pages-ready static site.
 1. Add optimized WebP images under `assets/images/projects/<category>/<project-slug>/`.
 2. Add the project record to `data/projects.json`.
 3. Run `python tools/sync-project-data.py` to regenerate `data/projects.js`.
+4. Run `python tools/build-seo.py` and `python tools/verify-seo.py` to update and validate the crawlable pages, homepage cards and sitemap.
 
 The project archive is data-driven and does not require hand-writing dozens of HTML cards.
+
+## SEO pages and maintenance
+
+The homepage retains its slide panels, four-column selected project gallery and popup interactions. Its navigation uses real page links; ordinary clicks enhance these into panels, while opening a link in a new tab loads a standalone document. Project cards are generated into the initial HTML. JavaScript handles filtering and popups without recreating the cards. All 63 project references are also available on the static `/projects/` directory.
+
+There are 18 canonical, sitemap-listed HTML pages: the homepage, About Us, Clients, Projects, Expertise and Contact, six service pages, and six selected project pages. Each has a unique title and description, self-referencing canonical, Open Graph/text sharing metadata and Organization structured data. Service pages also carry Service structured data. No certification validity dates, project completion dates, measured outcomes, reviews, opening hours or incorporation dates are inferred.
+
+- Maintain service descriptions in `data/services.json`.
+- Maintain project facts in `data/projects.json` and regenerate `data/projects.js` using the existing sync tool.
+- Maintain About Us copy in the homepage's `.about-copy`; the standalone page derives its text from that source.
+- `tools/build-seo.py` owns the generated content pages, homepage SEO metadata and marked project-card regions. It preserves other homepage code. Run it after content edits; do not edit generated pages directly.
+- `tools/verify-seo.py` checks canonical routes, metadata, schema JSON, internal links and fragments, assets, executable JavaScript syntax, static project coverage and page discoverability. It needs Python 3 and Node.js, with no third-party packages.
+- GitHub Pages serves the committed HTML directly. No hosting build or framework migration is required.
+- Sitemap `lastmod` values change only when the generated page changes.
+- The first homepage hero photo is preloaded. Later photos load as the slideshow advances. Offscreen project and client images use native lazy loading. Original photographs and their WebP encoding are retained.
+- The homepage has one stable business H1. Project location and surface labels still change with the selected photograph.
+
+### Follow-up information needed from the owner
+
+1. Search Console access or exported indexing/performance reports, plus the Google Business Profile URL and management access if optimisation is wanted.
+2. Priority services, target customers and geographic coverage for search targeting.
+3. Project dates, exact scope, surface systems, dimensions, outcomes and approved testimonials for fuller case studies.
+4. Current BCA registration details and bizSAFE status/validity, plus verified official profile URLs for structured-data links.
+5. Confirm public business hours and whether the office accepts visitors before adding these to business listings or schema.
+6. In GitHub repository Settings → Pages, enable **Enforce HTTPS** and verify HTTP redirects to HTTPS. This administration setting is not editable through the available repository-content connector.
+
+The 11 September SEO release was checked with the static validator and simulated DOM interactions for panels, project filters, project popups, client/MOE navigation, service accordions, contact navigation, modified link clicks, history navigation and the stable H1. Browser rendering and physical-device visual acceptance remain unverified because the browser cannot access this static checkout's local preview.
 
 ## Showcase images
 

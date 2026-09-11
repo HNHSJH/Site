@@ -5,30 +5,7 @@
   const projects = data.projects;
   const categories = Object.fromEntries(data.categories.map(c => [c.id, c.name]));
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
-  const selectedIds = ["artificial-turf--our-tampines-hub", "acrylic-coating--tanah-merah-country-club", "timber-flooring--ngee-ann-polytechnic", "epdm-flooring--sutd"];
-
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
-  const metaBits = p => {
-    const bits = [];
-    if (p.certification_text?.length) bits.push(...p.certification_text);
-    return bits;
-  };
-  const subline = p => [categories[p.category] || p.category, ...metaBits(p).slice(0,1)].filter(Boolean).join(' · ');
-  const photo = p => p.photos?.[0]?.src || '';
-
-  function card(p, index, total, archive=false) {
-    return `
-      <button class="project-card ${archive ? 'all-project-card' : ''}" type="button" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">
-        <div class="project-media">
-          <span class="project-number">${String(index+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</span>
-          <img src="${esc(photo(p))}" alt="${esc(p.display_name)}" loading="${archive ? 'lazy' : 'eager'}" decoding="async" />
-        </div>
-        <div class="project-info">
-          <div><h3>${esc(p.display_name)}</h3><p>${esc(subline(p))}</p></div>
-          <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
-        </div>
-      </button>`;
-  }
 
   const filterbar = document.getElementById('project-filterbar');
   if (filterbar) {
@@ -37,17 +14,6 @@
       `<button type="button" class="project-filter is-active" data-project-filter="all">All (${projects.length})</button>`,
       ...data.categories.map(c => `<button type="button" class="project-filter" data-project-filter="${esc(c.id)}">${esc(c.name)} (${counts[c.id] || 0})</button>`)
     ].join('');
-  }
-
-  const selectedGrid = document.getElementById('selected-projects-grid');
-  if (selectedGrid) {
-    const chosen = selectedIds.map(id => byId[id]).filter(Boolean);
-    selectedGrid.innerHTML = chosen.map((p,i) => card(p,i,chosen.length,false)).join('');
-  }
-
-  const allGrid = document.getElementById('all-projects-grid');
-  if (allGrid) {
-    allGrid.innerHTML = projects.map((p,i) => card(p,i,projects.length,true)).join('');
   }
 
   document.querySelectorAll('.project-filter').forEach(btn => {
@@ -83,7 +49,7 @@
     const ph = p.photos[idx];
     if (!ph) return;
     mainImg.src = ph.src;
-    mainImg.alt = p.display_name;
+    mainImg.alt = `${p.display_name} — ${categories[p.category] || p.category}`;
     thumbs.querySelectorAll('.project-detail-thumb').forEach((b,i) => b.classList.toggle('is-active', i === idx));
   }
 
@@ -126,6 +92,7 @@
   document.addEventListener('click', e => {
     const card = e.target.closest('[data-project-id].project-card');
     if (card) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
       openDetail(card.dataset.projectId);
       return;
