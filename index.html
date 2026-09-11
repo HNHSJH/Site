@@ -690,7 +690,6 @@
     .expertise-marks img {
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 1px rgba(255,255,255,.9));
     }
     .expertise-mark-bca { width: clamp(100px, 9.6vw, 136px); }
     .expertise-mark-bizsafe { width: clamp(92px, 8.8vw, 124px); }
@@ -2241,8 +2240,8 @@
     .clients > .section-shell > * { flex-shrink: 0; }
     .clients .clients-intro {
       width: min(100%, 1280px);
-      margin: auto auto 0;
-      padding-top: clamp(24px, 3vh, 36px);
+      margin: 0 auto auto;
+      padding-top: clamp(22px, 2.8vh, 30px);
     }
     .clients .client-grid {
       width: min(100%, 1280px);
@@ -2923,7 +2922,7 @@
 
 /* Keep selected galleries away from bottom navigation as well. */
 .projects > .section-shell { padding-bottom: clamp(92px, 10.5vh, 116px) !important; }
-.clients > .section-shell { padding-bottom: clamp(98px, 11vh, 122px) !important; }
+.clients > .section-shell { padding-bottom: clamp(140px, 16vh, 174px) !important; }
 
 /* The project/client archive calls-to-action remain visually obvious. */
 .projects-all-trigger,
@@ -3551,19 +3550,15 @@ body.site-preloading { overflow:auto !important; }
 </style>
 
 <style>
-/* Place View All Clients immediately below the gallery, ahead of the lower heading. */
+/* Centre the CTA, gallery and heading as one group, with a slight upward bias.
+   Outer auto margins collapse safely when a small viewport needs to scroll. */
 .clients > .section-shell > .clients-footer {
   width: min(100%, 1280px) !important;
-  margin: clamp(12px, 1.5vh, 16px) auto 0 !important;
+  margin: auto auto 12px !important;
   padding: 0 !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-items: center !important;
-}
-@media (max-width: 620px) {
-  .clients > .section-shell > .clients-footer {
-    margin-top: 12px !important;
-  }
 }
 </style>
 
@@ -3574,10 +3569,6 @@ body.site-preloading { overflow:auto !important; }
     justify-content: flex-start !important;
     padding-top: 72px !important;
     padding-bottom: 116px !important;
-  }
-
-  .clients > .section-shell > .clients-footer {
-    margin: 12px auto 0 !important;
   }
 
   .clients .client-grid {
@@ -3681,10 +3672,12 @@ body.site-preloading { overflow:auto !important; }
 
 .contact-details {
   padding: clamp(24px, 2.8vw, 36px) !important;
-  background: rgba(220,231,221,.96) !important;
+  background: rgba(246,248,243,.78) !important;
   color: var(--green-forest) !important;
-  border: 1px solid rgba(255,255,255,.58);
-  box-shadow: 0 24px 60px rgba(7,22,18,.18);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 16px 48px rgba(12,28,19,.14);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 .contact-details .line {
   padding: 18px 0 !important;
@@ -3925,7 +3918,7 @@ body.site-preloading { overflow:auto !important; }
 
 /* Stronger hierarchy inside the contact-information square. */
 .contact-details small {
-  color: #2d6a5e !important;
+  color: #244c42 !important;
   font-size: 11px !important;
   line-height: 1.15 !important;
   font-weight: 850 !important;
@@ -4353,8 +4346,8 @@ body.site-preloading { overflow:auto !important; }
 <h2 class="headline-reveal">Specialist construction capabilities across natural and engineered surfaces.</h2>
 </div>
 <div aria-label="BCA and bizSAFE Level 4" class="expertise-marks">
-<img alt="Building and Construction Authority (BCA)" class="expertise-mark-bca" decoding="async" height="346" loading="lazy" src="assets/logos/bca-transparent.webp" width="600"/>
-<img alt="bizSAFE Level 4" class="expertise-mark-bizsafe" decoding="async" height="308" loading="lazy" src="assets/logos/bizsafe-level-4-transparent.webp" width="600"/>
+<img alt="Building and Construction Authority (BCA)" class="expertise-mark-bca" decoding="async" height="313" loading="lazy" src="assets/logos/bca-transparent.webp?v=0cf83878" width="480"/>
+<img alt="bizSAFE Level 4" class="expertise-mark-bizsafe" decoding="async" height="267" loading="lazy" src="assets/logos/bizsafe-level-4-transparent.webp?v=94dfa999" width="480"/>
 </div>
 </div>
 <div aria-label="H&amp;H Resources expertise categories" class="expertise-list reveal">
@@ -4409,6 +4402,7 @@ body.site-preloading { overflow:auto !important; }
 <div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="715" loading="lazy" src="assets/images/projects/running-track/perennial-business-city/01.webp" width="1379"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
+<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
 <div aria-label="Selected past clients" class="client-grid reveal">
 <button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
@@ -4419,7 +4413,6 @@ body.site-preloading { overflow:auto !important; }
 <div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
 </div>
-<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
 <div class="clients-intro">
 <div class="reveal">
 <div class="eyebrow">Clients</div>

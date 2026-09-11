@@ -34,7 +34,7 @@ The showcase is fully local and references the exact cover photograph used by th
 
 ## About Us and Expertise
 
-The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses a 78%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list, as transparent WebP images without a container background or border. Their display sizes are reduced by about 20%, with a fine edge shadow for contrast. Expertise content starts lower in the viewport; its three navigation controls retain their existing positions.
+The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses a 78%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The Contact Us information panel matches the About Us surface colour, 78% opacity, 3px backdrop blur, border and shadow. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list. Both cutouts were rebuilt from the resupplied originals, resized to 480px and encoded as lossless WebP with genuine alpha transparency. Their reduced display sizes are retained, without a background, border or glow; content-hash query strings refresh cached logo images. Expertise content starts lower in the viewport; its three navigation controls retain their existing positions.
 
 All four main section backdrops fill the viewport with `object-fit: cover`, a small homepage-style overscan, and dark gradient overlays. They reuse the existing optimised project photographs:
 
@@ -45,7 +45,7 @@ All four main section backdrops fill the viewport with `object-fit: cover`, a sm
 | Expertise | Tampines Secondary School — artificial turf |
 | Contact Us | Republic Polytechnic — acrylic coating |
 
-The Clients section places the logo grid first, followed by View All Clients and then the heading near the bottom, exposing more of the background photograph below the grid. The selected-client logo tiles retain a pale surface; headings and Expertise text use light colours. Contact placeholders and attachment helper text have stronger contrast. Archive and detail overlays retain their existing separate surfaces. The Clients content area can scroll on short screens so the reordered heading remains accessible above the fixed navigation.
+The Clients section groups View All Clients, the selected-client grid and the heading together slightly above the centre of the viewport. The button sits at the top right, 12px above the grid, and the heading follows 22–30px below it. Automatic margins surround the whole composition rather than separating the grid from the heading; they collapse on short screens so all content remains scrollable above the fixed navigation. The selected-client logo tiles retain a pale surface; headings and Expertise text use light colours. Contact placeholders and attachment helper text have stronger contrast. Archive and detail overlays retain their existing separate surfaces.
 
 Copy sources checked on 11 September 2026:
 
