@@ -662,11 +662,11 @@
     .expertise {
       background: #142b27;
       color: #fff;
-      --section-photo-position: 52% 60%;
+      --section-photo-position: 50% 55%;
     }
     #expertise > .section-shell {
       justify-content: flex-start;
-      padding-top: max(80px, env(safe-area-inset-top));
+      padding-top: max(clamp(132px, 18vh, 200px), env(safe-area-inset-top));
       padding-bottom: max(110px, calc(92px + env(safe-area-inset-bottom)));
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -684,23 +684,25 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: clamp(16px, 2vw, 28px);
-      padding: 12px 16px;
-      background: rgba(246,248,243,.92);
-      border: 1px solid rgba(255,255,255,.48);
+      gap: clamp(12px, 1.6vw, 22px);
+      padding: 0;
     }
-    .expertise-marks img { height: auto; object-fit: contain; }
-    .expertise-mark-bca { width: clamp(125px, 12vw, 170px); }
-    .expertise-mark-bizsafe { width: clamp(115px, 11vw, 154px); }
+    .expertise-marks img {
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 1px rgba(255,255,255,.9));
+    }
+    .expertise-mark-bca { width: clamp(100px, 9.6vw, 136px); }
+    .expertise-mark-bizsafe { width: clamp(92px, 8.8vw, 124px); }
     @media (max-width: 960px) {
       .expertise-heading { grid-template-columns: minmax(0, 1fr); gap: 18px; }
     }
     @media (max-width: 620px) {
-      #expertise > .section-shell { padding-top: 72px; }
+      #expertise > .section-shell { padding-top: 104px; }
       .expertise-heading { gap: 14px; margin-bottom: 16px; }
-      .expertise-marks { gap: 20px; }
-      .expertise-mark-bca { width: 116px; }
-      .expertise-mark-bizsafe { width: 108px; }
+      .expertise-marks { gap: 16px; }
+      .expertise-mark-bca { width: 94px; }
+      .expertise-mark-bizsafe { width: 86px; }
     }
     .expertise-list { border-top:1px solid rgba(255,255,255,.36); }
     .expertise-row {
@@ -2230,13 +2232,17 @@
 
     /* Past Clients: exactly two clean rows of four on the selected view. */
     .clients .section-shell {
-      justify-content: center;
+      justify-content: flex-start;
       padding-top: clamp(78px, 8.5vh, 96px);
       padding-bottom: clamp(88px, 9.5vh, 108px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
+    .clients > .section-shell > * { flex-shrink: 0; }
     .clients .clients-intro {
       width: min(100%, 1280px);
-      margin: 0 auto clamp(18px, 2.2vh, 24px);
+      margin: auto auto 0;
+      padding-top: clamp(24px, 3vh, 36px);
     }
     .clients .client-grid {
       width: min(100%, 1280px);
@@ -2914,7 +2920,6 @@
   padding-top: clamp(108px, 12.5vh, 132px) !important;
 }
 .projects .section-kicker { margin-bottom: clamp(20px, 2.8vh, 30px) !important; }
-.clients .clients-intro { margin-bottom: clamp(22px, 3vh, 32px) !important; }
 
 /* Keep selected galleries away from bottom navigation as well. */
 .projects > .section-shell { padding-bottom: clamp(92px, 10.5vh, 116px) !important; }
@@ -3546,10 +3551,10 @@ body.site-preloading { overflow:auto !important; }
 </style>
 
 <style>
-/* v26 — place View All Clients directly above the gallery's top-right corner. */
+/* Place View All Clients immediately below the gallery, ahead of the lower heading. */
 .clients > .section-shell > .clients-footer {
   width: min(100%, 1280px) !important;
-  margin: 0 auto clamp(12px, 1.5vh, 16px) !important;
+  margin: clamp(12px, 1.5vh, 16px) auto 0 !important;
   padding: 0 !important;
   display: flex !important;
   justify-content: flex-end !important;
@@ -3557,7 +3562,7 @@ body.site-preloading { overflow:auto !important; }
 }
 @media (max-width: 620px) {
   .clients > .section-shell > .clients-footer {
-    margin-bottom: 12px !important;
+    margin-top: 12px !important;
   }
 }
 </style>
@@ -3571,12 +3576,8 @@ body.site-preloading { overflow:auto !important; }
     padding-bottom: 116px !important;
   }
 
-  .clients .clients-intro {
-    margin-bottom: 8px !important;
-  }
-
   .clients > .section-shell > .clients-footer {
-    margin: 0 auto 8px !important;
+    margin: 12px auto 0 !important;
   }
 
   .clients .client-grid {
@@ -4343,7 +4344,7 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div></section>
 <section class="expertise scroll-section photo-panel" id="expertise">
-<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1200" loading="lazy" src="assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp" width="1600"/></div>
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1200" loading="lazy" src="assets/images/projects/artificial-turf/tampines-secondary-school/01.webp" width="1600"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="expertise-heading">
@@ -4408,13 +4409,6 @@ body.site-preloading { overflow:auto !important; }
 <div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="715" loading="lazy" src="assets/images/projects/running-track/perennial-business-city/01.webp" width="1379"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
-<div class="clients-intro">
-<div class="reveal">
-<div class="eyebrow">Clients</div>
-<h2 class="headline-reveal">Long-standing partnerships across Singapore.</h2>
-</div>
-</div>
-<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
 <div aria-label="Selected past clients" class="client-grid reveal">
 <button class="client-logo logo-tall client-logo-moe client-school-trigger is-prehighlighted" type="button" data-client-detail="moe" aria-label="View Ministry of Education school projects"><img alt="Ministry of Education Singapore" src="assets/logos/clients/ministry-of-education-singapore.webp"/><span class="client-detail-cue" aria-hidden="true">Schools <svg class="cue-arrow-ne" viewBox="0 0 16 16" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
 <div class="client-logo logo-wide"><img alt="Laguna National Golf Resort Club" src="assets/logos/clients/laguna-national-golf-resort-club.webp"/></div>
@@ -4424,6 +4418,13 @@ body.site-preloading { overflow:auto !important; }
 <div class="client-logo logo-wide"><img alt="National Environment Agency" src="assets/logos/clients/national-environment-agency.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Keppel Club" src="assets/logos/clients/keppel-club.webp"/></div>
 <div class="client-logo logo-medium"><img alt="Tanah Merah Country Club" src="assets/logos/clients/tanah-merah-country-club.webp"/></div>
+</div>
+<div class="clients-footer reveal"><button class="text-link clients-all-trigger" type="button">View All Clients <span>→</span></button></div>
+<div class="clients-intro">
+<div class="reveal">
+<div class="eyebrow">Clients</div>
+<h2 class="headline-reveal">Long-standing partnerships across Singapore.</h2>
+</div>
 </div>
 
 </div>
