@@ -1,0 +1,35 @@
+name: Prepare verified HNH responsive assets
+on:
+  push:
+    branches: [codex/hnh-seo-assets-20260911-479891a]
+    paths: [.github/workflows/hnh-seo-assets.yml]
+permissions:
+  contents: write
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==12.3.0
+      - name: Generate image candidates
+        run: python tools/build-images.py
+      - name: Verify exact reviewed image bytes
+        run: |
+          python - <<'PYVERIFY'
+          from pathlib import Path
+          import hashlib,json
+          for name,expected in json.loads(Path('tools/hnh-asset-hashes.json').read_text()).items():
+              data=Path(name).read_bytes()
+              actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              assert actual==expected, f'Image build differs: {name}'
+          print('All responsive images match the reviewed local files.')
+          PYVERIFY
+      - name: Commit generated assets on isolated branch
+        run: |
+          git add assets/images/projects data/image-variants.json
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Build verified responsive HNH project images'
+          git push origin HEAD:codex/hnh-seo-assets-20260911-479891a
