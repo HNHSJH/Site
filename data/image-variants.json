@@ -1,0 +1,2022 @@
+{
+  "assets/images/projects/acrylic-coating/methodist-girls-school/01.webp": {
+    "sha256": "c0c4e9d0746fffcdcca6e9ba4a846927604d9f627a205c641532579304649a19",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/methodist-girls-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/methodist-girls-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/methodist-girls-school/01.webp",
+        "width": 1379,
+        "height": 776
+      }
+    ]
+  },
+  "assets/images/projects/acrylic-coating/raffles-institution/01.jpg": {
+    "sha256": "fda69abb294c7da49b3a0f416a870ac1867d7ae1a67caf385fffaf16a67414a4",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/raffles-institution/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/raffles-institution/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/raffles-institution/01.jpg",
+        "width": 1600,
+        "height": 901
+      }
+    ]
+  },
+  "assets/images/projects/acrylic-coating/republic-polytechnic/01.webp": {
+    "sha256": "de7f5a6e660e71e1cdc4d450289b57a7b31d2e48d2cfc50aaec62a5c1a3d8883",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/republic-polytechnic/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/republic-polytechnic/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/republic-polytechnic/01.webp",
+        "width": 1379,
+        "height": 1034
+      }
+    ]
+  },
+  "assets/images/projects/acrylic-coating/singapore-swimming-club/01.webp": {
+    "sha256": "cf880a6647b62fa250d2759256af57def28c8f96e675ef8b1ddba992d2b48c0a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club/01-480w.webp",
+        "width": 480,
+        "height": 224
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club/01-960w.webp",
+        "width": 960,
+        "height": 448
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club/01.webp",
+        "width": 1379,
+        "height": 644
+      }
+    ]
+  },
+  "assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01.webp": {
+    "sha256": "051817d6290324fff558b3579d19adc56b39fa0f96fe7ad869331715a5c31349",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/singapore-swimming-club-court-3/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp": {
+    "sha256": "1fa9b4c5e25ebeba251ef00eeaea927ac3843d3601655154bc389429272277ba",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/acrylic-coating/tanah-merah-country-club/01-480w.webp",
+        "width": 480,
+        "height": 327
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/tanah-merah-country-club/01-960w.webp",
+        "width": 960,
+        "height": 654
+      },
+      {
+        "src": "assets/images/projects/acrylic-coating/tanah-merah-country-club/01.webp",
+        "width": 1600,
+        "height": 1090
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01.webp": {
+    "sha256": "7468a915fa0da0995897f9e376b4ff80c2104c916eb33a2f100fd39f6a35dfab",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01-480w.webp",
+        "width": 480,
+        "height": 327
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01-960w.webp",
+        "width": 960,
+        "height": 654
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/anderson-serangoon-junior-college/01.webp",
+        "width": 1600,
+        "height": 1090
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/anglican-high-school/01.webp": {
+    "sha256": "13fd671d02612c9a349a2bbd83a56e08b935cb0e7fa43987f670f309dfc2bff9",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/anglican-high-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/anglican-high-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/anglican-high-school/01.webp",
+        "width": 1378,
+        "height": 775
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/bedok-south-secondary-school/01.webp": {
+    "sha256": "d7d3ac7c676e566246cd9e7c1460c4dd90ee9d393eddfe8c16e19af5be016fbc",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/bedok-south-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/bedok-south-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/bedok-south-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/east-spring-secondary-school/01.webp": {
+    "sha256": "68c1b2338da2ef55a3c1ddbd714f74833b0d5b5b0b88e65d748aa2eaaf86796a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/east-spring-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/east-spring-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/east-spring-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/jurong-east-stadium/01.webp": {
+    "sha256": "bea46b58aea4959b5002742821e93e08133f7b281c39cdfda43aa34ffa880180",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/01.webp",
+        "width": 1600,
+        "height": 901
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/jurong-east-stadium/02.webp": {
+    "sha256": "bb6c93493843ac89f9a58e9cea88d869b991c756708484dbe55de103aac8ce97",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/02-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/02-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/jurong-east-stadium/02.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/loyang-view-secondary-school/01.webp": {
+    "sha256": "cd4b647e7481355af8b8a48e1bd3dfdaaba0f6f793b74eaa463b95481283fc22",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/loyang-view-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/loyang-view-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/loyang-view-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/marsiling-secondary-school/01.webp": {
+    "sha256": "d3eef829238b80cc70e92229f1463def58e5f98c24d96efebfc41817b43065d5",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/marsiling-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 330
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/marsiling-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 660
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/marsiling-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1100
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/meridian-secondary-school/01.webp": {
+    "sha256": "3ff881d88483017d6161bc29a81449ce1d763ebe6c6a4b25bb6347bc7f1e9ccf",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/meridian-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/meridian-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/meridian-secondary-school/01.webp",
+        "width": 1379,
+        "height": 777
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp": {
+    "sha256": "d8b5407e70cc2c61ab8175cccd0f6cbdc056ae286aaaa3cf0e6d1222d1aaf7d3",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/ngee-ann-polytechnic/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/ngee-ann-polytechnic/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/ngee-ann-polytechnic/01.webp",
+        "width": 1379,
+        "height": 776
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/our-tampines-hub/01.webp": {
+    "sha256": "67ef8df0c499ab5925126cbb41d4f281320cbdfe7206daa736472aa147745391",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/our-tampines-hub/02.webp": {
+    "sha256": "17a70928bab8c35513177189f9be4f32a1ed4491618538fb15e549e4cdd7e0c3",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/02-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/02-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/our-tampines-hub/02.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01.webp": {
+    "sha256": "f740c06c63a30b4286b9800eb7f214a2d63405521b4020a30acd21461693f045",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 216
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 433
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-crest-secondary-school/01.webp",
+        "width": 1600,
+        "height": 721
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/pasir-ris-secondary-school/01.webp": {
+    "sha256": "a9e4e208f316a33eda3e041495c89dcaafb79aed6d96b78b06dbcf7fc64dba1f",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/pasir-ris-secondary-school/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/punggol-green-primary-school/01.webp": {
+    "sha256": "0d5bc082f151b9ba17bd0a394f410063221a8de3d3e0f713471ac9ebbd323f6f",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-green-primary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-green-primary-school/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-green-primary-school/01.webp",
+        "width": 1379,
+        "height": 777
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/punggol-secondary-school/01.webp": {
+    "sha256": "88fdb0b672b7b353bb9ccdb1abf9ee9f77e2e14e0fba71f025d3095f647a68be",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/punggol-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/raffles-institution/01.webp": {
+    "sha256": "14f8c8aef610751843cb2a2ad9b6560080b581a502bca210488cf1ecc84ace6a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/raffles-institution/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/raffles-institution/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/raffles-institution/01.webp",
+        "width": 1024,
+        "height": 576
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/riverside-primary-school/01.webp": {
+    "sha256": "eeb0229bda5eb9754e2b207439e5f8c9c2cf868996ceef347401fbc5b0059703",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/riverside-primary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/riverside-primary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/riverside-primary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/safra-mount-faber/01.webp": {
+    "sha256": "8e2caaae853e1e661e3da58064dd373915a21e3555e05cc866000b203b8e5ec9",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/safra-mount-faber/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/safra-mount-faber/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/safra-mount-faber/01.webp",
+        "width": 1600,
+        "height": 901
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/seng-kang-primary-school/01.webp": {
+    "sha256": "09f65516147c8290e400634fa577fb2b786dab44c297203b79148c1a96cc8a73",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/seng-kang-primary-school/01-480w.webp",
+        "width": 480,
+        "height": 185
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/seng-kang-primary-school/01-960w.webp",
+        "width": 960,
+        "height": 370
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/seng-kang-primary-school/01.webp",
+        "width": 1379,
+        "height": 532
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/serangoon-secondary-school/01.webp": {
+    "sha256": "a54c28a1dd3a3e166a56dd9e3c1e68c0965bc0a2b4038595caf8ff65001b5fba",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/serangoon-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/serangoon-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/serangoon-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/singapore-american-school-west-field/01.webp": {
+    "sha256": "359ad8bf5e9444ee229a1d88ae6c8ccbf25d22a1bb63c4f3608cd67c6dc3ab7a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/singapore-american-school-west-field/02.webp": {
+    "sha256": "d69afa51f5c0d4a7d63bab479fa09515fee8444f64f5fcd16e8eb64f7a11abe4",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/02-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/02-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-west-field/02.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/singapore-american-school-main-field/01.webp": {
+    "sha256": "bc4ac0ea4a3b60467689372ce03befd6de3fddb88fbecc0fce218ecfd49653eb",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/singapore-american-school-main-field/02.webp": {
+    "sha256": "d554fc63b09619c90c01f66a94a907a9394f4bc5fec5af02cfa2e693a26d0822",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/02-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/02-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/singapore-american-school-main-field/02.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/st-andrew-junior-college/01.webp": {
+    "sha256": "cd56ad557b5d8fac202cec455be5ef65a69e3468375c84787e08ee2322b1c4ce",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/st-andrew-junior-college/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-andrew-junior-college/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-andrew-junior-college/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01.webp": {
+    "sha256": "527c12bca2449cdcfeda1adb6ae0819f872af99cf06cd441840e484f52b9effc",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-anthony-canossian-secondary-school/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/st-patricks-school/01.webp": {
+    "sha256": "55d54619b5d4c342b3399ede32245e8e00301203ecbd8e5013e65716b3ba92b7",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/st-patricks-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-patricks-school/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/st-patricks-school/01.webp",
+        "width": 1379,
+        "height": 777
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/tampines-secondary-school/01.webp": {
+    "sha256": "32ae6908c2f962ad2de003b8456ad5c83503d09bfce479900bc69b76aa2fdef1",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/tampines-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/tampines-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/tampines-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/temasek-secondary-school/01.webp": {
+    "sha256": "5297af4b6b48e2a3622695d6994fa930467b6832058ab02092ed62244d505e7c",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/temasek-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/temasek-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/temasek-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/westwood-secondary-school/01.webp": {
+    "sha256": "0b9749cc6b666dbcb4df51ff10e157a2400fb9aeea583934b89a321dec6c20ad",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/westwood-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/westwood-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/westwood-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/whitley-secondary-school/01.webp": {
+    "sha256": "0fd88da1c2699d3bb100a3e038a121aabe74f632416a210133cd86b9c0ca7069",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/whitley-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/whitley-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/whitley-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/woodgrove-secondary-school/01.webp": {
+    "sha256": "49386ff70f5d4c60adb9d206e09c8f7ed434376e7778376ade8e951e8e3f082e",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/woodgrove-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodgrove-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodgrove-secondary-school/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/woodlands-ring-primary-school/01.webp": {
+    "sha256": "88f1ca1da1d903312c2fad1382a30dc06a123e27c6a2cd26acbdeedc23bea4fc",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-ring-primary-school/01-480w.webp",
+        "width": 480,
+        "height": 185
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-ring-primary-school/01-960w.webp",
+        "width": 960,
+        "height": 370
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-ring-primary-school/01.webp",
+        "width": 1379,
+        "height": 532
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/woodlands-secondary-school/01.webp": {
+    "sha256": "107e6e0ae48f8f9b4099dfead9ffd1fb98fdda5f9ca9f4895795581d38bc0595",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/woodlands-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01.webp": {
+    "sha256": "e06690da9e674f3f1731df020b5a29b22d8b098591a7cc103b645c02f6552530",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/artificial-turf/yio-chu-kang-secondary-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp": {
+    "sha256": "90b87461d4cf7fa7ff683caa27c5b3d526e64cad7cdf95c2e3773b288e6e91aa",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/02.webp": {
+    "sha256": "f1c8419f4fafcf8c417fb4adba616e0b54cc705b626516ca2feeadf49e55c3a6",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/02-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/02-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/02.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/lion-city-sailors/01.webp": {
+    "sha256": "51837831ad524302c21eb95d74740e965785167a05985cc8d95e73ce89ecc7c7",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/lion-city-sailors/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/lion-city-sailors/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/lion-city-sailors/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01.webp": {
+    "sha256": "8d46d28c3b652aaf83f7812fab1a7e216721ca9dc269ed22521756aba5d04724",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01-480w.webp",
+        "width": 480,
+        "height": 256
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/private-residences-artificial-turf-tennis-court/01.webp",
+        "width": 777,
+        "height": 414
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01.webp": {
+    "sha256": "b513ccfaabadec9821df988390180622f37a3919281b5facb9ba20f1947d65c9",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/02.webp": {
+    "sha256": "3929dd94245b328fd2210f29826df33d87b6e794596183d8063c27bbb5c37ec5",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/02-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/02-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/stamford-american-international-school-putting-green-turf-at-courtyard-area/02.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01.webp": {
+    "sha256": "bd28daf50a40191c522dbee284454bc8d04979bbec6530b36442cb396206f32d",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01-480w.webp",
+        "width": 480,
+        "height": 192
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01-960w.webp",
+        "width": 960,
+        "height": 384
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/01.webp",
+        "width": 1600,
+        "height": 640
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/02.webp": {
+    "sha256": "b19925886ca31da51c91f7f8b77045c4e8fcbaf8d9dfe201475c5acde7c997c4",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/02-480w.webp",
+        "width": 480,
+        "height": 192
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/02-960w.webp",
+        "width": 960,
+        "height": 384
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/02.webp",
+        "width": 1600,
+        "height": 640
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/03.webp": {
+    "sha256": "7b9e383fd1f629a7d06be503e27e482a12f818a70d9feb1f7ab9d4bec8615265",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/03-480w.webp",
+        "width": 480,
+        "height": 192
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/03-960w.webp",
+        "width": 960,
+        "height": 384
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/watergardens-condominium-landscape-turf-on-rooftop/03.webp",
+        "width": 1600,
+        "height": 640
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01.webp": {
+    "sha256": "c89cc3d8434e75260eb1f645c55ccd673e3044c04254cd873853ecb6503ef7f3",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01-480w.webp",
+        "width": 480,
+        "height": 247
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01-960w.webp",
+        "width": 960,
+        "height": 494
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/01.webp",
+        "width": 1379,
+        "height": 709
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/02.webp": {
+    "sha256": "f51c592822991063fc2cc2129f24c833e3fdef8eb1162e7da2add97983bc677a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/02-480w.webp",
+        "width": 480,
+        "height": 247
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/02-960w.webp",
+        "width": 960,
+        "height": 494
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-pri-sch-kcare-garden-with-landscape-turf/02.webp",
+        "width": 1379,
+        "height": 709
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01.webp": {
+    "sha256": "74a4ffbabeb73fdabb316df17a7e5095e7fff53a8ad6085640b1d0998ea2d575",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/02.webp": {
+    "sha256": "ade07dd8a37be1f4d400170592adae64fed68212fc81a99f5b05278f34801be1",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/02-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/02-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/landscape-artificial-turf/westwood-sec-sch-putting-green-turf-for-study-corner/02.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/running-track/crest-secondary-school/01.webp": {
+    "sha256": "665d5f33221117418e5c83e874fe23d013591aca5791c8f3f08e72afae82fe0c",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/crest-secondary-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/running-track/crest-secondary-school/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/running-track/crest-secondary-school/01.webp",
+        "width": 1600,
+        "height": 901
+      }
+    ]
+  },
+  "assets/images/projects/running-track/ite-college-central/01.webp": {
+    "sha256": "51f245f42f048b88445ac291fc86545ce51b4aafa31721978344fb47da2549b4",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/ite-college-central/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/running-track/ite-college-central/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/running-track/ite-college-central/01.webp",
+        "width": 1379,
+        "height": 777
+      }
+    ]
+  },
+  "assets/images/projects/running-track/perennial-business-city/01.webp": {
+    "sha256": "b67777ef5667d3af8333349e141297bc110344e29911b2a1978e64b8a19301f6",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/perennial-business-city/01-480w.webp",
+        "width": 480,
+        "height": 249
+      },
+      {
+        "src": "assets/images/projects/running-track/perennial-business-city/01-960w.webp",
+        "width": 960,
+        "height": 498
+      },
+      {
+        "src": "assets/images/projects/running-track/perennial-business-city/01.webp",
+        "width": 1379,
+        "height": 715
+      }
+    ]
+  },
+  "assets/images/projects/running-track/singapore-chinese-girls-school/01.webp": {
+    "sha256": "bba8dc891b95e9c1a3c5781623729292f49cfdcd67a8a2c0e2ca63f251674c3a",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/singapore-chinese-girls-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/running-track/singapore-chinese-girls-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/running-track/singapore-chinese-girls-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/running-track/singapore-polytechnic/01.webp": {
+    "sha256": "568bcfc45c2e374ecb7eb9a7be4c7decf194f54c3b434c71d14abd0799cca291",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/singapore-polytechnic/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/running-track/singapore-polytechnic/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/running-track/singapore-polytechnic/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/running-track/singapore-polytechnic/02.webp": {
+    "sha256": "8b880999829413eabf32fafa3800ff640f95e231fe61cd0291687d2f9d9fdb0b",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/running-track/singapore-polytechnic/02-480w.webp",
+        "width": 480,
+        "height": 853
+      },
+      {
+        "src": "assets/images/projects/running-track/singapore-polytechnic/02.webp",
+        "width": 649,
+        "height": 1153
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01.webp": {
+    "sha256": "ab6e32d817243a781ce7d777d6cc1a3f6ae636d2479a5dfdda9c58bd0603a00e",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/01.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/02.webp": {
+    "sha256": "fc55467862769353558738b5221cf585f08f6778185434a83c840b8d07ed14c5",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/02-480w.webp",
+        "width": 480,
+        "height": 249
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/02-960w.webp",
+        "width": 960,
+        "height": 497
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/aspn-timber-flooring-hall/02.webp",
+        "width": 1380,
+        "height": 715
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp": {
+    "sha256": "ff9c72b5df6c2da6160d31624eae793c23ee398e721a5fa6033d7ac85e1ca7a9",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-480w.webp",
+        "width": 480,
+        "height": 249
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/01-960w.webp",
+        "width": 960,
+        "height": 498
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/01.webp",
+        "width": 1379,
+        "height": 715
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/ngee-ann-polytechnic/02.webp": {
+    "sha256": "1d14fd1d39ebedfd21aea1181b58ad8ffa0c825853d63429b23344ca23868d99",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/02-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/02-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/ngee-ann-polytechnic/02.webp",
+        "width": 1379,
+        "height": 776
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/perennial-business-city/01.webp": {
+    "sha256": "0cdce856bcd330a642937cd9c1a97343678bb600bae95bd07c90e187e21fc58d",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/perennial-business-city/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/perennial-business-city/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/perennial-business-city/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/private-residence/01.webp": {
+    "sha256": "6fb887330260558b9b6c76b50cddd30df8342dd06cc74f62b6f2655b4c5a43c0",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/01-480w.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/01-960w.webp",
+        "width": 960,
+        "height": 1280
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/01.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/private-residence/02.webp": {
+    "sha256": "f7c0c1b600f64abf61b616b1cd74dee08a7910f5d2b5407e2c4837b230a7c355",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/02-480w.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/02-960w.webp",
+        "width": 960,
+        "height": 1280
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/private-residence/02.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01.webp": {
+    "sha256": "8d46c93c5ef5a4ca60e9274d74f30d714dca12dc3264a4865c0e5b94adce8ebf",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/singapore-badminton-association-portable-system/01.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/stamford-american-international-school/01.webp": {
+    "sha256": "9ed3daa8663e8a771672d460c853e47292ee7d55bb72fee8754b409cae10af69",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/01-480w.webp",
+        "width": 480,
+        "height": 249
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/01-960w.webp",
+        "width": 960,
+        "height": 498
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/01.webp",
+        "width": 1379,
+        "height": 715
+      }
+    ]
+  },
+  "assets/images/projects/timber-flooring/stamford-american-international-school/02.webp": {
+    "sha256": "75a9c1ca62d0c30250f1760a156a9f27af5db8d768b3b8af64de832ccdffeb73",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/02-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/02-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/timber-flooring/stamford-american-international-school/02.webp",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/coralis-condo/01.webp": {
+    "sha256": "a5dadf6a4ed62adcdab488138a61a2a85f1f4b1d86d7082074dcd964fdabe99e",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/coralis-condo/01-480w.webp",
+        "width": 480,
+        "height": 585
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/coralis-condo/01.webp",
+        "width": 711,
+        "height": 866
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/coralis-condo/02.webp": {
+    "sha256": "1e07c3a9de718cd4d4bc6786774b970c42d86ae023160815e347bf19b04e52fb",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/coralis-condo/02-480w.webp",
+        "width": 480,
+        "height": 853
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/coralis-condo/02.webp",
+        "width": 554,
+        "height": 984
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/ite-college-central/01.webp": {
+    "sha256": "326b53a6e08a46eeebe6cf0f11aeda9be618263bbda9c16568eb50a5dcc4c4c1",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/ite-college-central/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/ite-college-central/01-960w.webp",
+        "width": 960,
+        "height": 541
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/ite-college-central/01.webp",
+        "width": 1600,
+        "height": 901
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/ntu-staff-housing/01.webp": {
+    "sha256": "d05553a9f0be3c65af4e4e58b58d7ab48a816d78226b40cd8880f94a627da75d",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/ntu-staff-housing/01-480w.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/ntu-staff-housing/01-960w.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/ntu-staff-housing/01.webp",
+        "width": 1600,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/rivera-38/01.webp": {
+    "sha256": "e1c1ca63df35785fd61503dd32581f77d98183438fe74877574dd2181c43a45f",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/rivera-38/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/rivera-38/01.webp",
+        "width": 663,
+        "height": 373
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/rivera-38/02.webp": {
+    "sha256": "cc269005514d9e2120fe7edeb39bb2402a5c196fe95abaae82fea863b638f2f9",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/rivera-38/02-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/rivera-38/02.webp",
+        "width": 680,
+        "height": 383
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/singapore-american-school/01.webp": {
+    "sha256": "55f020d4785005d37b057bd9ead461d5d83ad68c045c90fa28616cd638436e5f",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/singapore-american-school/02.webp": {
+    "sha256": "11c270c3818c1826266b6ff691d6e6a61be7d71f9071f4ace1d0d68c48e7751c",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/02-480w.webp",
+        "width": 480,
+        "height": 328
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/02-960w.webp",
+        "width": 960,
+        "height": 657
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/singapore-american-school/02.webp",
+        "width": 1600,
+        "height": 1095
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/stamford-american-international-school/01.webp": {
+    "sha256": "1161864c86e800559026618b5bb5cb1078b18b64dfbc26f0ad3dc31e453047e0",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/01-480w.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/01-960w.webp",
+        "width": 960,
+        "height": 720
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/01.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/stamford-american-international-school/02.webp": {
+    "sha256": "682bec1862a5b2fcfef7d8420b707fd250f559edd170b511ec2462d5fda8bca4",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/02-480w.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/02-960w.webp",
+        "width": 960,
+        "height": 1280
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/stamford-american-international-school/02.webp",
+        "width": 987,
+        "height": 1316
+      }
+    ]
+  },
+  "assets/images/projects/epdm-flooring/sutd/01.webp": {
+    "sha256": "845508ee3f4610b98ee31c71e5789317b65020c0a26c91ac6c801dab2d3ca3b7",
+    "quality": 76,
+    "widths": [
+      480,
+      960
+    ],
+    "candidates": [
+      {
+        "src": "assets/images/projects/epdm-flooring/sutd/01-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/sutd/01-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/images/projects/epdm-flooring/sutd/01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  }
+}

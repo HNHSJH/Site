@@ -2,6 +2,7 @@
 """Validate published HTML, canonical routes, local links, schema and JS syntax."""
 from collections import Counter
 from html.parser import HTMLParser
+from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, unquote
 import json
@@ -29,6 +30,7 @@ class Document(HTMLParser):
 
 
 subprocess.run(['python3', str(ROOT / 'tools/build-seo.py'), '--check'], check=True)
+subprocess.run(['python3', str(ROOT / 'tools/sync-project-data.py'), '--check'], check=True)
 sitemap = ET.parse(ROOT / 'sitemap.xml')
 urls = [x.text for x in sitemap.findall('.//{*}loc')]
 assert len(urls) == len(set(urls))
@@ -61,6 +63,26 @@ for url in urls:
     assert graph[0]['@type'] == 'GeneralContractor'
     assert graph[0]['telephone'] == '+6591148327'
     assert graph[1]['url'] == url
+    social = {a.get('property', a.get('name')): a.get('content') for a in meta}
+    assert social['twitter:card'] == 'summary_large_image'
+    assert social['og:image'] == social['twitter:image']
+    assert social['og:image:alt'] and social['twitter:image:alt']
+    social_path = urlsplit(social['og:image'])
+    assert social_path.netloc == 'hnhresources.com'
+    assert (ROOT / social_path.path.lstrip('/')).is_file(), f'{url}: missing sharing image'
+    assert int(social['og:image:width']) > 0 and int(social['og:image:height']) > 0
+    breadcrumbs = [node for node in graph if node['@type'] == 'BreadcrumbList']
+    if url != ORIGIN + '/':
+        assert len(breadcrumbs) == 1, f'{url}: missing breadcrumb schema'
+        items = breadcrumbs[0]['itemListElement']
+        assert [x['position'] for x in items] == list(range(1, len(items) + 1))
+        assert items[0]['item'] == ORIGIN + '/' and items[-1]['item'] == url
+        visible_crumb = re.search(r'<nav class="breadcrumb"[^>]*>(.*?)</nav>', text, re.S).group(1)
+        visible_items = re.findall(r'<(?:a|span) (?:href="([^"]+)"|aria-current="page")>(.*?)</(?:a|span)>', visible_crumb)
+        assert [x['name'] for x in items] == [unescape(re.sub('<[^>]+>', '', label)) for _, label in visible_items]
+        assert [x['item'] for x in items[:-1]] == [ORIGIN + href for href, _ in visible_items[:-1]]
+    else:
+        assert not breadcrumbs
     for attrs, source in re.findall(r'<script([^>]*)>(.*?)</script>', text, re.S):
         if 'application/ld+json' in attrs or 'src=' in attrs:
             continue
@@ -85,6 +107,8 @@ for url in urls:
                 assert target.fragment in target_doc.ids, f'{url}: missing fragment {a[key]}'
             checked_links += 1
         if 'srcset' in a:
+            if re.search(r'\s\d+w(?:,|$)', a['srcset']):
+                assert a.get('sizes'), f'{url}: responsive image missing sizes'
             for item in a['srcset'].split(','):
                 target = urlsplit(urljoin(url, item.strip().split()[0]))
                 if target.netloc == 'hnhresources.com':
@@ -95,6 +119,17 @@ assert len(descriptions) == len(set(descriptions)), 'Duplicate descriptions'
 home = docs[ORIGIN + '/']
 cards = [a for a in home.attrs('a') if 'project-card' in a.get('class', '').split()]
 projects = json.loads((ROOT / 'data/projects.json').read_text())['projects']
+by_url = {ORIGIN + '/projects/' + p['id'].replace('--', '/') + '/': p for p in projects}
+for url, doc in docs.items():
+    for img in doc.attrs('img'):
+        if '/images/projects/' in img.get('src', '') and img.get('alt'):
+            assert img.get('srcset') and img.get('sizes'), f'{url}: project image missing candidates'
+    if url in by_url:
+        record = by_url[url]
+        meta = {a.get('property', a.get('name')): a.get('content') for a in doc.attrs('meta')}
+        assert meta['description'] == record['detail_description']
+        assert meta['og:image'] == ORIGIN + '/' + record['photos'][0]['src']
+        assert record['display_name'] in meta['og:title']
 assert len(cards) == len(projects) + 4
 assert set(a['data-project-id'] for a in cards) == {p['id'] for p in projects}
 slides = [a for a in home.attrs('div') if 'hero-slide' in a.get('class', '').split()]

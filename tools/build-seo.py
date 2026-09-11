@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://hnhresources.com'
 PROJECTS = json.loads((ROOT / 'data/projects.json').read_text())
 SERVICES = json.loads((ROOT / 'data/services.json').read_text())
+VARIANTS = json.loads((ROOT / 'data/image-variants.json').read_text())
 CATEGORIES = {c['id']: c['name'] for c in PROJECTS['categories']}
 BY_ID = {p['id']: p for p in PROJECTS['projects']}
 FEATURED = ['artificial-turf--our-tampines-hub', 'acrylic-coating--tanah-merah-country-club',
@@ -20,7 +21,7 @@ DETAILS = FEATURED + ['artificial-turf--ngee-ann-polytechnic', 'acrylic-coating-
 HOME = (ROOT / 'index.html').read_text()
 ORG = {'@type': 'GeneralContractor', '@id': ORIGIN + '/#organization', 'name': 'H&H Resources',
        'legalName': 'H&H Resources Pte Ltd', 'url': ORIGIN + '/',
-       'logo': ORIGIN + '/assets/logos/hnh-logo.png', 'email': 'enquiry@hnhresources.com',
+       'logo': ORIGIN + '/assets/logos/hnh-logo-160.png', 'email': 'enquiry@hnhresources.com',
        'telephone': '+6591148327', 'address': {'@type': 'PostalAddress',
        'streetAddress': '1 Tampines North Drive 1, #08-49 T-Space',
        'addressLocality': 'Singapore', 'postalCode': '528559', 'addressCountry': 'SG'},
@@ -28,7 +29,7 @@ ORG = {'@type': 'GeneralContractor', '@id': ORIGIN + '/#organization', 'name': '
        'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
        'opens': '00:00', 'closes': '23:59'}]}
 BRAND = ('<a class="brand" href="/" aria-label="H&amp;H Resources home">'
-         '<img class="brand-mark" src="/assets/logos/hnh-logo.png" width="48" height="48" alt="">'
+         '<img class="brand-mark" src="/assets/logos/hnh-logo-160.png" width="48" height="48" alt="">'
          '<span class="brand-wordmark" aria-hidden="true"><span class="brand-top">H &amp; H</span>'
          '<span class="brand-bottom">RESOURCES</span></span></a>')
 OUTPUT = {}
@@ -46,10 +47,23 @@ def service_for(p):
     return next(s for s in SERVICES if p['category'] in s['categories'])
 
 
-def image(p, index=0, eager=False):
+CARD_SIZES = '(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc((92vw - 28px) / 2), (max-width: 1440px) calc((92vw - 56px) / 3), 424px'
+GALLERY_SIZES = '(max-width: 500px) calc(100vw - 40px), (max-width: 1440px) 92vw, 1325px'
+ARCHIVE_SIZES = '(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px'
+SHOWCASE_SIZES = '(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 900px) calc((100vw - 72px) / 2), (max-width: 1400px) calc((100vw - 112px) / 4), 305px'
+
+
+def responsive_attrs(photo, sizes):
+    candidates = VARIANTS[photo['src']]['candidates']
+    srcset = ', '.join(f'/{v["src"]} {v["width"]}w' for v in candidates)
+    return f'srcset="{e(srcset)}" sizes="{e(sizes)}"'
+
+
+def image(p, index=0, eager=False, sizes=CARD_SIZES):
     ph = p['photos'][index]
     w, h = ph['web_dimensions']
-    return (f'<img src="/{e(ph["src"])}" alt="{e(p["display_name"])} — {e(CATEGORIES[p["category"]])}" '
+    fallback = VARIANTS[ph['src']]['candidates'][0]['src'] if sizes == CARD_SIZES else ph['src']
+    return (f'<img src="/{e(fallback)}" {responsive_attrs(ph, sizes)} alt="{e(p["display_name"])} — {e(CATEGORIES[p["category"]])}" '
             f'width="{w}" height="{h}" decoding="async" loading="{"eager" if eager else "lazy"}"'
             + (' fetchpriority="high"' if eager else '') + '>')
 
@@ -68,31 +82,50 @@ def showcase_card(p, i, count, archive=False):
     return (f'<a class="project-card{" all-project-card" if archive else ""}" href="{project_url(p)}" '
             f'data-project-id="{e(p["id"])}" data-project-category="{e(p["category"])}">'
             f'<div class="project-media"><span class="project-number">{i:02d} / {count:02d}</span>'
-            f'<img src="{e(ph["src"])}" alt="{e(p["display_name"])} — {e(CATEGORIES[p["category"]])}" '
+            f'<img src="/{e(VARIANTS[ph["src"]]["candidates"][0]["src"])}" {responsive_attrs(ph, ARCHIVE_SIZES if archive else SHOWCASE_SIZES)} alt="{e(p["display_name"])} — {e(CATEGORIES[p["category"]])}" '
             f'width="{w}" height="{h}" loading="lazy" decoding="async"></div>'
             f'<div class="project-info"><div><h3>{e(p["display_name"])}</h3><p>{e(sub)}</p></div>'
             '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">'
             '<path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>')
 
 
-def metadata(title, description, url, kind='WebPage', extra=None):
+def metadata(title, description, url, kind='WebPage', extra=None, breadcrumbs=None, social=None):
     graph = [ORG, {'@type': kind, '@id': ORIGIN + url + '#webpage', 'url': ORIGIN + url,
                    'name': title, 'description': description, 'inLanguage': 'en-SG',
                    'publisher': {'@id': ORIGIN + '/#organization'}}]
     if extra:
         graph.append(extra)
+    if breadcrumbs:
+        breadcrumb_id = ORIGIN + url + '#breadcrumb'
+        graph[1]['breadcrumb'] = {'@id': breadcrumb_id}
+        graph.append({'@type': 'BreadcrumbList', '@id': breadcrumb_id,
+                      'itemListElement': [{'@type': 'ListItem', 'position': i,
+                                           'name': name, 'item': ORIGIN + path}
+                                          for i, (name, path) in enumerate(breadcrumbs, 1)]})
+    social = social or {'src': '/og.png', 'width': 1200, 'height': 629,
+                        'alt': 'H&H Resources — sports fields, courts, turf and landscape in Singapore',
+                        'type': 'image/png'}
+    social_url = ORIGIN + social['src']
     schema = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('<', '\\u003c')
     return (f'<title>{e(title)}</title>\n<meta name="description" content="{e(description)}">\n'
             f'<link rel="canonical" href="{ORIGIN}{url}">\n'
             '<meta property="og:type" content="website">\n<meta property="og:locale" content="en_SG">\n'
             '<meta property="og:site_name" content="H&amp;H Resources">\n'
             f'<meta property="og:title" content="{e(title)}">\n<meta property="og:description" content="{e(description)}">\n'
-            f'<meta property="og:url" content="{ORIGIN}{url}">\n<meta name="twitter:card" content="summary">\n'
+            f'<meta property="og:url" content="{ORIGIN}{url}">\n'
+            f'<meta property="og:image" content="{e(social_url)}">\n'
+            f'<meta property="og:image:type" content="{social["type"]}">\n'
+            f'<meta property="og:image:width" content="{social["width"]}">\n'
+            f'<meta property="og:image:height" content="{social["height"]}">\n'
+            f'<meta property="og:image:alt" content="{e(social["alt"])}">\n'
+            '<meta name="twitter:card" content="summary_large_image">\n'
+            f'<meta name="twitter:image" content="{e(social_url)}">\n'
+            f'<meta name="twitter:image:alt" content="{e(social["alt"])}">\n'
             f'<meta name="twitter:title" content="{e(title)}">\n<meta name="twitter:description" content="{e(description)}">\n'
             f'<script type="application/ld+json">{schema}</script>')
 
 
-def page(url, title, description, heading, content, parent=None, kind='WebPage', extra=None):
+def page(url, title, description, heading, content, parent=None, kind='WebPage', extra=None, social=None):
     nav = [('About Us', '/about-us/'), ('Clients', '/clients/'), ('Projects', '/projects/'),
            ('Expertise', '/services/'), ('Contact Us', '/contact/')]
     links = ''.join(f'<a href="{href}"' + (' aria-current="page"' if href == url else '') + f'>{label}</a>' for label, href in nav)
@@ -100,10 +133,11 @@ def page(url, title, description, heading, content, parent=None, kind='WebPage',
     if parent:
         crumb += f' <span aria-hidden="true">/</span> <a href="{parent[1]}">{e(parent[0])}</a>'
     crumb += f' <span aria-hidden="true">/</span> <span aria-current="page">{e(heading)}</span>'
+    breadcrumbs = [('Home', '/')] + ([parent] if parent else []) + [(heading, url)]
     cls = ' class="clients-page"' if url == '/clients/' else ''
     OUTPUT[url.strip('/') + '/index.html'] = f'''<!doctype html>
 <html lang="en-SG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-{metadata(title, description, url, kind, extra)}
+{metadata(title, description, url, kind, extra, breadcrumbs, social)}
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#eff3ed"><link rel="stylesheet" href="/assets/css/content-pages.css?v=20260911">
@@ -153,9 +187,13 @@ for project_id in DETAILS:
     s = service_for(p)
     heading = p['display_name'] + ' — ' + CATEGORIES[p['category']]
     body = f'<p class="intro">{e(p["detail_description"])}</p><dl class="facts"><dt>Location</dt><dd>{e(p["display_name"])}, Singapore</dd><dt>Project type</dt><dd>{e(CATEGORIES[p["category"]])}</dd></dl>'
-    body += '<div class="gallery">' + ''.join(f'<figure>{image(p, i, i == 0)}<figcaption>{e(heading)} · Photograph {i + 1}</figcaption></figure>' for i in range(len(p['photos']))) + '</div>'
+    body += '<div class="gallery">' + ''.join(f'<figure>{image(p, i, i == 0, GALLERY_SIZES)}<figcaption>{e(heading)} · Photograph {i + 1}</figcaption></figure>' for i in range(len(p['photos']))) + '</div>'
     body += f'<section class="content-section prose"><h2>Related expertise</h2><p>{e(s["intro"])}</p><p><a href="/services/{s["id"]}/">Explore {e(s["name"].lower())} →</a></p><h2>Planning a similar project?</h2><p>{e(s["planning"])}</p>{enquiry()}</section>'
-    page(project_url(p), heading + ' | H&H Resources', p['detail_description'], heading, body, ('Projects', '/projects/'))
+    photo = p['photos'][0]
+    page(project_url(p), heading + ' | H&H Resources', p['detail_description'], heading, body, ('Projects', '/projects/'),
+         social={'src': '/' + photo['src'], 'width': photo['web_dimensions'][0],
+                 'height': photo['web_dimensions'][1], 'alt': heading,
+                 'type': 'image/webp' if photo['src'].endswith('.webp') else 'image/jpeg'})
 
 about = re.search(r'<div class="about-copy">(.*?)</div>', HOME, re.S).group(1)
 page('/about-us/', 'About H&H Resources | Sports Construction Singapore', 'Learn about H&H Resources, its roots in 1980 and its golf, turf, landscape and sports-facility construction experience in Singapore.', 'Built on experience. Made for play.',

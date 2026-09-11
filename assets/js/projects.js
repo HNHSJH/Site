@@ -48,6 +48,9 @@
   function setMainPhoto(p, idx) {
     const ph = p.photos[idx];
     if (!ph) return;
+    mainImg.sizes = '(max-width: 900px) calc(100vw - 48px), (max-width: 1280px) 64vw, 820px';
+    mainImg.srcset = ph.srcset || '';
+    [mainImg.width, mainImg.height] = ph.web_dimensions;
     mainImg.src = ph.src;
     mainImg.alt = `${p.display_name} — ${categories[p.category] || p.category}`;
     thumbs.querySelectorAll('.project-detail-thumb').forEach((b,i) => b.classList.toggle('is-active', i === idx));
@@ -64,7 +67,7 @@
     if (p.certification_text?.length) rows.push(['Certification', p.certification_text.join(' · ')]);
     meta.innerHTML = rows.map(([k,v]) => `<div class="project-detail-meta-row"><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join('');
     meta.hidden = rows.length === 0;
-    thumbs.innerHTML = p.photos.map((ph,i) => `<button type="button" class="project-detail-thumb ${i===0?'is-active':''}" data-photo-index="${i}" aria-label="View image ${i+1}"><img src="${esc(ph.src)}" alt="" loading="lazy" /></button>`).join('');
+    thumbs.innerHTML = p.photos.map((ph,i) => `<button type="button" class="project-detail-thumb ${i===0?'is-active':''}" data-photo-index="${i}" aria-label="View image ${i+1}"><img src="${esc(ph.thumbnail || ph.src)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" alt="" loading="lazy" decoding="async" /></button>`).join('');
     setMainPhoto(p,0);
     overlay.dataset.projectId = id;
     overlay.classList.add('is-open');
