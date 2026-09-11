@@ -34,7 +34,18 @@ The showcase is fully local and references the exact cover photograph used by th
 
 ## About Us and Expertise
 
-The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses an 86%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list, as transparent WebP images.
+The About Us photograph is served as local 800px / 1600px WebP assets. Its right-hand text panel uses a 78%-opaque background, with internal scrolling when needed on smaller screens. Edit the wording in `.about-copy` in `index.html` and the appearance in the original About Us CSS block in the same file. The BCA and bizSAFE Level 4 assets sit at the top right of the Expertise heading, above the category list, as transparent WebP images on a pale translucent surface for contrast.
+
+All four main section backdrops fill the viewport with `object-fit: cover`, a small homepage-style overscan, and dark gradient overlays. They reuse the existing optimised project photographs:
+
+| Section | Background photograph |
+| --- | --- |
+| Projects | Seng Kang Primary School — artificial turf |
+| Clients | Perennial Business City — running track |
+| Expertise | Hyll at Holland — rooftop landscape turf, photo 01 |
+| Contact Us | Republic Polytechnic — acrylic coating |
+
+The selected-client logo tiles retain a pale surface; headings and Expertise text use light colours. Contact placeholders and attachment helper text have stronger contrast. Archive and detail overlays retain their existing separate surfaces.
 
 Copy sources checked on 11 September 2026:
 

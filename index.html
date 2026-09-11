@@ -394,6 +394,32 @@
     section { position: relative; }
     section[id] { scroll-margin-top: 82px; }
     .section-shell { padding: clamp(50px, 6vw, 88px) var(--pad); }
+    /* Full-screen photographic panels, using the same cover treatment as the homepage. */
+    .section-backdrop {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .section-backdrop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--section-photo-position, center);
+      transform: scale(1.06);
+    }
+    .section-backdrop::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,10,7,.72), rgba(7,10,7,.65) 65%, rgba(7,10,7,.67)),
+        linear-gradient(0deg, rgba(7,10,7,.54), transparent 50%);
+    }
+    .photo-panel > .section-shell { position: relative; z-index: 1; }
+    .photo-panel > .section-shell > :is(.section-kicker, .clients-intro, .contact-heading) {
+      text-shadow: 0 2px 18px rgba(0,0,0,.22);
+    }
     .section-kicker {
       display: block;
       margin-bottom: clamp(26px, 3.5vw, 44px);
@@ -460,7 +486,7 @@
       padding: clamp(24px, 2.7vw, 42px);
       border: 1px solid rgba(255,255,255,.55);
       border-radius: 0;
-      background: rgba(246,248,243,.86);
+      background: rgba(246,248,243,.78);
       color: #20312d;
       box-shadow: 0 16px 48px rgba(12,28,19,.14);
       backdrop-filter: blur(3px);
@@ -533,16 +559,15 @@
     }
 
     .projects {
-      background:
-        radial-gradient(circle at 82% 12%, rgba(134,163,109,.20), transparent 30%),
-        linear-gradient(135deg, #142b27 0%, #24483f 54%, #365f52 100%);
+      background: #142b27;
+      --section-photo-position: 50% 50%;
       color: #fff;
     }
     .projects .section-kicker > span {
       color: #dcebf0;
     }
     .expertise .section-kicker > span {
-      color: var(--green-deep);
+      color: #e4ede6;
     }
     .projects .section-shell {
       padding-top: clamp(50px, 5vw, 72px);
@@ -635,7 +660,9 @@
     }
 
     .expertise {
-      background: linear-gradient(180deg, #e7efe8 0%, var(--sky-soft) 100%);
+      background: #142b27;
+      color: #fff;
+      --section-photo-position: 52% 60%;
     }
     #expertise > .section-shell {
       justify-content: flex-start;
@@ -658,7 +685,9 @@
       justify-content: flex-end;
       align-items: center;
       gap: clamp(16px, 2vw, 28px);
-      padding-bottom: 4px;
+      padding: 12px 16px;
+      background: rgba(246,248,243,.92);
+      border: 1px solid rgba(255,255,255,.48);
     }
     .expertise-marks img { height: auto; object-fit: contain; }
     .expertise-mark-bca { width: clamp(125px, 12vw, 170px); }
@@ -673,7 +702,7 @@
       .expertise-mark-bca { width: 116px; }
       .expertise-mark-bizsafe { width: 108px; }
     }
-    .expertise-list { border-top:1px solid rgba(53, 83, 73, .16); }
+    .expertise-list { border-top:1px solid rgba(255,255,255,.36); }
     .expertise-row {
       display:grid;
       grid-template-columns: 80px minmax(220px, .9fr) minmax(280px, 1.1fr) 28px;
@@ -685,8 +714,8 @@
     }
     .expertise-row:hover {
       padding-left:14px;
-      color: var(--green-deep);
-      background: rgba(255,255,255,.28);
+      color: #fff;
+      background: rgba(7,10,7,.18);
     }
     .expertise-row .num { font-size:10px; letter-spacing:.14em; color: var(--green-mid); }
     .expertise-row h3 {
@@ -699,7 +728,9 @@
     .expertise-row .plus { font-size:28px; font-weight:200; color: var(--green-deep); }
 
     .clients {
-      background: linear-gradient(180deg, #dce7dd 0%, #dfeaf0 100%);
+      background: #142b27;
+      color: #fff;
+      --section-photo-position: 50% 48%;
       overflow: hidden;
     }
     .clients-intro {
@@ -722,7 +753,7 @@
       margin: 0;
       padding-top: 0;
       border-top: 0;
-      color: #546861;
+      color: #e4ede6;
       font-size: 14px;
     }
     .client-grid {
@@ -730,9 +761,10 @@
       grid-template-columns: repeat(5, minmax(0, 1fr));
       border-top: 1px solid rgba(53,83,73,.16);
       border-left: 1px solid rgba(53,83,73,.16);
-      background: rgba(255,255,255,.22);
+      background: rgba(246,248,243,.90);
     }
     .client-logo {
+      color: var(--green-forest);
       min-height: clamp(94px, 9vw, 126px);
       display: grid;
       place-items: center;
@@ -763,7 +795,8 @@
     }
 
     .contact {
-      background: linear-gradient(135deg, #18312f 0%, var(--green-deep) 52%, #4b6e61 100%);
+      background: #142b27;
+      --section-photo-position: 56% 66%;
       color:white;
     }
     .contact-heading {
@@ -857,7 +890,7 @@
     }
     .contact-field select option { color: var(--ink); background: #fff; }
     .contact-field input::placeholder,
-    .contact-field textarea::placeholder { color: rgba(231,245,248,.42); }
+    .contact-field textarea::placeholder { color: #dce5de; }
     .contact-field input:focus,
     .contact-field select:focus,
     .contact-field textarea:focus {
@@ -1683,23 +1716,17 @@
     .panel-next:hover::after,
     .panel-next:focus-visible::after { transform: translateX(3px); }
 
-    .projects .panel-prev,
-    .projects .panel-next,
-    .projects .panel-close,
-    .contact .panel-prev,
-    .contact .panel-next,
-    .contact .panel-close {
+    .photo-panel > .panel-prev,
+    .photo-panel > .panel-next,
+    .photo-panel > .panel-close {
       color: #fff;
       border-color: rgba(255,255,255,.62);
       background: rgba(16,30,26,.68);
       box-shadow: 0 12px 34px rgba(0,0,0,.18);
     }
-    .projects .panel-prev:hover,
-    .projects .panel-next:hover,
-    .projects .panel-close:hover,
-    .contact .panel-prev:hover,
-    .contact .panel-next:hover,
-    .contact .panel-close:hover {
+    .photo-panel > .panel-prev:hover,
+    .photo-panel > .panel-next:hover,
+    .photo-panel > .panel-close:hover {
       background: rgba(16,30,26,.92);
     }
 
@@ -1872,16 +1899,16 @@
     .showcase-enquire:focus-visible { outline:2px solid #fff; outline-offset:4px; }
 
     /* Expertise colour accents */
-    .expertise .section-kicker h2 { color: var(--green-forest); }
-    .expertise-row .num { color: var(--accent-warm); font-weight: 700; }
-    .expertise-row h3 { color: var(--green-forest); }
-    .expertise-row p { color: var(--accent-cool); }
-    .expertise-row .plus { color: var(--accent-warm); }
-    .expertise-item.is-open .expertise-row h3 { color: var(--accent-warm); }
+    .expertise .section-kicker h2 { color: #fff; }
+    .expertise-row .num { color: #dce8bf; font-weight: 700; }
+    .expertise-row h3 { color: #fff; }
+    .expertise-row p { color: #e4ede6; }
+    .expertise-row .plus { color: #dce8bf; }
+    .expertise-item.is-open .expertise-row h3 { color: #dce8bf; }
     .expertise-choice {
-      border-color: rgba(152,122,73,.28) !important;
-      color: #765f39 !important;
-      background: rgba(255,250,240,.62) !important;
+      border-color: rgba(255,255,255,.48) !important;
+      color: #20312d !important;
+      background: rgba(246,248,243,.94) !important;
     }
 
     .field-count {
@@ -1916,12 +1943,12 @@
     }
 
     /* v4 — expandable expertise */
-    .expertise-item { border-bottom: 1px solid rgba(53,83,73,.16); }
+    .expertise-item { border-bottom: 1px solid rgba(255,255,255,.30); }
     .expertise-item .expertise-row {
       width:100%; border:0; background:transparent; color:inherit;
       text-align:left; font:inherit; cursor:pointer;
     }
-    .expertise-item .expertise-row:hover { background:rgba(255,255,255,.28); }
+    .expertise-item .expertise-row:hover { background:rgba(7,10,7,.18); }
     .expertise-item .plus { display:inline-grid; place-items:center; transition:transform .32s var(--ease); }
     .expertise-item.is-open .plus { transform:rotate(45deg); }
     .expertise-options {
@@ -3136,21 +3163,11 @@ body.client-archive-open #clients > .panel-next {
   transition: color .3s ease, opacity .3s ease;
 }
 
-/* Light panels and light overlays use the dark copyright treatment. */
-body[data-active-panel="clients"] .global-copyright,
-body[data-active-panel="expertise"] .global-copyright,
+/* Light archive/detail overlays retain dark copyright text above the photographic panels. */
 body.client-archive-open .global-copyright,
 body.moe-schools-open .global-copyright,
 body.project-detail-open .global-copyright {
   color: rgba(32,49,45,.72);
-}
-
-/* Projects/contact and the project archive stay on dark surfaces. */
-body[data-active-panel="about"] .global-copyright,
-body[data-active-panel="projects"] .global-copyright,
-body[data-active-panel="contact"] .global-copyright,
-body.project-archive-open .global-copyright {
-  color: rgba(255,255,255,.78);
 }
 
 /* Reserve the lower-left corner for the copyright line. */
@@ -3585,7 +3602,7 @@ body.site-preloading { overflow:auto !important; }
   gap: 9px;
 }
 .attachment-optional {
-  color: rgba(215,230,238,.48);
+  color: #dce5de;
   font-size: .82em;
   font-weight: 600;
   letter-spacing: .09em;
@@ -3649,7 +3666,7 @@ body.site-preloading { overflow:auto !important; }
   font-size: 11px;
 }
 .attachment-copy small {
-  color: rgba(215,230,238,.58);
+  color: #dce5de;
   font-size: 8px;
   line-height: 1.35;
   letter-spacing: .02em;
@@ -4279,7 +4296,8 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </section>
-<section class="projects scroll-section" id="projects">
+<section class="projects scroll-section photo-panel" id="projects">
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="532" loading="lazy" src="assets/images/projects/artificial-turf/seng-kang-primary-school/01.webp" width="1379"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="section-kicker reveal">
@@ -4324,7 +4342,8 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </div></section>
-<section class="expertise scroll-section" id="expertise">
+<section class="expertise scroll-section photo-panel" id="expertise">
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1200" loading="lazy" src="assets/images/projects/landscape-artificial-turf/hyll-at-holland-landscape-turf-on-rooftop/01.webp" width="1600"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="expertise-heading">
@@ -4385,7 +4404,8 @@ body.site-preloading { overflow:auto !important; }
 </div>
 </div>
 </section>
-<section class="clients scroll-section" id="clients">
+<section class="clients scroll-section photo-panel" id="clients">
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="715" loading="lazy" src="assets/images/projects/running-track/perennial-business-city/01.webp" width="1379"/></div>
 <div aria-hidden="true" class="section-loader"><img alt="" src="assets/icons/hnh-loader-abstract-bw.png?v=23"/></div>
 <div class="section-shell">
 <div class="clients-intro">
@@ -4463,7 +4483,8 @@ body.site-preloading { overflow:auto !important; }
   </div>
 </div>
 </section>
-<section class="contact scroll-section no-section-loader" id="contact">
+<section class="contact scroll-section no-section-loader photo-panel" id="contact">
+<div aria-hidden="true" class="section-backdrop"><img alt="" decoding="async" height="1034" loading="lazy" src="assets/images/projects/acrylic-coating/republic-polytechnic/01.webp" width="1379"/></div>
 <div class="section-shell">
 <div class="contact-heading reveal">
 <div class="eyebrow">Contact Us</div>
