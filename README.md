@@ -103,6 +103,8 @@ The two marks were supplied by the owner. Their inclusion does not add a claim t
 
 The main site is intentionally no-scroll. Sections slide over the showcase. The guided order is About Us → Clients → Projects → Expertise → Contact Us, with the same order in the homepage Explore menu, the available main-menu links, the HTML sections and the Previous/Next controls. `All Projects`, project details, and `All Past Clients` use their own internal scroll areas.
 
+The H&H logo and home link remain visible across all five panels and their project/client/school popups. Photo panels use a pale translucent backing for wordmark contrast; light panels use dark text. Archive scroll areas reserve space below the fixed brand. Panel stacking stays bounded below the header, including after repeated navigation. Standalone pages retain their shared H&H header, and the 404 page also includes the logo and home link.
+
 
 ## v2 update
 - Seven project-specific hero images and captions.

@@ -104,7 +104,7 @@
     .brand-wordmark {
       display: flex;
       flex-direction: column;
-      color: #fff;
+      color: currentColor;
       font-family: Georgia, 'Times New Roman', serif;
       line-height: .9;
       white-space: nowrap;
@@ -1183,7 +1183,7 @@
 
     .site-header {
       position: fixed;
-      z-index: 72;
+      z-index: 100;
       transition: opacity .45s ease, transform .6s var(--ease);
     }
 
@@ -1287,7 +1287,6 @@
       filter: brightness(.64) saturate(.86);
     }
 
-    body.panel-open .site-header,
     body.panel-open .showcase-nav {
       opacity: 0;
       transform: translateX(-20px);
@@ -4171,11 +4170,46 @@ body.site-preloading { overflow:auto !important; }
     /* /Mobile contact position fix */
 
 </style>
+<style>
+/* Keep the home link visible above panels, with room for archive content below it. */
+:root { --brand-clearance: max(88px, calc(76px + env(safe-area-inset-top))); }
+.site-header { padding-top: max(18px, calc(12px + env(safe-area-inset-top))); }
+.site-header .brand:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+body.panel-open .site-header .header-actions { display: none; }
+body.panel-open .site-header .brand {
+  gap: 8px;
+  padding: 6px 10px;
+  color: #20312d;
+  background: rgba(246,248,243,.92);
+  border-radius: 2px;
+}
+body.panel-open .site-header .brand-mark { width: 40px; }
+body.panel-open .site-header .brand-top { font-size: 18px; }
+body.panel-open .site-header .brand-bottom { font-size: 14px; }
+body[data-active-panel="clients"] .site-header .brand,
+body[data-active-panel="expertise"] .site-header .brand,
+body.project-archive-open .site-header .brand,
+body.project-detail-open .site-header .brand { background: transparent; }
+.all-projects-gallery,
+.all-clients-gallery,
+.moe-school-gallery,
+.project-detail-overlay { padding-top: var(--brand-clearance); }
+.all-projects-gallery-inner,
+.all-clients-gallery-inner,
+.moe-school-gallery-inner { padding-top: 0 !important; }
+@media (max-width: 620px) {
+  :root { --brand-clearance: max(80px, calc(72px + env(safe-area-inset-top))); }
+  .site-header { padding-top: max(14px, calc(8px + env(safe-area-inset-top))); }
+  body.panel-open .site-header .brand-top { font-size: 15px; }
+  body.panel-open .site-header .brand-bottom { font-size: 12px; }
+  .clients > .section-shell { padding-top: var(--brand-clearance) !important; }
+}
+</style>
 </head>
 <body>
 <div class="global-copyright" role="contentinfo">© 2026 H&amp;H Resources Pte Ltd. All rights reserved.</div>
 <header class="site-header">
-<a aria-label="H&amp;H Resources home" class="brand" href="#top">
+<a aria-label="H&amp;H Resources home" class="brand" href="/" data-panel="top">
 <img alt="" aria-hidden="true" class="brand-mark" width="58" height="58" src="assets/logos/hnh-logo.png"/>
 <span aria-hidden="true" class="brand-wordmark">
 <span class="brand-top">H &amp; H</span>
@@ -4785,7 +4819,6 @@ body.site-preloading { overflow:auto !important; }
       const projectGallery = document.querySelector('.all-projects-gallery');
       const clientGallery = document.querySelector('.all-clients-gallery');
       const moeSchoolGallery = document.querySelector('.moe-school-gallery');
-      let layer = 90;
       let statAnimationDone = false;
       let firstNavigationShown = false;
       let firstNavigationBusy = false;
@@ -4956,8 +4989,10 @@ body.site-preloading { overflow:auto !important; }
         }
 
 
-        layer += 1;
-        next.style.zIndex = String(layer);
+        // Bound the panel layers so repeated navigation cannot cover the global brand.
+        panels.forEach(panel => {
+          panel.style.zIndex = panel === next ? '92' : panel === current ? '91' : '90';
+        });
         next.dataset.revealed = 'true';
         next.classList.add('section-visible');
         next.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
