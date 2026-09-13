@@ -12,8 +12,9 @@ variants = json.loads((root / 'data/image-variants.json').read_text())
 for project in data['projects']:
     for photo in project['photos']:
         candidates = variants[photo['src']]['candidates']
-        photo['srcset'] = ', '.join(f'{v["src"]} {v["width"]}w' for v in candidates)
-        photo['thumbnail'] = candidates[0]['src']
+        photo['srcset'] = ', '.join(f'/{v["src"].lstrip("/")} {v["width"]}w' for v in candidates)
+        photo['thumbnail'] = '/' + candidates[0]['src'].lstrip('/')
+        photo['src'] = '/' + photo['src'].lstrip('/')
 content = 'window.HNH_PROJECT_DATA = ' + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + ';\n'
 if '--check' in sys.argv:
     if target.read_text() != content:

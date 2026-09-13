@@ -77,14 +77,23 @@ for url in urls:
         items = breadcrumbs[0]['itemListElement']
         assert [x['position'] for x in items] == list(range(1, len(items) + 1))
         assert items[0]['item'] == ORIGIN + '/' and items[-1]['item'] == url
-        visible_crumb = re.search(r'<nav class="breadcrumb"[^>]*>(.*?)</nav>', text, re.S).group(1)
-        visible_items = re.findall(r'<(?:a|span) (?:href="([^"]+)"|aria-current="page")>(.*?)</(?:a|span)>', visible_crumb)
-        assert [x['name'] for x in items] == [unescape(re.sub('<[^>]+>', '', label)) for _, label in visible_items]
+        # Shared panels contain their own breadcrumbs. Match the breadcrumb for
+        # this document's route, rather than assuming the first panel is active.
+        visible_crumbs = re.findall(r'<nav[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>(.*?)</nav>', text, re.S)
+        crumb_items = [re.findall(r'<(?:a|span) (?:href="([^"]+)"|aria-current="page")>(.*?)</(?:a|span)>', crumb)
+                       for crumb in visible_crumbs]
+        matching = [crumb for crumb in crumb_items
+                    if [x['name'] for x in items] == [unescape(re.sub('<[^>]+>', '', label)) for _, label in crumb]]
+        assert len(matching) == 1, f'{url}: expected one breadcrumb matching current route'
+        visible_items = matching[0]
         assert [x['item'] for x in items[:-1]] == [ORIGIN + href for href, _ in visible_items[:-1]]
     else:
         assert not breadcrumbs
     for attrs, source in re.findall(r'<script([^>]*)>(.*?)</script>', text, re.S):
-        if 'application/ld+json' in attrs or 'src=' in attrs:
+        if 'application/ld+json' in attrs or 'application/json' in attrs:
+            json.loads(source)
+            continue
+        if 'src=' in attrs:
             continue
         with tempfile.NamedTemporaryFile(mode='w', suffix='.js') as script:
             script.write(source)
@@ -121,6 +130,17 @@ cards = [a for a in home.attrs('a') if 'project-card' in a.get('class', '').spli
 projects = json.loads((ROOT / 'data/projects.json').read_text())['projects']
 by_url = {ORIGIN + '/projects/' + p['id'].replace('--', '/') + '/': p for p in projects}
 for url, doc in docs.items():
+    styles = [a['href'].split('?')[0] for a in doc.attrs('link') if a.get('rel') == 'stylesheet']
+    home_styles = [a['href'].split('?')[0] for a in home.attrs('link') if a.get('rel') == 'stylesheet']
+    assert styles == home_styles, f'{url}: different shared stylesheets'
+    assert '/assets/css/showcase.css' in styles and '/assets/css/brand.css' in styles
+    assert len([a for a in doc.attrs('header') if 'site-header' in a.get('class', '').split()]) == 1, f'{url}: missing shared header'
+    assert not [a for _, a in doc.tags if 'site-bar' in a.get('class', '').split()], f'{url}: legacy standalone header'
+    assert {'site-menu', 'top', 'about', 'clients', 'projects', 'expertise', 'contact',
+            'all-projects-grid', 'project-detail-overlay', 'contact-form'}.issubset(doc.ids), f'{url}: incomplete shared shell'
+    route_cards = [a for a in doc.attrs('a') if 'project-card' in a.get('class', '').split()]
+    assert len(route_cards) == len(projects) + 4, f'{url}: incomplete project archive'
+    assert {a['data-project-id'] for a in route_cards} == {p['id'] for p in projects}
     for img in doc.attrs('img'):
         if '/images/projects/' in img.get('src', '') and img.get('alt'):
             assert img.get('srcset') and img.get('sizes'), f'{url}: project image missing candidates'
@@ -137,7 +157,7 @@ assert len(slides) == 7 and sum('data-bg' in a for a in slides) == 6
 assert sum(a.get('rel') == 'preload' and a.get('as') == 'image' for a in home.attrs('link')) == 1
 for source in home.attrs('script'):
     if source.get('src'):
-        subprocess.run(['node', '--check', str(ROOT / source['src'].split('?')[0])], check=True)
+        subprocess.run(['node', '--check', str(ROOT / source['src'].split('?')[0].lstrip('/'))], check=True)
         scripts += 1
 
 # Each page must be reachable through ordinary anchors starting at the homepage.

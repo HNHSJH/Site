@@ -306,7 +306,7 @@
       height: 2px;
       flex: 0 0 56px;
     }
-    .hero h1 {
+    .hero :is(h1, h2) {
       max-width: 720px;
       margin: 0;
       font-size: clamp(38px, 5.3vw, 78px);
@@ -424,7 +424,7 @@
       flex: 0 0 56px;
       display: block;
     }
-    .section-kicker h2 {
+    .section-kicker :is(h1, h2) {
       margin: 0;
       max-width: 720px;
       font-size: clamp(27px, 3.2vw, 44px);
@@ -479,13 +479,13 @@
     }
     #about .about-heading { margin: 0 0 22px; }
     #about .about-heading > span { font-size: 12px; margin-bottom: 18px; }
-    #about .about-heading h2 {
+    #about .about-heading :is(h1, h2) {
       font-size: clamp(28px, 3.1vw, 44px);
       line-height: 1.08;
       font-weight: 400;
       letter-spacing: -.04em;
     }
-    #about .about-heading h2 em { color: #426448; font-style: normal; }
+    #about .about-heading :is(h1, h2) em { color: #426448; font-style: normal; }
     .about-copy { font-size: 16px; line-height: 1.55; }
     .about-copy p { margin: 0 0 16px; }
     .about-copy p:last-child { margin-bottom: 0; }
@@ -501,7 +501,7 @@
       .about-photo img { object-position: 41% 55%; }
       .about-panel { width: 100%; padding: 22px; }
       #about .about-heading { margin-bottom: 16px; }
-      #about .about-heading h2 { font-size: clamp(28px, 7vw, 36px); }
+      #about .about-heading :is(h1, h2) { font-size: clamp(28px, 7vw, 36px); }
       .about-copy p { margin-bottom: 14px; }
     }
     @media (max-height: 500px) {
@@ -553,7 +553,7 @@
     .projects .section-kicker {
       margin-bottom: clamp(24px, 3vw, 38px);
     }
-    .projects .section-kicker h2 {
+    .projects .section-kicker :is(h1, h2) {
       max-width: 700px;
       color: #ffffff;
       font-size: clamp(26px, 3vw, 40px);
@@ -725,7 +725,7 @@
       align-items: end;
       margin-bottom: clamp(26px, 3.6vw, 44px);
     }
-    .clients-intro h2 {
+    .clients-intro :is(h1, h2) {
       max-width: 760px;
       margin: 0;
       font-size: clamp(28px, 3.8vw, 48px);
@@ -793,7 +793,7 @@
       gap: clamp(42px, 7vw, 100px);
       align-items: start;
     }
-    .contact h2 {
+    .contact :is(h1, h2) {
       margin:0;
       font-size:clamp(30px,5vw,64px);
       line-height:.86;
@@ -1044,7 +1044,7 @@
       .menu-nav a { font-size:clamp(39px,13vw,68px); padding:10px 0; }
       .menu-footer { display:grid; grid-template-columns:1fr; }
       .hero-content { padding-top:98px; padding-bottom:34px; }
-      .hero h1 { font-size:clamp(36px,11.5vw,54px); line-height:.98; }
+      .hero :is(h1, h2) { font-size:clamp(36px,11.5vw,54px); line-height:.98; }
       .hero-side p { margin-bottom:28px; }
       .hero-dots { left:var(--pad); right:auto; }
       .stats { grid-template-columns:1fr; }
@@ -1348,8 +1348,8 @@
       margin-bottom: clamp(16px, 2.8vh, 30px);
     }
 
-    .section-kicker h2,
-    .projects .section-kicker h2 {
+    .section-kicker :is(h1, h2),
+    .projects .section-kicker :is(h1, h2) {
       font-size: clamp(25px, 3vw, 42px);
     }
 
@@ -1396,7 +1396,7 @@
     .clients-intro {
       margin-bottom: clamp(16px, 2.6vh, 28px);
     }
-    .clients-intro h2 { font-size: clamp(26px, 3.5vw, 44px); }
+    .clients-intro :is(h1, h2) { font-size: clamp(26px, 3.5vw, 44px); }
     .client-logo {
       min-height: 0;
       height: clamp(72px, 11vh, 116px);
@@ -1408,7 +1408,7 @@
       padding-top: clamp(70px, 8.5vh, 92px);
       padding-bottom: clamp(20px, 2.8vh, 32px);
     }
-    .contact h2 { font-size: clamp(34px, 4.5vw, 58px); }
+    .contact :is(h1, h2) { font-size: clamp(34px, 4.5vw, 58px); }
     .contact-grid { gap: clamp(28px, 5vw, 76px); }
     .contact-form { gap: 10px 18px; }
     .contact-field { gap: 4px; }
@@ -1442,7 +1442,7 @@
         min-height: 100dvh;
         padding: 90px var(--pad) 178px;
       }
-      .hero h1 { font-size: clamp(34px, 11vw, 50px); }
+      .hero :is(h1, h2) { font-size: clamp(34px, 11vw, 50px); }
       .hero-side { max-width: min(82vw, 390px); }
       .hero-side p { margin: 10px 0 14px; font-size: 12px; }
       .showcase-nav {
@@ -1479,9 +1479,9 @@
       .section-kicker > span,
       .clients .eyebrow,
       .contact .eyebrow { margin-bottom: 10px; }
-      .section-kicker h2,
-      .projects .section-kicker h2,
-      .clients-intro h2 { font-size: clamp(22px, 6.7vw, 31px); }
+      .section-kicker :is(h1, h2),
+      .projects .section-kicker :is(h1, h2),
+      .clients-intro :is(h1, h2) { font-size: clamp(22px, 6.7vw, 31px); }
 
       .stats { grid-template-columns: repeat(2, 1fr); margin-top: 16px; }
       .stat,
@@ -1526,7 +1526,7 @@
 
       .contact .section-shell { padding: 62px 14px 12px; }
       .contact-heading { margin-bottom: 7px; }
-      .contact h2 { font-size: clamp(28px, 8vw, 38px); }
+      .contact :is(h1, h2) { font-size: clamp(28px, 8vw, 38px); }
       .contact-grid { grid-template-columns: 1fr; gap: 8px; }
       .contact-form { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 10px; }
       .contact-field.full { grid-column: 1 / -1; }
@@ -1744,10 +1744,19 @@
       margin-inline: auto;
     }
     .all-projects-grid .project-card {
+      position: relative;
       min-width: 0;
       padding: 10px;
       background: rgba(255,255,255,.42);
       border: 1px solid rgba(53,83,73,.22);
+    }
+    .all-projects-grid .category-anchor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
     }
     .all-projects-grid .project-card:hover {
       background: rgba(255,255,255,.68);
@@ -1821,7 +1830,7 @@
     .showcase-enquire:focus-visible { outline:2px solid #fff; outline-offset:4px; }
 
     /* Expertise colour accents */
-    .expertise .section-kicker h2 { color: var(--green-forest); }
+    .expertise .section-kicker :is(h1, h2) { color: var(--green-forest); }
     .expertise-row .num { color: var(--green-deep); font-weight: 700; }
     .expertise-row h3 { color: var(--green-forest); }
     .expertise-row p { color: var(--muted); }
@@ -2340,13 +2349,13 @@
       padding-bottom: .10em;
     }
 
-    .projects .section-kicker h2,
-    .expertise .section-kicker h2,
-    .clients-intro h2 {
+    .projects .section-kicker :is(h1, h2),
+    .expertise .section-kicker :is(h1, h2),
+    .clients-intro :is(h1, h2) {
       line-height: 1.06;
     }
 
-    .contact h2 {
+    .contact :is(h1, h2) {
       line-height: 1.02;
     }
 
@@ -2935,7 +2944,7 @@ body.client-archive-open #clients > .panel-next {
 .hero-content {
   padding-bottom: clamp(112px, 14vh, 152px);
 }
-.hero h1 {
+.hero :is(h1, h2) {
   line-height: .98;
   padding-bottom: .08em;
 }
@@ -3048,7 +3057,8 @@ body:has(#expertise.panel-active) .global-copyright,
 body.client-archive-open .global-copyright,
 body.moe-schools-open .global-copyright,
 body.project-archive-open .global-copyright,
-body.project-detail-open .global-copyright {
+body.project-detail-open .global-copyright,
+body[data-active-panel="route-detail"] .global-copyright {
   color: rgba(32,49,45,.72);
 }
 
@@ -3775,7 +3785,8 @@ body[data-active-panel="about"] .site-header .brand,
 body[data-active-panel="clients"] .site-header .brand,
 body[data-active-panel="expertise"] .site-header .brand,
 body.project-archive-open .site-header .brand,
-body.project-detail-open .site-header .brand { color: #20312d; }
+body.project-detail-open .site-header .brand,
+body[data-active-panel="route-detail"] .site-header .brand { color: #20312d; }
 .all-projects-gallery,
 .all-clients-gallery,
 .moe-school-gallery,

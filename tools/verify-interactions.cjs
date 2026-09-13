@@ -42,7 +42,7 @@ function setup({ reduced = false, hash = '', width = 1440 } = {}) {
   };
   w.scrollTo = () => {};
   for (const script of [...d.scripts]) {
-    if (script.type === 'application/ld+json') continue;
+    if (script.type === 'application/ld+json' || script.type === 'application/json') continue;
     w.eval(script.src ? fs.readFileSync(path.join(root, new URL(script.src).pathname), 'utf8') : script.textContent);
   }
   assert.deepEqual(errors, []);

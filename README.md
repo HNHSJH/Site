@@ -31,21 +31,38 @@ The project archive is data-driven and does not require hand-writing dozens of H
 
 ## SEO pages and maintenance
 
-The homepage retains its slide panels, four-column selected project gallery and popup interactions. Its navigation uses real page links; ordinary clicks enhance these into panels, while opening a link in a new tab loads a standalone document. Project cards are generated into the initial HTML. JavaScript handles filtering and popups without recreating the cards. All 63 project references are also available on the static `/projects/` directory.
+Every public URL uses the same showcase shell, header, menu, branding and interaction owners. The five main page URLs open the same slide panels as homepage navigation, including when reached from search results, opened in a new tab or refreshed. The six service and six selected project detail pages present their full content inside a scrollable detail panel using the shared design. The 404 page uses this shell too, with `noindex` and no sitemap entry. Project cards are generated into the initial HTML; JavaScript adds filtering and popups without recreating them.
+
+`assets/js/panels.js` owns real-path navigation, direct entry, Home and browser Back/Forward. The generator emits the correct active panel and H1 before JavaScript runs, plus the `hnh-route-manifest` needed to update metadata during in-document navigation. Legacy panel hashes, project category hashes and all 63 project-reference fragments remain supported. A link to a detail document not present in the current shell navigates normally. Modified clicks retain normal browser behavior.
 
 There are 18 canonical, sitemap-listed HTML pages: the homepage, About Us, Clients, Projects, Expertise and Contact, six service pages, and six selected project pages. Each has a unique title and description, self-referencing canonical, Open Graph and X sharing titles, descriptions and images and GeneralContractor (a LocalBusiness/Organization subtype) structured data. Service pages also carry Service structured data. Every standalone content page has BreadcrumbList structured data matching its visible navigation trail. No certification validity dates, project completion dates, measured outcomes, reviews, opening hours or incorporation dates are inferred.
 
 - Maintain service descriptions in `data/services.json`.
-- The owner-confirmed search priorities are sports fields, courts, and turf/landscape for schools, clubs and government agencies. The services directory presents these three first. Homepage metadata, About Us and the service, client and contact pages use this focus while retaining Singapore as the existing service area.
+- The owner-confirmed search priorities are sports fields, courts, and turf/landscape for schools, clubs and government agencies. Homepage metadata, About Us and service descriptions use this focus while retaining Singapore as the existing service area. The Expertise directory follows the established showcase category order.
 - Optional `public_awards` in `data/services.json` render attributed contract award records on service pages. Preserve the source URLs and distinguish award dates from completion dates; do not assume an award matches the date or exact works in a portfolio photograph.
 - Maintain project facts in `data/projects.json` and regenerate `data/projects.js` using the existing sync tool.
-- Maintain About Us copy in the homepage's `.about-copy`; the standalone page derives its text from that source.
-- `tools/build-seo.py` owns the generated content pages, homepage SEO metadata and marked project-card regions. It preserves other homepage code. Run it after content edits; do not edit generated pages directly.
+- Maintain main-page content in its corresponding section of `index.html`; there is no second version of the About Us, Clients, Projects, Expertise or Contact layout.
+- `tools/build-seo.py` owns the generated documents, route manifests, breadcrumbs, SEO metadata and marked project-card regions. It derives every document from the homepage shell. Run it after content or shell edits; do not edit generated pages directly. Executable behavior belongs to the shared files in `assets/js/`, and detailed-content styling in `assets/css/content-pages.css` is scoped to the shared detail panel.
 - `tools/verify-seo.py` checks canonical routes, metadata, schema JSON, internal links and fragments, assets, executable JavaScript syntax, static project coverage and page discoverability. It needs Python 3 and Node.js, with no third-party packages.
 - GitHub Pages serves the committed HTML directly. No hosting build or framework migration is required.
 - Sitemap `lastmod` values change only when the generated page changes.
 - The first homepage hero photo is preloaded. Later photos load as the slideshow advances. Offscreen project and client images use native lazy loading. Original photographs are retained; 480px and 960px WebP candidates (where smaller than the source) are selected through `srcset` and layout-specific `sizes`. Popup thumbnails use the smallest candidate, and popup main images and static galleries also use responsive sources. `data/image-variants.json` is generated by `tools/build-images.py`; project descriptions remain unchanged.
-- The homepage has one stable business H1. Project location and surface labels still change with the selected photograph.
+- Every document has one H1 for its active route; in-document navigation keeps it aligned with the URL and metadata. The homepage's business heading is stable while project location and surface labels change with the selected photograph.
+
+### Consistent direct routes — 13 September 2026
+
+The separate content-page header and layout were removed. Main routes now reuse the original showcase panels, while detail pages retain their existing descriptions, photographs, service scope and attributed contract records in the shared design. Browser asset URLs are root-relative, including generated popup photo candidates, so nested URLs load the same images. No-JavaScript visits can read the initial page, with ordinary navigation and expanded project/client archives or service choices.
+
+Run the existing checks and the browser route checks before release:
+
+```sh
+python tools/verify-seo.py
+NODE_PATH=/tmp/hnh-verification/node_modules node tools/verify-interactions.cjs
+# Start a local static server and run with Playwright available in NODE_PATH.
+HNH_TEST_URL=http://127.0.0.1:8765 node tools/verify-routes.cjs
+```
+
+The route check covers all 18 canonical URLs at desktop and mobile widths, direct loading, refresh, initial no-JavaScript content, route metadata/H1, nested images, Home, navigation history and legacy fragments. `HNH_CHROMIUM_EXECUTABLE` can point to an existing Chromium installation. These checks do not submit the contact form or verify email delivery.
 
 ### Follow-up information needed from the owner
 

@@ -9,6 +9,7 @@
       if (options) options.setAttribute('aria-hidden', String(!open));
     }
     items.forEach(item => {
+      setOpen(item, item.classList.contains('is-open'));
       const toggle = item.querySelector('.expertise-toggle');
       if (!toggle) return;
       toggle.addEventListener('click', () => {
