@@ -1,52 +1,8 @@
 /* Direct URLs share the showcase shell. Only route content is styled here. */
-.route-breadcrumb,
-.route-detail .breadcrumb {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  color: var(--green-deep);
-  font-size: 12px;
-  line-height: 1.5;
-}
-.route-breadcrumb a,
-.route-detail .breadcrumb a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-.route-breadcrumb a:hover,
-.route-detail .breadcrumb a:hover { color: var(--green-mid); }
-.route-breadcrumb a:focus-visible,
 .route-detail a:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
-.scroll-section > .route-breadcrumb {
-  position: absolute;
-  z-index: 7;
-  top: max(33px, calc(27px + env(safe-area-inset-top)));
-  left: calc(var(--pad) + 180px);
-  right: calc(var(--pad) + 190px);
-  flex-wrap: nowrap;
-  min-width: 0;
-}
-.scroll-section > .route-breadcrumb [aria-current="page"] {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.photo-panel > .route-breadcrumb,
-#about > .route-breadcrumb {
-  width: fit-content;
-  max-width: calc(100% - var(--pad) * 2 - 370px);
-  padding: 2px 7px;
-  color: #fff;
-  background: rgba(16,30,26,.62);
-  text-shadow: 0 1px 8px rgba(0,0,0,.5);
-}
-.photo-panel > .route-breadcrumb a:hover,
-#about > .route-breadcrumb a:hover { color: #fff; }
 
 /* Detail views use the same pale panel, compact controls and project cards as
    the showcase archives; the inner surface owns scrolling at every size. */
@@ -84,7 +40,6 @@
   scrollbar-color: var(--green-mid) transparent;
   scrollbar-gutter: stable;
 }
-.route-detail .breadcrumb { margin: 0 0 28px; }
 .route-detail h1,
 .route-detail h2,
 .route-detail h3 {
@@ -234,19 +189,9 @@
   .route-detail .split { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 620px) {
-  .scroll-section > .route-breadcrumb {
-    top: calc(var(--brand-clearance) - 23px);
-    left: 14px;
-    right: 14px;
-    gap: 7px;
-    font-size: 10px;
-  }
-  .photo-panel > .route-breadcrumb,
-  #about > .route-breadcrumb { max-width: calc(100% - 28px); }
   .route-detail .route-detail-inner {
     padding: calc(var(--brand-clearance) + 20px) 16px max(76px, calc(60px + env(safe-area-inset-bottom)));
   }
-  .route-detail .breadcrumb { margin-bottom: 22px; font-size: 11px; }
   .route-detail h1 { margin-bottom: 20px; }
   .route-detail .content-section { padding: 30px 0; }
   .route-detail .content-section:first-of-type { margin-top: 28px; }

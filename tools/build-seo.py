@@ -94,19 +94,12 @@ def showcase_card(p, i, count, archive=False):
             '<path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>')
 
 
-def metadata(title, description, url, kind='WebPage', extra=None, breadcrumbs=None, social=None):
+def metadata(title, description, url, kind='WebPage', extra=None, social=None):
     graph = [ORG, {'@type': kind, '@id': ORIGIN + url + '#webpage', 'url': ORIGIN + url,
                    'name': title, 'description': description, 'inLanguage': 'en-SG',
                    'publisher': {'@id': ORIGIN + '/#organization'}}]
     if extra:
         graph.append(extra)
-    if breadcrumbs:
-        breadcrumb_id = ORIGIN + url + '#breadcrumb'
-        graph[1]['breadcrumb'] = {'@id': breadcrumb_id}
-        graph.append({'@type': 'BreadcrumbList', '@id': breadcrumb_id,
-                      'itemListElement': [{'@type': 'ListItem', 'position': i,
-                                           'name': name, 'item': ORIGIN + path}
-                                          for i, (name, path) in enumerate(breadcrumbs, 1)]})
     social = social or {'src': '/og.png', 'width': 1200, 'height': 629,
                         'alt': 'H&H Resources — sports fields, courts, turf and landscape in Singapore',
                         'type': 'image/png'}
@@ -130,17 +123,10 @@ def metadata(title, description, url, kind='WebPage', extra=None, breadcrumbs=No
             f'<script type="application/ld+json">{schema}</script>')
 
 
-def page(url, title, description, heading, content, parent=None, kind='WebPage', extra=None, social=None):
-    crumb = '<a href="/">Home</a>'
-    if parent:
-        crumb += f' <span aria-hidden="true">/</span> <a href="{parent[1]}">{e(parent[0])}</a>'
-    label = dict((path, name) for name, path in NAV).get(url, heading)
-    crumb += f' <span aria-hidden="true">/</span> <span aria-current="page">{e(label)}</span>'
-    breadcrumbs = [('Home', '/')] + ([parent] if parent else []) + [(label, url)]
+def page(url, title, description, heading, content, kind='WebPage', extra=None, social=None):
     PAGES[url] = {'panel': PRIMARY_PANELS.get(url, 'route-detail'), 'title': title,
                   'description': description, 'heading': heading, 'content': content,
-                  'breadcrumb': f'<nav class="breadcrumb route-breadcrumb" aria-label="Breadcrumb">{crumb}</nav>',
-                  'seo': metadata(title, description, url, kind, extra, breadcrumbs, social)}
+                  'seo': metadata(title, description, url, kind, extra, social)}
 
 
 def enquiry(label='Discuss your project'):
@@ -165,7 +151,7 @@ for s in SERVICES:
     if selected:
         body += '<section class="content-section"><h2>Related project references</h2><div class="card-grid">' + ''.join(card(p) for p in selected) + '</div><p><a href="/projects/">View the full project portfolio →</a></p></section>'
     body += f'<section class="content-section prose"><h2>Planning your project</h2><p>{e(s["planning"])}</p>{enquiry()}</section>'
-    page('/services/' + s['id'] + '/', s['title'] + ' | H&H Resources', s['description'], s['title'], body, ('Expertise', '/services/'),
+    page('/services/' + s['id'] + '/', s['title'] + ' | H&H Resources', s['description'], s['title'], body,
          extra={'@type': 'Service', 'name': s['name'], 'serviceType': s['name'], 'description': s['intro'], 'url': ORIGIN + '/services/' + s['id'] + '/', 'provider': {'@id': ORIGIN + '/#organization'}, 'areaServed': {'@type': 'Country', 'name': 'Singapore'}})
 
 page('/projects/', 'Sports Turf & Surfacing Projects | H&H Resources Singapore',
@@ -180,7 +166,7 @@ for project_id in DETAILS:
     body += '<div class="gallery">' + ''.join(f'<figure>{image(p, i, i == 0, GALLERY_SIZES)}<figcaption>{e(heading)} · Photograph {i + 1}</figcaption></figure>' for i in range(len(p['photos']))) + '</div>'
     body += f'<section class="content-section prose"><h2>Related expertise</h2><p>{e(s["intro"])}</p><p><a href="/services/{s["id"]}/">Explore {e(s["name"].lower())} →</a></p><h2>Planning a similar project?</h2><p>{e(s["planning"])}</p>{enquiry()}</section>'
     photo = p['photos'][0]
-    page(project_url(p), heading + ' | H&H Resources', p['detail_description'], heading, body, ('Projects', '/projects/'),
+    page(project_url(p), heading + ' | H&H Resources', p['detail_description'], heading, body,
          social={'src': '/' + photo['src'], 'width': photo['web_dimensions'][0],
                  'height': photo['web_dimensions'][1], 'alt': heading,
                  'type': 'image/webp' if photo['src'].endswith('.webp') else 'image/jpeg'})
@@ -224,16 +210,6 @@ PAGES['/'] = {'panel': 'top', 'title': 'Sports Fields, Courts & Turf Singapore |
 
 # The homepage owns the showcase markup. Each public URL uses this same shell,
 # with its destination already visible in the HTML and its own metadata.
-for url, panel in PRIMARY_PANELS.items():
-    start, end = f'<!-- start:route-breadcrumb:{panel} -->', f'<!-- end:route-breadcrumb:{panel} -->'
-    crumb = start + PAGES[url]['breadcrumb'] + end
-    if start in HOME:
-        HOME = re.sub(re.escape(start) + r'.*?' + re.escape(end), lambda m: crumb, HOME, flags=re.S)
-    else:
-        HOME, count = re.subn(rf'(<section[^>]*\bid="{panel}"[^>]*>)', lambda m: m[1] + '\n' + crumb,
-                             HOME, count=1)
-        assert count == 1, panel
-
 # Closed views are hidden by the shared stylesheet. Leaving their static HTML
 # accessible lets no-JavaScript visitors read the expanded archive/accordions.
 # The interaction owners apply inert/aria-hidden when JavaScript initializes.
@@ -260,7 +236,7 @@ def render_route(url, record):
     document = re.sub(r'<body\b[^>]*>', body + '>', document, count=1)
     if panel == 'route-detail':
         detail = ('<section class="scroll-section route-detail" id="route-detail" aria-labelledby="route-detail-title">'
-                  '<div class="route-detail-inner">' + record['breadcrumb']
+                  '<div class="route-detail-inner">'
                   + f'<h1 id="route-detail-title" data-route-heading="route-detail">{e(record["heading"])}</h1>'
                   + record['content'] + '</div></section>\n')
         document = document.replace('</main>', detail + '</main>', 1)

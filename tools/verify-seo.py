@@ -2,7 +2,6 @@
 """Validate published HTML, canonical routes, local links, schema and JS syntax."""
 from collections import Counter
 from html.parser import HTMLParser
-from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, unquote
 import json
@@ -29,6 +28,16 @@ class Document(HTMLParser):
         return [a for t, a in self.tags if tag == t]
 
 
+def verify_no_breadcrumbs(doc, text, url):
+    assert not any({'breadcrumb', 'route-breadcrumb'} & set(a.get('class', '').split())
+                   or a.get('aria-label', '').lower() == 'breadcrumb'
+                   for a in doc.attrs('nav')), f'{url}: unexpected visible breadcrumb navigation'
+    # Check embedded route metadata too, so navigation cannot restore old schema.
+    assert 'BreadcrumbList' not in text and '#breadcrumb' not in text, f'{url}: stale breadcrumb schema or reference'
+    for source in re.findall(r'<script type="application/ld\+json">(.*?)</script>', text, re.S):
+        assert not any('breadcrumb' in node for node in json.loads(source)['@graph']), f'{url}: stale breadcrumb property'
+
+
 subprocess.run(['python3', str(ROOT / 'tools/build-seo.py'), '--check'], check=True)
 subprocess.run(['python3', str(ROOT / 'tools/sync-project-data.py'), '--check'], check=True)
 sitemap = ET.parse(ROOT / 'sitemap.xml')
@@ -44,6 +53,7 @@ for url in urls:
     path = ROOT / (urlsplit(url).path.lstrip('/') + 'index.html')
     text = path.read_text()
     doc = Document(text)
+    verify_no_breadcrumbs(doc, text, url)
     docs[url] = doc
     assert len(doc.attrs('h1')) == 1, f'{url}: expected one H1'
     assert not [x for x, n in Counter(doc.ids).items() if n > 1], f'{url}: duplicate IDs'
@@ -71,24 +81,6 @@ for url in urls:
     assert social_path.netloc == 'hnhresources.com'
     assert (ROOT / social_path.path.lstrip('/')).is_file(), f'{url}: missing sharing image'
     assert int(social['og:image:width']) > 0 and int(social['og:image:height']) > 0
-    breadcrumbs = [node for node in graph if node['@type'] == 'BreadcrumbList']
-    if url != ORIGIN + '/':
-        assert len(breadcrumbs) == 1, f'{url}: missing breadcrumb schema'
-        items = breadcrumbs[0]['itemListElement']
-        assert [x['position'] for x in items] == list(range(1, len(items) + 1))
-        assert items[0]['item'] == ORIGIN + '/' and items[-1]['item'] == url
-        # Shared panels contain their own breadcrumbs. Match the breadcrumb for
-        # this document's route, rather than assuming the first panel is active.
-        visible_crumbs = re.findall(r'<nav[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>(.*?)</nav>', text, re.S)
-        crumb_items = [re.findall(r'<(?:a|span) (?:href="([^"]+)"|aria-current="page")>(.*?)</(?:a|span)>', crumb)
-                       for crumb in visible_crumbs]
-        matching = [crumb for crumb in crumb_items
-                    if [x['name'] for x in items] == [unescape(re.sub('<[^>]+>', '', label)) for _, label in crumb]]
-        assert len(matching) == 1, f'{url}: expected one breadcrumb matching current route'
-        visible_items = matching[0]
-        assert [x['item'] for x in items[:-1]] == [ORIGIN + href for href, _ in visible_items[:-1]]
-    else:
-        assert not breadcrumbs
     for attrs, source in re.findall(r'<script([^>]*)>(.*?)</script>', text, re.S):
         if 'application/ld+json' in attrs or 'application/json' in attrs:
             json.loads(source)
@@ -122,6 +114,9 @@ for url in urls:
                 target = urlsplit(urljoin(url, item.strip().split()[0]))
                 if target.netloc == 'hnhresources.com':
                     assert (ROOT / target.path.lstrip('/')).exists()
+
+error_page = (ROOT / '404.html').read_text()
+verify_no_breadcrumbs(Document(error_page), error_page, ORIGIN + '/404.html')
 
 assert len(titles) == len(set(titles)), 'Duplicate titles'
 assert len(descriptions) == len(set(descriptions)), 'Duplicate descriptions'
