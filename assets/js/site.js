@@ -20,6 +20,97 @@ if (directProjectMatch) {
 }
 
 const body = document.body;
+
+const ensureGlobalContactFooter = () => {
+  let footer = document.querySelector('.global-contact-footer');
+  if (!footer) {
+    footer = document.createElement('div');
+    footer.className = 'global-contact-footer';
+    footer.setAttribute('role', 'contentinfo');
+    footer.innerHTML = `
+      <span>1 Tampines North Drive 1, #08-49 T-Space, Singapore 528559</span>
+      <span aria-hidden="true">·</span>
+      <a href="mailto:enquiry@hnhresources.com">enquiry@hnhresources.com</a>
+      <span aria-hidden="true">·</span>
+      <a href="tel:+6591148327">+65 9114 8327</a>
+    `;
+    document.getElementById('site-interaction-shell')?.appendChild(footer);
+  }
+
+  let style = document.getElementById('hnh-global-footer-style');
+  if (!style) {
+    style = document.createElement('style');
+    style.id = 'hnh-global-footer-style';
+    document.head.appendChild(style);
+  }
+  style.textContent = `
+    .global-contact-footer {
+      position: fixed;
+      right: var(--pad);
+      bottom: 14px;
+      z-index: 160;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: calc(100vw - (var(--pad) * 2));
+      color: rgba(255,255,255,.78);
+      font-size: 8px;
+      line-height: 1;
+      letter-spacing: .065em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      pointer-events: auto;
+      transition: color .3s ease, opacity .3s ease;
+    }
+    .global-contact-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .global-contact-footer a:hover,
+    .global-contact-footer a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    body[data-active-panel="clients"] .global-contact-footer,
+    body[data-active-panel="projects"] .global-contact-footer,
+    body[data-active-panel="expertise"] .global-contact-footer,
+    body[data-route-path="/clients/"] .global-contact-footer,
+    body[data-route-path="/projects/"] .global-contact-footer,
+    body[data-route-path^="/projects/"] .global-contact-footer,
+    body[data-route-path="/services/"] .global-contact-footer,
+    body.client-archive-open .global-contact-footer,
+    body.moe-schools-open .global-contact-footer,
+    body.project-archive-open .global-contact-footer,
+    body.project-detail-open .global-contact-footer,
+    body[data-active-panel="route-detail"] .global-contact-footer {
+      color: rgba(32,49,45,.78);
+    }
+
+    body[data-active-panel="projects"] .global-copyright,
+    body[data-route-path="/projects/"] .global-copyright,
+    body[data-route-path^="/projects/"] .global-copyright,
+    body.project-archive-open .global-copyright,
+    body.project-detail-open .global-copyright {
+      color: rgba(32,49,45,.78) !important;
+    }
+
+    @media (max-width: 620px) {
+      .global-contact-footer {
+        right: 14px;
+        bottom: 25px;
+        gap: 5px;
+        max-width: calc(100vw - 28px);
+        font-size: 6px;
+        letter-spacing: .035em;
+      }
+    }
+  `;
+};
+
+ensureGlobalContactFooter();
+
     const menuButton = document.querySelector('.menu-button');
     const menu = document.querySelector('.menu-overlay');
 
