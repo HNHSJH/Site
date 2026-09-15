@@ -29,19 +29,27 @@
       selectedGrid.innerHTML = featured.map((p, i) => {
         const ph = p.photos?.[0];
         if (!ph) return '';
-        const certification = p.certification_text?.[0];
-        const sub = [categories[p.category] || p.category, certification].filter(Boolean).join(' · ');
         const srcset = ph.srcset ? ` srcset="${esc(ph.srcset)}"` : '';
         const loading = i < 2 ? 'eager' : 'lazy';
+        const description = p.detail_description || `${categories[p.category] || p.category} project reference.`;
         return `<a class="project-card" href="/projects/#${encodeURIComponent(p.id)}" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">`
           + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</span>`
           + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 24vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
-          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(sub)}</p></div>`
+          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(description)}</p></div>`
           + '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>';
       }).join('');
       selectedGrid.dataset.featuredReady = 'true';
     }
   }
+
+  // The static archive stays crawlable, then receives richer descriptions when
+  // JavaScript is available. Names remain visible at rest; these descriptions
+  // are revealed by the modern hover/focus treatment in brand.css.
+  document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
+    const p = byId[card.dataset.projectId];
+    const copy = card.querySelector('.project-info p');
+    if (p && copy) copy.textContent = p.detail_description || `${categories[p.category] || p.category} project reference.`;
+  });
 
   let initialProjectId = '';
   if (location.pathname === '/projects/' && location.hash) {
@@ -157,8 +165,6 @@
 
   // Safety fallback: a script/runtime failure should never leave the page hidden forever.
   if (holdInitialProject) window.setTimeout(revealProjectRoute, 3000);
-
-  // Showcase slide selection is handled by the hero gallery dots; clicking the hero itself does not navigate.
 
   document.addEventListener('click', e => {
     const card = e.target.closest('[data-project-id].project-card');
