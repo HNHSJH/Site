@@ -39,6 +39,75 @@ body[data-route-path="/"] .hero-playback {
   display: none !important;
 }
 
+/* Projects: use one calm solid surface so photography and project cards carry the visual weight. */
+#projects.projects {
+  background: #eff3ed !important;
+  color: #20312d !important;
+  --project-heading: #20312d;
+  --project-caption: #355349;
+  --project-divider: rgba(53,83,73,.22);
+  --project-focus: #355349;
+}
+#projects.projects .section-backdrop {
+  display: none !important;
+}
+#projects.projects .section-kicker > span,
+#projects.projects .section-kicker :is(h1, h2),
+#projects.projects .project-info h3,
+#projects.projects .project-arrow {
+  color: #20312d !important;
+}
+#projects.projects .project-info p,
+#projects.projects .projects-count {
+  color: #355349 !important;
+}
+#projects.projects .project-card {
+  background: rgba(255,255,255,.5) !important;
+  border-color: rgba(53,83,73,.2) !important;
+}
+#projects.projects .project-card[data-project-id]:focus-visible {
+  outline-color: #355349 !important;
+}
+#projects.projects .archive-trigger,
+#projects.projects > .panel-close,
+#projects.projects > .panel-prev,
+#projects.projects > .panel-next {
+  color: #20312d !important;
+  border-color: rgba(53,83,73,.38) !important;
+  background: rgba(255,255,255,.72) !important;
+}
+#projects.projects .archive-trigger:hover,
+#projects.projects .archive-trigger:focus-visible,
+#projects.projects > .panel-close:hover,
+#projects.projects > .panel-close:focus-visible,
+#projects.projects > .panel-prev:hover,
+#projects.projects > .panel-prev:focus-visible,
+#projects.projects > .panel-next:hover,
+#projects.projects > .panel-next:focus-visible {
+  color: #fff !important;
+  border-color: #20312d !important;
+  background: #20312d !important;
+}
+body[data-active-panel="projects"] .site-header .brand {
+  color: #20312d !important;
+}
+.all-projects-gallery,
+.all-projects-gallery-head {
+  background: #eff3ed !important;
+}
+.all-projects-gallery .project-filter {
+  color: #355349 !important;
+  border-color: rgba(53,83,73,.3) !important;
+  background: rgba(255,255,255,.58) !important;
+}
+.all-projects-gallery .project-filter:hover,
+.all-projects-gallery .project-filter:focus-visible,
+.all-projects-gallery .project-filter.is-active {
+  color: #fff !important;
+  border-color: #20312d !important;
+  background: #20312d !important;
+}
+
 /* A direct project URL redirects to /projects/#project-id. Keep that landing
    document from painting the Projects page while the exact detail overlay is
    being prepared. projects.js reveals the shell once the project is open. */
