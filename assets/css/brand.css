@@ -39,6 +39,16 @@ body[data-route-path="/"] .hero-playback {
   display: none !important;
 }
 
+/* A direct project URL redirects to /projects/#project-id. Keep that landing
+   document from painting the Projects page while the exact detail overlay is
+   being prepared. projects.js reveals the shell once the project is open. */
+html.js body[data-route-path="/projects/"]:not(.project-route-ready) {
+  background: #eff3ed;
+}
+html.js body[data-route-path="/projects/"]:not(.project-route-ready) > #site-interaction-shell {
+  visibility: hidden !important;
+}
+
 /* Direct project pages are redirect-only for scripted browsers. Hide the old
    SEO detail shell before first paint so there is no flash of the legacy view. */
 html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] {
