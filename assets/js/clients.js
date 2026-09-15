@@ -1,4 +1,36 @@
 (() => {
+  const CTA_HEIGHT = '50px';
+  const CTA_BG = '#20312d';
+  const CTA_HOVER = '#355349';
+
+  const styleArchiveCtas = () => {
+    document.querySelectorAll('.clients-all-trigger, .projects-all-trigger').forEach(button => {
+      button.style.setProperty('height', CTA_HEIGHT, 'important');
+      button.style.setProperty('min-height', CTA_HEIGHT, 'important');
+      button.style.setProperty('background', CTA_BG, 'important');
+      button.style.setProperty('color', '#fff', 'important');
+      button.style.setProperty('border-color', CTA_BG, 'important');
+      button.style.setProperty('box-shadow', 'none', 'important');
+
+      if (button.dataset.archiveCtaStandardized === 'true') return;
+      button.dataset.archiveCtaStandardized = 'true';
+      const setHover = active => {
+        const tone = active ? CTA_HOVER : CTA_BG;
+        button.style.setProperty('background', tone, 'important');
+        button.style.setProperty('border-color', tone, 'important');
+      };
+      button.addEventListener('pointerenter', () => setHover(true));
+      button.addEventListener('pointerleave', () => setHover(false));
+      button.addEventListener('focus', () => setHover(true));
+      button.addEventListener('blur', () => setHover(false));
+    });
+  };
+
+  // projects.js also owns the Projects CTA geometry. Apply the shared visual
+  // treatment after the synchronous script pass so both CTAs finish identical.
+  requestAnimationFrame(() => requestAnimationFrame(styleArchiveCtas));
+  window.addEventListener('resize', () => requestAnimationFrame(styleArchiveCtas), { passive: true });
+
   const grid = document.querySelector('.clients .client-grid');
   if (!grid) return;
   const items = [...grid.querySelectorAll('.client-logo')];
@@ -37,13 +69,16 @@
     if (viewAll) {
       viewAll.style.setProperty('position', 'relative', 'important');
       viewAll.style.setProperty('width', '100%', 'important');
-      viewAll.style.setProperty('min-height', '54px', 'important');
+      viewAll.style.setProperty('height', CTA_HEIGHT, 'important');
+      viewAll.style.setProperty('min-height', CTA_HEIGHT, 'important');
       viewAll.style.setProperty('padding', '0 54px', 'important');
       viewAll.style.setProperty('display', 'flex', 'important');
       viewAll.style.setProperty('align-items', 'center', 'important');
       viewAll.style.setProperty('justify-content', 'center', 'important');
       viewAll.style.setProperty('text-align', 'center', 'important');
-      viewAll.style.setProperty('background', 'rgba(255,255,255,.18)', 'important');
+      viewAll.style.setProperty('background', CTA_BG, 'important');
+      viewAll.style.setProperty('color', '#fff', 'important');
+      viewAll.style.setProperty('border-color', CTA_BG, 'important');
     }
     if (viewAllArrow) {
       viewAllArrow.style.setProperty('position', 'absolute', 'important');
@@ -57,6 +92,8 @@
       allClientsGrid.style.setProperty('row-gap', '0', 'important');
       allClientsGrid.querySelectorAll('.client-logo').forEach(item => item.style.setProperty('border', '0', 'important'));
     }
+
+    styleArchiveCtas();
   };
 
   applyClientLayout();
