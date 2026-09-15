@@ -10,11 +10,11 @@
     const mobile = window.matchMedia('(max-width: 620px)').matches;
     const shell = contact.querySelector(':scope > .section-shell');
     const heading = contact.querySelector('.contact-heading');
-    const horizontalOffset = mobile ? '12px' : '34px';
+    const horizontalOffset = mobile ? '16px' : '52px';
 
     if (shell) {
       shell.style.setProperty('position', 'relative', 'important');
-      shell.style.setProperty('top', mobile ? '-28px' : '-18px', 'important');
+      shell.style.setProperty('top', mobile ? '-38px' : '-36px', 'important');
     }
 
     [heading, form].forEach(element => {
@@ -76,6 +76,28 @@
 
   styleContactFormPanel();
   window.addEventListener('resize', styleContactFormPanel, { passive: true });
+
+  const styleProjectComposition = () => {
+    const projects = document.getElementById('projects');
+    const projectShell = projects?.querySelector(':scope > .section-shell');
+    if (!projectShell) return;
+    const desktop = window.matchMedia('(min-width: 1021px)').matches;
+
+    if (desktop) {
+      projectShell.style.setProperty('position', 'relative', 'important');
+      projectShell.style.setProperty('top', '-24px', 'important');
+      projectShell.style.setProperty('width', '100%', 'important');
+      projectShell.style.setProperty('margin-inline', 'auto', 'important');
+    } else {
+      projectShell.style.removeProperty('position');
+      projectShell.style.removeProperty('top');
+      projectShell.style.removeProperty('width');
+      projectShell.style.removeProperty('margin-inline');
+    }
+  };
+
+  requestAnimationFrame(() => requestAnimationFrame(styleProjectComposition));
+  window.addEventListener('resize', () => requestAnimationFrame(styleProjectComposition), { passive: true });
 
   const styleArchiveCtas = () => {
     const mobile = window.matchMedia('(max-width: 620px)').matches;
@@ -166,7 +188,7 @@
     if (shell) {
       shell.style.setProperty(
         'transform',
-        desktop ? 'translateY(72px)' : mobile ? 'translateY(150px)' : 'none',
+        desktop ? 'translateY(28px)' : mobile ? 'translateY(150px)' : 'none',
         'important'
       );
     }
@@ -177,9 +199,11 @@
     grid.style.setProperty('order', '1', 'important');
     grid.style.setProperty('width', desktop ? selectedWidth : '100%', 'important');
     grid.style.setProperty('margin', desktop ? '0 auto' : '0', 'important');
+    grid.style.setProperty('justify-self', desktop ? 'center' : 'stretch', 'important');
+    grid.style.setProperty('align-self', desktop ? 'center' : 'stretch', 'important');
 
     if (desktop) {
-      const rowHeight = 'clamp(118px,13vh,142px)';
+      const rowHeight = 'clamp(142px,16vh,172px)';
       grid.style.setProperty('grid-template-columns', 'repeat(3,minmax(0,1fr))', 'important');
       grid.style.setProperty('grid-template-rows', `repeat(3,${rowHeight})`, 'important');
       grid.style.setProperty('grid-auto-rows', rowHeight, 'important');
