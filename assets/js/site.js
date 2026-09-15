@@ -1,3 +1,24 @@
+const directProjectRoutes = new Set([
+  'artificial-turf--our-tampines-hub',
+  'acrylic-coating--tanah-merah-country-club',
+  'timber-flooring--ngee-ann-polytechnic',
+  'epdm-flooring--sutd',
+  'artificial-turf--ngee-ann-polytechnic',
+  'acrylic-coating--republic-polytechnic'
+]);
+const directProjectMatch = location.pathname.match(/^\/projects\/([^/]+)\/([^/]+)\/$/);
+if (directProjectMatch) {
+  let directProjectId = '';
+  try {
+    directProjectId = `${decodeURIComponent(directProjectMatch[1])}--${decodeURIComponent(directProjectMatch[2])}`;
+  } catch {
+    directProjectId = '';
+  }
+  if (directProjectRoutes.has(directProjectId)) {
+    location.replace(`/projects/#${encodeURIComponent(directProjectId)}`);
+  }
+}
+
 const body = document.body;
     const menuButton = document.querySelector('.menu-button');
     const menu = document.querySelector('.menu-overlay');

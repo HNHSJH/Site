@@ -39,6 +39,15 @@ body[data-route-path="/"] .hero-playback {
   display: none !important;
 }
 
+/* Direct project pages are redirect-only for scripted browsers. Hide the old
+   SEO detail shell before first paint so there is no flash of the legacy view. */
+html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] {
+  background: #eff3ed;
+}
+html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] > #site-interaction-shell {
+  visibility: hidden;
+}
+
 @media (max-width: 620px) {
   a.brand { gap: 8px; }
   .brand .brand-mark { width: 40px; height: 40px; }
