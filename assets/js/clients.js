@@ -232,6 +232,7 @@
       projectShell.style.removeProperty('overflow-y');
       projectShell.style.removeProperty('padding');
       projectShell.style.removeProperty('justify-content');
+      cards.forEach(card => card.style.removeProperty('display'));
     } else if (mobile) {
       projectShell.style.setProperty('position', 'relative', 'important');
       projectShell.style.setProperty('top', '0', 'important');
@@ -255,7 +256,8 @@
         selectedGrid.style.setProperty('width', '100%', 'important');
         selectedGrid.style.setProperty('margin', '0 auto', 'important');
       }
-      cards.forEach(card => {
+      cards.forEach((card, index) => {
+        card.style.setProperty('display', index < 4 ? 'block' : 'none', 'important');
         card.style.setProperty('grid-column', 'auto', 'important');
         card.style.setProperty('grid-row', 'auto', 'important');
         card.style.setProperty('height', 'auto', 'important');
@@ -292,6 +294,7 @@
       selectedGrid?.style.removeProperty('width');
       selectedGrid?.style.removeProperty('margin');
       cards.forEach(card => {
+        card.style.removeProperty('display');
         card.style.removeProperty('grid-column');
         card.style.removeProperty('grid-row');
         card.style.removeProperty('height');
@@ -425,9 +428,16 @@
         item.style.setProperty('grid-row', 'auto', 'important');
         item.style.setProperty('min-height', rowHeight, 'important');
         item.style.setProperty('height', rowHeight, 'important');
+        item.style.removeProperty('place-items');
+        item.style.removeProperty('justify-items');
+        item.style.removeProperty('align-items');
+        item.style.removeProperty('text-align');
         const img = item.querySelector('img');
         img?.style.removeProperty('max-height');
         img?.style.removeProperty('max-width');
+        img?.style.removeProperty('margin');
+        img?.style.removeProperty('place-self');
+        img?.style.removeProperty('object-position');
       });
       footer?.style.setProperty('order', '2', 'important');
       intro?.style.setProperty('order', '3', 'important');
@@ -450,9 +460,16 @@
         item.style.setProperty('min-height', rowHeight, 'important');
         item.style.setProperty('height', rowHeight, 'important');
         item.style.setProperty('padding', '10px 8px', 'important');
+        item.style.setProperty('place-items', 'center', 'important');
+        item.style.setProperty('justify-items', 'center', 'important');
+        item.style.setProperty('align-items', 'center', 'important');
+        item.style.setProperty('text-align', 'center', 'important');
         const img = item.querySelector('img');
         img?.style.setProperty('max-height', '42px', 'important');
         img?.style.setProperty('max-width', '84%', 'important');
+        img?.style.setProperty('margin', '0 auto', 'important');
+        img?.style.setProperty('place-self', 'center', 'important');
+        img?.style.setProperty('object-position', 'center', 'important');
       });
     } else {
       grid.style.setProperty('order', '1', 'important');
@@ -471,9 +488,16 @@
         item.style.removeProperty('min-height');
         item.style.removeProperty('height');
         item.style.removeProperty('padding');
+        item.style.removeProperty('place-items');
+        item.style.removeProperty('justify-items');
+        item.style.removeProperty('align-items');
+        item.style.removeProperty('text-align');
         const img = item.querySelector('img');
         img?.style.removeProperty('max-height');
         img?.style.removeProperty('max-width');
+        img?.style.removeProperty('margin');
+        img?.style.removeProperty('place-self');
+        img?.style.removeProperty('object-position');
       });
     }
 
