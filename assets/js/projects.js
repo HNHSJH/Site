@@ -88,20 +88,20 @@
     const positions = [
       ['4 / 6', '1'], ['6 / 8', '1'],
       ['1 / 3', '2'], ['3 / 5', '2'], ['5 / 7', '2'], ['7 / 9', '2'],
-      ['5 / 7', '3'], ['7 / 9', '3']
+      ['2 / 4', '3'], ['4 / 6', '3']
     ];
     cards.forEach((card, index) => {
       const pos = positions[index];
       if (!pos) return;
       card.style.setProperty('grid-column', pos[0], 'important');
       card.style.setProperty('grid-row', pos[1], 'important');
-      card.style.setProperty('height', 'clamp(136px,15vh,160px)', 'important');
+      card.style.setProperty('height', 'clamp(188px,20.5vh,222px)', 'important');
     });
 
-    footer?.style.setProperty('grid-column', '1 / 3', 'important');
+    footer?.style.setProperty('grid-column', '7 / 9', 'important');
     footer?.style.setProperty('grid-row', '3', 'important');
-    footer?.style.setProperty('align-self', 'center', 'important');
-    footer?.style.setProperty('justify-self', 'start', 'important');
+    footer?.style.setProperty('align-self', 'end', 'important');
+    footer?.style.setProperty('justify-self', 'end', 'important');
     footer?.style.setProperty('margin', '0', 'important');
   };
   applySelectedLayout();
