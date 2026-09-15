@@ -1,7 +1,6 @@
 (() => {
   const revealProjectRoute = () => document.body?.classList.add('project-route-ready');
 
-  // Homepage never shows the menu hamburger or slideshow pause control.
   if (location.pathname === '/' || document.body?.dataset.routePath === '/') {
     document.querySelector('.menu-button')?.style.setProperty('display', 'none', 'important');
     document.querySelector('.hero-playback')?.style.setProperty('display', 'none', 'important');
@@ -27,8 +26,7 @@
     'running-track--singapore-polytechnic',
     'landscape-artificial-turf--lion-city-sailors',
     'artificial-turf--jurong-east-stadium',
-    'acrylic-coating--singapore-swimming-club',
-    'artificial-turf--singapore-american-school-west-field'
+    'acrylic-coating--singapore-swimming-club'
   ];
 
   const selectedGrid = document.getElementById('selected-projects-grid');
@@ -56,14 +54,13 @@
     if (p && copy) copy.textContent = hoverCopy(p);
   });
 
-  // Dense archive: photographs touch edge-to-edge and use smaller tiles than the
-  // previous three-column archive on desktop.
   const allProjectsGrid = document.getElementById('all-projects-grid');
   const applyArchiveGrid = () => {
     if (!allProjectsGrid) return;
     const width = window.innerWidth;
-    const columns = width <= 620 ? 2 : width <= 980 ? 3 : 4;
+    const columns = width <= 620 ? 1 : width <= 980 ? 2 : 3;
     allProjectsGrid.style.setProperty('grid-template-columns', `repeat(${columns},minmax(0,1fr))`, 'important');
+    allProjectsGrid.style.setProperty('width', width > 980 ? 'min(100%,1560px)' : '100%', 'important');
     allProjectsGrid.style.setProperty('gap', '0', 'important');
     allProjectsGrid.style.setProperty('column-gap', '0', 'important');
     allProjectsGrid.style.setProperty('row-gap', '0', 'important');
@@ -71,8 +68,6 @@
   applyArchiveGrid();
   window.addEventListener('resize', applyArchiveGrid, { passive: true });
 
-  // Uniform desktop composition: 2 / 4 / 3. Every image in each row touches its
-  // neighbour; the View All control occupies the compact final grid cell.
   const applySelectedLayout = () => {
     if (!selectedGrid) return;
     const shell = selectedGrid.closest('.section-shell');
@@ -85,7 +80,7 @@
     const clear = (el, props) => props.forEach(prop => el?.style.removeProperty(prop));
     if (!desktop) {
       clear(shell, ['display','grid-template-columns','grid-template-rows','column-gap','row-gap','align-content','justify-content']);
-      clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right','transform']);
+      clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right','transform','text-shadow']);
       clear(selectedGrid, ['display']);
       clear(footer, ['grid-column','grid-row','align-self','justify-self','margin','transform','width','height']);
       clear(footerButton, ['width','height','min-height','padding','display','align-items','justify-content']);
@@ -108,12 +103,14 @@
     kicker?.style.setProperty('margin', '0', 'important');
     kicker?.style.setProperty('padding-right', '20px', 'important');
     kicker?.style.setProperty('transform', 'translateY(-20px)', 'important');
+    kicker?.style.setProperty('text-shadow', 'none', 'important');
+    kicker?.querySelectorAll('h1,h2,span').forEach(el => el.style.setProperty('text-shadow', 'none', 'important'));
     selectedGrid.style.setProperty('display', 'contents', 'important');
 
     const positions = [
       ['8 / 13', '1'], ['13 / 18', '1'],
       ['1 / 6', '2'], ['6 / 11', '2'], ['11 / 16', '2'], ['16 / 21', '2'],
-      ['3 / 8', '3'], ['8 / 13', '3'], ['13 / 18', '3']
+      ['3 / 8', '3'], ['8 / 13', '3']
     ];
     cards.forEach((card, index) => {
       const pos = positions[index];
@@ -124,18 +121,18 @@
       card.style.setProperty('align-self', 'stretch', 'important');
     });
 
-    footer?.style.setProperty('grid-column', '18 / 21', 'important');
+    footer?.style.setProperty('grid-column', '13 / 21', 'important');
     footer?.style.setProperty('grid-row', '3', 'important');
-    footer?.style.setProperty('align-self', 'center', 'important');
+    footer?.style.setProperty('align-self', 'start', 'important');
     footer?.style.setProperty('justify-self', 'stretch', 'important');
     footer?.style.setProperty('width', '100%', 'important');
-    footer?.style.setProperty('height', 'clamp(148px,16vh,176px)', 'important');
+    footer?.style.setProperty('height', '38px', 'important');
     footer?.style.setProperty('margin', '0', 'important');
     footer?.style.removeProperty('transform');
     footerButton?.style.setProperty('width', '100%', 'important');
-    footerButton?.style.setProperty('height', '100%', 'important');
-    footerButton?.style.setProperty('min-height', '0', 'important');
-    footerButton?.style.setProperty('padding', '18px', 'important');
+    footerButton?.style.setProperty('height', '38px', 'important');
+    footerButton?.style.setProperty('min-height', '38px', 'important');
+    footerButton?.style.setProperty('padding', '0 18px', 'important');
     footerButton?.style.setProperty('display', 'flex', 'important');
     footerButton?.style.setProperty('align-items', 'center', 'important');
     footerButton?.style.setProperty('justify-content', 'space-between', 'important');
@@ -212,8 +209,6 @@
     const requestId = ++mainPhotoRequest;
     const sizes = '(max-width: 900px) calc(100vw - 48px), (max-width: 1280px) 64vw, 820px';
 
-    // Never leave the previous project's decoded bitmap visible while the next
-    // image downloads. The neutral media surface stays visible instead.
     mainImg.style.opacity = '0';
     mainImg.style.visibility = 'hidden';
     mainImg.removeAttribute('srcset');
@@ -232,7 +227,7 @@
         preload.onerror = reject;
       });
     } catch {
-      // Fall back to assigning the requested source; the old image still stays hidden.
+      // Keep the previous bitmap hidden even if decoding falls back to the browser load path.
     }
     if (requestId !== mainPhotoRequest) return;
 
@@ -317,7 +312,6 @@
       else document.querySelector('[data-panel="contact"], a[href="#contact"]')?.click();
     }
   });
-
 })();
 
 if (window.matchMedia('(max-width: 620px)').matches) {
