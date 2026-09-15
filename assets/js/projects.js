@@ -56,13 +56,29 @@
     if (p && copy) copy.textContent = hoverCopy(p);
   });
 
-  // Uniform desktop composition: 2 / 4 / 3, with the archive control in the
-  // remaining bottom-right slot. Inline important values beat older shell rules.
+  // Dense archive: photographs touch edge-to-edge and use smaller tiles than the
+  // previous three-column archive on desktop.
+  const allProjectsGrid = document.getElementById('all-projects-grid');
+  const applyArchiveGrid = () => {
+    if (!allProjectsGrid) return;
+    const width = window.innerWidth;
+    const columns = width <= 620 ? 2 : width <= 980 ? 3 : 4;
+    allProjectsGrid.style.setProperty('grid-template-columns', `repeat(${columns},minmax(0,1fr))`, 'important');
+    allProjectsGrid.style.setProperty('gap', '0', 'important');
+    allProjectsGrid.style.setProperty('column-gap', '0', 'important');
+    allProjectsGrid.style.setProperty('row-gap', '0', 'important');
+  };
+  applyArchiveGrid();
+  window.addEventListener('resize', applyArchiveGrid, { passive: true });
+
+  // Uniform desktop composition: 2 / 4 / 3. Every image in each row touches its
+  // neighbour; the View All control occupies the compact final grid cell.
   const applySelectedLayout = () => {
     if (!selectedGrid) return;
     const shell = selectedGrid.closest('.section-shell');
     const kicker = shell?.querySelector('.section-kicker');
     const footer = shell?.querySelector('.projects-footer');
+    const footerButton = footer?.querySelector('.projects-all-trigger');
     const cards = [...selectedGrid.querySelectorAll(':scope > .project-card')];
     const desktop = window.matchMedia('(min-width: 1021px)').matches;
 
@@ -71,16 +87,18 @@
       clear(shell, ['display','grid-template-columns','grid-template-rows','column-gap','row-gap','align-content','justify-content']);
       clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right','transform']);
       clear(selectedGrid, ['display']);
-      clear(footer, ['grid-column','grid-row','align-self','justify-self','margin','transform']);
+      clear(footer, ['grid-column','grid-row','align-self','justify-self','margin','transform','width','height']);
+      clear(footerButton, ['width','height','min-height','padding','display','align-items','justify-content']);
       cards.forEach(card => clear(card, ['grid-column','grid-row','height','align-self']));
+      selectedGrid.style.setProperty('gap', '0', 'important');
       return;
     }
 
     shell?.style.setProperty('display', 'grid', 'important');
     shell?.style.setProperty('grid-template-columns', 'repeat(20,minmax(0,1fr))', 'important');
     shell?.style.setProperty('grid-template-rows', 'repeat(3,auto)', 'important');
-    shell?.style.setProperty('column-gap', '4px', 'important');
-    shell?.style.setProperty('row-gap', '8px', 'important');
+    shell?.style.setProperty('column-gap', '0', 'important');
+    shell?.style.setProperty('row-gap', '0', 'important');
     shell?.style.setProperty('align-content', 'center', 'important');
     shell?.style.setProperty('justify-content', 'stretch', 'important');
 
@@ -109,9 +127,18 @@
     footer?.style.setProperty('grid-column', '18 / 21', 'important');
     footer?.style.setProperty('grid-row', '3', 'important');
     footer?.style.setProperty('align-self', 'center', 'important');
-    footer?.style.setProperty('justify-self', 'end', 'important');
+    footer?.style.setProperty('justify-self', 'stretch', 'important');
+    footer?.style.setProperty('width', '100%', 'important');
+    footer?.style.setProperty('height', 'clamp(148px,16vh,176px)', 'important');
     footer?.style.setProperty('margin', '0', 'important');
     footer?.style.removeProperty('transform');
+    footerButton?.style.setProperty('width', '100%', 'important');
+    footerButton?.style.setProperty('height', '100%', 'important');
+    footerButton?.style.setProperty('min-height', '0', 'important');
+    footerButton?.style.setProperty('padding', '18px', 'important');
+    footerButton?.style.setProperty('display', 'flex', 'important');
+    footerButton?.style.setProperty('align-items', 'center', 'important');
+    footerButton?.style.setProperty('justify-content', 'space-between', 'important');
   };
   applySelectedLayout();
   window.addEventListener('resize', applySelectedLayout, { passive: true });
