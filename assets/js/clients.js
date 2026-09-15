@@ -4,9 +4,16 @@
   const CTA_HOVER = '#355349';
 
   const styleContactFormPanel = () => {
+    const contact = document.getElementById('contact');
     const form = document.querySelector('#contact-form.contact-form');
-    if (!form) return;
+    if (!contact || !form) return;
     const mobile = window.matchMedia('(max-width: 620px)').matches;
+    const shell = contact.querySelector(':scope > .section-shell');
+
+    if (shell) {
+      shell.style.setProperty('position', 'relative', 'important');
+      shell.style.setProperty('top', mobile ? '-28px' : '-18px', 'important');
+    }
 
     form.style.setProperty('background', 'rgba(255,255,255,.12)', 'important');
     form.style.setProperty('border', '1px solid rgba(255,255,255,.18)', 'important');
@@ -76,14 +83,22 @@
     });
   };
 
-  // projects.js also owns the Projects CTA geometry. Apply the shared visual
-  // treatment after the synchronous script pass so both CTAs finish identical.
   requestAnimationFrame(() => requestAnimationFrame(styleArchiveCtas));
   window.addEventListener('resize', () => requestAnimationFrame(styleArchiveCtas), { passive: true });
 
   const grid = document.querySelector('.clients .client-grid');
   if (!grid) return;
-  const items = [...grid.querySelectorAll('.client-logo')];
+  const allClientsGrid = document.querySelector('.all-clients-grid');
+
+  // The selected showcase is intentionally a complete 3 x 3 matrix on desktop.
+  // Reuse Lion City Sailors from the existing archive as the ninth selected tile.
+  if (grid.querySelectorAll(':scope > .client-logo').length < 9 && allClientsGrid) {
+    const ninthSource = [...allClientsGrid.querySelectorAll(':scope > .client-logo')]
+      .find(tile => tile.querySelector('img')?.alt === 'Lion City Sailors');
+    if (ninthSource) grid.appendChild(ninthSource.cloneNode(true));
+  }
+
+  const items = [...grid.querySelectorAll(':scope > .client-logo')];
   if (!items.length) return;
 
   const shell = grid.closest('.section-shell');
@@ -91,7 +106,6 @@
   const intro = shell?.querySelector('.clients-intro');
   const viewAll = footer?.querySelector('.clients-all-trigger');
   const viewAllArrow = viewAll?.querySelector('span');
-  const allClientsGrid = document.querySelector('.all-clients-grid');
 
   const applyClientLayout = () => {
     const desktop = window.matchMedia('(min-width: 1021px)').matches;
@@ -112,14 +126,12 @@
 
     if (desktop) {
       const rowHeight = 'clamp(92px,10.5vh,112px)';
-      grid.style.setProperty('grid-template-columns', 'repeat(6,minmax(0,1fr))', 'important');
+      grid.style.setProperty('grid-template-columns', 'repeat(3,minmax(0,1fr))', 'important');
       grid.style.setProperty('grid-template-rows', `repeat(3,${rowHeight})`, 'important');
       grid.style.setProperty('grid-auto-rows', rowHeight, 'important');
-      items.forEach((item, index) => {
+      items.forEach(item => {
+        item.style.setProperty('grid-column', 'auto', 'important');
         item.style.setProperty('grid-row', 'auto', 'important');
-        if (index < 6) item.style.setProperty('grid-column', 'span 2', 'important');
-        else if (index === 6) item.style.setProperty('grid-column', '2 / 4', 'important');
-        else item.style.setProperty('grid-column', '4 / 6', 'important');
       });
     } else {
       grid.style.removeProperty('grid-template-columns');
