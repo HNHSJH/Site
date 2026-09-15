@@ -11,6 +11,38 @@
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
 
+  const featuredProjectIds = [
+    'artificial-turf--our-tampines-hub',
+    'acrylic-coating--tanah-merah-country-club',
+    'timber-flooring--ngee-ann-polytechnic',
+    'epdm-flooring--sutd',
+    'running-track--singapore-polytechnic',
+    'landscape-artificial-turf--lion-city-sailors',
+    'artificial-turf--jurong-east-stadium',
+    'acrylic-coating--singapore-swimming-club'
+  ];
+
+  const selectedGrid = document.getElementById('selected-projects-grid');
+  if (selectedGrid) {
+    const featured = featuredProjectIds.map(id => byId[id]).filter(Boolean);
+    if (featured.length === featuredProjectIds.length) {
+      selectedGrid.innerHTML = featured.map((p, i) => {
+        const ph = p.photos?.[0];
+        if (!ph) return '';
+        const certification = p.certification_text?.[0];
+        const sub = [categories[p.category] || p.category, certification].filter(Boolean).join(' · ');
+        const srcset = ph.srcset ? ` srcset="${esc(ph.srcset)}"` : '';
+        const loading = i < 2 ? 'eager' : 'lazy';
+        return `<a class="project-card" href="/projects/#${encodeURIComponent(p.id)}" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">`
+          + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</span>`
+          + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 24vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
+          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(sub)}</p></div>`
+          + '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>';
+      }).join('');
+      selectedGrid.dataset.featuredReady = 'true';
+    }
+  }
+
   let initialProjectId = '';
   if (location.pathname === '/projects/' && location.hash) {
     try { initialProjectId = decodeURIComponent(location.hash.slice(1)); } catch { initialProjectId = ''; }
