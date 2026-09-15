@@ -7,6 +7,23 @@
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
 
+  // Direct crawlable project URLs should land in the real Projects experience
+  // instead of the lightweight SEO detail template. Only redirect when the
+  // category/slug pair matches a maintained project record.
+  const directMatch = location.pathname.match(/^\/projects\/([^/]+)\/([^/]+)\/$/);
+  if (directMatch) {
+    let directId = '';
+    try {
+      directId = `${decodeURIComponent(directMatch[1])}--${decodeURIComponent(directMatch[2])}`;
+    } catch {
+      directId = '';
+    }
+    if (directId && byId[directId]) {
+      location.replace(`/projects/#${encodeURIComponent(directId)}`);
+      return;
+    }
+  }
+
   const filterbar = document.getElementById('project-filterbar');
   if (filterbar) {
     const counts = Object.fromEntries(data.categories.map(c => [c.id, projects.filter(p => p.category === c.id).length]));
