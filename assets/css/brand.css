@@ -39,9 +39,9 @@ body[data-route-path="/"] .hero-playback {
   display: none !important;
 }
 
-/* Projects: use one calm solid surface so photography and project cards carry the visual weight. */
+/* Projects: calm solid sage surface with one balanced preview row on desktop. */
 #projects.projects {
-  background: #eff3ed !important;
+  background: #e7efe5 !important;
   color: #20312d !important;
   --project-heading: #20312d;
   --project-caption: #355349;
@@ -61,20 +61,54 @@ body[data-route-path="/"] .hero-playback {
 #projects.projects .projects-count {
   color: #355349 !important;
 }
+
+/* Keep the four selected previews equal and inside the central content bounds. */
+#projects.projects .project-grid {
+  width: min(100%, 1180px) !important;
+  margin-inline: auto !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+}
 #projects.projects .project-card {
-  background: rgba(255,255,255,.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  background: rgba(255,255,255,.52) !important;
   border-color: rgba(53,83,73,.2) !important;
+}
+#projects.projects .project-media {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  flex: 0 0 auto !important;
+  overflow: hidden !important;
+}
+#projects.projects .project-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+#projects.projects .project-info {
+  flex: 1 1 auto !important;
+  min-height: 62px !important;
 }
 #projects.projects .project-card[data-project-id]:focus-visible {
   outline-color: #355349 !important;
 }
+
 #projects.projects .archive-trigger,
 #projects.projects > .panel-close,
 #projects.projects > .panel-prev,
 #projects.projects > .panel-next {
   color: #20312d !important;
   border-color: rgba(53,83,73,.38) !important;
-  background: rgba(255,255,255,.72) !important;
+  background: rgba(255,255,255,.74) !important;
+}
+/* The top control should stay crisp on the light Projects surface. */
+#projects.projects > .panel-close {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 #projects.projects .archive-trigger:hover,
 #projects.projects .archive-trigger:focus-visible,
@@ -93,7 +127,7 @@ body[data-active-panel="projects"] .site-header .brand {
 }
 .all-projects-gallery,
 .all-projects-gallery-head {
-  background: #eff3ed !important;
+  background: #e7efe5 !important;
 }
 .all-projects-gallery .project-filter {
   color: #355349 !important;
@@ -112,7 +146,7 @@ body[data-active-panel="projects"] .site-header .brand {
    document from painting the Projects page while the exact detail overlay is
    being prepared. projects.js reveals the shell once the project is open. */
 html.js body[data-route-path="/projects/"]:not(.project-route-ready) {
-  background: #eff3ed;
+  background: #e7efe5;
 }
 html.js body[data-route-path="/projects/"]:not(.project-route-ready) > #site-interaction-shell {
   visibility: hidden !important;
@@ -121,10 +155,16 @@ html.js body[data-route-path="/projects/"]:not(.project-route-ready) > #site-int
 /* Direct project pages are redirect-only for scripted browsers. Hide the old
    SEO detail shell before first paint so there is no flash of the legacy view. */
 html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] {
-  background: #eff3ed;
+  background: #e7efe5;
 }
 html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] > #site-interaction-shell {
   visibility: hidden;
+}
+
+@media (max-width: 900px) {
+  #projects.projects .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 @media (max-width: 620px) {
@@ -132,4 +172,12 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
   .brand .brand-mark { width: 40px; height: 40px; }
   .brand .brand-top { font-size: 15px; }
   .brand .brand-bottom { font-size: 12px; }
+
+  #projects.projects .project-grid {
+    width: 100% !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  #projects.projects .project-info {
+    min-height: 52px !important;
+  }
 }
