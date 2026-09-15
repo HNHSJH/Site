@@ -48,6 +48,6 @@
     });
   });
 
-  openFromHash(false);
+  openFromHash(true);
   window.addEventListener('hashchange', () => openFromHash(true));
 })();
