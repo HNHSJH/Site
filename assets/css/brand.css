@@ -32,6 +32,13 @@ a.brand {
 .brand .brand-top { font-size: 18px; letter-spacing: .055em; }
 .brand .brand-bottom { margin-top: 4px; font-size: 14px; letter-spacing: .095em; }
 a.brand:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+
+/* Homepage: keep the hero clean; navigation remains available in the Explore section. */
+body[data-route-path="/"] .menu-button,
+body[data-route-path="/"] .hero-playback {
+  display: none !important;
+}
+
 @media (max-width: 620px) {
   a.brand { gap: 8px; }
   .brand .brand-mark { width: 40px; height: 40px; }
