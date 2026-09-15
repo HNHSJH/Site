@@ -3,6 +3,7 @@
     const projectsPanel = document.getElementById('projects');
     const selectedGrid = document.getElementById('selected-projects-grid');
     const projectShell = selectedGrid?.closest('.section-shell');
+    const projectKicker = projectShell?.querySelector('.section-kicker');
     const projectFooter = projectShell?.querySelector('.projects-footer');
     const projectViewAll = projectFooter?.querySelector('.projects-all-trigger');
     const allProjectsGrid = document.getElementById('all-projects-grid');
@@ -12,6 +13,14 @@
     if (projectShell) {
       projectShell.style.setProperty('column-gap', '0', 'important');
       projectShell.style.setProperty('row-gap', '0', 'important');
+    }
+
+    // The pale Projects page should not inherit the photo-panel text glow.
+    if (projectKicker) {
+      projectKicker.style.setProperty('text-shadow', 'none', 'important');
+      projectKicker.querySelectorAll('h1,h2,span').forEach(el => {
+        el.style.setProperty('text-shadow', 'none', 'important');
+      });
     }
 
     // The archive stays at three large columns on desktop. Tablet/mobile step
@@ -30,18 +39,23 @@
       allProjectsGrid.style.setProperty('row-gap', '0', 'important');
     }
 
-    // Smaller archive control, aligned to the top of its bottom-right grid slot.
+    // Place the compact archive CTA in the marked empty slot to the right of
+    // the first row, slightly above its baseline rather than beside row three.
     if (projectFooter) {
-      projectFooter.style.setProperty('align-self', 'start', 'important');
-      projectFooter.style.setProperty('justify-self', 'end', 'important');
+      projectFooter.style.setProperty('grid-column', '18 / 21', 'important');
+      projectFooter.style.setProperty('grid-row', '1', 'important');
+      projectFooter.style.setProperty('align-self', 'end', 'important');
+      projectFooter.style.setProperty('justify-self', 'center', 'important');
       projectFooter.style.setProperty('margin', '0', 'important');
+      projectFooter.style.setProperty('transform', 'translateY(-20px)', 'important');
     }
     if (projectViewAll) {
-      projectViewAll.style.setProperty('min-height', '36px', 'important');
+      projectViewAll.style.setProperty('width', '160px', 'important');
+      projectViewAll.style.setProperty('min-height', '38px', 'important');
       projectViewAll.style.setProperty('padding', '0 12px', 'important');
       projectViewAll.style.setProperty('font-size', '8px', 'important');
       projectViewAll.style.setProperty('letter-spacing', '.11em', 'important');
-      projectViewAll.style.setProperty('width', 'auto', 'important');
+      projectViewAll.style.setProperty('justify-content', 'space-between', 'important');
       projectViewAll.style.setProperty('transform', 'none', 'important');
     }
 
@@ -62,15 +76,16 @@
   const footer = shell?.querySelector('.clients-footer');
   const intro = shell?.querySelector('.clients-intro');
   const viewAll = footer?.querySelector('.clients-all-trigger');
+  const viewAllArrow = viewAll?.querySelector('span');
   const allClientsGrid = document.querySelector('.all-clients-grid');
 
   const applyClientLayout = () => {
     const desktop = window.matchMedia('(min-width: 1021px)').matches;
 
-    // Keep the three selected-client elements together, but return the group
-    // lower into the middle of the page on desktop.
+    // Keep the selected-client mosaic, CTA and heading as one group and move
+    // that whole group lower toward the visual centre of the page on desktop.
     if (shell) {
-      shell.style.setProperty('transform', desktop ? 'translateY(44px)' : 'none', 'important');
+      shell.style.setProperty('transform', desktop ? 'translateY(86px)' : 'none', 'important');
     }
 
     grid.style.setProperty('gap', '0', 'important');
@@ -90,15 +105,21 @@
       footer.style.setProperty('justify-content', 'center', 'important');
     }
     if (viewAll) {
+      viewAll.style.setProperty('position', 'relative', 'important');
       viewAll.style.setProperty('width', '100%', 'important');
       viewAll.style.setProperty('min-height', '54px', 'important');
-      viewAll.style.setProperty('padding', '0 22px', 'important');
+      viewAll.style.setProperty('padding', '0 54px', 'important');
       viewAll.style.setProperty('display', 'flex', 'important');
       viewAll.style.setProperty('align-items', 'center', 'important');
       viewAll.style.setProperty('justify-content', 'center', 'important');
-      viewAll.style.setProperty('gap', '14px', 'important');
       viewAll.style.setProperty('text-align', 'center', 'important');
       viewAll.style.setProperty('background', 'rgba(255,255,255,.18)', 'important');
+    }
+    if (viewAllArrow) {
+      viewAllArrow.style.setProperty('position', 'absolute', 'important');
+      viewAllArrow.style.setProperty('right', '22px', 'important');
+      viewAllArrow.style.setProperty('top', '50%', 'important');
+      viewAllArrow.style.setProperty('transform', 'translateY(-50%)', 'important');
     }
     if (allClientsGrid) {
       allClientsGrid.style.setProperty('gap', '0', 'important');
