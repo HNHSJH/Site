@@ -27,7 +27,8 @@
     'running-track--singapore-polytechnic',
     'landscape-artificial-turf--lion-city-sailors',
     'artificial-turf--jurong-east-stadium',
-    'acrylic-coating--singapore-swimming-club'
+    'acrylic-coating--singapore-swimming-club',
+    'artificial-turf--singapore-american-school-west-field'
   ];
 
   const selectedGrid = document.getElementById('selected-projects-grid');
@@ -41,7 +42,7 @@
         const loading = i < 2 ? 'eager' : 'lazy';
         return `<a class="project-card" href="/projects/#${encodeURIComponent(p.id)}" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">`
           + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</span>`
-          + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 24vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
+          + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 25vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
           + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(hoverCopy(p))}</p></div>`
           + '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>';
       }).join('');
@@ -55,6 +56,8 @@
     if (p && copy) copy.textContent = hoverCopy(p);
   });
 
+  // Uniform desktop composition: 2 / 4 / 3, with the archive control in the
+  // remaining bottom-right slot. Inline important values beat older shell rules.
   const applySelectedLayout = () => {
     if (!selectedGrid) return;
     const shell = selectedGrid.closest('.section-shell');
@@ -74,14 +77,14 @@
     }
 
     shell?.style.setProperty('display', 'grid', 'important');
-    shell?.style.setProperty('grid-template-columns', 'repeat(8,minmax(0,1fr))', 'important');
+    shell?.style.setProperty('grid-template-columns', 'repeat(20,minmax(0,1fr))', 'important');
     shell?.style.setProperty('grid-template-rows', 'repeat(3,auto)', 'important');
-    shell?.style.setProperty('column-gap', '8px', 'important');
+    shell?.style.setProperty('column-gap', '4px', 'important');
     shell?.style.setProperty('row-gap', '8px', 'important');
     shell?.style.setProperty('align-content', 'center', 'important');
     shell?.style.setProperty('justify-content', 'stretch', 'important');
 
-    kicker?.style.setProperty('grid-column', '1 / 4', 'important');
+    kicker?.style.setProperty('grid-column', '1 / 8', 'important');
     kicker?.style.setProperty('grid-row', '1', 'important');
     kicker?.style.setProperty('align-self', 'center', 'important');
     kicker?.style.setProperty('margin', '0', 'important');
@@ -90,36 +93,25 @@
     selectedGrid.style.setProperty('display', 'contents', 'important');
 
     const positions = [
-      ['4 / 6', '1'], ['6 / 8', '1'],
-      ['1 / 3', '2'], ['3 / 5', '2'], ['5 / 7', '2'], ['7 / 9', '2'],
-      ['2 / 4', '3'], ['4 / 6', '3']
-    ];
-    const heights = [
-      'clamp(220px,23vh,254px)',
-      'clamp(196px,20.7vh,226px)',
-      'clamp(208px,22vh,240px)',
-      'clamp(190px,20vh,218px)',
-      'clamp(224px,23.5vh,258px)',
-      'clamp(200px,21vh,230px)',
-      'clamp(196px,20.7vh,226px)',
-      'clamp(218px,23vh,250px)'
+      ['8 / 13', '1'], ['13 / 18', '1'],
+      ['1 / 6', '2'], ['6 / 11', '2'], ['11 / 16', '2'], ['16 / 21', '2'],
+      ['3 / 8', '3'], ['8 / 13', '3'], ['13 / 18', '3']
     ];
     cards.forEach((card, index) => {
       const pos = positions[index];
       if (!pos) return;
       card.style.setProperty('grid-column', pos[0], 'important');
       card.style.setProperty('grid-row', pos[1], 'important');
-      card.style.setProperty('height', heights[index] || 'clamp(202px,21.5vh,236px)', 'important');
-      card.style.setProperty('align-self', index === 1 || index === 3 || index === 5 || index === 6 ? 'center' : 'start', 'important');
+      card.style.setProperty('height', 'clamp(204px,22vh,238px)', 'important');
+      card.style.setProperty('align-self', 'stretch', 'important');
     });
 
-    // The marked slot: immediately to the right of the two bottom-row cards.
-    footer?.style.setProperty('grid-column', '6 / 8', 'important');
+    footer?.style.setProperty('grid-column', '18 / 21', 'important');
     footer?.style.setProperty('grid-row', '3', 'important');
     footer?.style.setProperty('align-self', 'center', 'important');
-    footer?.style.setProperty('justify-self', 'center', 'important');
+    footer?.style.setProperty('justify-self', 'end', 'important');
     footer?.style.setProperty('margin', '0', 'important');
-    footer?.style.setProperty('transform', 'translateY(-2px)', 'important');
+    footer?.style.removeProperty('transform');
   };
   applySelectedLayout();
   window.addEventListener('resize', applySelectedLayout, { passive: true });
