@@ -1,0 +1,39 @@
+name: One-shot client logo sizing
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-shot-client-logo-size.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-client-logos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reduce initial client grid logo size
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('assets/css/showcase.css')
+          text = path.read_text()
+          marker = '/* Initial Clients grid: slightly smaller desktop/tablet marks. */'
+          if marker not in text:
+              text += '''\n\n/* Initial Clients grid: slightly smaller desktop/tablet marks. */\n@media (min-width: 621px) {\n  .clients .client-grid .client-logo img,\n  .clients .client-grid .client-logo.logo-wide img,\n  .clients .client-grid .client-logo.logo-medium img,\n  .clients .client-grid .client-logo.logo-tall img,\n  .clients .client-grid .client-logo-moe img {\n    inset: 27px 36px !important;\n    width: calc(100% - 72px) !important;\n    height: calc(100% - 54px) !important;\n  }\n}\n'''
+              path.write_text(text)
+          PY
+      - name: Commit isolated client logo adjustment
+        shell: bash
+        run: |
+          git rm .github/workflows/one-shot-client-logo-size.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/css/showcase.css
+          git commit -m 'Reduce initial client grid logo size'
+          git push origin HEAD:main
