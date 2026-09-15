@@ -21,54 +21,6 @@ if (directProjectMatch) {
 
 const body = document.body;
 
-// Keep the main public routes deliberately distinct in search results instead of
-// repeating variations of "Sports Construction" across every page.
-const deliberateSeoByPath = {
-  '/': {
-    title: 'Sports Fields, Courts & Turf Singapore | H&H Resources',
-    description: 'H&H Resources provides sports field, court, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore our projects.'
-  },
-  '/about-us/': {
-    title: 'About H&H Resources | Turf & Sports Surface Specialists',
-    description: 'Learn about H&H Resources, its roots in 1980 and its experience across sports fields, courts, turf, golf and landscape works in Singapore.'
-  },
-  '/clients/': {
-    title: 'Past Clients & School Projects | H&H Resources',
-    description: 'Explore H&H Resources client references across Singapore, including schools, sports clubs, government agencies and community organisations.'
-  },
-  '/projects/': {
-    title: 'Artificial Turf, Court & Track Projects | H&H Resources',
-    description: 'Explore H&H Resources projects across artificial turf, court coatings, timber sports flooring, running tracks and EPDM surfaces in Singapore.'
-  },
-  '/services/': {
-    title: 'Turf, Sports Field, Court & Landscape Services | H&H Resources',
-    description: 'Explore H&H Resources expertise in sports fields, courts, turf, landscape works, irrigation, golf course construction and specialist surfaces in Singapore.'
-  },
-  '/contact/': {
-    title: 'Contact H&H Resources | Turf, Court & Field Enquiries',
-    description: 'Contact H&H Resources about turf, sports field, court, landscape and specialist surfacing works in Singapore. Call +65 9114 8327 or email enquiry@hnhresources.com.'
-  }
-};
-
-const applyDeliberateSeo = () => {
-  const path = body?.dataset.currentRoute || location.pathname;
-  const record = deliberateSeoByPath[path];
-  if (!record) return;
-  document.title = record.title;
-  const updates = [
-    ['meta[name="description"]', 'content', record.description],
-    ['meta[property="og:title"]', 'content', record.title],
-    ['meta[property="og:description"]', 'content', record.description],
-    ['meta[name="twitter:title"]', 'content', record.title],
-    ['meta[name="twitter:description"]', 'content', record.description]
-  ];
-  updates.forEach(([selector, attribute, value]) => document.querySelector(selector)?.setAttribute(attribute, value));
-};
-
-applyDeliberateSeo();
-new MutationObserver(applyDeliberateSeo).observe(body, { attributes: true, attributeFilter: ['data-current-route'] });
-window.addEventListener('popstate', applyDeliberateSeo);
-
 const ensureGlobalContactFooter = () => {
   let footer = document.querySelector('.global-contact-footer');
   if (!footer) {
