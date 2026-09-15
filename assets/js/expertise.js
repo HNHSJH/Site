@@ -28,18 +28,20 @@
 
     if (mobile) {
       shell.style.setProperty('justify-content', 'flex-start', 'important');
+      shell.style.setProperty('align-items', 'center', 'important');
       shell.style.setProperty('overflow-y', 'auto', 'important');
-      shell.style.setProperty('padding', '82px 18px 84px', 'important');
+      shell.style.setProperty('overscroll-behavior', 'contain', 'important');
+      shell.style.setProperty('padding', '86px 16px 104px', 'important');
 
       [heading, list].forEach(element => {
         if (!element) return;
-        element.style.setProperty('width', 'min(100%, 520px)', 'important');
+        element.style.setProperty('width', 'min(100%, 460px)', 'important');
         element.style.setProperty('margin-left', 'auto', 'important');
         element.style.setProperty('margin-right', 'auto', 'important');
       });
 
       // Auto margins vertically center the complete content block when it fits,
-      // but collapse naturally when the accordion becomes taller than the viewport.
+      // while still allowing natural scrolling when an accordion expands.
       heading?.style.setProperty('margin-top', 'auto', 'important');
       list?.style.setProperty('margin-bottom', 'auto', 'important');
 
@@ -50,7 +52,9 @@
       }
     } else {
       shell.style.removeProperty('justify-content');
+      shell.style.removeProperty('align-items');
       shell.style.removeProperty('overflow-y');
+      shell.style.removeProperty('overscroll-behavior');
       shell.style.removeProperty('padding');
       [heading, list].forEach(element => {
         if (!element) return;
@@ -68,8 +72,110 @@
     }
   };
 
+  const applySharedMobilePresentation = () => {
+    const mobile = window.matchMedia('(max-width: 620px)').matches;
+
+    const about = document.getElementById('about');
+    const aboutShell = about?.querySelector(':scope > .section-shell');
+    const aboutPanel = about?.querySelector('.about-panel');
+
+    const projects = document.getElementById('projects');
+    const projectShell = projects?.querySelector(':scope > .section-shell');
+    const projectKicker = projectShell?.querySelector('.section-kicker');
+    const projectGrid = projectShell?.querySelector('#selected-projects-grid');
+    const projectFooter = projectShell?.querySelector('.projects-footer');
+
+    const heroSlides = document.querySelector('.hero-slides');
+    const heroSlideItems = [...document.querySelectorAll('.hero-slide')];
+
+    if (mobile) {
+      if (aboutShell) {
+        aboutShell.style.setProperty('justify-content', 'flex-start', 'important');
+        aboutShell.style.setProperty('align-items', 'center', 'important');
+        aboutShell.style.setProperty('overflow-y', 'auto', 'important');
+        aboutShell.style.setProperty('overscroll-behavior', 'contain', 'important');
+        aboutShell.style.setProperty('padding', '88px 16px 110px', 'important');
+      }
+      if (aboutPanel) {
+        aboutPanel.style.setProperty('width', 'min(100%, 420px)', 'important');
+        aboutPanel.style.setProperty('margin-left', 'auto', 'important');
+        aboutPanel.style.setProperty('margin-right', 'auto', 'important');
+        aboutPanel.style.setProperty('margin-top', 'auto', 'important');
+        aboutPanel.style.setProperty('margin-bottom', 'auto', 'important');
+      }
+
+      if (projectShell) {
+        projectShell.style.setProperty('justify-content', 'center', 'important');
+        projectShell.style.setProperty('align-items', 'center', 'important');
+        projectShell.style.setProperty('padding', '84px 14px 108px', 'important');
+        projectShell.style.setProperty('overflow-y', 'auto', 'important');
+        projectShell.style.setProperty('overscroll-behavior', 'contain', 'important');
+      }
+      [projectKicker, projectGrid, projectFooter].forEach(element => {
+        if (!element) return;
+        element.style.setProperty('width', 'min(100%, 420px)', 'important');
+        element.style.setProperty('margin-left', 'auto', 'important');
+        element.style.setProperty('margin-right', 'auto', 'important');
+      });
+      projectKicker?.style.setProperty('margin-bottom', '14px', 'important');
+      projectFooter?.style.setProperty('margin-top', '10px', 'important');
+
+      if (heroSlides) heroSlides.style.setProperty('background', '#182019', 'important');
+      heroSlideItems.forEach(slide => {
+        slide.style.setProperty('background-size', 'contain', 'important');
+        slide.style.setProperty('background-repeat', 'no-repeat', 'important');
+        slide.style.setProperty('background-position', 'center center', 'important');
+        slide.style.setProperty('background-color', '#182019', 'important');
+        slide.style.setProperty('transform', 'none', 'important');
+      });
+    } else {
+      if (aboutShell) {
+        aboutShell.style.removeProperty('justify-content');
+        aboutShell.style.removeProperty('align-items');
+        aboutShell.style.removeProperty('overflow-y');
+        aboutShell.style.removeProperty('overscroll-behavior');
+        aboutShell.style.removeProperty('padding');
+      }
+      if (aboutPanel) {
+        aboutPanel.style.removeProperty('width');
+        aboutPanel.style.removeProperty('margin-left');
+        aboutPanel.style.removeProperty('margin-right');
+        aboutPanel.style.removeProperty('margin-top');
+        aboutPanel.style.removeProperty('margin-bottom');
+      }
+
+      if (projectShell) {
+        projectShell.style.removeProperty('align-items');
+      }
+      [projectKicker, projectGrid, projectFooter].forEach(element => {
+        if (!element) return;
+        element.style.removeProperty('margin-left');
+        element.style.removeProperty('margin-right');
+      });
+      projectKicker?.style.removeProperty('margin-bottom');
+
+      if (heroSlides) heroSlides.style.removeProperty('background');
+      heroSlideItems.forEach(slide => {
+        slide.style.removeProperty('background-size');
+        slide.style.removeProperty('background-repeat');
+        slide.style.removeProperty('background-position');
+        slide.style.removeProperty('background-color');
+        slide.style.removeProperty('transform');
+      });
+    }
+  };
+
+  const scheduleMobilePresentation = () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      applyExpertiseLayout();
+      applySharedMobilePresentation();
+    }));
+  };
+
   applyExpertiseLayout();
-  window.addEventListener('resize', applyExpertiseLayout, { passive: true });
+  scheduleMobilePresentation();
+  window.addEventListener('load', scheduleMobilePresentation, { once: true });
+  window.addEventListener('resize', scheduleMobilePresentation, { passive: true });
 
   const items = [...document.querySelectorAll('.expertise-item')];
   if (!items.length) return;
