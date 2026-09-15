@@ -36,6 +36,8 @@ a.brand:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 /* Homepage: keep the hero completely clean on every viewport. */
 body[data-route-path="/"] .menu-button,
 body[data-route-path="/"] .hero-playback,
+body[data-current-route="/"] .menu-button,
+body[data-current-route="/"] .hero-playback,
 body[data-route-path="/"][data-initial-panel="top"] .site-header .menu-button,
 body[data-route-path="/"][data-initial-panel="top"] .hero .hero-playback {
   display: none !important;
@@ -322,7 +324,9 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
   .brand .brand-bottom { font-size: 12px; }
 
   body[data-route-path="/"] .menu-button,
-  body[data-route-path="/"] .hero-playback { display: none !important; }
+  body[data-route-path="/"] .hero-playback,
+  body[data-current-route="/"] .menu-button,
+  body[data-current-route="/"] .hero-playback { display: none !important; }
 
   body[data-route-path="/"] .showcase-nav { bottom: 48px !important; }
 
