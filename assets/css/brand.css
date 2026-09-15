@@ -324,6 +324,8 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
   body[data-route-path="/"] .menu-button,
   body[data-route-path="/"] .hero-playback { display: none !important; }
 
+  body[data-route-path="/"] .showcase-nav { bottom: 48px !important; }
+
   #projects.projects #selected-projects-grid { width: 100% !important; }
   #projects.projects .project-card .project-info,
   .all-projects-grid .project-card .project-info { bottom: 8px !important; }
