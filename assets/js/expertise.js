@@ -16,6 +16,61 @@
     return;
   }
 
+  const expertise = document.getElementById('expertise');
+  const shell = expertise?.querySelector(':scope > .section-shell');
+  const heading = expertise?.querySelector('.expertise-heading');
+  const marks = expertise?.querySelector('.expertise-marks');
+  const list = expertise?.querySelector('.expertise-list');
+
+  const applyExpertiseLayout = () => {
+    if (!shell) return;
+    const mobile = window.matchMedia('(max-width: 620px)').matches;
+
+    if (mobile) {
+      shell.style.setProperty('justify-content', 'flex-start', 'important');
+      shell.style.setProperty('overflow-y', 'auto', 'important');
+      shell.style.setProperty('padding', '82px 18px 84px', 'important');
+
+      [heading, list].forEach(element => {
+        if (!element) return;
+        element.style.setProperty('width', 'min(100%, 520px)', 'important');
+        element.style.setProperty('margin-left', 'auto', 'important');
+        element.style.setProperty('margin-right', 'auto', 'important');
+      });
+
+      // Auto margins vertically center the complete content block when it fits,
+      // but collapse naturally when the accordion becomes taller than the viewport.
+      heading?.style.setProperty('margin-top', 'auto', 'important');
+      list?.style.setProperty('margin-bottom', 'auto', 'important');
+
+      if (marks) {
+        marks.style.setProperty('width', '100%', 'important');
+        marks.style.setProperty('justify-self', 'center', 'important');
+        marks.style.setProperty('justify-content', 'center', 'important');
+      }
+    } else {
+      shell.style.removeProperty('justify-content');
+      shell.style.removeProperty('overflow-y');
+      shell.style.removeProperty('padding');
+      [heading, list].forEach(element => {
+        if (!element) return;
+        element.style.removeProperty('width');
+        element.style.removeProperty('margin-left');
+        element.style.removeProperty('margin-right');
+      });
+      heading?.style.removeProperty('margin-top');
+      list?.style.removeProperty('margin-bottom');
+      if (marks) {
+        marks.style.removeProperty('width');
+        marks.style.removeProperty('justify-self');
+        marks.style.removeProperty('justify-content');
+      }
+    }
+  };
+
+  applyExpertiseLayout();
+  window.addEventListener('resize', applyExpertiseLayout, { passive: true });
+
   const items = [...document.querySelectorAll('.expertise-item')];
   if (!items.length) return;
 
