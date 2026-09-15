@@ -4,6 +4,8 @@
   const CTA_HOVER = '#355349';
 
   const styleArchiveCtas = () => {
+    const mobile = window.matchMedia('(max-width: 620px)').matches;
+
     document.querySelectorAll('.clients-all-trigger, .projects-all-trigger').forEach(button => {
       button.style.setProperty('height', CTA_HEIGHT, 'important');
       button.style.setProperty('min-height', CTA_HEIGHT, 'important');
@@ -11,6 +13,31 @@
       button.style.setProperty('color', '#fff', 'important');
       button.style.setProperty('border-color', CTA_BG, 'important');
       button.style.setProperty('box-shadow', 'none', 'important');
+
+      if (mobile && button.classList.contains('projects-all-trigger')) {
+        const footer = button.closest('.projects-footer');
+        const arrow = button.querySelector('span');
+        if (footer) {
+          footer.style.setProperty('width', '100%', 'important');
+          footer.style.setProperty('height', CTA_HEIGHT, 'important');
+          footer.style.setProperty('margin', '14px 0 0', 'important');
+          footer.style.setProperty('display', 'flex', 'important');
+          footer.style.setProperty('justify-content', 'stretch', 'important');
+        }
+        button.style.setProperty('position', 'relative', 'important');
+        button.style.setProperty('width', '100%', 'important');
+        button.style.setProperty('padding', '0 54px', 'important');
+        button.style.setProperty('display', 'flex', 'important');
+        button.style.setProperty('align-items', 'center', 'important');
+        button.style.setProperty('justify-content', 'center', 'important');
+        button.style.setProperty('text-align', 'center', 'important');
+        if (arrow) {
+          arrow.style.setProperty('position', 'absolute', 'important');
+          arrow.style.setProperty('right', '22px', 'important');
+          arrow.style.setProperty('top', '50%', 'important');
+          arrow.style.setProperty('transform', 'translateY(-50%)', 'important');
+        }
+      }
 
       if (button.dataset.archiveCtaStandardized === 'true') return;
       button.dataset.archiveCtaStandardized = 'true';
@@ -45,9 +72,14 @@
 
   const applyClientLayout = () => {
     const desktop = window.matchMedia('(min-width: 1021px)').matches;
+    const mobile = window.matchMedia('(max-width: 620px)').matches;
 
     if (shell) {
-      shell.style.setProperty('transform', desktop ? 'translateY(128px)' : 'none', 'important');
+      shell.style.setProperty(
+        'transform',
+        desktop ? 'translateY(128px)' : mobile ? 'translateY(150px)' : 'none',
+        'important'
+      );
     }
 
     grid.style.setProperty('gap', '0', 'important');
