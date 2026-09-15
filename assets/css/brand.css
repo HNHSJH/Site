@@ -353,7 +353,7 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
   text-transform: lowercase !important;
 }
 
-/* Mobile home must remain a true full-viewport hero. */
+/* Mobile home: preserve the original full-bleed cover treatment. */
 @media (max-width: 620px) {
   body[data-route-path="/"] main#top,
   body[data-route-path="/"] .hero,
@@ -374,10 +374,11 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    transform: scale(1.04) !important;
   }
 
   body[data-route-path="/"] .hero-slide.active {
-    transform: scale(1.03) !important;
+    transform: scale(1.12) !important;
   }
 
   body[data-route-path="/"] .hero-content {
