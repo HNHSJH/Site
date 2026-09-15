@@ -9,11 +9,19 @@
     if (!contact || !form) return;
     const mobile = window.matchMedia('(max-width: 620px)').matches;
     const shell = contact.querySelector(':scope > .section-shell');
+    const heading = contact.querySelector('.contact-heading');
+    const horizontalOffset = mobile ? '8px' : '18px';
 
     if (shell) {
       shell.style.setProperty('position', 'relative', 'important');
       shell.style.setProperty('top', mobile ? '-28px' : '-18px', 'important');
     }
+
+    [heading, form].forEach(element => {
+      if (!element) return;
+      element.style.setProperty('position', 'relative', 'important');
+      element.style.setProperty('left', horizontalOffset, 'important');
+    });
 
     form.style.setProperty('background', 'rgba(255,255,255,.12)', 'important');
     form.style.setProperty('border', '1px solid rgba(255,255,255,.18)', 'important');
@@ -21,6 +29,20 @@
     form.style.setProperty('backdrop-filter', 'blur(8px)', 'important');
     form.style.setProperty('-webkit-backdrop-filter', 'blur(8px)', 'important');
     form.style.setProperty('box-shadow', 'none', 'important');
+
+    const hintText = {
+      'enquiry-name': 'e.g. Alex Tan',
+      'enquiry-company': 'e.g. ABC Construction Pte Ltd',
+      'enquiry-email': 'e.g. alex@company.com',
+      'enquiry-phone': 'e.g. +65 9123 4567',
+      'enquiry-message': 'Site location, approximate area, required works and preferred completion date'
+    };
+    Object.entries(hintText).forEach(([id, placeholder]) => {
+      document.getElementById(id)?.setAttribute('placeholder', placeholder);
+    });
+
+    const projectTypeHint = document.querySelector('#enquiry-type option[value=""]');
+    if (projectTypeHint) projectTypeHint.textContent = 'Choose the closest project category';
   };
 
   styleContactFormPanel();
@@ -125,13 +147,15 @@
     grid.style.setProperty('order', '1', 'important');
 
     if (desktop) {
-      const rowHeight = 'clamp(92px,10.5vh,112px)';
+      const rowHeight = 'clamp(118px,13vh,142px)';
       grid.style.setProperty('grid-template-columns', 'repeat(3,minmax(0,1fr))', 'important');
       grid.style.setProperty('grid-template-rows', `repeat(3,${rowHeight})`, 'important');
       grid.style.setProperty('grid-auto-rows', rowHeight, 'important');
       items.forEach(item => {
         item.style.setProperty('grid-column', 'auto', 'important');
         item.style.setProperty('grid-row', 'auto', 'important');
+        item.style.setProperty('min-height', rowHeight, 'important');
+        item.style.setProperty('height', rowHeight, 'important');
       });
     } else {
       grid.style.removeProperty('grid-template-columns');
@@ -140,6 +164,8 @@
       items.forEach(item => {
         item.style.removeProperty('grid-column');
         item.style.removeProperty('grid-row');
+        item.style.removeProperty('min-height');
+        item.style.removeProperty('height');
       });
     }
 
