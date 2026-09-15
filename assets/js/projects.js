@@ -1,11 +1,22 @@
 (() => {
+  const revealProjectRoute = () => document.body?.classList.add('project-route-ready');
   const data = window.HNH_PROJECT_DATA;
-  if (!data || !Array.isArray(data.projects)) return;
+  if (!data || !Array.isArray(data.projects)) {
+    revealProjectRoute();
+    return;
+  }
 
   const projects = data.projects;
   const categories = Object.fromEntries(data.categories.map(c => [c.id, c.name]));
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+
+  let initialProjectId = '';
+  if (location.pathname === '/projects/' && location.hash) {
+    try { initialProjectId = decodeURIComponent(location.hash.slice(1)); } catch { initialProjectId = ''; }
+  }
+  const holdInitialProject = Boolean(initialProjectId && byId[initialProjectId]);
+  if (!holdInitialProject) revealProjectRoute();
 
   // Direct crawlable project URLs should land in the real Projects experience
   // instead of the lightweight SEO detail template. Only redirect when the
@@ -75,7 +86,10 @@
 
   function openDetail(id, trigger) {
     const p = byId[id];
-    if (!p || !overlay) return;
+    if (!p || !overlay) {
+      revealProjectRoute();
+      return;
+    }
     title.textContent = p.display_name;
     category.textContent = categories[p.category] || p.category;
     if (description) description.textContent = p.detail_description || '';
@@ -91,6 +105,7 @@
     window.HnhDialogs.open(overlay, { labelledby: 'project-detail-title', initial: '.project-detail-close', close: closeDetail, trigger });
     setParentProjectControlsHidden(true);
     document.body.classList.add('project-detail-open');
+    revealProjectRoute();
     const scroller = overlay.querySelector('.project-detail-scroll');
     if (scroller) scroller.scrollTop = 0;
   }
@@ -102,10 +117,14 @@
     overlay.removeAttribute('data-project-id');
     setParentProjectControlsHidden(false);
     document.body.classList.remove('project-detail-open');
+    revealProjectRoute();
   }
 
   window.openHnhProject = openDetail;
   window.closeHnhProject = closeDetail;
+
+  // Safety fallback: a script/runtime failure should never leave the page hidden forever.
+  if (holdInitialProject) window.setTimeout(revealProjectRoute, 3000);
 
   // Showcase slide selection is handled by the hero gallery dots; clicking the hero itself does not navigate.
 
@@ -132,7 +151,6 @@
       else document.querySelector('[data-panel="contact"], a[href="#contact"]')?.click();
     }
   });
-
 
 })();
 
