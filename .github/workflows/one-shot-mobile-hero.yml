@@ -1,0 +1,98 @@
+name: One-shot mobile hero repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-shot-mobile-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch homepage mobile hero
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          text = path.read_text()
+          text = text.replace('/assets/css/brand.css?v=20260911', '/assets/css/brand.css?v=20260915-hero-full-3')
+
+          critical = r'''<style id="critical-mobile-hero">
+          @media (max-width: 620px) {
+            html, body, #site-interaction-shell, main#top {
+              width: 100% !important;
+              height: 100% !important;
+              min-height: 100% !important;
+              margin: 0 !important;
+            }
+            body[data-route-path="/"] main#top {
+              position: fixed !important;
+              inset: 0 !important;
+              overflow: hidden !important;
+            }
+            body[data-route-path="/"] .hero {
+              position: absolute !important;
+              inset: 0 !important;
+              width: 100% !important;
+              height: 100% !important;
+              min-height: 100% !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              overflow: hidden !important;
+            }
+            body[data-route-path="/"] .hero-slides,
+            body[data-route-path="/"] .hero-slide,
+            body[data-route-path="/"] .hero-slide::after {
+              position: absolute !important;
+              inset: 0 !important;
+              width: 100% !important;
+              height: 100% !important;
+              min-height: 0 !important;
+              margin: 0 !important;
+            }
+            body[data-route-path="/"] .hero-slide {
+              background-size: cover !important;
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              transform: scale(1.04) !important;
+            }
+            body[data-route-path="/"] .hero-slide.active {
+              transform: scale(1.12) !important;
+            }
+            body[data-route-path="/"] .hero-content {
+              position: relative !important;
+              width: 100% !important;
+              height: 100% !important;
+              min-height: 100% !important;
+            }
+          }
+          </style>'''
+
+          if 'id="critical-mobile-hero"' in text:
+              text = re.sub(r'<style id="critical-mobile-hero">.*?</style>', critical, text, flags=re.S)
+          else:
+              text = text.replace('</head>', critical + '\n</head>', 1)
+
+          path.write_text(text)
+          PY
+      - name: Commit homepage repair
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No index change required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Force full-bleed mobile homepage hero'
+          git push origin HEAD:main
