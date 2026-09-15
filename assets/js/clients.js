@@ -7,6 +7,12 @@
     const mobile = window.matchMedia('(max-width: 620px)').matches;
 
     document.querySelectorAll('.clients-all-trigger, .projects-all-trigger').forEach(button => {
+      const ctaFooter = button.closest('.clients-footer, .projects-footer');
+      if (ctaFooter) {
+        ctaFooter.style.setProperty('height', CTA_HEIGHT, 'important');
+        ctaFooter.style.setProperty('min-height', CTA_HEIGHT, 'important');
+      }
+
       button.style.setProperty('height', CTA_HEIGHT, 'important');
       button.style.setProperty('min-height', CTA_HEIGHT, 'important');
       button.style.setProperty('background', CTA_BG, 'important');
@@ -20,6 +26,7 @@
         if (footer) {
           footer.style.setProperty('width', '100%', 'important');
           footer.style.setProperty('height', CTA_HEIGHT, 'important');
+          footer.style.setProperty('min-height', CTA_HEIGHT, 'important');
           footer.style.setProperty('margin', '14px 0 0', 'important');
           footer.style.setProperty('display', 'flex', 'important');
           footer.style.setProperty('justify-content', 'stretch', 'important');
@@ -93,6 +100,8 @@
 
     if (footer) {
       footer.style.setProperty('width', 'min(100%, var(--gallery-width))', 'important');
+      footer.style.setProperty('height', CTA_HEIGHT, 'important');
+      footer.style.setProperty('min-height', CTA_HEIGHT, 'important');
       footer.style.setProperty('margin', '0 auto', 'important');
       footer.style.setProperty('padding', '0', 'important');
       footer.style.setProperty('display', 'flex', 'important');
