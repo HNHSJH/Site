@@ -1,5 +1,12 @@
 (() => {
   const revealProjectRoute = () => document.body?.classList.add('project-route-ready');
+
+  // Homepage never shows the menu hamburger or slideshow pause control.
+  if (location.pathname === '/' || document.body?.dataset.routePath === '/') {
+    document.querySelector('.menu-button')?.style.setProperty('display', 'none', 'important');
+    document.querySelector('.hero-playback')?.style.setProperty('display', 'none', 'important');
+  }
+
   const data = window.HNH_PROJECT_DATA;
   if (!data || !Array.isArray(data.projects)) {
     revealProjectRoute();
@@ -42,16 +49,12 @@
     }
   }
 
-  // Keep the archive hierarchy consistent with the selected gallery: project
-  // name remains visible over the image; type and certification reveal on hover.
   document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
     const p = byId[card.dataset.projectId];
     const copy = card.querySelector('.project-info p');
     if (p && copy) copy.textContent = hoverCopy(p);
   });
 
-  // The Projects landing page uses an explicit compact 2 / 4 / 2 composition.
-  // Inline important values intentionally beat the older showcase grid rules.
   const applySelectedLayout = () => {
     if (!selectedGrid) return;
     const shell = selectedGrid.closest('.section-shell');
@@ -63,10 +66,10 @@
     const clear = (el, props) => props.forEach(prop => el?.style.removeProperty(prop));
     if (!desktop) {
       clear(shell, ['display','grid-template-columns','grid-template-rows','column-gap','row-gap','align-content','justify-content']);
-      clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right']);
+      clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right','transform']);
       clear(selectedGrid, ['display']);
-      clear(footer, ['grid-column','grid-row','align-self','justify-self','margin']);
-      cards.forEach(card => clear(card, ['grid-column','grid-row','height']));
+      clear(footer, ['grid-column','grid-row','align-self','justify-self','margin','transform']);
+      cards.forEach(card => clear(card, ['grid-column','grid-row','height','align-self']));
       return;
     }
 
@@ -74,7 +77,7 @@
     shell?.style.setProperty('grid-template-columns', 'repeat(8,minmax(0,1fr))', 'important');
     shell?.style.setProperty('grid-template-rows', 'repeat(3,auto)', 'important');
     shell?.style.setProperty('column-gap', '8px', 'important');
-    shell?.style.setProperty('row-gap', '7px', 'important');
+    shell?.style.setProperty('row-gap', '8px', 'important');
     shell?.style.setProperty('align-content', 'center', 'important');
     shell?.style.setProperty('justify-content', 'stretch', 'important');
 
@@ -83,6 +86,7 @@
     kicker?.style.setProperty('align-self', 'center', 'important');
     kicker?.style.setProperty('margin', '0', 'important');
     kicker?.style.setProperty('padding-right', '20px', 'important');
+    kicker?.style.setProperty('transform', 'translateY(-20px)', 'important');
     selectedGrid.style.setProperty('display', 'contents', 'important');
 
     const positions = [
@@ -90,19 +94,32 @@
       ['1 / 3', '2'], ['3 / 5', '2'], ['5 / 7', '2'], ['7 / 9', '2'],
       ['2 / 4', '3'], ['4 / 6', '3']
     ];
+    const heights = [
+      'clamp(220px,23vh,254px)',
+      'clamp(196px,20.7vh,226px)',
+      'clamp(208px,22vh,240px)',
+      'clamp(190px,20vh,218px)',
+      'clamp(224px,23.5vh,258px)',
+      'clamp(200px,21vh,230px)',
+      'clamp(196px,20.7vh,226px)',
+      'clamp(218px,23vh,250px)'
+    ];
     cards.forEach((card, index) => {
       const pos = positions[index];
       if (!pos) return;
       card.style.setProperty('grid-column', pos[0], 'important');
       card.style.setProperty('grid-row', pos[1], 'important');
-      card.style.setProperty('height', 'clamp(188px,20.5vh,222px)', 'important');
+      card.style.setProperty('height', heights[index] || 'clamp(202px,21.5vh,236px)', 'important');
+      card.style.setProperty('align-self', index === 1 || index === 3 || index === 5 || index === 6 ? 'center' : 'start', 'important');
     });
 
-    footer?.style.setProperty('grid-column', '7 / 9', 'important');
+    // The marked slot: immediately to the right of the two bottom-row cards.
+    footer?.style.setProperty('grid-column', '6 / 8', 'important');
     footer?.style.setProperty('grid-row', '3', 'important');
-    footer?.style.setProperty('align-self', 'end', 'important');
-    footer?.style.setProperty('justify-self', 'end', 'important');
+    footer?.style.setProperty('align-self', 'center', 'important');
+    footer?.style.setProperty('justify-self', 'center', 'important');
     footer?.style.setProperty('margin', '0', 'important');
+    footer?.style.setProperty('transform', 'translateY(-2px)', 'important');
   };
   applySelectedLayout();
   window.addEventListener('resize', applySelectedLayout, { passive: true });
@@ -160,6 +177,7 @@
   const description = document.getElementById('project-detail-description');
   const meta = document.getElementById('project-detail-meta');
   const projectsPanel = document.getElementById('projects');
+  let mainPhotoRequest = 0;
 
   function setParentProjectControlsHidden(hidden) {
     projectsPanel?.classList.toggle('project-detail-active', hidden);
@@ -169,15 +187,46 @@
     });
   }
 
-  function setMainPhoto(p, idx) {
+  async function setMainPhoto(p, idx) {
     const ph = p.photos[idx];
-    if (!ph) return;
-    mainImg.sizes = '(max-width: 900px) calc(100vw - 48px), (max-width: 1280px) 64vw, 820px';
+    if (!ph || !mainImg) return;
+    const requestId = ++mainPhotoRequest;
+    const sizes = '(max-width: 900px) calc(100vw - 48px), (max-width: 1280px) 64vw, 820px';
+
+    // Never leave the previous project's decoded bitmap visible while the next
+    // image downloads. The neutral media surface stays visible instead.
+    mainImg.style.opacity = '0';
+    mainImg.style.visibility = 'hidden';
+    mainImg.removeAttribute('srcset');
+    mainImg.removeAttribute('src');
+    mainImg.alt = '';
+    thumbs?.querySelectorAll('.project-detail-thumb').forEach((b,i) => b.classList.toggle('is-active', i === idx));
+
+    const preload = new Image();
+    preload.sizes = sizes;
+    if (ph.srcset) preload.srcset = ph.srcset;
+    preload.src = ph.src;
+    try {
+      if (typeof preload.decode === 'function') await preload.decode();
+      else await new Promise((resolve, reject) => {
+        preload.onload = resolve;
+        preload.onerror = reject;
+      });
+    } catch {
+      // Fall back to assigning the requested source; the old image still stays hidden.
+    }
+    if (requestId !== mainPhotoRequest) return;
+
+    mainImg.sizes = sizes;
     mainImg.srcset = ph.srcset || '';
     [mainImg.width, mainImg.height] = ph.web_dimensions;
     mainImg.src = ph.src;
     mainImg.alt = `${p.display_name} — ${categories[p.category] || p.category}`;
-    thumbs.querySelectorAll('.project-detail-thumb').forEach((b,i) => b.classList.toggle('is-active', i === idx));
+    requestAnimationFrame(() => {
+      if (requestId !== mainPhotoRequest) return;
+      mainImg.style.visibility = 'visible';
+      mainImg.style.opacity = '1';
+    });
   }
 
   function openDetail(id, trigger) {
@@ -208,6 +257,11 @@
 
   function closeDetail() {
     if (!overlay) return;
+    mainPhotoRequest += 1;
+    if (mainImg) {
+      mainImg.style.opacity = '0';
+      mainImg.style.visibility = 'hidden';
+    }
     overlay.classList.remove('is-open');
     window.HnhDialogs.close(overlay);
     overlay.removeAttribute('data-project-id');
