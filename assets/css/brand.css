@@ -344,3 +344,43 @@ html.js body[data-route-path^="/projects/"][data-initial-panel="route-detail"] >
     transform: none !important;
   }
 }
+
+/* Persistent footer casing: preserve natural address casing and lowercase email. */
+.global-contact-footer {
+  text-transform: none !important;
+}
+.global-contact-footer a[href^="mailto:"] {
+  text-transform: lowercase !important;
+}
+
+/* Mobile home must remain a true full-viewport hero. */
+@media (max-width: 620px) {
+  body[data-route-path="/"] main#top,
+  body[data-route-path="/"] .hero,
+  body[data-route-path="/"] .hero-slides,
+  body[data-route-path="/"] .hero-slide {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100svh !important;
+  }
+
+  body[data-route-path="/"] .hero {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body[data-route-path="/"] .hero-slide {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  body[data-route-path="/"] .hero-slide.active {
+    transform: scale(1.03) !important;
+  }
+
+  body[data-route-path="/"] .hero-content {
+    min-height: 100dvh !important;
+  }
+}
