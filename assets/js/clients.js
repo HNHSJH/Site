@@ -10,7 +10,7 @@
     const mobile = window.matchMedia('(max-width: 620px)').matches;
     const shell = contact.querySelector(':scope > .section-shell');
     const heading = contact.querySelector('.contact-heading');
-    const horizontalOffset = mobile ? '8px' : '18px';
+    const horizontalOffset = mobile ? '12px' : '34px';
 
     if (shell) {
       shell.style.setProperty('position', 'relative', 'important');
@@ -29,6 +29,35 @@
     form.style.setProperty('backdrop-filter', 'blur(8px)', 'important');
     form.style.setProperty('-webkit-backdrop-filter', 'blur(8px)', 'important');
     form.style.setProperty('box-shadow', 'none', 'important');
+
+    form.querySelectorAll('.contact-field label').forEach(label => {
+      label.style.setProperty('font-size', mobile ? '9px' : '12px', 'important');
+      label.style.setProperty('color', 'rgba(248,252,249,.96)', 'important');
+      label.style.setProperty('letter-spacing', '.11em', 'important');
+    });
+
+    let hintStyle = document.getElementById('hnh-contact-hint-style');
+    if (!hintStyle) {
+      hintStyle = document.createElement('style');
+      hintStyle.id = 'hnh-contact-hint-style';
+      document.head.appendChild(hintStyle);
+    }
+    hintStyle.textContent = `
+      #contact-form .contact-field input::placeholder,
+      #contact-form .contact-field textarea::placeholder {
+        color: rgba(185, 207, 191, .78) !important;
+        opacity: 1 !important;
+      }
+      #contact-form #enquiry-type:required:invalid {
+        color: rgba(185, 207, 191, .78) !important;
+      }
+      #contact-form #enquiry-type:valid {
+        color: rgba(248, 252, 249, .96) !important;
+      }
+      #contact-form #enquiry-type option {
+        color: #16221c !important;
+      }
+    `;
 
     const hintText = {
       'enquiry-name': 'e.g. Alex Tan',
@@ -132,11 +161,12 @@
   const applyClientLayout = () => {
     const desktop = window.matchMedia('(min-width: 1021px)').matches;
     const mobile = window.matchMedia('(max-width: 620px)').matches;
+    const selectedWidth = 'min(100%,1120px)';
 
     if (shell) {
       shell.style.setProperty(
         'transform',
-        desktop ? 'translateY(128px)' : mobile ? 'translateY(150px)' : 'none',
+        desktop ? 'translateY(72px)' : mobile ? 'translateY(150px)' : 'none',
         'important'
       );
     }
@@ -145,6 +175,8 @@
     grid.style.setProperty('column-gap', '0', 'important');
     grid.style.setProperty('row-gap', '0', 'important');
     grid.style.setProperty('order', '1', 'important');
+    grid.style.setProperty('width', desktop ? selectedWidth : '100%', 'important');
+    grid.style.setProperty('margin', desktop ? '0 auto' : '0', 'important');
 
     if (desktop) {
       const rowHeight = 'clamp(118px,13vh,142px)';
@@ -175,7 +207,7 @@
     intro?.style.setProperty('order', '3', 'important');
 
     if (footer) {
-      footer.style.setProperty('width', 'min(100%, var(--gallery-width))', 'important');
+      footer.style.setProperty('width', desktop ? selectedWidth : 'min(100%, var(--gallery-width))', 'important');
       footer.style.setProperty('height', CTA_HEIGHT, 'important');
       footer.style.setProperty('min-height', CTA_HEIGHT, 'important');
       footer.style.setProperty('margin', '0 auto', 'important');
