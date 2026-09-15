@@ -120,13 +120,15 @@
       projectKicker?.style.setProperty('margin-bottom', '14px', 'important');
       projectFooter?.style.setProperty('margin-top', '10px', 'important');
 
-      if (heroSlides) heroSlides.style.setProperty('background', '#182019', 'important');
+      // The homepage hero remains full bleed on mobile. Do not switch to
+      // contain after load; that produces dark letterbox bands on portrait screens.
+      if (heroSlides) heroSlides.style.removeProperty('background');
       heroSlideItems.forEach(slide => {
-        slide.style.setProperty('background-size', 'contain', 'important');
+        slide.style.setProperty('background-size', 'cover', 'important');
         slide.style.setProperty('background-repeat', 'no-repeat', 'important');
         slide.style.setProperty('background-position', 'center center', 'important');
-        slide.style.setProperty('background-color', '#182019', 'important');
-        slide.style.setProperty('transform', 'none', 'important');
+        slide.style.removeProperty('background-color');
+        slide.style.removeProperty('transform');
       });
     } else {
       if (aboutShell) {
