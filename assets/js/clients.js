@@ -3,6 +3,22 @@
   const CTA_BG = '#20312d';
   const CTA_HOVER = '#355349';
 
+  const styleContactFormPanel = () => {
+    const form = document.querySelector('#contact-form.contact-form');
+    if (!form) return;
+    const mobile = window.matchMedia('(max-width: 620px)').matches;
+
+    form.style.setProperty('background', 'rgba(255,255,255,.12)', 'important');
+    form.style.setProperty('border', '1px solid rgba(255,255,255,.18)', 'important');
+    form.style.setProperty('padding', mobile ? '14px' : '20px 22px', 'important');
+    form.style.setProperty('backdrop-filter', 'blur(8px)', 'important');
+    form.style.setProperty('-webkit-backdrop-filter', 'blur(8px)', 'important');
+    form.style.setProperty('box-shadow', 'none', 'important');
+  };
+
+  styleContactFormPanel();
+  window.addEventListener('resize', styleContactFormPanel, { passive: true });
+
   const styleArchiveCtas = () => {
     const mobile = window.matchMedia('(max-width: 620px)').matches;
 
@@ -93,6 +109,28 @@
     grid.style.setProperty('column-gap', '0', 'important');
     grid.style.setProperty('row-gap', '0', 'important');
     grid.style.setProperty('order', '1', 'important');
+
+    if (desktop) {
+      const rowHeight = 'clamp(92px,10.5vh,112px)';
+      grid.style.setProperty('grid-template-columns', 'repeat(6,minmax(0,1fr))', 'important');
+      grid.style.setProperty('grid-template-rows', `repeat(3,${rowHeight})`, 'important');
+      grid.style.setProperty('grid-auto-rows', rowHeight, 'important');
+      items.forEach((item, index) => {
+        item.style.setProperty('grid-row', 'auto', 'important');
+        if (index < 6) item.style.setProperty('grid-column', 'span 2', 'important');
+        else if (index === 6) item.style.setProperty('grid-column', '2 / 4', 'important');
+        else item.style.setProperty('grid-column', '4 / 6', 'important');
+      });
+    } else {
+      grid.style.removeProperty('grid-template-columns');
+      grid.style.removeProperty('grid-template-rows');
+      grid.style.removeProperty('grid-auto-rows');
+      items.forEach(item => {
+        item.style.removeProperty('grid-column');
+        item.style.removeProperty('grid-row');
+      });
+    }
+
     items.forEach(item => item.style.setProperty('border', '0', 'important'));
 
     footer?.style.setProperty('order', '2', 'important');
