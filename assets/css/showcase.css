@@ -3881,3 +3881,17 @@ body[data-active-panel="route-detail"] .site-header .brand { color: #20312d; }
       display: none;
     }
   }
+
+
+/* Initial Clients grid: slightly smaller desktop/tablet marks. */
+@media (min-width: 621px) {
+  .clients .client-grid .client-logo img,
+  .clients .client-grid .client-logo.logo-wide img,
+  .clients .client-grid .client-logo.logo-medium img,
+  .clients .client-grid .client-logo.logo-tall img,
+  .clients .client-grid .client-logo-moe img {
+    inset: 27px 36px !important;
+    width: calc(100% - 72px) !important;
+    height: calc(100% - 54px) !important;
+  }
+}
