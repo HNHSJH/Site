@@ -10,6 +10,7 @@
   const categories = Object.fromEntries(data.categories.map(c => [c.id, c.name]));
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+  const hoverCopy = p => [categories[p.category] || p.category, ...(p.certification_text || [])].filter(Boolean).join(' · ');
 
   const featuredProjectIds = [
     'artificial-turf--our-tampines-hub',
@@ -31,25 +32,80 @@
         if (!ph) return '';
         const srcset = ph.srcset ? ` srcset="${esc(ph.srcset)}"` : '';
         const loading = i < 2 ? 'eager' : 'lazy';
-        const description = p.detail_description || `${categories[p.category] || p.category} project reference.`;
         return `<a class="project-card" href="/projects/#${encodeURIComponent(p.id)}" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">`
           + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</span>`
           + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 24vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
-          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(description)}</p></div>`
+          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(hoverCopy(p))}</p></div>`
           + '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>';
       }).join('');
       selectedGrid.dataset.featuredReady = 'true';
     }
   }
 
-  // The static archive stays crawlable, then receives richer descriptions when
-  // JavaScript is available. Names remain visible at rest; these descriptions
-  // are revealed by the modern hover/focus treatment in brand.css.
+  // Keep the archive hierarchy consistent with the selected gallery: project
+  // name remains visible over the image; type and certification reveal on hover.
   document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
     const p = byId[card.dataset.projectId];
     const copy = card.querySelector('.project-info p');
-    if (p && copy) copy.textContent = p.detail_description || `${categories[p.category] || p.category} project reference.`;
+    if (p && copy) copy.textContent = hoverCopy(p);
   });
+
+  // The Projects landing page uses an explicit compact 2 / 4 / 2 composition.
+  // Inline important values intentionally beat the older showcase grid rules.
+  const applySelectedLayout = () => {
+    if (!selectedGrid) return;
+    const shell = selectedGrid.closest('.section-shell');
+    const kicker = shell?.querySelector('.section-kicker');
+    const footer = shell?.querySelector('.projects-footer');
+    const cards = [...selectedGrid.querySelectorAll(':scope > .project-card')];
+    const desktop = window.matchMedia('(min-width: 1021px)').matches;
+
+    const clear = (el, props) => props.forEach(prop => el?.style.removeProperty(prop));
+    if (!desktop) {
+      clear(shell, ['display','grid-template-columns','grid-template-rows','column-gap','row-gap','align-content','justify-content']);
+      clear(kicker, ['grid-column','grid-row','align-self','margin','padding-right']);
+      clear(selectedGrid, ['display']);
+      clear(footer, ['grid-column','grid-row','align-self','justify-self','margin']);
+      cards.forEach(card => clear(card, ['grid-column','grid-row','height']));
+      return;
+    }
+
+    shell?.style.setProperty('display', 'grid', 'important');
+    shell?.style.setProperty('grid-template-columns', 'repeat(8,minmax(0,1fr))', 'important');
+    shell?.style.setProperty('grid-template-rows', 'repeat(3,auto)', 'important');
+    shell?.style.setProperty('column-gap', '8px', 'important');
+    shell?.style.setProperty('row-gap', '7px', 'important');
+    shell?.style.setProperty('align-content', 'center', 'important');
+    shell?.style.setProperty('justify-content', 'stretch', 'important');
+
+    kicker?.style.setProperty('grid-column', '1 / 4', 'important');
+    kicker?.style.setProperty('grid-row', '1', 'important');
+    kicker?.style.setProperty('align-self', 'center', 'important');
+    kicker?.style.setProperty('margin', '0', 'important');
+    kicker?.style.setProperty('padding-right', '20px', 'important');
+    selectedGrid.style.setProperty('display', 'contents', 'important');
+
+    const positions = [
+      ['4 / 6', '1'], ['6 / 8', '1'],
+      ['1 / 3', '2'], ['3 / 5', '2'], ['5 / 7', '2'], ['7 / 9', '2'],
+      ['5 / 7', '3'], ['7 / 9', '3']
+    ];
+    cards.forEach((card, index) => {
+      const pos = positions[index];
+      if (!pos) return;
+      card.style.setProperty('grid-column', pos[0], 'important');
+      card.style.setProperty('grid-row', pos[1], 'important');
+      card.style.setProperty('height', 'clamp(136px,15vh,160px)', 'important');
+    });
+
+    footer?.style.setProperty('grid-column', '1 / 3', 'important');
+    footer?.style.setProperty('grid-row', '3', 'important');
+    footer?.style.setProperty('align-self', 'center', 'important');
+    footer?.style.setProperty('justify-self', 'start', 'important');
+    footer?.style.setProperty('margin', '0', 'important');
+  };
+  applySelectedLayout();
+  window.addEventListener('resize', applySelectedLayout, { passive: true });
 
   let initialProjectId = '';
   if (location.pathname === '/projects/' && location.hash) {
@@ -58,9 +114,6 @@
   const holdInitialProject = Boolean(initialProjectId && byId[initialProjectId]);
   if (!holdInitialProject) revealProjectRoute();
 
-  // Direct crawlable project URLs should land in the real Projects experience
-  // instead of the lightweight SEO detail template. Only redirect when the
-  // category/slug pair matches a maintained project record.
   const directMatch = location.pathname.match(/^\/projects\/([^/]+)\/([^/]+)\/$/);
   if (directMatch) {
     let directId = '';
@@ -89,7 +142,10 @@
       const filter = btn.dataset.projectFilter;
       document.querySelectorAll('.project-filter').forEach(x => x.classList.toggle('is-active', x === btn));
       document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
-        card.hidden = filter !== 'all' && card.dataset.projectCategory !== filter;
+        const shouldHide = filter !== 'all' && card.dataset.projectCategory !== filter;
+        card.hidden = shouldHide;
+        if (shouldHide) card.style.setProperty('display', 'none', 'important');
+        else card.style.removeProperty('display');
       });
       const scroller = document.querySelector('.all-projects-gallery-inner');
       if (scroller) scroller.scrollTop = 0;
@@ -163,7 +219,6 @@
   window.openHnhProject = openDetail;
   window.closeHnhProject = closeDetail;
 
-  // Safety fallback: a script/runtime failure should never leave the page hidden forever.
   if (holdInitialProject) window.setTimeout(revealProjectRoute, 3000);
 
   document.addEventListener('click', e => {
@@ -192,7 +247,6 @@
 
 })();
 
-// Mobile Contact: raise content slightly while leaving Previous / Finish fixed in place.
 if (window.matchMedia('(max-width: 620px)').matches) {
   const contactShell = document.querySelector('#contact > .section-shell');
   if (contactShell) {
