@@ -38,8 +38,58 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="stylesheet" href="/assets/css/showcase.css?v=20260913-routes">
 
-<link rel="stylesheet" href="/assets/css/brand.css?v=20260911">
+<link rel="stylesheet" href="/assets/css/brand.css?v=20260915-hero-full-3">
 <link rel="stylesheet" href="/assets/css/content-pages.css?v=20260913-clean-nav">
+<style id="critical-mobile-hero">
+@media (max-width: 620px) {
+  html, body, #site-interaction-shell, main#top {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+  }
+  body[data-route-path="/"] main#top {
+    position: fixed !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+  }
+  body[data-route-path="/"] .hero {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  body[data-route-path="/"] .hero-slides,
+  body[data-route-path="/"] .hero-slide,
+  body[data-route-path="/"] .hero-slide::after {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+  body[data-route-path="/"] .hero-slide {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    transform: scale(1.04) !important;
+  }
+  body[data-route-path="/"] .hero-slide.active {
+    transform: scale(1.12) !important;
+  }
+  body[data-route-path="/"] .hero-content {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+}
+</style>
 </head>
 <body data-route-path="/" data-initial-panel="top">
 <div id="site-interaction-shell">
