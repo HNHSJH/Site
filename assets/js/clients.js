@@ -40,7 +40,8 @@
     });
 
     if (heading) {
-      heading.style.setProperty('width', mobile ? '100%' : 'auto', 'important');
+      // Use the shared grid width; auto width centres this flex item between its margins.
+      heading.style.removeProperty('width');
       heading.style.setProperty('margin-bottom', mobile ? '18px' : '', 'important');
     }
 
