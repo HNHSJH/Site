@@ -11,6 +11,14 @@ GitHub Pages-ready static site.
 
 `index.html` is the landing page. No build step is required.
 
+## Google Analytics
+
+GA4 web stream `G-Z37NKBPG2N` is installed once in the head of each full showcase document, including the 404 page. The homepage is the shared template source. Redirect-only service and project documents are measured at their destination, so they do not load a second tag.
+
+The standard Google tag sends the initial page view. Keep **Enhanced measurement → Page views → Page changes based on browser history events** enabled in the Analytics web stream to measure the site's in-document navigation and browser Back/Forward. Do not add manual `page_view` events alongside that setting, which would count navigation twice. This installation does not add custom form or enquiry conversion events.
+
+After deployment, check the tag and collection requests in the browser and confirm receipt in **Google Analytics → Reports → Realtime**. Historical reports can take 24–48 hours to populate. Data starts after installation; earlier untracked visits are not backfilled.
+
 ## Project library
 
 - 63 supplied project references
