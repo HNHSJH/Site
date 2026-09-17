@@ -18,7 +18,12 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[ch]));
 
-  if (viewAll) viewAll.href = '/projects/';
+  if (viewAll) {
+    viewAll.href = '/projects/';
+    viewAll.classList.remove('button');
+    viewAll.classList.add('archive-trigger');
+    viewAll.innerHTML = 'View All Projects <span aria-hidden="true">→</span>';
+  }
   if (!data || !Array.isArray(data.projects) || !grid) return;
 
   const categoryNames = Object.fromEntries((data.categories || []).map(category => [category.id, category.name]));
@@ -29,13 +34,31 @@
   const applyArchiveGrid = () => {
     const width = window.innerWidth;
     const columns = width <= 620 ? 1 : width <= 980 ? 2 : 3;
+    const galleryWidth = width > 980 ? 'min(100%,1560px)' : '100%';
+
     grid.style.setProperty('display', 'grid', 'important');
     grid.style.setProperty('grid-template-columns', `repeat(${columns},minmax(0,1fr))`, 'important');
-    grid.style.setProperty('width', width > 980 ? 'min(100%,1560px)' : '100%', 'important');
+    grid.style.setProperty('width', galleryWidth, 'important');
     grid.style.setProperty('margin-inline', 'auto', 'important');
     grid.style.setProperty('gap', '0', 'important');
     grid.style.setProperty('column-gap', '0', 'important');
     grid.style.setProperty('row-gap', '0', 'important');
+
+    const actions = viewAll?.closest('.actions');
+    if (actions) {
+      actions.style.setProperty('display', 'block', 'important');
+      actions.style.setProperty('width', galleryWidth, 'important');
+      actions.style.setProperty('margin', '14px auto 0', 'important');
+      actions.style.setProperty('gap', '0', 'important');
+    }
+    if (viewAll) {
+      viewAll.style.setProperty('display', 'flex', 'important');
+      viewAll.style.setProperty('align-items', 'center', 'important');
+      viewAll.style.setProperty('justify-content', 'space-between', 'important');
+      viewAll.style.setProperty('width', '100%', 'important');
+      viewAll.style.setProperty('min-height', '50px', 'important');
+      viewAll.style.setProperty('padding', '0 18px', 'important');
+    }
   };
 
   grid.innerHTML = matching.map((project, index) => {
