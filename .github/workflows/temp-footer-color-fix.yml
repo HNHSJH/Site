@@ -1,0 +1,83 @@
+name: Temporary footer colour fix
+
+on:
+  push:
+    branches:
+      - fix-footer-colors2
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add persistent footer surface states
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('assets/css/brand.css')
+          text = path.read_text()
+          marker = '/* Persistent copyright surface-colour correction */'
+          lines = [
+              '',
+              marker,
+              '/* Projects now uses the same light family as Clients/Expertise, so its',
+              '   persistent copyright must use dark ink too. Body state selectors make the',
+              '   direct-route and in-document panel cases deterministic. */',
+              'body[data-active-panel="projects"] .global-copyright,',
+              'body[data-active-panel="clients"] .global-copyright,',
+              'body[data-active-panel="expertise"] .global-copyright,',
+              'body[data-active-panel="route-detail"] .global-copyright,',
+              'body:has(#projects.panel-active) .global-copyright,',
+              'body:has(#clients.panel-active) .global-copyright,',
+              'body:has(#expertise.panel-active) .global-copyright,',
+              'body.project-archive-open .global-copyright,',
+              'body.client-archive-open .global-copyright,',
+              'body.moe-schools-open .global-copyright,',
+              'body.project-detail-open .global-copyright {',
+              '  color: rgba(32,49,45,.72) !important;',
+              '}',
+              '',
+              '/* The menu overlay is always dark regardless of the page underneath it. */',
+              'body.menu-open .global-copyright {',
+              '  color: rgba(255,255,255,.78) !important;',
+              '}',
+          ]
+          if marker not in text:
+              path.write_text(text.rstrip() + '\n' + '\n'.join(lines) + '\n')
+          PY
+
+      - name: Validate footer colour selectors
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          text = Path('assets/css/brand.css').read_text()
+          required = [
+              'body[data-active-panel="projects"] .global-copyright',
+              'body[data-active-panel="clients"] .global-copyright',
+              'body[data-active-panel="expertise"] .global-copyright',
+              'body[data-active-panel="route-detail"] .global-copyright',
+              'body.menu-open .global-copyright',
+              'color: rgba(32,49,45,.72) !important;',
+              'color: rgba(255,255,255,.78) !important;',
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit('Missing expected footer rule(s): ' + ', '.join(missing))
+          print('PASS: persistent footer colours cover light panels and the dark menu overlay.')
+          PY
+
+      - name: Commit footer colour fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/brand.css
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Fix persistent footer colours"
+          git push
