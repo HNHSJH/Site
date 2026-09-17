@@ -133,7 +133,7 @@ def enquiry(label='Discuss your project'):
     return f'<div class="actions"><a class="button" href="/contact/" data-panel="contact">{label}</a><a class="button" href="tel:+6591148327">Call +65 9114 8327</a></div>'
 
 
-page('/services/', 'Sports Construction Services Singapore | H&H Resources',
+page('/services/', 'Sports Fields, Courts & Surfacing Services | H&H Resources',
      'Sports fields, courts, turf and landscape construction for schools, clubs and government agencies in Singapore. Explore H&H Resources services.',
      'Sports construction services in Singapore', '', kind='CollectionPage')
 
@@ -173,13 +173,13 @@ for project_id in DETAILS:
 
 # Main-page content is owned by the corresponding section in index.html.
 # Only metadata is defined here; there is no second layout or copy to maintain.
-page('/about-us/', 'About H&H Resources | Sports Construction Singapore',
+page('/about-us/', 'About H&H Resources | Since 1980 in Singapore',
      'Learn about H&H Resources, its roots in 1980 and its golf, turf, landscape and sports-facility construction experience in Singapore.',
      'Built on experience. Made for play.', '', kind='AboutPage')
 page('/clients/', 'Clients & School Projects | H&H Resources Singapore',
      'Explore H&H Resources client and school project references across Singapore, including schools, sports clubs, government agencies and community organisations.',
      'Our clients in Singapore', '', kind='CollectionPage')
-page('/contact/', 'Contact H&H Resources | Sports Construction Enquiries',
+page('/contact/', 'Contact H&H Resources | Project Enquiries Singapore',
      'Contact H&H Resources about sports construction, turf and surfacing works in Singapore. Call +65 9114 8327 or email enquiry@hnhresources.com.',
      'Start a project with H&H', '', kind='ContactPage')
 
