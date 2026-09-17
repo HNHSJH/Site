@@ -182,6 +182,18 @@
   const items = [...document.querySelectorAll('.expertise-item')];
   if (!items.length) return;
 
+  // Keep the Sports Courts accordion aligned with the category gallery mapping.
+  // Acrylic Coating and Timber Flooring both belong to Sports Courts.
+  const sportsCourtsItem = items[serviceOrder.indexOf('sports-courts')];
+  const sportsCourtsOptions = sportsCourtsItem?.querySelector('.expertise-options');
+  if (sportsCourtsOptions && ![...sportsCourtsOptions.querySelectorAll('.expertise-choice')].some(link => link.textContent.trim() === 'Acrylic Coating')) {
+    const acrylicLink = document.createElement('a');
+    acrylicLink.className = 'expertise-choice';
+    acrylicLink.href = '/services/sports-courts/';
+    acrylicLink.textContent = 'Acrylic Coating';
+    sportsCourtsOptions.prepend(acrylicLink);
+  }
+
   function setOpen(item, open) {
     const toggle = item.querySelector('.expertise-toggle');
     const options = item.querySelector('.expertise-options');
