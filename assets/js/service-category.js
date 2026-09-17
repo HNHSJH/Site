@@ -11,19 +11,23 @@
   const serviceGroups = {
     'sports-fields': {
       name: 'Sports Fields',
-      categories: ['artificial-turf']
+      categories: ['artificial-turf'],
+      representative: 'artificial-turf--our-tampines-hub'
     },
     'sports-courts': {
       name: 'Sports Courts',
-      categories: ['acrylic-coating', 'timber-flooring']
+      categories: ['acrylic-coating', 'timber-flooring'],
+      representative: 'acrylic-coating--tanah-merah-country-club'
     },
     'specialised-surfaces': {
       name: 'Specialised Surfaces',
-      categories: ['running-track', 'epdm-flooring']
+      categories: ['running-track', 'epdm-flooring'],
+      representative: 'running-track--singapore-polytechnic'
     },
     'turf-landscape': {
       name: 'Turf & Landscape',
-      categories: ['landscape-artificial-turf']
+      categories: ['landscape-artificial-turf'],
+      representative: 'landscape-artificial-turf--lion-city-sailors'
     },
     'golf-course-construction': {
       name: 'Golf Course Construction',
@@ -51,9 +55,13 @@
 
   const categoryNames = Object.fromEntries((data.categories || []).map(category => [category.id, category.name]));
   const matching = data.projects.filter(project => group.categories.includes(project.category));
-  const selected = matching.slice(0, 6);
+  const representative = matching.find(project => project.id === group.representative && project.photos?.[0]);
+  const selected = [
+    ...(representative ? [representative] : []),
+    ...matching.filter(project => project !== representative)
+  ].slice(0, 6);
 
-  const firstPhotoProject = matching.find(project => project.photos?.[0]);
+  const firstPhotoProject = representative || matching.find(project => project.photos?.[0]);
   if (heroMedia) {
     if (firstPhotoProject) {
       const photo = firstPhotoProject.photos[0];
@@ -65,6 +73,7 @@
       image.height = photo.web_dimensions?.[1] || 900;
       image.alt = `${firstPhotoProject.display_name} — ${categoryNames[firstPhotoProject.category] || group.name}`;
       image.decoding = 'async';
+      image.loading = 'eager';
       image.fetchPriority = 'high';
       heroMedia.prepend(image);
       if (heroCaption) heroCaption.textContent = `${firstPhotoProject.display_name} · ${categoryNames[firstPhotoProject.category] || group.name}`;
