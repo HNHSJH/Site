@@ -3,6 +3,7 @@
   const serviceId = document.body?.dataset.serviceId || '';
   const grid = document.getElementById('service-project-grid');
   const viewAll = document.getElementById('service-view-all');
+  const backToExpertise = document.querySelector('#route-detail .panel-close[href="/services/"]');
 
   const serviceGroups = {
     'sports-fields': { categories: ['artificial-turf'] },
@@ -18,11 +19,36 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[ch]));
 
+  if (backToExpertise) {
+    backToExpertise.textContent = 'Back to Expertise';
+    backToExpertise.setAttribute('aria-label', 'Back to Expertise');
+  }
+
   if (viewAll) {
     viewAll.href = '/projects/';
     viewAll.classList.remove('button');
-    viewAll.classList.add('archive-trigger');
+    viewAll.classList.add('archive-trigger', 'service-view-all-contrast');
     viewAll.innerHTML = 'View All Projects <span aria-hidden="true">→</span>';
+
+    if (!document.getElementById('service-view-all-contrast-style')) {
+      const style = document.createElement('style');
+      style.id = 'service-view-all-contrast-style';
+      style.textContent = `
+        #service-view-all.service-view-all-contrast {
+          color: #fff !important;
+          background: #20312d !important;
+          border-color: #20312d !important;
+          box-shadow: none !important;
+        }
+        #service-view-all.service-view-all-contrast:hover,
+        #service-view-all.service-view-all-contrast:focus-visible {
+          color: #fff !important;
+          background: #355349 !important;
+          border-color: #355349 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
   }
   if (!data || !Array.isArray(data.projects) || !grid) return;
 
