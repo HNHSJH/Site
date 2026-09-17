@@ -14,68 +14,37 @@
 
   const projects = data.projects;
   const categories = Object.fromEntries(data.categories.map(c => [c.id, c.name]));
-  const categoryIds = new Set(data.categories.map(c => c.id));
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   const esc = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
   const hoverCopy = p => [categories[p.category] || p.category, ...(p.certification_text || [])].filter(Boolean).join(' · ');
 
-  // Project discovery follows the same top-level capability language used by Expertise.
-  // Golf Course Construction and Irrigation Systems remain Expertise categories, but are
-  // not presented as project-gallery filters until project references exist in the dataset.
-  const serviceGroups = [
-    {
-      id: 'sports-fields',
-      name: 'Sports Fields',
-      description: 'Artificial, natural and hybrid field construction.',
-      representative: 'artificial-turf--our-tampines-hub',
-      categories: ['artificial-turf']
-    },
-    {
-      id: 'sports-courts',
-      name: 'Sports Courts',
-      description: 'Acrylic court surfacing and timber sports flooring.',
-      representative: 'acrylic-coating--tanah-merah-country-club',
-      categories: ['acrylic-coating', 'timber-flooring']
-    },
-    {
-      id: 'specialised-surfaces',
-      name: 'Specialised Surfaces',
-      description: 'Running tracks, EPDM and specialist sports surfaces.',
-      representative: 'running-track--singapore-polytechnic',
-      categories: ['running-track', 'epdm-flooring']
-    },
-    {
-      id: 'turf-landscape',
-      name: 'Turf & Landscape',
-      description: 'Landscape turf and outdoor landscape works.',
-      representative: 'landscape-artificial-turf--lion-city-sailors',
-      categories: ['landscape-artificial-turf']
-    }
+  const featuredProjectIds = [
+    'artificial-turf--our-tampines-hub',
+    'acrylic-coating--tanah-merah-country-club',
+    'timber-flooring--ngee-ann-polytechnic',
+    'epdm-flooring--sutd',
+    'running-track--singapore-polytechnic',
+    'landscape-artificial-turf--lion-city-sailors',
+    'artificial-turf--jurong-east-stadium',
+    'acrylic-coating--singapore-swimming-club'
   ];
-  const serviceById = Object.fromEntries(serviceGroups.map(group => [group.id, group]));
 
   const selectedGrid = document.getElementById('selected-projects-grid');
   if (selectedGrid) {
-    const showcase = serviceGroups.map(group => ({ group, project: byId[group.representative] })).filter(item => item.project?.photos?.[0]);
-    if (showcase.length) {
-      selectedGrid.innerHTML = showcase.map(({ group, project }, i) => {
-        const ph = project.photos[0];
+    const featured = featuredProjectIds.map(id => byId[id]).filter(Boolean);
+    if (featured.length === featuredProjectIds.length) {
+      selectedGrid.innerHTML = featured.map((p, i) => {
+        const ph = p.photos?.[0];
+        if (!ph) return '';
         const srcset = ph.srcset ? ` srcset="${esc(ph.srcset)}"` : '';
         const loading = i < 2 ? 'eager' : 'lazy';
-        return `<a class="project-card project-category-card" href="/services/${encodeURIComponent(group.id)}/" data-service-category="${esc(group.id)}">`
-          + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(showcase.length).padStart(2, '0')}</span>`
-          + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 30vw" alt="${esc(group.name)} — H&H Resources" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
-          + `<div class="project-info"><div><h3>${esc(group.name)}</h3><p>${esc(group.description)}</p></div>`
+        return `<a class="project-card" href="/projects/#${encodeURIComponent(p.id)}" data-project-id="${esc(p.id)}" data-project-category="${esc(p.category)}">`
+          + `<div class="project-media"><span class="project-number">${String(i + 1).padStart(2, '0')} / ${String(featured.length).padStart(2, '0')}</span>`
+          + `<img src="${esc(ph.thumbnail || ph.src)}"${srcset} sizes="(max-width: 620px) calc((100vw - 40px) / 2), (max-width: 1020px) calc((100vw - 72px) / 2), 25vw" alt="${esc(p.display_name)} — ${esc(categories[p.category] || p.category)}" width="${ph.web_dimensions[0]}" height="${ph.web_dimensions[1]}" loading="${loading}" decoding="async"></div>`
+          + `<div class="project-info"><div><h3>${esc(p.display_name)}</h3><p>${esc(hoverCopy(p))}</p></div>`
           + '<span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div></a>';
       }).join('');
       selectedGrid.dataset.featuredReady = 'true';
-
-      const shell = selectedGrid.closest('.section-shell');
-      const kicker = shell?.querySelector('.section-kicker');
-      const eyebrow = kicker?.querySelector(':scope > span');
-      const heading = kicker?.querySelector('h1,h2');
-      if (eyebrow) eyebrow.textContent = 'Project Categories';
-      if (heading) heading.textContent = 'Explore our work by capability.';
     }
   }
 
@@ -122,7 +91,7 @@
 
     shell?.style.setProperty('display', 'grid', 'important');
     shell?.style.setProperty('grid-template-columns', 'repeat(20,minmax(0,1fr))', 'important');
-    shell?.style.setProperty('grid-template-rows', 'repeat(2,auto)', 'important');
+    shell?.style.setProperty('grid-template-rows', 'repeat(3,auto)', 'important');
     shell?.style.setProperty('column-gap', '0', 'important');
     shell?.style.setProperty('row-gap', '0', 'important');
     shell?.style.setProperty('align-content', 'center', 'important');
@@ -132,36 +101,37 @@
     kicker?.style.setProperty('grid-row', '1', 'important');
     kicker?.style.setProperty('align-self', 'center', 'important');
     kicker?.style.setProperty('margin', '0', 'important');
-    kicker?.style.setProperty('padding-right', '28px', 'important');
-    kicker?.style.setProperty('transform', 'translateY(-10px)', 'important');
+    kicker?.style.setProperty('padding-right', '20px', 'important');
+    kicker?.style.setProperty('transform', 'translateY(-20px)', 'important');
     kicker?.style.setProperty('text-shadow', 'none', 'important');
     kicker?.querySelectorAll('h1,h2,span').forEach(el => el.style.setProperty('text-shadow', 'none', 'important'));
     selectedGrid.style.setProperty('display', 'contents', 'important');
 
     const positions = [
-      ['8 / 14', '1'], ['14 / 20', '1'],
-      ['8 / 14', '2'], ['14 / 20', '2']
+      ['8 / 13', '1'], ['13 / 18', '1'],
+      ['1 / 6', '2'], ['6 / 11', '2'], ['11 / 16', '2'], ['16 / 21', '2'],
+      ['3 / 8', '3'], ['8 / 13', '3']
     ];
     cards.forEach((card, index) => {
       const pos = positions[index];
       if (!pos) return;
       card.style.setProperty('grid-column', pos[0], 'important');
       card.style.setProperty('grid-row', pos[1], 'important');
-      card.style.setProperty('height', 'clamp(220px,25vh,270px)', 'important');
+      card.style.setProperty('height', 'clamp(204px,22vh,238px)', 'important');
       card.style.setProperty('align-self', 'stretch', 'important');
     });
 
-    footer?.style.setProperty('grid-column', '1 / 8', 'important');
-    footer?.style.setProperty('grid-row', '2', 'important');
-    footer?.style.setProperty('align-self', 'end', 'important');
+    footer?.style.setProperty('grid-column', '13 / 21', 'important');
+    footer?.style.setProperty('grid-row', '3', 'important');
+    footer?.style.setProperty('align-self', 'start', 'important');
     footer?.style.setProperty('justify-self', 'stretch', 'important');
     footer?.style.setProperty('width', '100%', 'important');
-    footer?.style.setProperty('height', '42px', 'important');
-    footer?.style.setProperty('margin', '0 0 8px', 'important');
+    footer?.style.setProperty('height', '38px', 'important');
+    footer?.style.setProperty('margin', '0', 'important');
     footer?.style.removeProperty('transform');
     footerButton?.style.setProperty('width', '100%', 'important');
-    footerButton?.style.setProperty('height', '42px', 'important');
-    footerButton?.style.setProperty('min-height', '42px', 'important');
+    footerButton?.style.setProperty('height', '38px', 'important');
+    footerButton?.style.setProperty('min-height', '38px', 'important');
     footerButton?.style.setProperty('padding', '0 18px', 'important');
     footerButton?.style.setProperty('display', 'flex', 'important');
     footerButton?.style.setProperty('align-items', 'center', 'important');
@@ -192,64 +162,28 @@
   }
 
   const filterbar = document.getElementById('project-filterbar');
-  const filterProjects = filter => {
-    let allowed = null;
-    if (filter !== 'all') {
-      if (serviceById[filter]) allowed = new Set(serviceById[filter].categories);
-      else if (categoryIds.has(filter)) allowed = new Set([filter]);
-      else allowed = new Set();
-    }
-    document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
-      const shouldHide = allowed && !allowed.has(card.dataset.projectCategory);
-      card.hidden = Boolean(shouldHide);
-      if (shouldHide) card.style.setProperty('display', 'none', 'important');
-      else card.style.removeProperty('display');
-    });
-  };
-
   if (filterbar) {
-    const groupCount = group => projects.filter(project => group.categories.includes(project.category)).length;
-    const legacyAliases = data.categories.map(category =>
-      `<button type="button" class="project-filter project-filter-alias" data-project-filter="${esc(category.id)}" hidden tabindex="-1" aria-hidden="true">${esc(category.name)}</button>`
-    ).join('');
+    const counts = Object.fromEntries(data.categories.map(c => [c.id, projects.filter(p => p.category === c.id).length]));
     filterbar.innerHTML = [
       `<button type="button" class="project-filter is-active" data-project-filter="all">All (${projects.length})</button>`,
-      ...serviceGroups.map(group => `<button type="button" class="project-filter" data-project-filter="${esc(group.id)}">${esc(group.name)} (${groupCount(group)})</button>`),
-      legacyAliases
+      ...data.categories.map(c => `<button type="button" class="project-filter" data-project-filter="${esc(c.id)}">${esc(c.name)} (${counts[c.id] || 0})</button>`)
     ].join('');
   }
 
   document.querySelectorAll('.project-filter').forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.projectFilter;
-      document.querySelectorAll('.project-filter:not(.project-filter-alias)').forEach(x => {
-        x.classList.toggle('is-active', x.dataset.projectFilter === filter);
+      document.querySelectorAll('.project-filter').forEach(x => x.classList.toggle('is-active', x === btn));
+      document.querySelectorAll('#all-projects-grid [data-project-id]').forEach(card => {
+        const shouldHide = filter !== 'all' && card.dataset.projectCategory !== filter;
+        card.hidden = shouldHide;
+        if (shouldHide) card.style.setProperty('display', 'none', 'important');
+        else card.style.removeProperty('display');
       });
-      if (btn.classList.contains('project-filter-alias')) {
-        const parent = serviceGroups.find(group => group.categories.includes(filter));
-        if (parent) {
-          document.querySelectorAll('.project-filter:not(.project-filter-alias)').forEach(x => {
-            x.classList.toggle('is-active', x.dataset.projectFilter === parent.id);
-          });
-        }
-      }
-      filterProjects(filter);
       const scroller = document.querySelector('.all-projects-gallery-inner');
       if (scroller) scroller.scrollTop = 0;
     });
   });
-
-  // Expertise category pages link here with ?service=. Open the archive and apply
-  // the matching top-level filter after panels.js has attached its click handlers.
-  if (location.pathname === '/projects/') {
-    const requestedService = new URLSearchParams(location.search).get('service');
-    if (requestedService && serviceById[requestedService]) {
-      window.setTimeout(() => {
-        document.querySelector('.projects-all-trigger')?.click();
-        document.querySelector(`.project-filter[data-project-filter="${CSS.escape(requestedService)}"]`)?.click();
-      }, 0);
-    }
-  }
 
   const overlay = document.getElementById('project-detail-overlay');
   const mainImg = document.getElementById('project-detail-main-image');
