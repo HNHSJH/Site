@@ -2,7 +2,6 @@
   const data = window.HNH_PROJECT_DATA;
   const serviceId = document.body?.dataset.serviceId || '';
   const grid = document.getElementById('service-project-grid');
-  const count = document.getElementById('service-project-count');
   const viewAll = document.getElementById('service-view-all');
 
   const serviceGroups = {
@@ -19,38 +18,22 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[ch]));
 
-  if (viewAll) viewAll.href = group.categories.length
-    ? `/projects/?service=${encodeURIComponent(serviceId)}`
-    : '/projects/';
-
+  if (viewAll) viewAll.href = '/projects/';
   if (!data || !Array.isArray(data.projects) || !grid) return;
 
   const categoryNames = Object.fromEntries((data.categories || []).map(category => [category.id, category.name]));
-  const matching = data.projects.filter(project => group.categories.includes(project.category));
-  const selected = matching.filter(project => project.photos?.[0]).slice(0, 6);
+  const matching = data.projects.filter(project => group.categories.includes(project.category) && project.photos?.[0]);
 
-  if (count) {
-    count.textContent = matching.length
-      ? `${matching.length} project reference${matching.length === 1 ? '' : 's'} in this capability.`
-      : 'Published project photographs for this capability are not currently listed in the online archive.';
-  }
-
-  if (!selected.length) {
-    grid.innerHTML = '<div class="card"><h3>More references available on enquiry.</h3><p>Contact H&H Resources for relevant project references and scope discussions.</p><a href="/contact/">Contact H&H Resources</a></div>';
-    return;
-  }
-
-  grid.innerHTML = selected.map(project => {
+  grid.innerHTML = matching.map((project, index) => {
     const photo = project.photos[0];
     const type = categoryNames[project.category] || project.category;
     const certification = (project.certification_text || []).filter(Boolean).join(' · ');
     const detail = [type, certification].filter(Boolean).join(' · ');
     const srcset = photo.srcset ? ` srcset="${esc(photo.srcset)}"` : '';
-    return `<article class="card">`
-      + `<img src="${esc(photo.thumbnail || photo.src)}"${srcset} sizes="(max-width:620px) calc(100vw - 32px), (max-width:900px) calc((100vw - 64px) / 2), 31vw" alt="${esc(project.display_name)} — ${esc(type)}" width="${photo.web_dimensions?.[0] || 1600}" height="${photo.web_dimensions?.[1] || 900}" loading="lazy" decoding="async">`
-      + `<h3>${esc(project.display_name)}</h3>`
-      + `<p>${esc(detail)}</p>`
-      + `<a href="/projects/#${encodeURIComponent(project.id)}">View project →</a>`
-      + `</article>`;
+    return `<a class="project-card all-project-card" href="/projects/#${encodeURIComponent(project.id)}" data-project-id="${esc(project.id)}" data-project-category="${esc(project.category)}">`
+      + `<div class="project-media"><span class="project-number">${String(index + 1).padStart(2, '0')} / ${String(matching.length).padStart(2, '0')}</span>`
+      + `<img src="${esc(photo.thumbnail || photo.src)}"${srcset} sizes="(max-width: 620px) calc(100vw - 32px), (max-width: 980px) calc((100vw - 100px) / 2), (max-width: 1440px) calc((100vw - 152px) / 3), 430px" alt="${esc(project.display_name)} — ${esc(type)}" width="${photo.web_dimensions?.[0] || 1600}" height="${photo.web_dimensions?.[1] || 900}" loading="lazy" decoding="async"></div>`
+      + `<div class="project-info"><div><h3>${esc(project.display_name)}</h3><p>${esc(detail)}</p></div><span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M9 5h10v10"/></svg></span></div>`
+      + `</a>`;
   }).join('');
 })();
